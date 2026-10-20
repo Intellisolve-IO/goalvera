@@ -1,7 +1,6 @@
 # Goalvera: native Google Cloud agents (living design doc)
 
-Status: **product design only, no code, no deploys.** Contract/DPA items are in the appendix. Owner: Delivery. Last updated: 2026-10-20.
-Priority: ranks **below** the recorder SD audio encryption . Build starts only after the maintainers sign off on this doc and the open decisions (section 9).
+Status: **design only, no code yet.** Last updated: 2026-10-20. Open decisions are in section 8.
 
 ## 0. Product names checked (Oct 2026)
 
@@ -15,7 +14,7 @@ Google renamed several products at Cloud Next 2026. We use the current names bel
 | Evaluation | **Gen AI Evaluation Service** (`google-cloud-aiplatform[evaluation]`): pointwise and side-by-side, custom rubric metrics, agent trace metrics | [Agent Platform SDK](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest) |
 | Grounding | **Vertex AI RAG Engine**; ADK tool `vertex_ai_rag_retrieval` (note: it must be the only tool on its agent, so wrap it as a sub-agent) | [ADK RAG Engine tool](https://github.com/google/adk-docs/blob/main/docs/integrations/vertex-ai-rag-engine.md) |
 | Tracing | Agent Observability GA (June 18, 2026); OpenTelemetry tracing on by default for ADK agents | [release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes) |
-| Models | **Gemini 4 Argon** (`gemini-4-argon`) went **GA Oct 13, 2026** (Gemini API + Vertex; `global`, `us`, `eu` endpoints; intro price $2/$10 per 1M tokens). Gemini 3.x stays available. **Decided (Oct 20):** use **us-east1** if Argon is offered there; otherwise the `us` multi-region endpoint (agents run in the background, so latency isn't a concern). | [Google blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/), [Cloud SKU](https://cloud.google.com/skus/sku-groups/gen-ai-gemini-4-argon) |
+| Models | **Gemini 4 Argon** (`gemini-4-argon`) went **GA Oct 13, 2026** (Gemini API + Vertex; `global`, `us`, `eu` endpoints). Gemini 3.x stays available. **Decided (Oct 20):** use **us-east1** if Argon is offered there; otherwise the `us` multi-region endpoint (agents run in the background, so latency isn't a concern). | [Google blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/), [Cloud SKU](https://cloud.google.com/skus/sku-groups/gen-ai-gemini-4-argon) |
 
 Note: the Agent Registry is a discovery and governance catalog. It doesn't run comparisons. Our router (section 4) runs side-by-side tests.
 
@@ -23,7 +22,7 @@ Note: the Agent Registry is a discovery and governance catalog. It doesn't run c
 
 - The pilot is **one-on-one sessions with a single consented student.**
 - The multi-student flow (section 3) is designed now but **gated off for real data**: config flag `multi_student_split_enabled`, **default `false`**. While it's off, the review UI allows only one student label per recording.
-- **Go-live gate for the multi-student flag:** every student in the room has consent and the letter wording covers group sessions (see appendix). Synthetic test data can use it before then.
+- **Go-live gate for the multi-student flag:** every student in the room has consent covering group sessions. Synthetic test data can use it before then.
 
 ## 2. The three agents
 
@@ -132,7 +131,7 @@ recordings/{recording_id}/turn_overrides/{turn_id}: {
 - **Teacher side-by-side review:** the review screen shows output A and B side by side (order randomized, config hidden). Teacher picks A, B, or equal, and may edit the pick. **Only the picked output proceeds** to the parent email draft; the other is kept for evaluation only.
 - **Promotion rule:** to be set later. Teacher picks are the deciding signal; pairwise results are logged only.
 - **First test:** weekly summary, Gemini 4 Argon vs Gemini 3.1.
-- **Model cost during tests is doubled** for the agent under test. Rough pilot math for the weekly summary: ~15k input + ~2k output tokens per run; at Argon's intro price ($2/$10 per 1M) that's about $0.05 per run, and Gemini 3.1 is in the same range or lower. One student, weekly = about **$0.10/week for both configs, well under $1/month**. Even at 30 students it's roughly $15/month. Teacher review time (reading two drafts) is the real cost.
+- Side-by-side tests run the agent under test twice per input (once per config).
 - **Decided:** "more effective" = teacher picks (A, B, or equal).
 
 ## 6. Domain grounding (RAG): Instructional methodology
@@ -145,11 +144,11 @@ recordings/{recording_id}/turn_overrides/{turn_id}: {
 ### 6.1 Methodology document ingestion
 
 - **Upload:** admin uploads PDF or DOCX under a domain. Required checkbox: *"This document was created by our school, or we have permission to use it."* The check is logged with uploader and time; upload is blocked without it.
-- **Storage:** the school's own Cloud Storage bucket in the school's own GCP project; the RAG corpus lives there too. Any future school's project must be cleared with the maintainers first (billing project cap).
+- **Storage:** the school's own Cloud Storage bucket in the school's own GCP project; the RAG corpus lives there too.
 - **Extraction and chunking:** Document AI layout parser extracts text and structure; chunks follow the document's headings (heading-aware chunking).
 - **Embedding:** chunks are embedded into the school's Vertex AI RAG Engine corpus.
 - **Chunk preview:** admins see how each document was split before and after indexing.
-- **Versioning:** every upload is a new immutable version (version id + content hash). Revising a document creates a new version and re-indexes only that document. The prior version is retired from retrieval but retained per the 12-month records policy; an admin can delete it.
+- **Versioning:** every upload is a new immutable version (version id + content hash). Revising a document creates a new version and re-indexes only that document. The prior version is retired from retrieval but retained per the school's records-retention setting; an admin can delete it.
 - **Removal:** an admin can retire a document (drops out of retrieval at once) or delete it (source file, chunks and embeddings removed; deletion logged with who and when).
 - **Citations:** session analysis, student evaluation and weekly summary cite document name + version + passage used.
 - **A/B:** a comparison can pin two methodology versions (same agent, same transcripts) to test a revision.
@@ -157,32 +156,13 @@ recordings/{recording_id}/turn_overrides/{turn_id}: {
 ## 7. Privacy engineering
 
 - Models never see student names: "the student" plus `student_ref`. The app re-inserts names after the agent returns.
-- School data (methodology uploads, buckets, RAG corpora) lives in the school's own GCP project, **us-east1** (see §6.1). Agents deploy in a separate tools project. No new GCP project; any future school's project must be cleared with the maintainers first (billing project cap).
+- School data (methodology uploads, buckets, RAG corpora) lives in the school's own GCP project, **us-east1** (see §6.1). Agents deploy in a separate tools project.
 - Every run, including both sides of a comparison and teacher picks, is logged to the **admin activity journal in BigQuery** (run_id, comparison_id, agent/config/version, model, student_ref, trigger, teacher action).
 - **A teacher approves before any parent email is sent.**
 - Eval sets use synthetic or de-identified data. Unpicked comparison outputs follow the same deletion schedule.
 - Models run in us-east1 when offered there, otherwise the `us` multi-region endpoint.
 
-## 8. Rough hours and order
-
-| Piece | Hours | Depends on |
-|---|---|---|
-| Foundation: ADK layout, Agent Runtime deploy, registry check, de-naming/re-naming, BigQuery journal hooks | 12-16 | design sign-off |
-| Router + config store + rollback + side-by-side runs | 10-14 | foundation |
-| Speaker-labeling UI + data model + approve trigger | 10-14 | foundation |
-| Session analysis agent (per labeled student) | 10-14 | labeling UI |
-| Weekly summary agent + parent email draft + teacher approval | 10-14 | session analysis |
-| Side-by-side review UI (pick + rate) | 8-12 | router, weekly summary |
-| Student evaluation agent + policy post-check | 10-14 | weekly summary |
-| Eval harness: synthetic set, pointwise + pairwise metrics | 14-18 | first agent |
-| RAG corpus + grounding sub-agent | 6-10 | ingestion |
-| Methodology document ingestion: upload + permission checkbox, Document AI parse, heading chunking, embedding, chunk preview, versioning, removal, citations | 14-20 | foundation |
-| First Argon vs 3.1 comparison and readout | 3-5 | all above |
-| **Total** | **~107-151** | templates from the maintainers for the summary and email |
-
-All of this ranks **below the recorder audio encryption work**.
-
-## 9. Decisions
+## 8. Decisions
 
 **Decided:**
 - **"More effective"** = the teacher picks A, B, or equal on each side-by-side. The automated pairwise results are logged only, not used to decide. The promotion rule comes later.
@@ -192,12 +172,5 @@ All of this ranks **below the recorder audio encryption work**.
 - **Methodology:** schools upload their own methodology documents; no special segmentation.
 
 **Still open:**
-1. Templates for the benchmark report and parent email (pending from the maintainers).
+1. Templates for the benchmark report and parent email.
 2. Which domains and methodology documents the school uploads first.
-
-## Appendix: Later, paperwork
-
-- Parent summary email: letter/consent line that a teacher reviews each AI-drafted summary.
-- Side-by-side tests and evals: DPA wording on same project/region, no training use, same deletion schedule.
-- Midterm/quarter evaluations: described as teacher-approved IEP progress notes, not ranking or diagnosis.
-- Group sessions: letter wording and every-student consent before the multi-student flag goes on.
