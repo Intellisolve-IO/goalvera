@@ -1,0 +1,128 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0069-v1",
+  "studentSourcedId": "u-stu-0078",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-04-24",
+  "startDate": "2026-04-27",
+  "endDate": "2027-04-23",
+  "annualReviewDue": "2027-04-23",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-03-21",
+  "reevaluationDue": "2028-04-24",
+  "eligibilityDate": "2025-06-06",
+  "caseManagerSourcedId": "u-stf-0007",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-SLD",
+      "federalCode": "SLD",
+      "label": "Specific Learning Disability",
+      "determinedDate": "2025-07-30"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Summary: Reads 35 words correct per minute on instructional-level passages. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0069-v1-g1",
+      "number": 1,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "Reads 35 words correct per minute on instructional-level passages.",
+      "statement": "Nick will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes.",
+      "criteriaForMastery": "70 wcpm, 3 probes",
+      "measurementMethod": "Fluency probes",
+      "targetDate": "2027-04-23",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0069-v1-g2",
+      "number": 2,
+      "area": "math",
+      "category": "Academic",
+      "baseline": "45% accuracy on grade-level computation.",
+      "statement": "Nick will solve grade-level computation problems with 80% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "80%, 3 probes",
+      "measurementMethod": "Curriculum-based probes",
+      "targetDate": "2027-04-23",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0069-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0007",
+      "location": "Room 107",
+      "startDate": "2026-04-27",
+      "endDate": "2027-04-23",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0069-v1-a1",
+      "category": "instructional",
+      "description": "Read aloud of directions and items (except reading measures)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0069-v1-a2",
+      "category": "instructional",
+      "description": "Graphic organizers",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0069-v1-a3",
+      "category": "instructional",
+      "description": "Extended time (1.5x)",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

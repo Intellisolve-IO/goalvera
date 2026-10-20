@@ -1,0 +1,160 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0070-v1",
+  "studentSourcedId": "u-stu-0079",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-01-16",
+  "startDate": "2026-01-19",
+  "endDate": "2027-01-15",
+  "annualReviewDue": "2027-01-15",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-05-30",
+  "reevaluationDue": "2028-01-16",
+  "eligibilityDate": "2024-06-06",
+  "caseManagerSourcedId": "u-stf-0021",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-ID-MOD",
+      "federalCode": "ID",
+      "label": "Intellectual Disability (moderate)",
+      "determinedDate": "2023-10-17"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "math",
+      "text": "Summary: Counts objects to 5 with 1:1 correspondence. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0070-v1-g1",
+      "number": 1,
+      "area": "math",
+      "category": "Academic",
+      "baseline": "Counts objects to 5 with 1:1 correspondence.",
+      "statement": "Lily will count up to 20 objects with 1:1 correspondence in 4 of 5 trials.",
+      "criteriaForMastery": "4 of 5 trials",
+      "measurementMethod": "Trial data",
+      "targetDate": "2027-01-15",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0070-v1-g2",
+      "number": 2,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "Identifies 5 functional sight words.",
+      "statement": "Lily will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes.",
+      "criteriaForMastery": "20 words, 90%, 3 probes",
+      "measurementMethod": "Sight word probes",
+      "targetDate": "2027-01-15",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0070-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0008",
+      "location": "Room 108",
+      "startDate": "2026-01-19",
+      "endDate": "2027-01-15",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0070-v1-s2",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Therapy room",
+      "startDate": "2026-01-19",
+      "endDate": "2027-01-15",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0070-v1-s3",
+      "type": "ot",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "ot",
+      "providerSourcedId": "u-stf-0016",
+      "location": "Therapy room",
+      "startDate": "2026-01-19",
+      "endDate": "2027-01-15",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0070-v1-a1",
+      "category": "modification",
+      "description": "Picture supports and modified materials",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0070-v1-a2",
+      "category": "modification",
+      "description": "Instruction on alternate achievement standards (modification)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0070-v1-a3",
+      "category": "instructional",
+      "description": "Frequent breaks",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

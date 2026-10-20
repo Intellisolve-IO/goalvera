@@ -1,0 +1,11 @@
+# Review service (runs on the demo laptop) + its tests
+google-cloud-storage>=2.18
+reportlab>=4.0
+pillow>=10.4                  # school logo: decode + re-encode, strips metadata (branding.py)
+resvg-py==0.5.0               # school logo: SVG rendered to PNG server-side, SVG discarded
+jsonschema>=4.20.0
+# tests only
+pytest>=8.0
+pypdf>=4.0
+# app/tools/e2e_pdf_review.py only
+playwright>=1.45

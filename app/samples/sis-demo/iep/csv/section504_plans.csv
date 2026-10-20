@@ -1,0 +1,6 @@
+sourcedId,studentSourcedId,meetingDate,startDate,reviewDate,qualifyingCondition,accommodations,coordinatorSourcedId,label,metadata.fictional
+p504-0001,u-stu-0020,2026-03-09,2026-03-10,2027-03-08,On file (not recorded in sample data),Preferential seating; extended time (1.5x); breaks as needed,u-stf-0021,Fictional sample data,true
+p504-0002,u-stu-0025,2026-04-13,2026-04-14,2027-04-12,On file (not recorded in sample data),Preferential seating; extended time (1.5x); breaks as needed,u-stf-0021,Fictional sample data,true
+p504-0003,u-stu-0042,2026-05-29,2026-06-01,2027-05-28,On file (not recorded in sample data),Preferential seating; extended time (1.5x); breaks as needed,u-stf-0021,Fictional sample data,true
+p504-0004,u-stu-0060,2026-06-13,2026-06-15,2027-06-12,On file (not recorded in sample data),Preferential seating; extended time (1.5x); breaks as needed,u-stf-0021,Fictional sample data,true
+p504-0005,u-stu-0067,2025-11-10,2025-11-11,2026-11-09,On file (not recorded in sample data),Preferential seating; extended time (1.5x); breaks as needed,u-stf-0021,Fictional sample data,true

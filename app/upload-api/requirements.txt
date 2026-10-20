@@ -1,0 +1,5 @@
+flask>=3.0
+gunicorn>=22.0
+google-cloud-storage>=2.18
+google-auth>=2.30
+requests>=2.32

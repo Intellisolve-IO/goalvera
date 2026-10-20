@@ -1,0 +1,176 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0021-v1",
+  "studentSourcedId": "u-stu-0023",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-03-23",
+  "startDate": "2026-03-24",
+  "endDate": "2027-03-22",
+  "annualReviewDue": "2027-03-22",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-05-05",
+  "reevaluationDue": "2029-03-23",
+  "eligibilityDate": "2025-11-25",
+  "caseManagerSourcedId": "u-stf-0003",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-AUT",
+      "federalCode": "AUT",
+      "label": "Autism",
+      "determinedDate": "2025-01-05"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "communication",
+      "text": "Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0021-v1-g1",
+      "number": 1,
+      "area": "communication",
+      "category": "Communication",
+      "baseline": "Requests help or a break with words or AAC in 2 of 10 opportunities.",
+      "statement": "Xavier will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions.",
+      "criteriaForMastery": "8 of 10, 3 sessions",
+      "measurementMethod": "SLP / teacher data",
+      "targetDate": "2027-03-22",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0021-v1-g2",
+      "number": 2,
+      "area": "social",
+      "category": "Behavioral",
+      "baseline": "Takes turns in a structured game with 3 adult prompts.",
+      "statement": "Xavier will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions.",
+      "criteriaForMastery": "4 of 5 sessions",
+      "measurementMethod": "Observation",
+      "targetDate": "2027-03-22",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0021-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0003",
+      "location": "Room 102",
+      "startDate": "2026-03-24",
+      "endDate": "2027-03-22",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0021-v1-s2",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Therapy room",
+      "startDate": "2026-03-24",
+      "endDate": "2027-03-22",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0021-v1-s3",
+      "type": "behavior_aba",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 5,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "rbt",
+      "providerSourcedId": "u-stf-0014",
+      "location": "Room 102",
+      "startDate": "2026-03-24",
+      "endDate": "2027-03-22",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0021-v1-s4",
+      "type": "ot",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "ot",
+      "providerSourcedId": "u-stf-0016",
+      "location": "Therapy room",
+      "startDate": "2026-03-24",
+      "endDate": "2027-03-22",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0021-v1-a1",
+      "category": "instructional",
+      "description": "Visual schedule and transition warnings",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0021-v1-a2",
+      "category": "instructional",
+      "description": "Break card and quiet area",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0021-v1-a3",
+      "category": "classroom_testing",
+      "description": "Small group testing",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

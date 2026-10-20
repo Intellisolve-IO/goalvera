@@ -1,0 +1,160 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0027-v1",
+  "studentSourcedId": "u-stu-0030",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "initial",
+  "meetingDate": "2026-06-10",
+  "startDate": "2026-06-11",
+  "endDate": "2027-06-09",
+  "annualReviewDue": "2027-06-09",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-04-08",
+  "reevaluationDue": "2027-06-10",
+  "eligibilityDate": "2025-04-27",
+  "caseManagerSourcedId": "u-stf-0004",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-EBD",
+      "federalCode": "EMN",
+      "label": "Emotional and Behavioral Disorder",
+      "determinedDate": "2025-07-13"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "behavior",
+      "text": "Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0027-v1-g1",
+      "number": 1,
+      "area": "behavior",
+      "category": "Behavioral",
+      "baseline": "Uses a coping strategy independently in 1 of 5 opportunities.",
+      "statement": "When upset, Wendy will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks.",
+      "criteriaForMastery": "4 of 5, 4 weeks",
+      "measurementMethod": "Behavior data sheet",
+      "targetDate": "2027-06-09",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0027-v1-g2",
+      "number": 2,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "Starts tasks within 2 minutes on 40% of occasions.",
+      "statement": "Wendy will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks.",
+      "criteriaForMastery": "80%, 3 weeks",
+      "measurementMethod": "Latency recording",
+      "targetDate": "2027-06-09",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0027-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0004",
+      "location": "Room 103",
+      "startDate": "2026-06-11",
+      "endDate": "2027-06-09",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0027-v1-s2",
+      "type": "behavior_aba",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 5,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "rbt",
+      "providerSourcedId": "u-stf-0011",
+      "location": "Room 103",
+      "startDate": "2026-06-11",
+      "endDate": "2027-06-09",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0027-v1-s3",
+      "type": "counseling",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "counselor",
+      "providerSourcedId": "u-stf-0020",
+      "location": "Room 103",
+      "startDate": "2026-06-11",
+      "endDate": "2027-06-09",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0027-v1-a1",
+      "category": "instructional",
+      "description": "Daily check-in/check-out",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0027-v1-a2",
+      "category": "instructional",
+      "description": "Access to a cool-down area",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0027-v1-a3",
+      "category": "instructional",
+      "description": "Choice of task order",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

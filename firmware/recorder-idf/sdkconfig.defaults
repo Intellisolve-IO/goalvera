@@ -1,0 +1,86 @@
+CONFIG_IDF_TARGET="esp32s3"
+
+# CrowPanel Advance 4.3 V1.1: 16 MB flash, QIO, 8 MB octal PSRAM.
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_USE_MALLOC=y
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=16384
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+CONFIG_ESP32S3_DATA_CACHE_LINE_64B=y
+CONFIG_ESP32S3_DATA_CACHE_64KB=y
+
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=12288
+
+CONFIG_FATFS_LFN_HEAP=y
+CONFIG_FATFS_MAX_LFN=255
+
+CONFIG_LWIP_SNTP_MAX_SERVERS=2
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# LVGL 9 fonts used by the 800x480 UI. Montserrat 14 stays the default.
+CONFIG_LV_FONT_MONTSERRAT_14=y
+CONFIG_LV_FONT_MONTSERRAT_16=y
+CONFIG_LV_FONT_MONTSERRAT_20=y
+CONFIG_LV_FONT_MONTSERRAT_24=y
+CONFIG_LV_FONT_MONTSERRAT_28=y
+CONFIG_LV_FONT_MONTSERRAT_32=y
+CONFIG_LV_FONT_MONTSERRAT_48=y
+
+# Wi-Fi stays empty in git. Override in sdkconfig.defaults.local.
+CONFIG_RECORDER_WIFI_SSID=""
+CONFIG_RECORDER_WIFI_PASSWORD=""
+
+# RGB panel stability (ESP-IDF RGB LCD docs / FAQ "screen drift"):
+# run code + rodata from PSRAM so flash writes (NVS) don't stop the cache
+# while the panel scans out of PSRAM, keep the LCD ISR IRAM-safe for the
+# bounce buffer, and resync the DMA every VSYNC if it ever underruns.
+CONFIG_SPIRAM_XIP_FROM_PSRAM=y
+CONFIG_SPIRAM_FETCH_INSTRUCTIONS=y
+CONFIG_SPIRAM_RODATA=y
+CONFIG_LCD_RGB_ISR_IRAM_SAFE=y
+CONFIG_LCD_RGB_RESTART_IN_VSYNC=y
+# FATFS sector/file buffers in internal RAM (SD SPI DMA stays off PSRAM).
+# CONFIG_FATFS_ALLOC_PREFER_EXTRAM is not set
+
+# Wi-Fi is used for NTP and uploads: trade throughput for internal RAM.
+# (42d80bb Wi-Fi build left 15 KB largest internal block, so the 16 KB
+# LVGL task could not be created and the screen stayed black.)
+CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=6
+CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM=12
+CONFIG_ESP_WIFI_STATIC_TX_BUFFER_NUM=8
+CONFIG_ESP_WIFI_CACHE_TX_BUFFER_NUM=16
+CONFIG_ESP_WIFI_RX_BA_WIN=6
+CONFIG_ESP_WIFI_MGMT_SBUF_NUM=16
+# CONFIG_ESP_WIFI_IRAM_OPT is not set
+# CONFIG_ESP_WIFI_RX_IRAM_OPT is not set
+
+# Wi-Fi uploads (TLS): mbedTLS buffers (16 KB in + 4 KB out per session) go
+# to PSRAM so internal RAM headroom (~40 KB) is not consumed by uploads.
+CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC=y
+# 0.7.6: software AES. The AES peripheral DMAs only from internal RAM, so with
+# mbedTLS buffers in PSRAM every record needed an internal bounce buffer; when
+# internal RAM ran low the handshake failed ("esp-aes: Failed to allocate
+# memory", school name http -1). Software AES needs no extra RAM and is far
+# faster than our Wi-Fi uplink.
+# CONFIG_MBEDTLS_HARDWARE_AES is not set
+# Larger TCP send window for uploads; lwIP buffers are in PSRAM
+# (SPIRAM_TRY_ALLOCATE_WIFI_LWIP) and Wi-Fi TX buffers stay static.
+CONFIG_LWIP_TCP_SND_BUF_DEFAULT=16384
+CONFIG_RECORDER_UPLOAD_TOKEN=""
+
+# Teacher Notes QR code for the phone upload link (0.7.2,)
+CONFIG_LV_USE_QRCODE=y
+
+# 0.7.7: allow EXT_RAM_BSS_ATTR so big static buffers that only the CPU
+# touches (LVGL heap, I2S read buffers, dropdown option strings) live in PSRAM.
+CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y

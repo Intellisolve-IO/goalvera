@@ -1,0 +1,144 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0028-v1",
+  "studentSourcedId": "u-stu-0031",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-01-30",
+  "startDate": "2026-02-02",
+  "endDate": "2027-01-29",
+  "annualReviewDue": "2027-01-29",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2024-10-22",
+  "reevaluationDue": "2027-01-30",
+  "eligibilityDate": "2024-02-05",
+  "caseManagerSourcedId": "u-stf-0004",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-ID-MILD",
+      "federalCode": "ID",
+      "label": "Intellectual Disability (mild)",
+      "determinedDate": "2024-09-23"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "adaptive",
+      "text": "Summary: Completes a 4-step arrival routine with physical prompts. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0028-v1-g1",
+      "number": 1,
+      "area": "adaptive",
+      "category": "Functional",
+      "baseline": "Completes a 4-step arrival routine with physical prompts.",
+      "statement": "Carter will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days.",
+      "criteriaForMastery": "4 of 5 days, 3 weeks",
+      "measurementMethod": "Task analysis",
+      "targetDate": "2027-01-29",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0028-v1-g2",
+      "number": 2,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "Identifies 5 functional sight words.",
+      "statement": "Carter will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes.",
+      "criteriaForMastery": "20 words, 90%, 3 probes",
+      "measurementMethod": "Sight word probes",
+      "targetDate": "2027-01-29",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0028-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0004",
+      "location": "Room 103",
+      "startDate": "2026-02-02",
+      "endDate": "2027-01-29",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0028-v1-s2",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Therapy room",
+      "startDate": "2026-02-02",
+      "endDate": "2027-01-29",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0028-v1-a1",
+      "category": "modification",
+      "description": "Modified assignments (reduced length)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0028-v1-a2",
+      "category": "instructional",
+      "description": "Picture supports",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0028-v1-a3",
+      "category": "classroom_testing",
+      "description": "Small group testing",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

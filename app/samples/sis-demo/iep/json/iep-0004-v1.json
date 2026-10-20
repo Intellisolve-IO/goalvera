@@ -1,0 +1,111 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0004-v1",
+  "studentSourcedId": "u-stu-0004",
+  "version": 1,
+  "status": "superseded",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2025-09-10",
+  "startDate": "2025-09-11",
+  "endDate": "2026-09-09",
+  "annualReviewDue": "2026-09-09",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2024-04-15",
+  "reevaluationDue": "2027-04-14",
+  "eligibilityDate": "2024-05-02",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-OI",
+      "federalCode": "OI",
+      "label": "Orthopedic Impairment",
+      "determinedDate": "2024-05-02"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "summary",
+      "text": "Prior-year IEP (superseded). See the current version for present levels."
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0004-v1-g1",
+      "number": 1,
+      "area": "motor_gross",
+      "category": "Functional",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Using his walker, Sleepy will travel between the classroom, cafeteria and bus loop within 4 minutes with supervision only in 4 of 5 trials.",
+      "criteriaForMastery": "Within 4 minutes, supervision only, 4 of 5 trials",
+      "measurementMethod": "PT timed trials",
+      "targetDate": "2026-09-09",
+      "status": "carried_forward",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0004-v1-g2",
+      "number": 2,
+      "area": "motor_fine",
+      "category": "Functional",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Using a slant board and adapted paper, Sleepy will copy a sentence with 80% legible letters in 4 of 5 samples.",
+      "criteriaForMastery": "80% legible, 4 of 5 samples",
+      "measurementMethod": "OT work samples",
+      "targetDate": "2026-09-09",
+      "status": "carried_forward",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0004-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2025-09-11",
+      "endDate": "2026-09-09",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0004-v1-a1",
+      "category": "instructional",
+      "description": "Leaves class 3 minutes early for transitions; elevator access",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

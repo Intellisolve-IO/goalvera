@@ -1,0 +1,51 @@
+iepSourcedId,role,staffSourcedId,contactSourcedId,attended,signature,note,metadata.fictional
+iep-0001-v2,parent,,u-con-0002,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,parent,,u-con-0001,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-08-20 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0001-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,related_service,u-stf-0015,,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,bcba,u-stf-0009,,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0001-v2,related_service,u-stf-0016,,true,Signed electronically 2026-08-20 (fictional),,true
+iep-0002-v2,parent,,u-con-0004,true,Signed electronically 2026-08-27 (fictional),,true
+iep-0002-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-08-27 (fictional),,true
+iep-0002-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-08-27 (fictional),,true
+iep-0002-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-08-27 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0002-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-08-27 (fictional),,true
+iep-0002-v2,related_service,u-stf-0015,,true,Signed electronically 2026-08-27 (fictional),,true
+iep-0003-v2,parent,,u-con-0007,true,Signed electronically 2026-09-03 (fictional),,true
+iep-0003-v2,parent,,u-con-0006,true,Signed electronically 2026-09-03 (fictional),,true
+iep-0003-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-09-03 (fictional),,true
+iep-0003-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-09-03 (fictional),,true
+iep-0003-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-09-03 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0003-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-09-03 (fictional),,true
+iep-0004-v2,parent,,u-con-0010,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0004-v2,parent,,u-con-0009,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0004-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0004-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0004-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-09-10 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0004-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0004-v2,related_service,u-stf-0017,,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0004-v2,related_service,u-stf-0016,,true,Signed electronically 2026-09-10 (fictional),,true
+iep-0005-v2,parent,,u-con-0012,true,Signed electronically 2026-08-25 (fictional),,true
+iep-0005-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-08-25 (fictional),,true
+iep-0005-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-08-25 (fictional),,true
+iep-0005-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-08-25 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0005-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-08-25 (fictional),,true
+iep-0005-v2,related_service,u-stf-0018,,true,Signed electronically 2026-08-25 (fictional),,true
+iep-0005-v2,related_service,u-stf-0015,,true,Signed electronically 2026-08-25 (fictional),,true
+iep-0006-v2,parent,,u-con-0014,true,Signed electronically 2026-09-15 (fictional),,true
+iep-0006-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-09-15 (fictional),,true
+iep-0006-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-09-15 (fictional),,true
+iep-0006-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-09-15 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0006-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-09-15 (fictional),,true
+iep-0006-v2,bcba,u-stf-0009,,true,Signed electronically 2026-09-15 (fictional),,true
+iep-0006-v2,counselor,u-stf-0020,,true,Signed electronically 2026-09-15 (fictional),,true
+iep-0007-v2,parent,,u-con-0017,true,Signed electronically 2026-09-17 (fictional),,true
+iep-0007-v2,parent,,u-con-0016,true,Signed electronically 2026-09-17 (fictional),,true
+iep-0007-v2,lea_rep,u-stf-0022,,true,Signed electronically 2026-09-17 (fictional),,true
+iep-0007-v2,sped_teacher,u-stf-0001,,true,Signed electronically 2026-09-17 (fictional),,true
+iep-0007-v2,gen_ed_teacher,u-stf-0002,,true,Signed electronically 2026-09-17 (fictional),General curriculum representative (the school has no general education classrooms),true
+iep-0007-v2,case_manager,u-stf-0001,,true,Signed electronically 2026-09-17 (fictional),,true
+iep-0007-v2,related_service,u-stf-0019,,true,Signed electronically 2026-09-17 (fictional),,true

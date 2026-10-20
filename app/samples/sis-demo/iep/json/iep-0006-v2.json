@@ -1,0 +1,500 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0006-v2",
+  "studentSourcedId": "u-stu-0006",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0006-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-09-15",
+  "startDate": "2026-09-16",
+  "endDate": "2027-09-14",
+  "annualReviewDue": "2027-09-14",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-05-12",
+  "reevaluationDue": "2028-05-11",
+  "eligibilityDate": "2024-06-03",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-EBD",
+      "federalCode": "EMN",
+      "label": "Emotional and Behavioral Disorder",
+      "determinedDate": "2024-06-03"
+    }
+  ],
+  "evaluationSummary": "Reevaluation 2025-05 (fictional results): rating scales from teacher and family show clinically significant externalizing behavior at school. WISC-V Full Scale IQ 95. WIAT-4 Reading Comprehension 88, Math Problem Solving 84. Functional Behavior Assessment completed August 2026 (see BIP).",
+  "strengths": "Sneezy is artistic, helps younger students, and responds well to adults he trusts. He is motivated by drawing time and classroom jobs.",
+  "needs": "Coping when frustrated, starting non-preferred tasks, solving conflicts with peers, multi-digit multiplication.",
+  "parentConcerns": "His family wants fewer calls home and for him to have a good relationship with his teachers and classmates.",
+  "disabilityImpact": "Outbursts during difficult academic tasks and peer conflicts interrupt his learning and others' learning. He needs explicit instruction in coping and problem-solving skills, plus a structured behavior plan.",
+  "presentLevels": [
+    {
+      "area": "behavior_social_emotional",
+      "text": "ABC data (2 weeks, Aug-Sep 2026): verbal outbursts (yelling, pushing materials off the desk) average 4 a day, mostly within 3 minutes of being given a non-preferred written task. Uses a coping strategy independently in 1 of 5 opportunities."
+    },
+    {
+      "area": "executive_functioning",
+      "text": "Starts non-preferred tasks within 2 minutes of directions on 35% of occasions."
+    },
+    {
+      "area": "social",
+      "text": "Uses a conflict-resolution step with peers in 1 of 5 observed conflicts."
+    },
+    {
+      "area": "reading",
+      "text": "Reads grade 3 text at benchmark; written responses are short."
+    },
+    {
+      "area": "math",
+      "text": "Multi-digit multiplication 40% accuracy; facts are fluent."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": true,
+    "bipDeveloped": true,
+    "lep": false,
+    "visual": false,
+    "communication": false,
+    "deafHoh": false,
+    "assistiveTech": false,
+    "altFormat": [],
+    "notes": "Behavior Intervention Plan attached."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0006-v2-g1",
+      "number": 1,
+      "area": "behavior",
+      "category": "Behavioral",
+      "baseline": "Uses a coping strategy independently in 1 of 5 opportunities.",
+      "statement": "When frustrated, Sneezy will use a taught coping strategy (break request, breathing, cool-down area) in 4 of 5 observed opportunities for 4 consecutive weeks.",
+      "criteriaForMastery": "4 of 5 opportunities, 4 consecutive weeks",
+      "measurementMethod": "BIP data sheet",
+      "targetDate": "2027-09-14",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0006-v2-g1-o1",
+          "number": 1,
+          "statement": "With a visual prompt, Sneezy will choose a coping strategy from his card in 4 of 5 opportunities.",
+          "criteria": "4 of 5"
+        },
+        {
+          "sourcedId": "iep-0006-v2-g1-o2",
+          "number": 2,
+          "statement": "Sneezy will return from the cool-down area within 5 minutes in 4 of 5 uses.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-g2",
+      "number": 2,
+      "area": "behavior",
+      "category": "Behavioral",
+      "baseline": "Average 4 outbursts a day (ABC data).",
+      "statement": "Sneezy will reduce verbal outbursts to 1 or fewer per day for 4 consecutive weeks.",
+      "criteriaForMastery": "1 or fewer per day, 4 consecutive weeks",
+      "measurementMethod": "Daily frequency count",
+      "targetDate": "2027-09-14",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0006-v2-g2-o1",
+          "number": 1,
+          "statement": "Sneezy will have 2 or fewer outbursts per day for 2 consecutive weeks.",
+          "criteria": "2 weeks"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-g3",
+      "number": 3,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "Starts non-preferred tasks within 2 minutes on 35% of occasions.",
+      "statement": "Given a first/then board and a choice of task order, Sneezy will start non-preferred tasks within 2 minutes of directions on 80% of occasions across 3 weeks.",
+      "criteriaForMastery": "80% of occasions, 3 weeks",
+      "measurementMethod": "Latency recording",
+      "targetDate": "2027-09-14",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0006-v2-g3-o1",
+          "number": 1,
+          "statement": "Sneezy will start the first item with an adult check-in on 70% of occasions.",
+          "criteria": "70%"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-g4",
+      "number": 4,
+      "area": "social",
+      "category": "Behavioral",
+      "baseline": "Uses a conflict-resolution step in 1 of 5 conflicts.",
+      "statement": "Sneezy will use the 4-step conflict-resolution routine with a peer, with no more than one adult prompt, in 4 of 5 observed conflicts.",
+      "criteriaForMastery": "4 of 5 conflicts",
+      "measurementMethod": "Observation / counselor data",
+      "targetDate": "2027-09-14",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0006-v2-g4-o1",
+          "number": 1,
+          "statement": "Sneezy will name the problem and his feelings in 4 of 5 role-plays.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-g5",
+      "number": 5,
+      "area": "math",
+      "category": "Academic",
+      "baseline": "40% accuracy on multi-digit multiplication.",
+      "statement": "Sneezy will solve 2-digit by 2-digit multiplication problems with 80% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "80% accuracy, 3 probes",
+      "measurementMethod": "Curriculum-based probes",
+      "targetDate": "2027-09-14",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0006-v2-g5-o1",
+          "number": 1,
+          "statement": "Sneezy will solve 2-digit by 1-digit problems with 85% accuracy.",
+          "criteria": "85%"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0006-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-09-16",
+      "endDate": "2027-09-14",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0006-v2-s2",
+      "type": "behavior_aba",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 60,
+      "frequencyCount": 5,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "rbt",
+      "providerSourcedId": "u-stf-0010",
+      "location": "Room 104 (embedded)",
+      "startDate": "2026-09-16",
+      "endDate": "2027-09-14",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0006-v2-s3",
+      "type": "behavior_aba",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 60,
+      "frequencyCount": 1,
+      "frequencyPeriod": "month",
+      "groupSize": "individual",
+      "providerRole": "bcba",
+      "providerSourcedId": "u-stf-0009",
+      "location": "Room 104",
+      "startDate": "2026-09-16",
+      "endDate": "2027-09-14",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0006-v2-s4",
+      "type": "counseling",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "counselor",
+      "providerSourcedId": "u-stf-0020",
+      "location": "Counseling office",
+      "startDate": "2026-09-16",
+      "endDate": "2027-09-14",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0006-v2-s5",
+      "type": "behavior_aba",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 120,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "rbt",
+      "providerSourcedId": "u-stf-0010",
+      "location": "Summer program room",
+      "startDate": "2027-06-07",
+      "endDate": "2027-07-02",
+      "esy": true
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0006-v2-a1",
+      "category": "instructional",
+      "description": "First/then board and choice of task order",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-a2",
+      "category": "instructional",
+      "description": "Written tasks chunked; scheduled breaks",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-a3",
+      "category": "instructional",
+      "description": "Access to a cool-down area with a timer",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-a4",
+      "category": "instructional",
+      "description": "Daily check-in/check-out with a trusted adult",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-a5",
+      "category": "classroom_testing",
+      "description": "Separate setting; breaks as needed",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-a6",
+      "category": "personnel_support",
+      "description": "BCBA consultation and BIP training for classroom staff",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0006-v2-t1",
+      "category": "state_testing",
+      "description": "Georgia Milestones Grade 4 ELA and Mathematics",
+      "subjects": [],
+      "stateTestSetting": "Separate setting",
+      "stateTestTiming": "Frequent breaks",
+      "stateTestPresentation": "",
+      "stateTestResponse": "",
+      "standardOrConditional": "standard"
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Sneezy attends a separate special education school through a district placement because he needs a therapeutic setting with embedded behavior support throughout the day.",
+  "esy": {
+    "needed": true,
+    "goals": [
+      "behavior coping strategy goal",
+      "outburst reduction goal"
+    ],
+    "notes": "Data from last summer show significant regression in coping skills with slow recoupment. ESY: 2 sessions a week for 4 weeks in June 2027.",
+    "startDate": "2027-06-07",
+    "endDate": "2027-07-02"
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0006-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5. Baseline: Uses a coping strategy independently in 1 of 5 opportunities.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0006-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): Average 2.5 a day. Baseline: Average 4 outbursts a day (ABC data).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0006-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 55%. Baseline: Starts non-preferred tasks within 2 minutes on 35% of occasions.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0006-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5. Baseline: Uses a conflict-resolution step in 1 of 5 conflicts.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0006-v2-g5",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 60%. Baseline: 40% accuracy on multi-digit multiplication.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": {
+    "fbaDate": "2026-08-28",
+    "bipDate": "2026-09-15",
+    "reviewDate": "2027-01-15",
+    "targetBehaviors": [
+      {
+        "name": "Verbal outburst",
+        "operationalDefinition": "Yelling above conversational volume and/or pushing materials off the desk, lasting at least 5 seconds.",
+        "baseline": "Average 4 a day (10 school days, Aug-Sep 2026)"
+      }
+    ],
+    "settingEvents": "Mornings after a difficult bus ride; days with a substitute.",
+    "antecedents": "Non-preferred written tasks (especially math and writing); peer teasing.",
+    "consequences": "Task removed or delayed; adult attention and conversation.",
+    "hypothesizedFunction": "escape",
+    "functionStatement": "When given a difficult written task, Sneezy has an outburst to escape the task; adult attention is a secondary function.",
+    "replacementBehaviors": [
+      "Request a break or help using words or a card",
+      "Use the cool-down area for up to 5 minutes"
+    ],
+    "antecedentStrategies": "Chunk tasks; offer choice of order; first/then board; pre-correct before writing tasks; check-in at arrival.",
+    "teachingStrategies": "Daily coping-skills practice with RBT; weekly counseling group; role-play conflict resolution.",
+    "reinforcement": "Points for task starts and coping-strategy use, exchanged for drawing time or a classroom job; behavior-specific praise.",
+    "responseStrategies": "Calm, neutral prompt to his coping card; task stays but is reduced; planned ignoring of yelling; praise as soon as he re-engages.",
+    "crisisPlan": "If behavior becomes unsafe, classmates move to a safe area with one adult, and two trained staff follow the school's de-escalation procedure. The family is informed the same day.",
+    "dataCollection": {
+      "method": "Daily frequency count, latency recording and ABC notes",
+      "responsibleSourcedId": "u-stf-0010"
+    }
+  },
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0014",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    },
+    {
+      "role": "bcba",
+      "staffSourcedId": "u-stf-0009",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    },
+    {
+      "role": "counselor",
+      "staffSourcedId": "u-stf-0020",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-15 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-09-01",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-09-12",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-09-15",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0014",
+      "dateGiven": "2024-03-19"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0014",
+      "dateGiven": "2024-06-10"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0014",
+      "dateGiven": "2025-04-02"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0046-v1",
+  "studentSourcedId": "u-stu-0052",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-08-10",
+  "startDate": "2026-08-11",
+  "endDate": "2027-08-09",
+  "annualReviewDue": "2027-08-09",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2026-03-16",
+  "reevaluationDue": "2029-08-10",
+  "eligibilityDate": "2024-08-31",
+  "caseManagerSourcedId": "u-stf-0005",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-OHI",
+      "federalCode": "OHI",
+      "label": "Other Health Impairment",
+      "determinedDate": "2025-01-02"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "executive_functioning",
+      "text": "Summary: Completes 55% of independent work. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0046-v1-g1",
+      "number": 1,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "Completes 55% of independent work.",
+      "statement": "Imani will complete 85% of independent work within the time given for 4 consecutive weeks.",
+      "criteriaForMastery": "85%, 4 weeks",
+      "measurementMethod": "Work log",
+      "targetDate": "2027-08-09",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0046-v1-g2",
+      "number": 2,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "On task in 50% of intervals.",
+      "statement": "Imani will stay on task during independent work in 80% of intervals across 5 sessions using a self-monitoring checklist.",
+      "criteriaForMastery": "80%, 5 sessions",
+      "measurementMethod": "Time sampling",
+      "targetDate": "2027-08-09",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0046-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0005",
+      "location": "Room 105",
+      "startDate": "2026-08-11",
+      "endDate": "2027-08-09",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0046-v1-a1",
+      "category": "instructional",
+      "description": "Chunked assignments with check-ins",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0046-v1-a2",
+      "category": "instructional",
+      "description": "Movement breaks",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0046-v1-a3",
+      "category": "classroom_testing",
+      "description": "Separate setting for tests",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

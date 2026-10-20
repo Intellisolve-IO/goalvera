@@ -1,0 +1,24 @@
+sourcedId,staffNumber,title,staffType,appRole,supervisorSourcedId,deviceLabels,employmentStart,employmentEnd,label,metadata.fictional
+u-stf-0001,E20000,Lead Special Education Teacher,teacher,teacher,u-stf-0022,Snow White,2023-07-24,,Fictional sample data,true
+u-stf-0002,E20037,Special Education Teacher,teacher,teacher,u-stf-0022,Belle Beaumont,2023-07-24,,Fictional sample data,true
+u-stf-0003,E20074,Special Education Teacher,teacher,teacher,u-stf-0022,Tiana Rogers,2023-07-24,,Fictional sample data,true
+u-stf-0004,E20111,Special Education Teacher,teacher,teacher,u-stf-0022,Mulan Fa,2022-07-25,,Fictional sample data,true
+u-stf-0005,E20148,Special Education Teacher,teacher,teacher,u-stf-0022,Rapunzel Hart,2023-07-24,,Fictional sample data,true
+u-stf-0006,E20185,Special Education Teacher,teacher,teacher,u-stf-0022,Hercules Stone,2025-07-28,,Fictional sample data,true
+u-stf-0007,E20222,Special Education Teacher,teacher,teacher,u-stf-0022,Moana Kealoha,2024-07-29,,Fictional sample data,true
+u-stf-0008,E20259,Special Education Teacher (intensive supports),teacher,teacher,u-stf-0022,Ariel Marin,2025-07-28,,Fictional sample data,true
+u-stf-0009,E20296,Board Certified Behavior Analyst,bcba,teacher,u-stf-0022,,2025-07-28,,Fictional sample data,true
+u-stf-0010,E20333,Registered Behavior Technician,para_rbt,rbt,u-stf-0009,,2022-07-25,,Fictional sample data,true
+u-stf-0011,E20370,Registered Behavior Technician,para_rbt,rbt,u-stf-0009,,2024-07-29,,Fictional sample data,true
+u-stf-0012,E20407,Registered Behavior Technician,para_rbt,rbt,u-stf-0009,,2023-07-24,,Fictional sample data,true
+u-stf-0013,E20444,Registered Behavior Technician,para_rbt,rbt,u-stf-0009,,2024-07-29,,Fictional sample data,true
+u-stf-0014,E20481,Registered Behavior Technician,para_rbt,rbt,u-stf-0009,,2022-07-25,,Fictional sample data,true
+u-stf-0015,E20518,Speech-Language Pathologist,slp,teacher,u-stf-0022,,2025-07-28,,Fictional sample data,true
+u-stf-0016,E20555,Occupational Therapist,ot,teacher,u-stf-0022,,2022-07-25,,Fictional sample data,true
+u-stf-0017,E20592,Physical Therapist,pt,teacher,u-stf-0022,,2025-07-28,,Fictional sample data,true
+u-stf-0018,E20629,Itinerant Teacher of the Deaf/Hard of Hearing,dhh_teacher,teacher,u-stf-0022,,2023-07-24,,Fictional sample data,true
+u-stf-0019,E20666,Teacher of Students with Visual Impairments / O&M Specialist,tvi,teacher,u-stf-0022,,2023-07-24,,Fictional sample data,true
+u-stf-0020,E20703,School Counselor,counselor,teacher,u-stf-0022,,2025-07-28,,Fictional sample data,true
+u-stf-0021,E20740,Special Education Coordinator / Case Manager,case_manager,admin,u-stf-0022,,2024-07-29,,Fictional sample data,true
+u-stf-0022,E20777,Principal,principal,admin,,,2025-07-28,,Fictional sample data,true
+u-stf-0023,E20814,Office Administrator,office,admin,u-stf-0022,,2023-07-24,,Fictional sample data,true

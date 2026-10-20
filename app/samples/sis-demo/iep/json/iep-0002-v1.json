@@ -1,0 +1,119 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0002-v1",
+  "studentSourcedId": "u-stu-0002",
+  "version": 1,
+  "status": "superseded",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2025-08-27",
+  "startDate": "2025-08-28",
+  "endDate": "2026-08-26",
+  "annualReviewDue": "2026-08-26",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-10-20",
+  "reevaluationDue": "2028-10-19",
+  "eligibilityDate": "2025-11-06",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-SLD",
+      "federalCode": "SLD",
+      "label": "Specific Learning Disability (basic reading skills, reading fluency)",
+      "determinedDate": "2025-11-06"
+    },
+    {
+      "order": 2,
+      "stateCode": "GA-SLI",
+      "federalCode": "SLI",
+      "label": "Speech-Language Impairment (articulation)",
+      "determinedDate": "2024-04-18"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "summary",
+      "text": "Prior-year IEP (superseded). See the current version for present levels."
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0002-v1-g1",
+      "number": 1,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Given lists and decodable text, Grumpy will read CVCe and vowel-team words with 90% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "90% accuracy, 3 consecutive probes",
+      "measurementMethod": "Decoding probes (curriculum-based)",
+      "targetDate": "2026-08-26",
+      "status": "carried_forward",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0002-v1-g2",
+      "number": 2,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Grumpy will read grade 2 passages at 75 words correct per minute with 3 or fewer errors on 3 consecutive weekly probes.",
+      "criteriaForMastery": "75 wcpm, 3 or fewer errors, 3 consecutive probes",
+      "measurementMethod": "Oral reading fluency probes",
+      "targetDate": "2026-08-26",
+      "status": "carried_forward",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0002-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2025-08-28",
+      "endDate": "2026-08-26",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0002-v1-a1",
+      "category": "instructional",
+      "description": "Text-to-speech or audiobooks for content-area reading",
+      "subjects": [
+        "science",
+        "social_studies"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

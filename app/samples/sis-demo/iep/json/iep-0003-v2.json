@@ -1,0 +1,371 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0003-v2",
+  "studentSourcedId": "u-stu-0003",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0003-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-09-03",
+  "startDate": "2026-09-04",
+  "endDate": "2027-09-02",
+  "annualReviewDue": "2027-09-02",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2024-09-16",
+  "reevaluationDue": "2027-09-15",
+  "eligibilityDate": "2024-09-30",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-OHI",
+      "federalCode": "OHI",
+      "label": "Other Health Impairment",
+      "determinedDate": "2024-09-30"
+    }
+  ],
+  "evaluationSummary": "Reevaluation 2024-09 (fictional results): WISC-V Full Scale IQ 104; Working Memory 86; Processing Speed 82. Teacher rating scales show significant difficulty with sustained attention and task completion. Eligibility documentation is on file with the school; no health details are recorded here. Georgia Milestones Grade 3 (spring 2026): ELA Proficient Learner; Mathematics Developing Learner.",
+  "strengths": "Happy reads on grade level, contributes creative ideas in discussion, and does well with hands-on science and building tasks.",
+  "needs": "Staying on task during independent work, finishing assignments, math fact fluency, organizing written paragraphs.",
+  "parentConcerns": "Homework takes a very long time; his family wants him to be more independent with work routines.",
+  "disabilityImpact": "Difficulty sustaining attention and organizing multi-step tasks reduces Happy's work completion and accuracy across subjects.",
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Reads grade 4 text at benchmark; comprehension is strong when passages are chunked."
+    },
+    {
+      "area": "math",
+      "text": "Multiplication facts: 20 digits correct in 2 minutes (grade 4 target about 40). Multi-digit procedures are accurate when he slows down."
+    },
+    {
+      "area": "written_expression",
+      "text": "Writes 2-3 related sentences; paragraphs lack a topic sentence and conclusion (rubric 2/5)."
+    },
+    {
+      "area": "executive_functioning",
+      "text": "On task in 45% of 10-second momentary time samples during 15-minute independent work blocks. Completes about 50% of independent work in the time given."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": false,
+    "bipDeveloped": false,
+    "lep": false,
+    "visual": false,
+    "communication": false,
+    "deafHoh": false,
+    "assistiveTech": true,
+    "altFormat": [],
+    "notes": "Self-monitoring app or checklist and a visual timer."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0003-v2-g1",
+      "number": 1,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "On task in 45% of intervals (Aug 2026).",
+      "statement": "During 15-minute independent work periods, Happy will use a self-monitoring checklist to stay on task in 80% of intervals across 5 consecutive sessions.",
+      "criteriaForMastery": "80% of intervals, 5 consecutive sessions",
+      "measurementMethod": "Momentary time sampling",
+      "targetDate": "2027-09-02",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0003-v2-g1-o1",
+          "number": 1,
+          "statement": "Happy will set a visual timer and mark his checklist at each tone in 4 of 5 sessions.",
+          "criteria": "4 of 5"
+        },
+        {
+          "sourcedId": "iep-0003-v2-g1-o2",
+          "number": 2,
+          "statement": "Happy will be on task in 65% of intervals.",
+          "criteria": "65%, 5 sessions"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-g2",
+      "number": 2,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "Completes 50% of independent work in the time given.",
+      "statement": "Happy will complete 85% of assigned independent work within the allotted time across 4 consecutive weeks.",
+      "criteriaForMastery": "85% completion, 4 consecutive weeks",
+      "measurementMethod": "Work completion log",
+      "targetDate": "2027-09-02",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0003-v2-g2-o1",
+          "number": 1,
+          "statement": "Happy will complete chunked assignments one section at a time with 1 adult check-in.",
+          "criteria": "4 of 5 days"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-g3",
+      "number": 3,
+      "area": "math",
+      "category": "Academic",
+      "baseline": "20 digits correct in 2 minutes on multiplication facts.",
+      "statement": "Happy will answer multiplication facts 0-10 at 40 digits correct in 2 minutes on 3 consecutive probes.",
+      "criteriaForMastery": "40 digits correct / 2 min, 3 probes",
+      "measurementMethod": "Timed fact probes",
+      "targetDate": "2027-09-02",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0003-v2-g3-o1",
+          "number": 1,
+          "statement": "Happy will reach 30 digits correct on facts 0-5 and 10.",
+          "criteria": "3 probes"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-g4",
+      "number": 4,
+      "area": "written_expression",
+      "category": "Academic",
+      "baseline": "Rubric score 2/5 for paragraph organization.",
+      "statement": "Using a paragraph organizer, Happy will write a 5-sentence paragraph with a topic sentence, three details and a conclusion, scoring 4 of 5 on the class rubric in 4 of 5 samples.",
+      "criteriaForMastery": "Rubric 4/5 in 4 of 5 samples",
+      "measurementMethod": "Writing rubric",
+      "targetDate": "2027-09-02",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0003-v2-g4-o1",
+          "number": 1,
+          "statement": "Happy will complete the organizer before writing in 4 of 5 tasks.",
+          "criteria": "4 of 5"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0003-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-09-04",
+      "endDate": "2027-09-02",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0003-v2-s2",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 3,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (executive functioning group, part of the school day above)",
+      "startDate": "2026-09-04",
+      "endDate": "2027-09-02",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0003-v2-a1",
+      "category": "instructional",
+      "description": "Assignments broken into chunks with check-ins",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-a2",
+      "category": "instructional",
+      "description": "Movement breaks every 20 minutes",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-a3",
+      "category": "instructional",
+      "description": "Preferential seating away from distractions",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-a4",
+      "category": "instructional",
+      "description": "Visual timer and self-monitoring checklist",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-a5",
+      "category": "classroom_testing",
+      "description": "Separate setting; frequent breaks; extended time (1.5x)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0003-v2-t1",
+      "category": "state_testing",
+      "description": "Georgia Milestones Grade 4 ELA and Mathematics",
+      "subjects": [],
+      "stateTestSetting": "Separate setting",
+      "stateTestTiming": "Frequent breaks; extended time",
+      "stateTestPresentation": "",
+      "stateTestResponse": "",
+      "standardOrConditional": "standard"
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Placed at a separate special education school through a district placement. The team will review a move to a less restrictive setting at the next annual review based on work completion data.",
+  "esy": {
+    "needed": false,
+    "notes": "Considered; not needed."
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0003-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 62%. Baseline: On task in 45% of intervals (Aug 2026).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0003-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 64%. Baseline: Completes 50% of independent work in the time given.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0003-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 27 digits. Baseline: 20 digits correct in 2 minutes on multiplication facts.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0003-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 3/5. Baseline: Rubric score 2/5 for paragraph organization.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": null,
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0007",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-03 (fictional)"
+    },
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0006",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-03 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-03 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-03 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-09-03 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-03 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-08-20",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-08-31",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-09-03",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0007",
+      "dateGiven": "2022-10-04"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0007",
+      "dateGiven": "2022-12-08"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0007",
+      "dateGiven": "2024-08-07"
+    }
+  ]
+}

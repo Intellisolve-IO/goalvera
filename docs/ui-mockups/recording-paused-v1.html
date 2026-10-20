@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Goalvera Recorder – RECORDING (paused) (800×480)</title>
+<!--
+  RECORDING (paused) mockup v1 – ESP32-S3 CrowPanel 4.3" (800×480 landscape), target LVGL 9.
+  Same theme/font/palette as home-v1. "SE" square top-left is a LOGO PLACEHOLDER.
+  All names/values are made-up examples; Class uses neutral codes only (never student names).
+  Flat fills, rounded rects, circles and simple bars only (lv_obj / lv_label / lv_bar / lv_dropdown / lv_button).
+  Paused: accent turns amber, timer frozen and greyed, meter segments all off, Pause button becomes Resume.
+-->
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #555; font-family: "Inter", "Montserrat", sans-serif; }
+  .screen { position: relative; width: 800px; height: 480px; overflow: hidden; background: #0F172A; color: #F8FAFC; }
+  /* header (y 0–64) – same as home-v1 */
+  .header { position: absolute; left: 0; top: 0; width: 800px; height: 64px; display: flex; align-items: center;
+            padding: 0 16px; gap: 12px; border-bottom: 2px solid #1E293B; }
+  .logo { width: 38px; height: 38px; border-radius: 9px; background: #1D4ED8; border: 2px solid #93C5FD; color: #fff;
+          font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; letter-spacing: .5px; }
+  .title { font-size: 22px; font-weight: 700; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .chip { height: 48px; border-radius: 12px; background: #1E293B; border: 1px solid #334155; display: flex; align-items: center;
+          gap: 10px; padding: 0 14px; font-size: 18px; white-space: nowrap; }
+  .ok { color: #4ADE80; font-weight: 600; }
+  .bars { display: flex; align-items: flex-end; gap: 3px; height: 22px; }
+  .bars i { display: block; width: 5px; border-radius: 1.5px; background: #4ADE80; }
+  .bars i:nth-child(1){height:6px} .bars i:nth-child(2){height:11px} .bars i:nth-child(3){height:16px}
+  .bars i:nth-child(4){height:22px; background:#475569}
+  /* left: status card (x16–400, y76–384) */
+  .statuscard { position: absolute; left: 16px; top: 76px; width: 384px; height: 308px; border-radius: 16px;
+                background: #1E293B; border: 2px solid var(--accent); padding: 16px 20px; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px; border-radius: 22px;
+          background: var(--pillbg); color: var(--pillfg); font-size: 26px; font-weight: 800; }
+  .pill .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--pillfg); }
+  .pill .pz { display: flex; gap: 5px; } .pill .pz i { display: block; width: 6px; height: 20px; border-radius: 2px; background: var(--pillfg); }
+  .started { font-size: 18px; line-height: 24px; color: #CBD5E1; margin-top: 10px; }
+  .timer { font-size: 76px; font-weight: 700; line-height: 1; margin-top: 12px; letter-spacing: -1px;
+           font-variant-numeric: tabular-nums; color: var(--timer); }
+  .meterlabel { display: flex; justify-content: space-between; font-size: 18px; color: #CBD5E1; font-weight: 600; margin-top: 22px; }
+  .meter { display: flex; gap: 4px; margin-top: 8px; height: 30px; }
+  .meter i { flex: 1; border-radius: 3px; background: #334155; }
+  .meter i.g { background: #4ADE80; } .meter i.y { background: #FACC15; }
+  /* right: fields (x416–784) */
+  .fields { position: absolute; left: 416px; top: 76px; width: 368px; }
+  .room { height: 44px; display: flex; align-items: center; gap: 10px; font-size: 20px; padding: 0 4px; }
+  .room .k { color: #CBD5E1; font-size: 18px; font-weight: 600; width: 100px; }
+  .room .v { font-weight: 700; font-size: 22px; }
+  .room .lock { margin-left: auto; font-size: 18px; color: #94A3B8; }
+  .field { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+  .field .k { width: 100px; font-size: 18px; color: #CBD5E1; font-weight: 600; padding-left: 4px; }
+  .dd { flex: 1; height: 56px; border-radius: 12px; background: #1E293B; border: 2px solid #60A5FA; display: flex;
+        align-items: center; padding: 0 16px; font-size: 22px; font-weight: 600; white-space: nowrap; }
+  .dd .grow { flex: 1; }
+  /* bottom buttons (y 396–468) */
+  .btn { position: absolute; top: 396px; height: 72px; width: 376px; border-radius: 16px; display: flex; align-items: center;
+         justify-content: center; gap: 16px; font-size: 30px; font-weight: 800; }
+  .btn-pause { left: 16px; background: #F59E0B; color: #1C1917; border: 2px solid #FCD34D; }
+  .btn-end { left: 408px; background: #7F1D1D; color: #FFFFFF; border: 3px solid #F87171; }
+  .ico-pause { display: flex; gap: 7px; } .ico-pause i { display: block; width: 9px; height: 30px; border-radius: 2px; background: #1C1917; }
+  .ico-stop { width: 26px; height: 26px; border-radius: 4px; background: #F87171; }
+  /* modal */
+  .dim { position: absolute; inset: 0; background: rgba(2, 6, 23, 0.72); }
+  .modal { position: absolute; left: 60px; top: 50px; width: 680px; height: 380px; border-radius: 20px; background: #1E293B;
+           border: 2px solid #475569; padding: 20px 24px; }
+  .modal h1 { font-size: 28px; font-weight: 800; }
+  .modal .dur { font-size: 20px; color: #CBD5E1; margin-top: 8px; }
+  .modal .dur b { color: #F8FAFC; font-size: 22px; font-variant-numeric: tabular-nums; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin-top: 16px; }
+  .grid .k { font-size: 18px; color: #CBD5E1; font-weight: 600; margin-bottom: 4px; }
+  .grid .dd { height: 52px; background: #0F172A; font-size: 21px; }
+  .mbtns { position: absolute; left: 24px; right: 24px; bottom: 20px; display: flex; gap: 16px; }
+  .mbtn { flex: 1; height: 64px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+          font-size: 24px; font-weight: 800; }
+  .mbtn.primary { background: #2563EB; border: 2px solid #93C5FD; color: #fff; }
+  .mbtn.secondary { background: transparent; border: 2px solid #94A3B8; color: #F8FAFC; }
+  .caption { width: 800px; padding: 8px 4px; color: #eee; font: 13px sans-serif; }
+</style>
+</head>
+<body>
+<div class="screen" id="screen">
+  <div class="header">
+    <div class="logo">SE</div><!-- logo placeholder -->
+    <div class="title">Classroom Session</div>
+    <div class="spacer"></div>
+    <div class="chip" title="Wi-Fi"><div class="bars"><i></i><i></i><i></i><i></i></div><span class="ok">Connected</span></div>
+    <div class="chip" title="Power"><svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true"><rect x="5" y="1" width="3" height="7" rx="1" fill="#FACC15"/><rect x="12" y="1" width="3" height="7" rx="1" fill="#FACC15"/><rect x="2" y="7" width="16" height="9" rx="3" fill="#FACC15"/><rect x="8.5" y="15" width="3" height="8" rx="1" fill="#FACC15"/></svg><span>USB power</span></div>
+  </div>
+
+  <!-- STATUS CARD (left) -->
+  <div class="statuscard" style="--accent:#F59E0B; --pillbg:#451A03; --pillfg:#FBBF24; --timer:#94A3B8;">
+    <div class="pill"><span class="pz"><i></i><i></i></span>Paused</div>
+    <div class="started">Recording started at 11:30:12 AM · currently paused</div>
+    <div class="timer">00:23:47</div>
+    <div class="meterlabel"><span>Mic level</span><span style="color:#94A3B8">Paused</span></div>
+    <div class="meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <!-- SESSION FIELDS (right). Classroom is read-only here (chosen on HOME); changeable in the End dialog. -->
+  <div class="fields">
+    <div class="room"><span class="k">Classroom</span><span class="v">Room 104</span></div>
+    <div class="field"><span class="k">Teacher</span><div class="dd"><span class="grow">J. Rivera</span><svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M2 2 L11 11 L20 2" stroke="#60A5FA" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="field"><span class="k">RBT</span><div class="dd"><span class="grow">A. Chen</span><svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M2 2 L11 11 L20 2" stroke="#60A5FA" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="field"><span class="k">Class</span><div class="dd"><span class="grow">Reading 3A</span><svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M2 2 L11 11 L20 2" stroke="#60A5FA" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+
+  <!-- BOTTOM BUTTONS -->
+  <div class="btn btn-pause"><svg width="28" height="30" viewBox="0 0 28 30" aria-hidden="true"><path d="M3 2 L26 15 L3 28 Z" fill="#1C1917" stroke="#1C1917" stroke-width="3" stroke-linejoin="round"/></svg>Resume</div>
+  <div class="btn btn-end"><span class="ico-stop"></span>End</div>
+</div>
+<div class="caption">RECORDING v1 · paused state · timer frozen, meter greyed · made-up example values.</div>
+</body>
+</html>

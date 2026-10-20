@@ -1,0 +1,179 @@
+menu "Classroom recorder"
+
+    choice RECORDER_BOARD
+        prompt "Hardware board"
+        default RECORDER_BOARD_CROWPANEL_43
+        help
+            Which board this image is for. The CrowPanel is the default and
+            its build is unchanged. Build the Hosyond board with
+            tools/build-board.sh hosyond35 (adds sdkconfig.defaults.hosyond35).
+
+        config RECORDER_BOARD_CROWPANEL_43
+            bool "Elecrow CrowPanel Advance 4.3\" (800x480 RGB, PDM mic, SD over SPI)"
+
+        config RECORDER_BOARD_HOSYOND_35
+            bool "Hosyond / LCDWIKI ES3C35P 3.5\" (320x480 ST77922 QSPI, ES8311, SDMMC 4-bit)"
+    endchoice
+
+    choice RECORDER_HOSYOND_ROTATION
+        prompt "Hosyond: landscape rotation"
+        depends on RECORDER_BOARD_HOSYOND_35
+        default RECORDER_HOSYOND_ROT_90
+        help
+            The panel is natively 320x480 portrait. The UI is the CrowPanel
+            800x480 landscape layout scaled to 480x320, so the image is
+            rotated in software. Pick 270 if the picture is upside down.
+
+        config RECORDER_HOSYOND_ROT_90
+            bool "90 degrees"
+        config RECORDER_HOSYOND_ROT_270
+            bool "270 degrees"
+    endchoice
+
+    config RECORDER_HOSYOND_TOUCH_MIRROR_X
+        bool "Hosyond: mirror touch X"
+        depends on RECORDER_BOARD_HOSYOND_35
+        default n
+        help
+            Only if taps land on the wrong side after hand test. Applies to
+            the panel's native (portrait) axes, before rotation.
+
+    config RECORDER_HOSYOND_TOUCH_MIRROR_Y
+        bool "Hosyond: mirror touch Y"
+        depends on RECORDER_BOARD_HOSYOND_35
+        default n
+        help
+            Only if taps land on the wrong side after hand test. Applies to
+            the panel's native (portrait) axes, before rotation.
+
+    config RECORDER_HOSYOND_SWAP_RGB565_BYTES
+        bool "Hosyond: send RGB565 high byte first (SPI panel order)"
+        depends on RECORDER_BOARD_HOSYOND_35
+        default y
+        help
+            SPI/QSPI panels expect big-endian RGB565. Turn off only if the
+            colours look wrong (e.g. blue shows as green noise).
+
+    config RECORDER_PILOT_NO_MEDIA
+        bool "Pilot: audio only (no Teacher Notes photo/video QR)"
+        default n
+        help
+            One-student pilot (Oct 2026): the letter promises no photos or
+            videos. Teacher Notes still stores its marker, but the QR for
+            adding a photo/video is never fetched or shown. The upload-api
+            also refuses media for pilot devices as a backstop.
+
+    config RECORDER_BATTERY_AUTOSAVE
+        bool "Hosyond: auto Save & finish at 5% battery"
+        depends on RECORDER_BOARD_HOSYOND_35
+        default y
+        help
+            On battery (not USB), when the gauge reaches 5% the recorder
+            does Save & finish on its own, so a dead battery never loses a
+            recording, and a new recording can't start until it is plugged
+            in. Turn off to only show the gauge and the low-battery (below
+            10%) warning.
+
+    config RECORDER_BATTERY_CAL_PERMILLE
+        int "Hosyond: battery reading correction (per mille)"
+        depends on RECORDER_BOARD_HOSYOND_35
+        range 900 1100
+        default 1000
+        help
+            Per-board correction for the battery voltage reading, in
+            thousandths: 1000 = 1.0 (no change). Set it from one multimeter
+            reading across the battery: multimeter mV / logged vbat mV x 1000
+            (the "battery" serial log line shows vbat every 30 s).
+
+    config RECORDER_AUTO_SLEEP_MIN
+        int "Hosyond: auto sleep after this many idle minutes (0 = never)"
+        depends on RECORDER_BOARD_HOSYOND_35
+        range 0 1440
+        default 60
+        help
+            With no recording and no touch for this long (and not plugged
+            into a computer), the recorder shows "Going to sleep, tap to stay
+            on" for 30 s, lets a running upload finish (no new one starts),
+            turns the screen off and enters deep sleep. Press BOOT (or RESET)
+            to wake. 0 turns auto sleep off.
+
+    config RECORDER_WIFI_SSID
+        string "Wi-Fi SSID"
+        default ""
+        help
+            Leave empty to stay offline. Put the real SSID in the gitignored
+            file sdkconfig.defaults.local, or set it with menuconfig and do
+            not commit sdkconfig.
+
+    config RECORDER_WIFI_PASSWORD
+        string "Wi-Fi password"
+        default ""
+        help
+            Compiled into the firmware image at build time. Never commit
+            sdkconfig or sdkconfig.defaults.local after setting this.
+            Flash encryption and NVS encryption are a later step.
+
+    config RECORDER_WIFI_SSID2
+        string "Fallback Wi-Fi SSID (optional)"
+        default ""
+        help
+            Second network, tried after RECORDER_WIFI_SSID fails to connect
+            a few times in a row (and the two alternate after that). Empty
+            means only one network. Same rules as the first: set it only in
+            gitignored local files or via tools/build-with-wifi.sh.
+
+    config RECORDER_WIFI_PASSWORD2
+        string "Fallback Wi-Fi password"
+        default ""
+        help
+            Compiled into the firmware image. Never commit sdkconfig after
+            setting this.
+
+    config RECORDER_BRAND_NAME
+        string "School name override (local builds only)"
+        default ""
+        help
+            Empty uses the neutral default "Classroom Recorder". Set only by
+            tools/build-with-wifi.sh from the gitignored local/branding.json
+            or env vars. /sd/config/device.json "school_name" still wins.
+
+    config RECORDER_BRAND_BADGE
+        string "Badge letters override, 1-3 characters (local builds only)"
+        default ""
+        help
+            Empty uses "CR". /sd/config/device.json "badge_text" still wins.
+
+    config RECORDER_UPLOAD_URL
+        string "Upload service base URL"
+        default "https://upload.example.org"
+        help
+            the Goalvera upload-api (POST /v1/uploads, /v1/confirm).
+
+    config RECORDER_UPLOAD_DEVICE_ID
+        string "Device id for uploads (empty = Wi-Fi MAC, e.g. a4cb8fc08704)"
+        default ""
+
+    config RECORDER_UPLOAD_TOKEN
+        string "Device upload token (local builds only)"
+        default ""
+        help
+            Normally installed from /sd/config/upload_token.txt into NVS at
+            boot. tools/build-with-wifi.sh can also compile one in from
+            $RECORDER_UPLOAD_TOKEN or ~/.config/recorder/device_token.
+            Never commit sdkconfig after setting this.
+
+    config RECORDER_SD_ENCRYPTION
+        bool "Encrypt recordings on the SD card (APENC1,)"
+        depends on RECORDER_BOARD_HOSYOND_35
+        default y
+        help
+            Each recording gets a fresh AES-256 key, wrapped with the recording
+            public key (build-time input RECORDING_PUBKEY_PEM, private key in Cloud KMS),
+            and is written as AES-256-GCM chunks. Hosyond 3.5" only.
+
+    config RECORDER_REC_KEY_ID
+        string "Recording key id (<cryptoKey>/<version> in the KMS key ring)"
+        depends on RECORDER_SD_ENCRYPTION
+        default "recording-wrap/1"
+
+endmenu

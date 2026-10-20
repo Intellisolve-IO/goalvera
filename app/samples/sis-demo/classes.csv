@@ -1,0 +1,33 @@
+sourcedId,status,dateLastModified,title,grades,courseSourcedId,classCode,classType,location,schoolSourcedId,termSourcedIds,subjects,subjectCodes,periods,metadata.fictional
+cls-rm101-hr,,,RM101 Homeroom,"KG,01",crs-hr,RM101,homeroom,Room 101,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm101-rdg,,,RM101 Reading,"KG,01",crs-rdg,RM101 Reading,scheduled,Room 101,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm101-mth,,,RM101 Math,"KG,01",crs-mth,RM101 Math,scheduled,Room 101,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm101-soc,,,RM101 Social Skills,"KG,01",crs-soc,RM101 Social Skills,scheduled,Room 101,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm102-hr,,,RM102 Homeroom,"KG,01,02",crs-hr,RM102,homeroom,Room 102,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm102-rdg,,,RM102 Reading,"KG,01,02",crs-rdg,RM102 Reading,scheduled,Room 102,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm102-mth,,,RM102 Math,"KG,01,02",crs-mth,RM102 Math,scheduled,Room 102,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm102-soc,,,RM102 Social Skills,"KG,01,02",crs-soc,RM102 Social Skills,scheduled,Room 102,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm103-hr,,,RM103 Homeroom,"01,02,03",crs-hr,RM103,homeroom,Room 103,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm103-rdg,,,RM103 Reading,"01,02,03",crs-rdg,RM103 Reading,scheduled,Room 103,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm103-mth,,,RM103 Math,"01,02,03",crs-mth,RM103 Math,scheduled,Room 103,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm103-soc,,,RM103 Social Skills,"01,02,03",crs-soc,RM103 Social Skills,scheduled,Room 103,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm104-hr,,,RM104 Homeroom,"02,03,04,05",crs-hr,RM104,homeroom,Room 104,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm104-rdg,,,RM104 Reading,"02,03,04,05",crs-rdg,RM104 Reading,scheduled,Room 104,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm104-mth,,,RM104 Math,"02,03,04,05",crs-mth,RM104 Math,scheduled,Room 104,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm104-soc,,,RM104 Social Skills,"02,03,04,05",crs-soc,RM104 Social Skills,scheduled,Room 104,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm105-hr,,,RM105 Homeroom,"03,04",crs-hr,RM105,homeroom,Room 105,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm105-rdg,,,RM105 Reading,"03,04",crs-rdg,RM105 Reading,scheduled,Room 105,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm105-mth,,,RM105 Math,"03,04",crs-mth,RM105 Math,scheduled,Room 105,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm105-soc,,,RM105 Social Skills,"03,04",crs-soc,RM105 Social Skills,scheduled,Room 105,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm106-hr,,,RM106 Homeroom,"03,04,05",crs-hr,RM106,homeroom,Room 106,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm106-rdg,,,RM106 Reading,"03,04,05",crs-rdg,RM106 Reading,scheduled,Room 106,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm106-mth,,,RM106 Math,"03,04,05",crs-mth,RM106 Math,scheduled,Room 106,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm106-soc,,,RM106 Social Skills,"03,04,05",crs-soc,RM106 Social Skills,scheduled,Room 106,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm107-hr,,,RM107 Homeroom,"04,05",crs-hr,RM107,homeroom,Room 107,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm107-rdg,,,RM107 Reading,"04,05",crs-rdg,RM107 Reading,scheduled,Room 107,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm107-mth,,,RM107 Math,"04,05",crs-mth,RM107 Math,scheduled,Room 107,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm107-soc,,,RM107 Social Skills,"04,05",crs-soc,RM107 Social Skills,scheduled,Room 107,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true
+cls-rm108-hr,,,RM108 Homeroom,"KG,01,02,03,04,05",crs-hr,RM108,homeroom,Room 108,org-school-0001,as-sy-2026-27,Homeroom,,per-meeting,true
+cls-rm108-rdg,,,RM108 Reading,"KG,01,02,03,04,05",crs-rdg,RM108 Reading,scheduled,Room 108,org-school-0001,as-sy-2026-27,Reading,,per-reading,true
+cls-rm108-mth,,,RM108 Math,"KG,01,02,03,04,05",crs-mth,RM108 Math,scheduled,Room 108,org-school-0001,as-sy-2026-27,Math,,per-math,true
+cls-rm108-soc,,,RM108 Social Skills,"KG,01,02,03,04,05",crs-soc,RM108 Social Skills,scheduled,Room 108,org-school-0001,as-sy-2026-27,Social Skills,,per-social,true

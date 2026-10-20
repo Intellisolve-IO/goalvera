@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "source": "the sample Educational Methodology document (Oct 10 2026), the table \"Methodology by Subject & Recommended Reference Books\"; built by app/tools/build_school_setup.py. Not student data.",
+    "columns": [
+      "Subject / Domain",
+      "Core Educational Methodology",
+      "Key Curricular Programs",
+      "Recommended Book / Guide"
+    ],
+    "missing_fields": []
+  },
+  "domains": [
+    {
+      "id": "dom-reading-phonics",
+      "name": "Reading & Phonics",
+      "methodology": "Orton-Gillingham (OG) Approach",
+      "methodology_detail": "Direct, explicit, multisensory, and sequential phonics instruction tailored for dyslexic learners.",
+      "programs": "Structured Literacy, Sight Word & Decoding Practice",
+      "book": "Uncovering the Logic of English by Denise Eide (Or Overcoming Dyslexia by Dr. Sally Shaywitz)"
+    },
+    {
+      "id": "dom-mathematics",
+      "name": "Mathematics",
+      "methodology": "Concrete-Pictorial-Abstract (CPA)",
+      "methodology_detail": "Conceptual math instruction focusing on place-value disks, physical manipulatives, and visual models before abstract formulas.",
+      "programs": "Eureka Math (Great Minds)",
+      "book": "Elementary and Middle School Mathematics: Teaching Developmentally by John A. Van de Walle"
+    },
+    {
+      "id": "dom-handwriting-writing",
+      "name": "Handwriting & Writing",
+      "methodology": "Multisensory Fine Motor Development",
+      "methodology_detail": "Tactile, auditory, and kinesthetic practice combined with structured writing workshops.",
+      "programs": "Handwriting Without Tears (Learning Without Tears)",
+      "book": "Handwriting Without Tears Teacher's Guide by Jan Z. Olsen"
+    },
+    {
+      "id": "dom-social-emotional-self-regulation",
+      "name": "Social-Emotional & Self-Regulation",
+      "methodology": "Applied Behavior Analysis (ABA) & SEL",
+      "methodology_detail": "Targeted emotional regulation, self-awareness, executive function training, and social skills development.",
+      "programs": "Social-Emotional Learning (SEL) small groups & Working Memory Sessions",
+      "book": "The Zones of Regulation by Leah M. Kuypers"
+    },
+    {
+      "id": "dom-science-social-studies",
+      "name": "Science & Social Studies",
+      "methodology": "Inquiry-Based & Experiential Learning",
+      "methodology_detail": "Project-based models using hands-on experiments (e.g., landform volcanoes, catapults, mapping) in small group settings (≤ 3 students).",
+      "programs": "Interactive Group Projects, Visual-Spatial Learning",
+      "book": "A Framework for K-12 Science Education by National Research Council"
+    },
+    {
+      "id": "dom-physical-creative-arts",
+      "name": "Physical & Creative Arts",
+      "methodology": "Mindful Movement & Expressive Therapy",
+      "methodology_detail": "Integration of movement, sensory integration, and visual art to reduce anxiety, enhance focus, and support non-verbal self-expression.",
+      "programs": "Yoga, Occupational Therapy (OT), Art (e.g., Klimt & Mondrian studies)",
+      "book": "The Out-of-Sync Child Has Fun by Carol Stock Kranowitz"
+    }
+  ],
+  "delivery_formats": [
+    {
+      "name": "1:1 Personalized / Prescriptive Instruction",
+      "description": "Core literacy (reading/writing) and mathematics are taught individually to match each student's pacing and learning style."
+    },
+    {
+      "name": "Micro Small-Group Instruction",
+      "description": "Science, social studies, art, and physical education take place in small groups capped at three students to build peer collaboration without overwhelming social stimulation."
+    },
+    {
+      "name": "Multisensory & Therapy Integration",
+      "description": "Lessons systematically combine visual, auditory, kinesthetic, and tactile inputs (incorporating ABA principles and Occupational Therapy) to improve memory retention and executive functioning."
+    }
+  ]
+}

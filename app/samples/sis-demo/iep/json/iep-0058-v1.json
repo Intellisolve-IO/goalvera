@@ -1,0 +1,144 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0058-v1",
+  "studentSourcedId": "u-stu-0065",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-02-25",
+  "startDate": "2026-02-26",
+  "endDate": "2027-02-24",
+  "annualReviewDue": "2027-02-24",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-07-07",
+  "reevaluationDue": "2029-02-25",
+  "eligibilityDate": "2025-08-16",
+  "caseManagerSourcedId": "u-stf-0006",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-EBD",
+      "federalCode": "EMN",
+      "label": "Emotional and Behavioral Disorder",
+      "determinedDate": "2024-06-14"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "behavior",
+      "text": "Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0058-v1-g1",
+      "number": 1,
+      "area": "behavior",
+      "category": "Behavioral",
+      "baseline": "Uses a coping strategy independently in 1 of 5 opportunities.",
+      "statement": "When upset, Elijah will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks.",
+      "criteriaForMastery": "4 of 5, 4 weeks",
+      "measurementMethod": "Behavior data sheet",
+      "targetDate": "2027-02-24",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0058-v1-g2",
+      "number": 2,
+      "area": "social",
+      "category": "Behavioral",
+      "baseline": "Resolves peer conflict without adult help in 1 of 5 conflicts.",
+      "statement": "Elijah will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts.",
+      "criteriaForMastery": "4 of 5",
+      "measurementMethod": "Observation",
+      "targetDate": "2027-02-24",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0058-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0006",
+      "location": "Room 106",
+      "startDate": "2026-02-26",
+      "endDate": "2027-02-24",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0058-v1-s2",
+      "type": "counseling",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "counselor",
+      "providerSourcedId": "u-stf-0020",
+      "location": "Room 106",
+      "startDate": "2026-02-26",
+      "endDate": "2027-02-24",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0058-v1-a1",
+      "category": "instructional",
+      "description": "Daily check-in/check-out",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0058-v1-a2",
+      "category": "instructional",
+      "description": "Access to a cool-down area",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0058-v1-a3",
+      "category": "instructional",
+      "description": "Choice of task order",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

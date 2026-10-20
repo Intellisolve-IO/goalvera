@@ -1,0 +1,10 @@
+dependencies:
+  idf: ">=5.4.0"
+  lvgl/lvgl:
+    version: "9.2.2"
+    public: true
+  espressif/esp_lcd_touch_gt911: "^1.1.0"
+  # Hosyond 3.5" (CONFIG_RECORDER_BOARD_HOSYOND_35) only; unused by the
+  # CrowPanel build (not in its REQUIRES, nothing linked).
+  espressif/esp_lcd_st77922: "2.0.2"
+  espressif/esp_lcd_touch_st7123: "1.0.2"

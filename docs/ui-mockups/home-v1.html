@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Goalvera Recorder – HOME v1 (800×480)</title>
+<!--
+  HOME screen mockup v1 – ESP32-S3 CrowPanel 4.3" (800×480 landscape), target LVGL 9.
+  NOTE: the "SE" rounded square top-left is a LOGO PLACEHOLDER, not the real school logo.
+  All names/values are made-up examples. Only flat fills, rounded rects, circles and
+  simple bar shapes are used so every element maps to lv_obj / lv_label / lv_bar /
+  lv_dropdown / lv_button. Font: Inter here (LVGL's Montserrat is a close substitute).
+  Palette: bg #0F172A, surface #1E293B, border #334155, text #F8FAFC, muted #CBD5E1,
+           accent blue #60A5FA, ok green #4ADE80, record red #DC2626.
+-->
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #555; font-family: "Inter", "Montserrat", sans-serif; }
+  .screen {
+    position: relative; width: 800px; height: 480px; overflow: hidden;
+    background: #0F172A; color: #F8FAFC;
+  }
+  /* ---------- header (y 0–64) ---------- */
+  .header {
+    position: absolute; left: 0; top: 0; width: 800px; height: 64px;
+    display: flex; align-items: center; padding: 0 16px; gap: 12px;
+    border-bottom: 2px solid #1E293B;
+  }
+  .logo {
+    width: 38px; height: 38px; border-radius: 9px; background: #1D4ED8;
+    border: 2px solid #93C5FD; color: #fff; font-weight: 800; font-size: 16px;
+    display: flex; align-items: center; justify-content: center; letter-spacing: .5px;
+  }
+  .school { font-size: 22px; font-weight: 700; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .chip {
+    height: 48px; border-radius: 12px; background: #1E293B; border: 1px solid #334155;
+    display: flex; align-items: center; gap: 10px; padding: 0 14px; font-size: 18px; white-space: nowrap;
+  }
+  .chip .muted { color: #CBD5E1; }
+  .ok { color: #4ADE80; font-weight: 600; }
+  /* wifi bars */
+  .bars { display: flex; align-items: flex-end; gap: 3px; height: 22px; }
+  .bars i { display: block; width: 5px; border-radius: 1.5px; background: #4ADE80; }
+  .bars i:nth-child(1){height:6px} .bars i:nth-child(2){height:11px}
+  .bars i:nth-child(3){height:16px} .bars i:nth-child(4){height:22px; background:#475569}
+  /* ---------- left column ---------- */
+  .left { position: absolute; left: 16px; top: 80px; width: 384px; }
+  .time { font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: -1px; }
+  .time small { font-size: 34px; font-weight: 600; margin-left: 6px; letter-spacing: 0; color: #CBD5E1; }
+  .date { font-size: 22px; color: #CBD5E1; margin-top: 8px; font-weight: 500; }
+  .label { font-size: 18px; color: #CBD5E1; font-weight: 600; margin-bottom: 6px; }
+  .dropdown {
+    height: 56px; border-radius: 12px; background: #1E293B; border: 2px solid #60A5FA;
+    display: flex; align-items: center; padding: 0 16px; font-size: 22px; font-weight: 600;
+  }
+  .dropdown .grow { flex: 1; }
+  .storage {
+    border-radius: 12px; background: #1E293B; border: 1px solid #334155; padding: 10px 16px 12px;
+  }
+  .storage .row { white-space: nowrap; display: flex; align-items: baseline; gap: 8px; font-size: 20px; }
+  .storage b { font-size: 22px; }
+  .bar { height: 12px; border-radius: 6px; background: #334155; margin-top: 10px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 1.2%; min-width: 8px; background: #60A5FA; border-radius: 6px; }
+  /* ---------- record button (right) ---------- */
+  .record {
+    position: absolute; left: 424px; top: 80px; width: 360px; height: 316px;
+    border-radius: 24px; background: #DC2626; border: 3px solid #FCA5A5;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  }
+  .rec-icon {
+    width: 128px; height: 128px; border-radius: 50%; background: #FFFFFF;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rec-icon i { display: block; width: 72px; height: 72px; border-radius: 50%; background: #DC2626; }
+  .rec-text { font-size: 48px; font-weight: 800; letter-spacing: .5px; }
+  .rec-sub { font-size: 18px; color: #FEE2E2; margin-top: -12px; font-weight: 500; }
+  /* ---------- status bar (y 412–480) ---------- */
+  .status {
+    position: absolute; left: 0; top: 412px; width: 800px; height: 68px;
+    background: #1E293B; border-top: 2px solid #334155;
+    display: flex; flex-direction: column; justify-content: center; padding: 0 20px; gap: 2px;
+  }
+  .status .l1 { font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .status .l1 .dot { width: 12px; height: 12px; border-radius: 50%; background: #4ADE80; }
+  .status .l2 { font-size: 18px; color: #CBD5E1; padding-left: 22px; }
+  /* caption area – outside the 800×480 screen, not rendered on device */
+  .caption { width: 800px; padding: 8px 4px; color: #eee; font: 13px sans-serif; }
+</style>
+</head>
+<body>
+<div class="screen" id="screen">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">SE</div><!-- logo placeholder -->
+    <div class="school">Sample School</div>
+    <div class="spacer"></div>
+
+    <div class="chip" title="Wi-Fi">
+      <div class="bars"><i></i><i></i><i></i><i></i></div>
+      <span>School-Staff</span>
+      <span class="ok">Connected</span>
+    </div>
+
+    <div class="chip" title="Power">
+      <!-- simple plug icon: body + two prongs + cord -->
+      <svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true">
+        <rect x="5" y="1" width="3" height="7" rx="1" fill="#FACC15"/>
+        <rect x="12" y="1" width="3" height="7" rx="1" fill="#FACC15"/>
+        <rect x="2" y="7" width="16" height="9" rx="3" fill="#FACC15"/>
+        <rect x="8.5" y="15" width="3" height="8" rx="1" fill="#FACC15"/>
+      </svg>
+      <span>USB power</span>
+    </div>
+  </div>
+
+  <!-- LEFT COLUMN -->
+  <div class="left">
+    <div class="time">11:52<small>AM</small></div>
+    <div class="date">Mon, Sep 28</div>
+
+    <div style="margin-top: 14px;">
+      <div class="label">Classroom</div>
+      <div class="dropdown">
+        <span class="grow">Room 104</span>
+        <!-- chevron down -->
+        <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">
+          <path d="M2 2 L11 11 L20 2" stroke="#60A5FA" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="storage" style="margin-top: 14px;">
+      <div class="label" style="margin-bottom:2px">Storage</div>
+      <div class="row"><b>2,046 hours free</b><span style="color:#CBD5E1">of 2,070</span></div>
+      <div class="bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- RECORD BUTTON -->
+  <div class="record" role="button">
+    <div class="rec-icon"><i></i></div>
+    <div class="rec-text">Record</div>
+    <div class="rec-sub">Tap to start a session</div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="status">
+    <div class="l1"><span class="dot"></span>Ready to record · Booted 11:40 AM</div>
+    <div class="l2">Uploads off (demo mode) · Last recording 10:15 AM (42 min)</div>
+  </div>
+</div>
+
+<div class="caption">
+  HOME v1 · 800×480 · "SE" square is a logo placeholder (real logo TBD). All names and values are made-up examples.
+</div>
+</body>
+</html>

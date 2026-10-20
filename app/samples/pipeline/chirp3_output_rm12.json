@@ -1,0 +1,1426 @@
+{
+ "results": [
+  {
+   "alternatives": [
+    {
+     "transcript": "Good morning, everyone. Marcus, let's start with our math warm-up. Double digit addition on page 12. Okay, I already did the first two. 37 + 28 is 65. Nice work carrying the one. Keep going. You've got eight more on that set. Marcus, remember to write the little one above the tens column like we practiced yesterday. 46 + 19 6 + 9 is 15, so I carry the one. 65 again. That's right. Two in a row. Try the next one on your own. Everyone, the fire drill test tone is going to sound in a minute. It will be loud, but it's just a test. It's too loud. I don't like it. I can't do the math when it's loud. I hear you. What can you use when it gets loud? Can I have my headphones, please? Great asking. Here are your headphones. Take a minute at the calm table if you need it. Okay, I'm ready now. I'm going back to my seat. Welcome back, Marcus. That was about 3 minutes. Let's finish problem five. 58 + 24. 8 + 4 is 12. Carry the one. 82. Correct. You got six out of seven right on this probe. That's really strong work. I'll note the headphone request and the return time on the data sheet. Thank you. All right, everyone, put your worksheets in the blue tray and line up for centers.",
+     "words": [
+      {
+       "endOffset": "0.240s",
+       "word": "Good",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "0.240s",
+       "endOffset": "0.800s",
+       "word": "morning,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "0.880s",
+       "endOffset": "1.600s",
+       "word": "everyone.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "1.680s",
+       "endOffset": "2.400s",
+       "word": "Marcus,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "2.520s",
+       "endOffset": "2.800s",
+       "word": "let's",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "2.800s",
+       "endOffset": "3.040s",
+       "word": "start",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "3.040s",
+       "endOffset": "3.200s",
+       "word": "with",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "3.200s",
+       "endOffset": "3.320s",
+       "word": "our",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "3.320s",
+       "endOffset": "3.680s",
+       "word": "math",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "3.680s",
+       "endOffset": "4.280s",
+       "word": "warm-up.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "4.560s",
+       "endOffset": "4.920s",
+       "word": "Double",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "4.920s",
+       "endOffset": "5.240s",
+       "word": "digit",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "5.240s",
+       "endOffset": "5.720s",
+       "word": "addition",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "5.720s",
+       "endOffset": "5.880s",
+       "word": "on",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "5.880s",
+       "endOffset": "6.280s",
+       "word": "page",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "6.280s",
+       "endOffset": "6.720s",
+       "word": "12.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "8.280s",
+       "endOffset": "8.800s",
+       "word": "Okay,",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "8.920s",
+       "endOffset": "9.040s",
+       "word": "I",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "9.040s",
+       "endOffset": "9.480s",
+       "word": "already",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "9.480s",
+       "endOffset": "9.680s",
+       "word": "did",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "9.680s",
+       "endOffset": "9.760s",
+       "word": "the",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "9.760s",
+       "endOffset": "10.160s",
+       "word": "first",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "10.160s",
+       "endOffset": "10.520s",
+       "word": "two.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "10.840s",
+       "endOffset": "11.520s",
+       "word": "37",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "11.520s",
+       "endOffset": "11.800s",
+       "word": "+",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "11.800s",
+       "endOffset": "12.400s",
+       "word": "28",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "12.400s",
+       "endOffset": "12.520s",
+       "word": "is",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "12.520s",
+       "endOffset": "13.280s",
+       "word": "65.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "14.480s",
+       "endOffset": "14.800s",
+       "word": "Nice",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "14.800s",
+       "endOffset": "15.160s",
+       "word": "work",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "15.160s",
+       "endOffset": "15.560s",
+       "word": "carrying",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "15.560s",
+       "endOffset": "15.680s",
+       "word": "the",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "15.680s",
+       "endOffset": "16.080s",
+       "word": "one.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "16.400s",
+       "endOffset": "16.640s",
+       "word": "Keep",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "16.640s",
+       "endOffset": "17.200s",
+       "word": "going.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "17.280s",
+       "endOffset": "17.520s",
+       "word": "You've",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "17.520s",
+       "endOffset": "17.760s",
+       "word": "got",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "17.760s",
+       "endOffset": "17.960s",
+       "word": "eight",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "17.960s",
+       "endOffset": "18.240s",
+       "word": "more",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "18.240s",
+       "endOffset": "18.360s",
+       "word": "on",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "18.360s",
+       "endOffset": "18.640s",
+       "word": "that",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "18.640s",
+       "endOffset": "18.960s",
+       "word": "set.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "20.880s",
+       "endOffset": "21.480s",
+       "word": "Marcus,",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "21.520s",
+       "endOffset": "21.920s",
+       "word": "remember",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "21.920s",
+       "endOffset": "22.040s",
+       "word": "to",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "22.040s",
+       "endOffset": "22.240s",
+       "word": "write",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "22.240s",
+       "endOffset": "22.360s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "22.360s",
+       "endOffset": "22.640s",
+       "word": "little",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "22.640s",
+       "endOffset": "22.840s",
+       "word": "one",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "22.840s",
+       "endOffset": "23.120s",
+       "word": "above",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "23.120s",
+       "endOffset": "23.240s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "23.240s",
+       "endOffset": "23.600s",
+       "word": "tens",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "23.600s",
+       "endOffset": "24.040s",
+       "word": "column",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "24.080s",
+       "endOffset": "24.240s",
+       "word": "like",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "24.240s",
+       "endOffset": "24.400s",
+       "word": "we",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "24.400s",
+       "endOffset": "24.840s",
+       "word": "practiced",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "24.840s",
+       "endOffset": "25.400s",
+       "word": "yesterday.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "27.240s",
+       "endOffset": "27.840s",
+       "word": "46",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "27.840s",
+       "endOffset": "28.120s",
+       "word": "+",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "28.120s",
+       "endOffset": "28.840s",
+       "word": "19",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "29.040s",
+       "endOffset": "29.400s",
+       "word": "6",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "29.400s",
+       "endOffset": "29.680s",
+       "word": "+",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "29.680s",
+       "endOffset": "30.080s",
+       "word": "9",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "30.080s",
+       "endOffset": "30.240s",
+       "word": "is",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "30.240s",
+       "endOffset": "30.920s",
+       "word": "15,",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "31.040s",
+       "endOffset": "31.240s",
+       "word": "so",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "31.240s",
+       "endOffset": "31.320s",
+       "word": "I",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "31.320s",
+       "endOffset": "31.640s",
+       "word": "carry",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "31.640s",
+       "endOffset": "31.760s",
+       "word": "the",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "31.760s",
+       "endOffset": "32.200s",
+       "word": "one.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "32.520s",
+       "endOffset": "33.280s",
+       "word": "65",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "33.280s",
+       "endOffset": "33.720s",
+       "word": "again.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "35.200s",
+       "endOffset": "35.440s",
+       "word": "That's",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "35.440s",
+       "endOffset": "35.960s",
+       "word": "right.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "36s",
+       "endOffset": "36.200s",
+       "word": "Two",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "36.200s",
+       "endOffset": "36.320s",
+       "word": "in",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "36.320s",
+       "endOffset": "36.400s",
+       "word": "a",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "36.400s",
+       "endOffset": "36.880s",
+       "word": "row.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "37.040s",
+       "endOffset": "37.240s",
+       "word": "Try",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "37.240s",
+       "endOffset": "37.360s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "37.360s",
+       "endOffset": "37.680s",
+       "word": "next",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "37.680s",
+       "endOffset": "37.840s",
+       "word": "one",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "37.840s",
+       "endOffset": "37.960s",
+       "word": "on",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "37.960s",
+       "endOffset": "38.160s",
+       "word": "your",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "38.160s",
+       "endOffset": "38.400s",
+       "word": "own.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "40.760s",
+       "endOffset": "41.480s",
+       "word": "Everyone,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "41.560s",
+       "endOffset": "41.680s",
+       "word": "the",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "41.680s",
+       "endOffset": "42.080s",
+       "word": "fire",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "42.080s",
+       "endOffset": "42.360s",
+       "word": "drill",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "42.360s",
+       "endOffset": "42.720s",
+       "word": "test",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "42.720s",
+       "endOffset": "42.960s",
+       "word": "tone",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "42.960s",
+       "endOffset": "43.080s",
+       "word": "is",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "43.080s",
+       "endOffset": "43.320s",
+       "word": "going",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "43.320s",
+       "endOffset": "43.440s",
+       "word": "to",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "43.440s",
+       "endOffset": "43.800s",
+       "word": "sound",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "43.800s",
+       "endOffset": "43.920s",
+       "word": "in",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "43.920s",
+       "endOffset": "43.960s",
+       "word": "a",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "43.960s",
+       "endOffset": "44.360s",
+       "word": "minute.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "45.120s",
+       "endOffset": "45.240s",
+       "word": "It",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "45.240s",
+       "endOffset": "45.360s",
+       "word": "will",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "45.360s",
+       "endOffset": "45.520s",
+       "word": "be",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "45.520s",
+       "endOffset": "46.160s",
+       "word": "loud,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "46.160s",
+       "endOffset": "46.320s",
+       "word": "but",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "46.320s",
+       "endOffset": "46.520s",
+       "word": "it's",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "46.520s",
+       "endOffset": "46.840s",
+       "word": "just",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "46.840s",
+       "endOffset": "46.920s",
+       "word": "a",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "46.920s",
+       "endOffset": "47.440s",
+       "word": "test.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "49.360s",
+       "endOffset": "49.560s",
+       "word": "It's",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "49.560s",
+       "endOffset": "49.760s",
+       "word": "too",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "49.760s",
+       "endOffset": "50.320s",
+       "word": "loud.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "50.360s",
+       "endOffset": "50.480s",
+       "word": "I",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "50.480s",
+       "endOffset": "50.760s",
+       "word": "don't",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "50.760s",
+       "endOffset": "51s",
+       "word": "like",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "51s",
+       "endOffset": "51.320s",
+       "word": "it.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "51.360s",
+       "endOffset": "51.440s",
+       "word": "I",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "51.440s",
+       "endOffset": "51.760s",
+       "word": "can't",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "51.760s",
+       "endOffset": "51.920s",
+       "word": "do",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "51.920s",
+       "endOffset": "52s",
+       "word": "the",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "52s",
+       "endOffset": "52.400s",
+       "word": "math",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "52.400s",
+       "endOffset": "52.560s",
+       "word": "when",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "52.560s",
+       "endOffset": "52.720s",
+       "word": "it's",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "52.720s",
+       "endOffset": "53.120s",
+       "word": "loud.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "54.200s",
+       "endOffset": "54.280s",
+       "word": "I",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "54.280s",
+       "endOffset": "54.520s",
+       "word": "hear",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "54.520s",
+       "endOffset": "54.840s",
+       "word": "you.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55s",
+       "endOffset": "55.160s",
+       "word": "What",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55.160s",
+       "endOffset": "55.280s",
+       "word": "can",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55.280s",
+       "endOffset": "55.400s",
+       "word": "you",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55.400s",
+       "endOffset": "55.720s",
+       "word": "use",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55.720s",
+       "endOffset": "55.840s",
+       "word": "when",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55.840s",
+       "endOffset": "55.960s",
+       "word": "it",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "55.960s",
+       "endOffset": "56.200s",
+       "word": "gets",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "56.200s",
+       "endOffset": "56.600s",
+       "word": "loud?",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "57.840s",
+       "endOffset": "57.960s",
+       "word": "Can",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "57.960s",
+       "endOffset": "58.040s",
+       "word": "I",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "58.040s",
+       "endOffset": "58.280s",
+       "word": "have",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "58.280s",
+       "endOffset": "58.440s",
+       "word": "my",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "58.440s",
+       "endOffset": "59s",
+       "word": "headphones,",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "59.080s",
+       "endOffset": "59.400s",
+       "word": "please?",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "60.400s",
+       "endOffset": "60.720s",
+       "word": "Great",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "60.720s",
+       "endOffset": "61.320s",
+       "word": "asking.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "61.400s",
+       "endOffset": "61.560s",
+       "word": "Here",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "61.560s",
+       "endOffset": "61.640s",
+       "word": "are",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "61.640s",
+       "endOffset": "61.800s",
+       "word": "your",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "61.800s",
+       "endOffset": "62.560s",
+       "word": "headphones.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "62.680s",
+       "endOffset": "62.920s",
+       "word": "Take",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "62.920s",
+       "endOffset": "62.960s",
+       "word": "a",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "62.960s",
+       "endOffset": "63.280s",
+       "word": "minute",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "63.280s",
+       "endOffset": "63.360s",
+       "word": "at",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "63.360s",
+       "endOffset": "63.480s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "63.480s",
+       "endOffset": "63.800s",
+       "word": "calm",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "63.800s",
+       "endOffset": "64.200s",
+       "word": "table",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "64.200s",
+       "endOffset": "64.320s",
+       "word": "if",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "64.320s",
+       "endOffset": "64.440s",
+       "word": "you",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "64.440s",
+       "endOffset": "64.680s",
+       "word": "need",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "64.680s",
+       "endOffset": "64.800s",
+       "word": "it.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "68.160s",
+       "endOffset": "68.680s",
+       "word": "Okay,",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "68.800s",
+       "endOffset": "69.040s",
+       "word": "I'm",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "69.040s",
+       "endOffset": "69.280s",
+       "word": "ready",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "69.280s",
+       "endOffset": "69.680s",
+       "word": "now.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "69.800s",
+       "endOffset": "70s",
+       "word": "I'm",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "70s",
+       "endOffset": "70.240s",
+       "word": "going",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "70.240s",
+       "endOffset": "70.520s",
+       "word": "back",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "70.520s",
+       "endOffset": "70.600s",
+       "word": "to",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "70.600s",
+       "endOffset": "70.760s",
+       "word": "my",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "70.760s",
+       "endOffset": "71.160s",
+       "word": "seat.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "72.560s",
+       "endOffset": "72.920s",
+       "word": "Welcome",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "72.920s",
+       "endOffset": "73.400s",
+       "word": "back,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "73.440s",
+       "endOffset": "74.080s",
+       "word": "Marcus.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "74.280s",
+       "endOffset": "74.520s",
+       "word": "That",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "74.520s",
+       "endOffset": "74.680s",
+       "word": "was",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "74.680s",
+       "endOffset": "75.040s",
+       "word": "about",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "75.040s",
+       "endOffset": "75.280s",
+       "word": "3",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "75.280s",
+       "endOffset": "75.920s",
+       "word": "minutes.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "76.200s",
+       "endOffset": "76.560s",
+       "word": "Let's",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "76.560s",
+       "endOffset": "76.920s",
+       "word": "finish",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "76.920s",
+       "endOffset": "77.400s",
+       "word": "problem",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "77.400s",
+       "endOffset": "77.760s",
+       "word": "five.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "79.080s",
+       "endOffset": "79.640s",
+       "word": "58",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "79.640s",
+       "endOffset": "79.920s",
+       "word": "+",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "79.920s",
+       "endOffset": "80.720s",
+       "word": "24.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "80.960s",
+       "endOffset": "81.200s",
+       "word": "8",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "81.200s",
+       "endOffset": "81.520s",
+       "word": "+",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "81.520s",
+       "endOffset": "81.920s",
+       "word": "4",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "81.920s",
+       "endOffset": "82.080s",
+       "word": "is",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "82.080s",
+       "endOffset": "82.680s",
+       "word": "12.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "82.760s",
+       "endOffset": "83.040s",
+       "word": "Carry",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "83.040s",
+       "endOffset": "83.160s",
+       "word": "the",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "83.160s",
+       "endOffset": "83.600s",
+       "word": "one.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "83.840s",
+       "endOffset": "84.520s",
+       "word": "82.",
+       "speakerLabel": "2"
+      },
+      {
+       "startOffset": "85.800s",
+       "endOffset": "86.600s",
+       "word": "Correct.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "86.640s",
+       "endOffset": "86.800s",
+       "word": "You",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "86.800s",
+       "endOffset": "87.040s",
+       "word": "got",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "87.040s",
+       "endOffset": "87.440s",
+       "word": "six",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "87.440s",
+       "endOffset": "87.560s",
+       "word": "out",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "87.560s",
+       "endOffset": "87.640s",
+       "word": "of",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "87.640s",
+       "endOffset": "88s",
+       "word": "seven",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "88s",
+       "endOffset": "88.280s",
+       "word": "right",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "88.280s",
+       "endOffset": "88.400s",
+       "word": "on",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "88.400s",
+       "endOffset": "88.600s",
+       "word": "this",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "88.600s",
+       "endOffset": "89.040s",
+       "word": "probe.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "89.360s",
+       "endOffset": "89.680s",
+       "word": "That's",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "89.680s",
+       "endOffset": "89.960s",
+       "word": "really",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "89.960s",
+       "endOffset": "90.400s",
+       "word": "strong",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "90.400s",
+       "endOffset": "90.800s",
+       "word": "work.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "92.520s",
+       "endOffset": "92.600s",
+       "word": "I'll",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "92.600s",
+       "endOffset": "92.840s",
+       "word": "note",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "92.840s",
+       "endOffset": "92.960s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "92.960s",
+       "endOffset": "93.400s",
+       "word": "headphone",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "93.400s",
+       "endOffset": "93.960s",
+       "word": "request",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "93.960s",
+       "endOffset": "94.080s",
+       "word": "and",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "94.080s",
+       "endOffset": "94.160s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "94.160s",
+       "endOffset": "94.560s",
+       "word": "return",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "94.560s",
+       "endOffset": "94.840s",
+       "word": "time",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "94.840s",
+       "endOffset": "94.920s",
+       "word": "on",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "94.920s",
+       "endOffset": "95s",
+       "word": "the",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "95s",
+       "endOffset": "95.320s",
+       "word": "data",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "95.320s",
+       "endOffset": "95.680s",
+       "word": "sheet.",
+       "speakerLabel": "3"
+      },
+      {
+       "startOffset": "97.440s",
+       "endOffset": "97.760s",
+       "word": "Thank",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "97.760s",
+       "endOffset": "98.040s",
+       "word": "you.",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "98.200s",
+       "endOffset": "98.360s",
+       "word": "All",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "98.360s",
+       "endOffset": "98.880s",
+       "word": "right,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "99s",
+       "endOffset": "99.640s",
+       "word": "everyone,",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "99.760s",
+       "endOffset": "100s",
+       "word": "put",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "100s",
+       "endOffset": "100.120s",
+       "word": "your",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "100.120s",
+       "endOffset": "100.680s",
+       "word": "worksheets",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "100.680s",
+       "endOffset": "100.800s",
+       "word": "in",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "100.800s",
+       "endOffset": "100.880s",
+       "word": "the",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "100.880s",
+       "endOffset": "101.120s",
+       "word": "blue",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "101.120s",
+       "endOffset": "101.440s",
+       "word": "tray",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "101.440s",
+       "endOffset": "101.560s",
+       "word": "and",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "101.560s",
+       "endOffset": "101.840s",
+       "word": "line",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "101.840s",
+       "endOffset": "102s",
+       "word": "up",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "102s",
+       "endOffset": "102.120s",
+       "word": "for",
+       "speakerLabel": "1"
+      },
+      {
+       "startOffset": "102.120s",
+       "endOffset": "102.680s",
+       "word": "centers.",
+       "speakerLabel": "1"
+      }
+     ]
+    }
+   ],
+   "languageCode": "en-US"
+  }
+ ],
+ "metadata": {
+  "prompt": "Transcribe the following speech segment with speaker labels in English: Follow these specific instructions for formatting the answer:\n* Only output the transcript, with no newlines.\n* When transcribing numbers, write the digits, i.e. write 1.7 and not one point seven, and write 100 instead of one hundred etc.\n* Only output the transcript, exactly as said in the speech segment.\n* Do not continue the speech segment.\n* Include everything said in the speech segment.\n* Use mathematical notation where needed, eg. x ^ 6Y.\n* If there is background speech that is not part of the main conversation, discard the background speech and only output the main conversation.\n* If there is no clear speech, just output [BACKGROUND].\nThere may be multiple speakers in the speech segment. Annotate the speakers like spk:1, spk:2, spk:3 and so on. Each speaker annotation starts with spk, followed by a colon and a digit. The speaker annotation should be output after the transcript of that speaker's speech. The digit is the anonymous identity of the speaker and the same speaker should always have the same digit throughout the speech segment. An example transcript with speaker annotation is as follows:\nHello. spk:1 Good morning. spk:2 How are you? spk:1 Respond in the original language of the speech, English. Include the end timestamp for each word in ctrl token format using numerals from <ctrl1> to <ctrl64>."
+ }
+}

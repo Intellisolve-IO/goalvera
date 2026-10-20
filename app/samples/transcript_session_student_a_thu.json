@@ -1,0 +1,155 @@
+{
+  "recording_id": "rec_20260924_1014",
+  "student_id": "stu_101",
+  "student_first_name": "Marcus",
+  "student_last_initial": "A.",
+  "teacher_id": "usr_demo_sarah",
+  "teacher_name": "Sarah Jenkins",
+  "timestamp_start": "2026-09-24T10:14:00-04:00",
+  "duration_seconds": 2700,
+  "incident_flags": [1240, 2100],
+  "iep_goals": [
+    {
+      "goal_id": "g1",
+      "category": "Behavioral",
+      "description": "When experiencing sensory overload, Marcus will independently request or use a calming strategy (e.g., noise-canceling headphones, break space) and return to task within 5 minutes in 4 of 5 opportunities."
+    },
+    {
+      "goal_id": "g2",
+      "category": "Academic",
+      "description": "Marcus will solve double-digit addition problems with regrouping at 80% accuracy across three consecutive probes."
+    }
+  ],
+  "speaker_turns": [
+    {
+      "speaker": "Teacher",
+      "start_seconds": 0,
+      "end_seconds": 18,
+      "text": "Good morning, everyone. Marcus, let's start with our math warm-up — double-digit addition on page twelve."
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 22,
+      "end_seconds": 35,
+      "text": "Okay. I already did the first two. Thirty-seven plus twenty-eight is sixty-five."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 36,
+      "end_seconds": 48,
+      "text": "Nice work carrying the one. Keep going — you've got eight more on that set."
+    },
+    {
+      "speaker": "Peer",
+      "start_seconds": 420,
+      "end_seconds": 435,
+      "text": "Can somebody turn the music down? It's really loud."
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 440,
+      "end_seconds": 455,
+      "text": "It's too noisy. I need my headphones."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 456,
+      "end_seconds": 480,
+      "text": "Absolutely, Marcus. Grab your noise-canceling headphones from the calm shelf. Take a two-minute reset if you need it."
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 510,
+      "end_seconds": 525,
+      "text": "I'm ready. Back to the worksheet."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 526,
+      "end_seconds": 545,
+      "text": "Great self-advocacy. You were back on task in under three minutes."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 1180,
+      "end_seconds": 1205,
+      "text": "Marcus, let's check your accuracy. You got seven of eight correct on the regrouping set — that's about eighty-seven percent."
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 1206,
+      "end_seconds": 1218,
+      "text": "I messed up number five because I forgot to carry."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 1219,
+      "end_seconds": 1235,
+      "text": "That's okay — you caught it when we reviewed. Circle that one and try a similar problem next."
+    },
+    {
+      "speaker": "Peer",
+      "start_seconds": 1225,
+      "end_seconds": 1245,
+      "text": "Hey Marcus, give me that eraser! Come on!"
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 1246,
+      "end_seconds": 1265,
+      "text": "No! Stop taking my stuff! Leave me alone!"
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 1266,
+      "end_seconds": 1310,
+      "text": "Marcus, take a breath with me. Peer, please return the eraser and give Marcus space. Marcus, would you like the break corner or headphones again?"
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 1312,
+      "end_seconds": 1325,
+      "text": "Headphones. And I want to finish my math."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 1326,
+      "end_seconds": 1350,
+      "text": "Good choice. You used your words after the first reaction. Let's reset and finish the last two problems."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 2050,
+      "end_seconds": 2080,
+      "text": "Transition time to centers. Marcus, put your worksheet in the blue folder and join reading group at table two."
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 2095,
+      "end_seconds": 2120,
+      "text": "I don't want to move. The lights are buzzing and my stomach hurts."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 2121,
+      "end_seconds": 2170,
+      "text": "I hear you. Sensory check — lights are a bit bright. You can take the soft lamp seat at table two, and we'll do a short calm-down first. Timer for three minutes."
+    },
+    {
+      "speaker": "Marcus",
+      "start_seconds": 2200,
+      "end_seconds": 2215,
+      "text": "Okay. Soft seat. I'm going."
+    },
+    {
+      "speaker": "Teacher",
+      "start_seconds": 2550,
+      "end_seconds": 2580,
+      "text": "Wrapping up. Marcus completed his math probe above eighty percent and used headphones twice today without needing a full exit from the room. Strong morning overall."
+    }
+  ],
+  "_meta": {
+    "synthetic": true,
+    "note": "FIXTURE ONLY — fictional student initials and dialogue. No real student PII."
+  }
+}

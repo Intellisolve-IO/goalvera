@@ -1,0 +1,136 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0014-v1",
+  "studentSourcedId": "u-stu-0015",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-08-25",
+  "startDate": "2026-08-26",
+  "endDate": "2027-08-24",
+  "annualReviewDue": "2027-08-24",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2024-11-28",
+  "reevaluationDue": "2027-08-25",
+  "eligibilityDate": "2025-10-16",
+  "caseManagerSourcedId": "u-stf-0002",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-SLI",
+      "federalCode": "SLI",
+      "label": "Speech-Language Impairment",
+      "determinedDate": "2024-03-13"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "communication",
+      "text": "Summary: Uses 3-word phrases in 2 of 10 opportunities. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0014-v1-g1",
+      "number": 1,
+      "area": "communication",
+      "category": "Communication",
+      "baseline": "Uses 3-word phrases in 2 of 10 opportunities.",
+      "statement": "Ava will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions.",
+      "criteriaForMastery": "8 of 10, 3 sessions",
+      "measurementMethod": "SLP data sheet",
+      "targetDate": "2027-08-24",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0014-v1-g2",
+      "number": 2,
+      "area": "communication",
+      "category": "Communication",
+      "baseline": "Produces target sounds correctly in 40% of words.",
+      "statement": "Ava will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions.",
+      "criteriaForMastery": "80%, 3 sessions",
+      "measurementMethod": "SLP data sheet",
+      "targetDate": "2027-08-24",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0014-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0002",
+      "location": "Room 101",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0014-v1-s2",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Therapy room",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0014-v1-a1",
+      "category": "instructional",
+      "description": "Extra wait time for verbal responses",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0014-v1-a2",
+      "category": "instructional",
+      "description": "Visual supports for directions",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

@@ -1,0 +1,25 @@
+# Hosyond ESP32-S3 3.5" (LCDWIKI ES3C35P): ESP32-S3R8 (8 MB octal PSRAM),
+# 16 MB quad flash, ST77922 QSPI 320x480 portrait, ES8311 codec, SDMMC 4-bit.
+# Applied on top of sdkconfig.defaults when building with
+#   -D RECORDER_BOARD=hosyond35
+# See docs/hosyond-35-pinmap.md.
+CONFIG_RECORDER_BOARD_HOSYOND_35=y
+
+# The only USB port is the chip's own USB-Serial/JTAG: put the whole console
+# (bootloader + app log) there. UART0 is still on the 4-pin header (43/44)
+# for the ROM, but the app does not log to it.
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+CONFIG_ESP_CONSOLE_SECONDARY_NONE=y
+
+# Flash chip is a Zbit 0x5E/0x4018 part: DIO boots on any chip. Code and
+# rodata run from PSRAM anyway (SPIRAM_XIP_FROM_PSRAM in the base defaults),
+# so QIO would buy nothing noticeable.
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+
+# RGB-panel-only options from the base defaults are not used here.
+# CONFIG_LCD_RGB_ISR_IRAM_SAFE is not set
+# CONFIG_LCD_RGB_RESTART_IN_VSYNC is not set
+
+# The UI is the CrowPanel layout scaled to 480x320: Montserrat 12 for the
+# small captions and the activity log (the CrowPanel fonts stay enabled).
+CONFIG_LV_FONT_MONTSERRAT_12=y

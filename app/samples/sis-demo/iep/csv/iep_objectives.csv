@@ -1,0 +1,42 @@
+sourcedId,goalSourcedId,number,statement,criteria,metadata.fictional
+iep-0001-v2-g1-o1,iep-0001-v2-g1,1,Doc will underline two text clues that support an answer with 80% accuracy.,"80%, 3 probes",true
+iep-0001-v2-g1-o2,iep-0001-v2-g1,2,Doc will answer 'why' and 'how' questions about characters' feelings with 70% accuracy.,"70%, 3 probes",true
+iep-0001-v2-g2-o1,iep-0001-v2-g2,1,Doc will cross out information that isn't needed in a word problem with 80% accuracy.,"80%, 3 probes",true
+iep-0001-v2-g2-o2,iep-0001-v2-g2,2,Doc will write the equation before solving in 4 of 5 problems.,4 of 5,true
+iep-0001-v2-g3-o1,iep-0001-v2-g3,1,Doc will use a visual conversation starter card to greet and ask a peer a question in 4 of 5 opportunities.,4 of 5,true
+iep-0001-v2-g3-o2,iep-0001-v2-g3,2,Doc will ask a follow-up question on the peer's topic in 3 of 5 opportunities.,3 of 5,true
+iep-0001-v2-g4-o1,iep-0001-v2-g4,1,Doc will check his visual schedule when given a 2-minute transition warning in 4 of 5 transitions.,4 of 5,true
+iep-0001-v2-g4-o2,iep-0001-v2-g4,2,Doc will walk with an assigned peer buddy during hallway transitions in 4 of 5 transitions.,4 of 5,true
+iep-0001-v2-g5-o1,iep-0001-v2-g5,1,"With a gestural prompt, Doc will hand over his break card in 80% of opportunities.",80%,true
+iep-0001-v2-g5-o2,iep-0001-v2-g5,2,Doc will return from a break and resume work within 5 minutes in 4 of 5 breaks.,4 of 5,true
+iep-0002-v2-g1-o1,iep-0002-v2-g1,1,Grumpy will read CVCe words with 90% accuracy.,"90%, 3 probes",true
+iep-0002-v2-g1-o2,iep-0002-v2-g1,2,"Grumpy will read ai/ay, ee/ea, oa/ow words with 85% accuracy.","85%, 3 probes",true
+iep-0002-v2-g2-o1,iep-0002-v2-g2,1,Grumpy will read grade 2 passages at 60 wcpm.,"60 wcpm, 3 probes",true
+iep-0002-v2-g3-o1,iep-0002-v2-g3,1,Grumpy will spell closed-syllable words with 80% accuracy.,80%,true
+iep-0002-v2-g4-o1,iep-0002-v2-g4,1,Grumpy will produce /r/ in words with 80% accuracy.,80%,true
+iep-0002-v2-g4-o2,iep-0002-v2-g4,2,Grumpy will produce /s/-blends in sentences with 80% accuracy.,80%,true
+iep-0003-v2-g1-o1,iep-0003-v2-g1,1,Happy will set a visual timer and mark his checklist at each tone in 4 of 5 sessions.,4 of 5,true
+iep-0003-v2-g1-o2,iep-0003-v2-g1,2,Happy will be on task in 65% of intervals.,"65%, 5 sessions",true
+iep-0003-v2-g2-o1,iep-0003-v2-g2,1,Happy will complete chunked assignments one section at a time with 1 adult check-in.,4 of 5 days,true
+iep-0003-v2-g3-o1,iep-0003-v2-g3,1,Happy will reach 30 digits correct on facts 0-5 and 10.,3 probes,true
+iep-0003-v2-g4-o1,iep-0003-v2-g4,1,Happy will complete the organizer before writing in 4 of 5 tasks.,4 of 5,true
+iep-0004-v2-g1-o1,iep-0004-v2-g1,1,Sleepy will go up and down the ramp with stand-by assistance in 4 of 5 trials.,4 of 5,true
+iep-0004-v2-g1-o2,iep-0004-v2-g1,2,Sleepy will travel classroom to cafeteria within 5 minutes.,4 of 5,true
+iep-0004-v2-g2-o1,iep-0004-v2-g2,1,Sleepy will form lowercase letters a-m legibly with 80% accuracy.,80%,true
+iep-0004-v2-g3-o1,iep-0004-v2-g3,1,Sleepy will type 5 wpm with 90% accuracy.,3 probes,true
+iep-0004-v2-g4-o1,iep-0004-v2-g4,1,Sleepy will unpack independently on 4 of 5 days.,4 of 5,true
+iep-0005-v2-g1-o1,iep-0005-v2-g1,1,Bashful will do a daily equipment check with an adult and report any problem in 4 of 5 days.,4 of 5,true
+iep-0005-v2-g1-o2,iep-0005-v2-g1,2,Bashful will use a taught phrase to ask for repetition in 3 of 5 opportunities.,3 of 5,true
+iep-0005-v2-g2-o1,iep-0005-v2-g2,1,Bashful will match vocabulary words to pictures or definitions with 80% accuracy.,80%,true
+iep-0005-v2-g3-o1,iep-0005-v2-g3,1,Bashful will answer literal questions with 85% accuracy.,85%,true
+iep-0005-v2-g4-o1,iep-0005-v2-g4,1,Bashful will follow 2-step directions in noise in 80% of trials.,80%,true
+iep-0006-v2-g1-o1,iep-0006-v2-g1,1,"With a visual prompt, Sneezy will choose a coping strategy from his card in 4 of 5 opportunities.",4 of 5,true
+iep-0006-v2-g1-o2,iep-0006-v2-g1,2,Sneezy will return from the cool-down area within 5 minutes in 4 of 5 uses.,4 of 5,true
+iep-0006-v2-g2-o1,iep-0006-v2-g2,1,Sneezy will have 2 or fewer outbursts per day for 2 consecutive weeks.,2 weeks,true
+iep-0006-v2-g3-o1,iep-0006-v2-g3,1,Sneezy will start the first item with an adult check-in on 70% of occasions.,70%,true
+iep-0006-v2-g4-o1,iep-0006-v2-g4,1,Sneezy will name the problem and his feelings in 4 of 5 role-plays.,4 of 5,true
+iep-0006-v2-g5-o1,iep-0006-v2-g5,1,Sneezy will solve 2-digit by 1-digit problems with 85% accuracy.,85%,true
+iep-0007-v2-g1-o1,iep-0007-v2-g1,1,Dopey will adjust magnification and contrast independently in 4 of 5 opportunities.,4 of 5,true
+iep-0007-v2-g2-o1,iep-0007-v2-g2,1,Dopey will read at 50 wcpm.,3 probes,true
+iep-0007-v2-g3-o1,iep-0007-v2-g3,1,Dopey will name 3 landmarks on each route.,4 of 5,true
+iep-0007-v2-g4-o1,iep-0007-v2-g4,1,Dopey will use a taught phrase to ask for materials in 3 of 5 opportunities.,3 of 5,true

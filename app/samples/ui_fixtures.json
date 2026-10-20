@@ -1,0 +1,239 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "FIXTURE ONLY — fictional roster for HITL demo. Replace with Firestore later.",
+    "week_of": "2026-09-21",
+    "week_label": "Sept 21 – Sept 25, 2026",
+    "savings_factor_k": 0.4,
+    "cost_per_session_usd_stub": 0.42
+  },
+  "teacher": {
+    "teacher_id": "usr_demo_sarah",
+    "full_name": "Sarah Jenkins",
+    "email": "s.jenkins@demo.school.invalid"
+  },
+  "students": [
+    {
+      "student_id": "stu_101",
+      "first_name": "Marcus",
+      "last_initial": "A.",
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When experiencing sensory overload, use a calming strategy and return to task within 5 minutes in 4 of 5 opportunities."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Solve double-digit addition with regrouping at 80% accuracy across three consecutive probes."
+        }
+      ]
+    },
+    {
+      "student_id": "stu_102",
+      "first_name": "Sophia",
+      "last_initial": "L.",
+      "iep_goals": [
+        {
+          "goal_id": "g3",
+          "category": "Communication",
+          "description": "Use a full sentence request (I need / I want + item) in 4 of 5 observed opportunities during centers."
+        }
+      ]
+    }
+  ],
+  "days": [
+    { "key": "mon", "label": "MON (9/21)", "date": "2026-09-21" },
+    { "key": "tue", "label": "TUE (9/22)", "date": "2026-09-22" },
+    { "key": "wed", "label": "WED (9/23)", "date": "2026-09-23" },
+    { "key": "thu", "label": "THU (9/24)", "date": "2026-09-24" },
+    { "key": "fri", "label": "FRI (9/25)", "date": "2026-09-25" }
+  ],
+  "sessions": [
+    {
+      "recording_id": "rec_20260921_marcus",
+      "student_id": "stu_101",
+      "day_key": "mon",
+      "duration_seconds": 2700,
+      "status": "approved",
+      "incident_flag_count": 0,
+      "iep_met": "2/2",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g1",
+            "status": "Demonstrated",
+            "evidence_quote": "Can I have my headphones please?",
+            "analysis": "Requested headphones once; returned in ~2 minutes."
+          },
+          {
+            "goal_id": "g2",
+            "status": "Demonstrated",
+            "evidence_quote": "Six out of seven correct.",
+            "analysis": "86% on regrouping probe."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Steady morning. Both IEP goals demonstrated; no incident flags.",
+        "draft_parent_email": "Hi — Marcus had a solid Monday. He hit his math accuracy target and used headphones once independently. — Ms. Jenkins"
+      }
+    },
+    {
+      "recording_id": "rec_20260922_marcus",
+      "student_id": "stu_101",
+      "day_key": "tue",
+      "duration_seconds": 3000,
+      "status": "approved",
+      "incident_flag_count": 0,
+      "iep_met": "1/2",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g1",
+            "status": "Not Observed",
+            "evidence_quote": "",
+            "analysis": "No sensory overload moments observed this block."
+          },
+          {
+            "goal_id": "g2",
+            "status": "Demonstrated",
+            "evidence_quote": "Eight of ten on the mixed set.",
+            "analysis": "80% on mixed regrouping probe."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Academic goal met; behavioral goal not observed (quiet morning).",
+        "draft_parent_email": "Quick update: Marcus scored 80% on today's mixed addition set. Calm morning overall. — Ms. Jenkins"
+      }
+    },
+    {
+      "recording_id": "rec_20260923_marcus",
+      "student_id": "stu_101",
+      "day_key": "wed",
+      "duration_seconds": 1800,
+      "status": "approved",
+      "incident_flag_count": 0,
+      "iep_met": "2/2",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g1",
+            "status": "Demonstrated",
+            "evidence_quote": "I'm going to the calm shelf.",
+            "analysis": "Self-initiated calm shelf; back in 4 minutes."
+          },
+          {
+            "goal_id": "g2",
+            "status": "Demonstrated",
+            "evidence_quote": "Nine of ten.",
+            "analysis": "90% accuracy."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Short block; both goals demonstrated.",
+        "draft_parent_email": "Wednesday was strong — 90% on math and a smooth self-reset with the calm shelf. — Ms. Jenkins"
+      }
+    },
+    {
+      "recording_id": "rec_20260924_1014",
+      "student_id": "stu_101",
+      "day_key": "thu",
+      "duration_seconds": 2700,
+      "status": "pending_review",
+      "incident_flag_count": 2,
+      "iep_met": "Review",
+      "fixture_transcript": "transcript_session_student_a_thu.json",
+      "fixture_analysis": "expected_gemini_output_student_a_thu.json",
+      "processed_analysis": null
+    },
+    {
+      "recording_id": "rec_20260921_sophia",
+      "student_id": "stu_102",
+      "day_key": "mon",
+      "duration_seconds": 2400,
+      "status": "approved",
+      "incident_flag_count": 0,
+      "iep_met": "1/1",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g3",
+            "status": "Demonstrated",
+            "evidence_quote": "I need the blue crayon please.",
+            "analysis": "Four full-sentence requests during centers."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Communication goal met during centers.",
+        "draft_parent_email": "Sophia used full-sentence requests throughout centers today — wonderful practice. — Ms. Jenkins"
+      }
+    },
+    {
+      "recording_id": "rec_20260922_sophia",
+      "student_id": "stu_102",
+      "day_key": "tue",
+      "duration_seconds": 2700,
+      "status": "approved",
+      "incident_flag_count": 0,
+      "iep_met": "1/1",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g3",
+            "status": "Demonstrated",
+            "evidence_quote": "I want a turn with the puzzle.",
+            "analysis": "Consistent full-sentence requests."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Communication goal demonstrated.",
+        "draft_parent_email": "Sophia continues to use full sentences when asking for materials. — Ms. Jenkins"
+      }
+    },
+    {
+      "recording_id": "rec_20260923_sophia",
+      "student_id": "stu_102",
+      "day_key": "wed",
+      "duration_seconds": 2700,
+      "status": "approved",
+      "incident_flag_count": 0,
+      "iep_met": "1/1",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g3",
+            "status": "Demonstrated",
+            "evidence_quote": "I need help with the zipper.",
+            "analysis": "Requested help with a full sentence."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Goal met; no incidents.",
+        "draft_parent_email": "Another good day for Sophia's communication goal. — Ms. Jenkins"
+      }
+    },
+    {
+      "recording_id": "rec_20260924_sophia",
+      "student_id": "stu_102",
+      "day_key": "thu",
+      "duration_seconds": 2400,
+      "status": "pending_review",
+      "incident_flag_count": 0,
+      "iep_met": "1/1",
+      "processed_analysis": {
+        "goal_evaluations": [
+          {
+            "goal_id": "g3",
+            "status": "Demonstrated",
+            "evidence_quote": "I want the soft seat at table two.",
+            "analysis": "Full-sentence request during transition."
+          }
+        ],
+        "incident_analysis": [],
+        "general_session_summary": "Communication goal demonstrated; quiet Thursday block.",
+        "draft_parent_email": "Sophia asked for the soft seat using a full sentence today. Have a great evening! — Ms. Jenkins"
+      }
+    }
+  ]
+}

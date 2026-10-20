@@ -1,0 +1,582 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0001-v2",
+  "studentSourcedId": "u-stu-0001",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0001-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-08-20",
+  "startDate": "2026-08-21",
+  "endDate": "2027-08-19",
+  "annualReviewDue": "2027-08-19",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2026-03-10",
+  "reevaluationDue": "2029-03-09",
+  "eligibilityDate": "2023-03-14",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-AUT",
+      "federalCode": "AUT",
+      "label": "Autism",
+      "determinedDate": "2023-03-14"
+    },
+    {
+      "order": 2,
+      "stateCode": "GA-SLI",
+      "federalCode": "SLI",
+      "label": "Speech-Language Impairment",
+      "determinedDate": "2023-03-14"
+    }
+  ],
+  "evaluationSummary": "Reevaluation 2026-03 (fictional results): DAS-II General Conceptual Ability 98 (average range). Autism eligibility continued based on team review of observation, rating scales and records. CELF-5 Core Language 82; Pragmatics Profile below the criterion for age. Georgia Milestones Grade 4 (spring 2026): ELA Developing Learner; Mathematics Proficient Learner.",
+  "strengths": "Doc decodes text at grade level, has strong math computation skills, follows a visual schedule independently, and is knowledgeable about maps and transit systems, which motivates him in reading and writing tasks.",
+  "needs": "Inferential reading comprehension; multi-step math word problems; starting and keeping a conversation going with peers; staying in his assigned area during transitions; asking for a break before frustration builds.",
+  "parentConcerns": "His family wants him to have more friends at school and to be safer during transitions between rooms and at dismissal.",
+  "disabilityImpact": "Differences in social communication and difficulty with unplanned changes in routine affect Doc's participation in group instruction, transitions and peer interaction. He needs explicit instruction in pragmatic language and self-regulation, and visual supports.",
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Decodes grade 4 text accurately (98% word accuracy). Answers literal questions 85% and inferential questions 40% on grade 4 passages (3 probes, Aug 2026)."
+    },
+    {
+      "area": "math",
+      "text": "Multi-digit computation 85% accuracy. Two-step word problems 50% accuracy; tends to compute with every number in the problem."
+    },
+    {
+      "area": "written_expression",
+      "text": "Writes a 3-sentence paragraph with a visual organizer; without one, writes one sentence on topic."
+    },
+    {
+      "area": "communication",
+      "text": "Initiates a conversation with a peer in 1 of 5 structured opportunities; keeps a topic for 1-2 turns. Speech is intelligible; prosody is flat and loud in noisy settings."
+    },
+    {
+      "area": "behavior_social_emotional",
+      "text": "ABC data (2 weeks, Aug 2026): leaves his assigned area without permission an average of 6 times a day, mostly during transitions and in noisy settings; returns with one verbal prompt in most cases."
+    },
+    {
+      "area": "adaptive",
+      "text": "Independent with arrival and unpacking routines. Covers his ears in the cafeteria and gym and uses headphones when offered."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": true,
+    "bipDeveloped": true,
+    "lep": false,
+    "visual": false,
+    "communication": true,
+    "deafHoh": false,
+    "assistiveTech": true,
+    "altFormat": [],
+    "notes": "Behavior Intervention Plan attached. Communication: pragmatic language goals and SLP services. Assistive technology: visual schedule, visual timer, break card, noise-reducing headphones (low-tech)."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0001-v2-g1",
+      "number": 1,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "40% of inferential questions correct on grade 4 passages (Aug 2026).",
+      "statement": "Given a grade 4 passage and a graphic organizer for text clues, Doc will answer inferential questions with 80% accuracy across 3 consecutive weekly probes.",
+      "criteriaForMastery": "80% accuracy, 3 consecutive probes",
+      "measurementMethod": "Teacher-made comprehension probes",
+      "targetDate": "2027-08-19",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0001-v2-g1-o1",
+          "number": 1,
+          "statement": "Doc will underline two text clues that support an answer with 80% accuracy.",
+          "criteria": "80%, 3 probes"
+        },
+        {
+          "sourcedId": "iep-0001-v2-g1-o2",
+          "number": 2,
+          "statement": "Doc will answer 'why' and 'how' questions about characters' feelings with 70% accuracy.",
+          "criteria": "70%, 3 probes"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-g2",
+      "number": 2,
+      "area": "math",
+      "category": "Academic",
+      "baseline": "50% accuracy on two-step word problems (Aug 2026).",
+      "statement": "Given two-step word problems at grade 4-5 level, Doc will identify the operation(s) and solve with 80% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "80% accuracy, 3 consecutive probes",
+      "measurementMethod": "Curriculum-based probes / work samples",
+      "targetDate": "2027-08-19",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0001-v2-g2-o1",
+          "number": 1,
+          "statement": "Doc will cross out information that isn't needed in a word problem with 80% accuracy.",
+          "criteria": "80%, 3 probes"
+        },
+        {
+          "sourcedId": "iep-0001-v2-g2-o2",
+          "number": 2,
+          "statement": "Doc will write the equation before solving in 4 of 5 problems.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-g3",
+      "number": 3,
+      "area": "communication",
+      "category": "Communication",
+      "baseline": "Initiates in 1 of 5 opportunities; keeps a topic for 1-2 turns.",
+      "statement": "During structured peer activities, Doc will start a conversation and keep it going for at least 3 turns in 4 of 5 opportunities across 3 sessions.",
+      "criteriaForMastery": "4 of 5 opportunities, 3 sessions",
+      "measurementMethod": "SLP data sheet / observation",
+      "targetDate": "2027-08-19",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0001-v2-g3-o1",
+          "number": 1,
+          "statement": "Doc will use a visual conversation starter card to greet and ask a peer a question in 4 of 5 opportunities.",
+          "criteria": "4 of 5"
+        },
+        {
+          "sourcedId": "iep-0001-v2-g3-o2",
+          "number": 2,
+          "statement": "Doc will ask a follow-up question on the peer's topic in 3 of 5 opportunities.",
+          "criteria": "3 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-g4",
+      "number": 4,
+      "area": "behavior",
+      "category": "Behavioral",
+      "baseline": "Leaves assigned area an average of 6 times a day (ABC data, Aug 2026).",
+      "statement": "Using his visual schedule and break card, Doc will stay in his assigned area or travel with the group during transitions, reducing leaving without permission to 1 or fewer times per day for 4 consecutive weeks.",
+      "criteriaForMastery": "1 or fewer per day, 4 consecutive weeks",
+      "measurementMethod": "Daily frequency count (BIP data sheet)",
+      "targetDate": "2027-08-19",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0001-v2-g4-o1",
+          "number": 1,
+          "statement": "Doc will check his visual schedule when given a 2-minute transition warning in 4 of 5 transitions.",
+          "criteria": "4 of 5"
+        },
+        {
+          "sourcedId": "iep-0001-v2-g4-o2",
+          "number": 2,
+          "statement": "Doc will walk with an assigned peer buddy during hallway transitions in 4 of 5 transitions.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-g5",
+      "number": 5,
+      "area": "self_regulation",
+      "category": "Behavioral",
+      "baseline": "Requests a break before leaving the area in 1 of 10 observed precursors.",
+      "statement": "When showing early signs of frustration (covering ears, pacing), Doc will request a break with his break card or words in 80% of observed opportunities for 4 consecutive weeks.",
+      "criteriaForMastery": "80% of opportunities, 4 consecutive weeks",
+      "measurementMethod": "Behavior data sheet",
+      "targetDate": "2027-08-19",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0001-v2-g5-o1",
+          "number": 1,
+          "statement": "With a gestural prompt, Doc will hand over his break card in 80% of opportunities.",
+          "criteria": "80%"
+        },
+        {
+          "sourcedId": "iep-0001-v2-g5-o2",
+          "number": 2,
+          "statement": "Doc will return from a break and resume work within 5 minutes in 4 of 5 breaks.",
+          "criteria": "4 of 5"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0001-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-08-21",
+      "endDate": "2027-08-19",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0001-v2-s2",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Speech room",
+      "startDate": "2026-08-21",
+      "endDate": "2027-08-19",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0001-v2-s3",
+      "type": "speech_language",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 15,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Room 104",
+      "startDate": "2026-08-21",
+      "endDate": "2027-08-19",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0001-v2-s4",
+      "type": "behavior_aba",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 5,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "rbt",
+      "providerSourcedId": "u-stf-0010",
+      "location": "Room 104",
+      "startDate": "2026-08-21",
+      "endDate": "2027-08-19",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0001-v2-s5",
+      "type": "behavior_aba",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 60,
+      "frequencyCount": 1,
+      "frequencyPeriod": "month",
+      "groupSize": "individual",
+      "providerRole": "bcba",
+      "providerSourcedId": "u-stf-0009",
+      "location": "Room 104",
+      "startDate": "2026-08-21",
+      "endDate": "2027-08-19",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0001-v2-s6",
+      "type": "ot",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "month",
+      "groupSize": "individual",
+      "providerRole": "ot",
+      "providerSourcedId": "u-stf-0016",
+      "location": "Room 104",
+      "startDate": "2026-08-21",
+      "endDate": "2027-08-19",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0001-v2-a1",
+      "category": "instructional",
+      "description": "Visual schedule reviewed at the start of each day and before changes",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a2",
+      "category": "instructional",
+      "description": "2-minute warning before transitions; visual timer",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a3",
+      "category": "instructional",
+      "description": "Noise-reducing headphones available in cafeteria, gym and assemblies",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a4",
+      "category": "instructional",
+      "description": "Break card with a designated break area",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a5",
+      "category": "instructional",
+      "description": "Graphic organizers for reading and writing",
+      "subjects": [
+        "reading",
+        "writing"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a6",
+      "category": "classroom_testing",
+      "description": "Small group setting",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a7",
+      "category": "classroom_testing",
+      "description": "Extended time (1.5x)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a8",
+      "category": "supplemental_aid",
+      "description": "Peer buddy for hallway transitions",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-a9",
+      "category": "personnel_support",
+      "description": "BCBA consultation with classroom staff on BIP implementation (60 min/month)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0001-v2-t1",
+      "category": "state_testing",
+      "description": "Georgia Milestones Grade 5 ELA, Mathematics, Science",
+      "subjects": [],
+      "stateTestSetting": "Small group",
+      "stateTestTiming": "Frequent breaks; extended time",
+      "stateTestPresentation": "",
+      "stateTestResponse": "",
+      "standardOrConditional": "standard"
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Doc attends a separate special education school for the full day because he needs a small, highly structured setting with embedded behavior support that the team could not provide in the general education setting with supplementary aids and services. He joins community outings and school-wide events with support.",
+  "esy": {
+    "needed": false,
+    "notes": "Considered. Spring and fall data show no significant regression or slow recoupment."
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0001-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 60% (Sep 30 probe). Baseline: 40% of inferential questions correct on grade 4 passages (Aug 2026).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0001-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 65% (Oct 2 probe). Baseline: 50% accuracy on two-step word problems (Aug 2026).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0001-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "insufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5 (3-turn exchanges, Sep data). Baseline: Initiates in 1 of 5 opportunities; keeps a topic for 1-2 turns.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0001-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): Average 3 per day (Sep). Baseline: Leaves assigned area an average of 6 times a day (ABC data, Aug 2026).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0001-v2-g5",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 45% independent (Sep). Baseline: Requests a break before leaving the area in 1 of 10 observed precursors.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": {
+    "fbaDate": "2026-08-10",
+    "bipDate": "2026-08-20",
+    "reviewDate": "2026-12-11",
+    "targetBehaviors": [
+      {
+        "name": "Leaving assigned area",
+        "operationalDefinition": "Moving more than 10 feet from his assigned area or group, or out of the room, without adult permission.",
+        "baseline": "Average 6 times a day (10 school days, Aug 2026)"
+      }
+    ],
+    "settingEvents": "Unplanned schedule changes; noisy settings (cafeteria, gym, fire drills).",
+    "antecedents": "Transitions between activities and rooms; loud or crowded settings.",
+    "consequences": "Adult follows and redirects; he is usually returned to the group and the task is delayed.",
+    "hypothesizedFunction": "escape",
+    "functionStatement": "When transitions or noise occur, Doc leaves the area to escape the noisy or unpredictable situation.",
+    "replacementBehaviors": [
+      "Request a break with a break card or words",
+      "Use headphones and walk with a peer buddy"
+    ],
+    "antecedentStrategies": "Visual schedule; 2-minute warnings; headphones offered before noisy events; first/then board; seat away from the door.",
+    "teachingStrategies": "Daily practice of break-card use (RBT, 30 min/day); social narrative about transitions; role-play with peer buddy.",
+    "reinforcement": "Token board; 5 tokens = 5 minutes of map or transit books. Behavior-specific praise for staying with the group.",
+    "responseStrategies": "Calm, minimal verbal redirect to the visual schedule; offer the break card; avoid chasing; staff positioned near exits during transitions.",
+    "crisisPlan": "If he leaves the building, the nearest staff member follows at a safe distance and radios the office; the office contacts the family per school procedure.",
+    "dataCollection": {
+      "method": "Daily frequency count and ABC notes",
+      "responsibleSourcedId": "u-stf-0010"
+    }
+  },
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0002",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0015",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "bcba",
+      "staffSourcedId": "u-stf-0009",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0016",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-20 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-08-06",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-08-17",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-08-20",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0002",
+      "dateGiven": "2019-01-22"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0002",
+      "dateGiven": "2019-03-28"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0002",
+      "dateGiven": "2026-01-29"
+    }
+  ]
+}

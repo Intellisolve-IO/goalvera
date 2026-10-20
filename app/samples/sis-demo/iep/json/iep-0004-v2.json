@@ -1,0 +1,418 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0004-v2",
+  "studentSourcedId": "u-stu-0004",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0004-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-09-10",
+  "startDate": "2026-09-11",
+  "endDate": "2027-09-09",
+  "annualReviewDue": "2027-09-09",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2024-04-15",
+  "reevaluationDue": "2027-04-14",
+  "eligibilityDate": "2024-05-02",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-OI",
+      "federalCode": "OI",
+      "label": "Orthopedic Impairment",
+      "determinedDate": "2024-05-02"
+    }
+  ],
+  "evaluationSummary": "Initial evaluation 2024-04 (fictional results): PT evaluation shows reduced balance and endurance for school-distance walking; OT evaluation: Beery VMI standard score 76, fine motor precision below age expectations. Academic screening within the average range. Medical information is on file with the school office; no details are recorded here.",
+  "strengths": "Sleepy is curious, has strong oral language, reads near grade level and is a persistent problem solver.",
+  "needs": "Getting around school safely and on time with his walker; handwriting legibility and speed; keyboarding; managing his materials.",
+  "parentConcerns": "His family wants him to move around school as independently as he safely can and to keep up with written work.",
+  "disabilityImpact": "Motor limitations affect mobility between school locations, written output and handling materials, which reduces his participation and work completion without supports.",
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Reads 52 words correct per minute on grade 2 passages (near the fall benchmark); comprehension at grade level."
+    },
+    {
+      "area": "math",
+      "text": "Grade-level number sense; written computation is slow because of handwriting."
+    },
+    {
+      "area": "motor_gross",
+      "text": "Walks school distances with a posterior walker. Classroom to cafeteria takes about 7 minutes with minimal assistance on the ramp."
+    },
+    {
+      "area": "motor_fine",
+      "text": "Copies a sentence with 50% legible letters; types 3 words per minute with hunt-and-peck."
+    },
+    {
+      "area": "adaptive",
+      "text": "Unpacks and packs his backpack with adult help on 2 of 5 days."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": false,
+    "bipDeveloped": false,
+    "lep": false,
+    "visual": false,
+    "communication": false,
+    "deafHoh": false,
+    "assistiveTech": true,
+    "altFormat": [
+      "electronic_text"
+    ],
+    "notes": "Assistive technology: slant board, pencil grips, adapted paper, keyboard with word prediction; personal walker."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0004-v2-g1",
+      "number": 1,
+      "area": "motor_gross",
+      "category": "Functional",
+      "baseline": "Classroom to cafeteria in about 7 minutes with minimal assistance on the ramp.",
+      "statement": "Using his walker, Sleepy will travel between the classroom, cafeteria and bus loop within 4 minutes with supervision only in 4 of 5 trials.",
+      "criteriaForMastery": "Within 4 minutes, supervision only, 4 of 5 trials",
+      "measurementMethod": "PT timed trials",
+      "targetDate": "2027-09-09",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0004-v2-g1-o1",
+          "number": 1,
+          "statement": "Sleepy will go up and down the ramp with stand-by assistance in 4 of 5 trials.",
+          "criteria": "4 of 5"
+        },
+        {
+          "sourcedId": "iep-0004-v2-g1-o2",
+          "number": 2,
+          "statement": "Sleepy will travel classroom to cafeteria within 5 minutes.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-g2",
+      "number": 2,
+      "area": "motor_fine",
+      "category": "Functional",
+      "baseline": "50% legible letters when copying a sentence.",
+      "statement": "Using a slant board and adapted paper, Sleepy will copy a sentence with 80% legible letters in 4 of 5 samples.",
+      "criteriaForMastery": "80% legible, 4 of 5 samples",
+      "measurementMethod": "OT work samples",
+      "targetDate": "2027-09-09",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0004-v2-g2-o1",
+          "number": 1,
+          "statement": "Sleepy will form lowercase letters a-m legibly with 80% accuracy.",
+          "criteria": "80%"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-g3",
+      "number": 3,
+      "area": "keyboarding",
+      "category": "Functional",
+      "baseline": "3 words per minute.",
+      "statement": "Sleepy will type 8 words per minute with 90% accuracy using word prediction across 3 consecutive probes.",
+      "criteriaForMastery": "8 wpm, 90% accuracy, 3 probes",
+      "measurementMethod": "Typing probes",
+      "targetDate": "2027-09-09",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0004-v2-g3-o1",
+          "number": 1,
+          "statement": "Sleepy will type 5 wpm with 90% accuracy.",
+          "criteria": "3 probes"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-g4",
+      "number": 4,
+      "area": "adaptive",
+      "category": "Functional",
+      "baseline": "Manages backpack with adult help on 2 of 5 days.",
+      "statement": "Sleepy will unpack and pack his backpack and materials independently on 4 of 5 days for 3 consecutive weeks.",
+      "criteriaForMastery": "4 of 5 days, 3 consecutive weeks",
+      "measurementMethod": "Daily checklist",
+      "targetDate": "2027-09-09",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0004-v2-g4-o1",
+          "number": 1,
+          "statement": "Sleepy will unpack independently on 4 of 5 days.",
+          "criteria": "4 of 5"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0004-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-09-11",
+      "endDate": "2027-09-09",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0004-v2-s2",
+      "type": "pt",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "pt",
+      "providerSourcedId": "u-stf-0017",
+      "location": "Hallways, ramp, therapy room",
+      "startDate": "2026-09-11",
+      "endDate": "2027-09-09",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0004-v2-s3",
+      "type": "ot",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "ot",
+      "providerSourcedId": "u-stf-0016",
+      "location": "Therapy room",
+      "startDate": "2026-09-11",
+      "endDate": "2027-09-09",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0004-v2-s4",
+      "type": "transportation",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 0,
+      "frequencyCount": 1,
+      "frequencyPeriod": "day",
+      "groupSize": "individual",
+      "providerRole": "transportation",
+      "providerSourcedId": null,
+      "location": "Lift-equipped bus (provided by the resident district)",
+      "startDate": "2026-09-11",
+      "endDate": "2027-09-09",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0004-v2-a1",
+      "category": "instructional",
+      "description": "Leaves class 3 minutes early for transitions; elevator access",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-a2",
+      "category": "instructional",
+      "description": "Slant board, pencil grips and adapted paper",
+      "subjects": [
+        "writing"
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-a3",
+      "category": "instructional",
+      "description": "Keyboard with word prediction for written work longer than 2 sentences",
+      "subjects": [
+        "writing"
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-a4",
+      "category": "instructional",
+      "description": "Reduced copying: printed notes provided",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-a5",
+      "category": "classroom_testing",
+      "description": "Scribe or keyboard for written responses; extended time",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0004-v2-a6",
+      "category": "supplemental_aid",
+      "description": "Adult supervision during hallway transitions and on stairs or ramps",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": "Grade 2: no statewide assessment. District benchmarks given with the classroom testing accommodations above.",
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Sleepy attends a separate special education school by family choice with a scholarship. He joins all school-wide activities with mobility supports.",
+  "esy": {
+    "needed": false,
+    "notes": "Considered; not needed. Home exercise program provided by PT/OT."
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0004-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 5.5 minutes. Baseline: Classroom to cafeteria in about 7 minutes with minimal assistance on the ramp.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0004-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 60%. Baseline: 50% legible letters when copying a sentence.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0004-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 5 wpm. Baseline: 3 words per minute.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0004-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 3 of 5 days. Baseline: Manages backpack with adult help on 2 of 5 days.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": null,
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0010",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0009",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0017",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0016",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-10 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-08-27",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-09-07",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-09-10",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0010",
+      "dateGiven": "2024-02-12"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0010",
+      "dateGiven": "2024-05-09"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0010",
+      "dateGiven": "2024-03-06"
+    }
+  ]
+}

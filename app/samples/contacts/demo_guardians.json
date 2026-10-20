@@ -1,0 +1,1714 @@
+{
+  "label": "Fictional sample data",
+  "school": "Sample Elementary School",
+  "note": "Weekly parent email recipients (). Fictional; example.com / example.org only.",
+  "students": {
+    "stu_0001": [
+      {
+        "contact_id": "con_0001",
+        "first_name": "Marigold",
+        "relationship": "mother",
+        "email": "marigold.dwarf40@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0002",
+        "first_name": "Elliot",
+        "relationship": "father",
+        "email": "elliot.dwarf80@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0003",
+        "first_name": "Oscar",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0002": [
+      {
+        "contact_id": "con_0004",
+        "first_name": "Hazel",
+        "relationship": "grandmother",
+        "email": "hazel.dwarf84@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0005",
+        "first_name": "Erica",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0003": [
+      {
+        "contact_id": "con_0006",
+        "first_name": "June",
+        "relationship": "mother",
+        "email": "june.dwarf65@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0007",
+        "first_name": "Oren",
+        "relationship": "stepfather",
+        "email": "oren.dwarf58@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0008",
+        "first_name": "Tyrone",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      },
+      {
+        "contact_id": "con_0219",
+        "first_name": "Linden",
+        "relationship": "non-custodial parent",
+        "email": "linden.dwarf@example.org",
+        "receives_reports": false
+      }
+    ],
+    "stu_0004": [
+      {
+        "contact_id": "con_0009",
+        "first_name": "Rowan",
+        "relationship": "father",
+        "email": "rowan.dwarf88@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0010",
+        "first_name": "Iris",
+        "relationship": "mother",
+        "email": "iris.dwarf18@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0011",
+        "first_name": "Samuel",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0005": [
+      {
+        "contact_id": "con_0012",
+        "first_name": "Clementine",
+        "relationship": "mother",
+        "email": "clementine.dwarf48@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0013",
+        "first_name": "Beatriz",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0006": [
+      {
+        "contact_id": "con_0014",
+        "first_name": "Wren",
+        "relationship": "foster parent",
+        "email": "wren.hollis59@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0015",
+        "first_name": "Jamal",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      },
+      {
+        "contact_id": "con_0218",
+        "first_name": "Rory",
+        "relationship": "non-custodial parent",
+        "email": "rory.dwarf@example.com",
+        "receives_reports": false
+      }
+    ],
+    "stu_0007": [
+      {
+        "contact_id": "con_0016",
+        "first_name": "Basil",
+        "relationship": "father",
+        "email": "basil.dwarf97@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0017",
+        "first_name": "Poppy",
+        "relationship": "mother",
+        "email": "poppy.dwarf44@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0018",
+        "first_name": "Robert",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0008": [
+      {
+        "contact_id": "con_0019",
+        "first_name": "Marisol",
+        "relationship": "father",
+        "email": "marisol.torres79@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0020",
+        "first_name": "Victor",
+        "relationship": "mother",
+        "email": "victor.torres38@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0021",
+        "first_name": "Nadia",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0009": [
+      {
+        "contact_id": "con_0022",
+        "first_name": "Rosa",
+        "relationship": "mother",
+        "email": "rosa.jackson65@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0023",
+        "first_name": "Mei",
+        "relationship": "father",
+        "email": "mei.jackson12@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0024",
+        "first_name": "Rosa",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0010": [
+      {
+        "contact_id": "con_0025",
+        "first_name": "Curtis",
+        "relationship": "mother",
+        "email": "curtis.clark80@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0026",
+        "first_name": "Beatriz",
+        "relationship": "father",
+        "email": "beatriz.clark69@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0027",
+        "first_name": "Kevin",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0011": [
+      {
+        "contact_id": "con_0028",
+        "first_name": "Jamal",
+        "relationship": "father",
+        "email": "jamal.roberts9@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0029",
+        "first_name": "Alma",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0012": [
+      {
+        "contact_id": "con_0030",
+        "first_name": "Anthony",
+        "relationship": "mother",
+        "email": "anthony.hughes51@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0031",
+        "first_name": "Bianca",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0013": [
+      {
+        "contact_id": "con_0032",
+        "first_name": "Ingrid",
+        "relationship": "mother",
+        "email": "ingrid.ramirez53@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0033",
+        "first_name": "Renee",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0014": [
+      {
+        "contact_id": "con_0034",
+        "first_name": "Monique",
+        "relationship": "foster parent",
+        "email": "monique.murphy28@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0035",
+        "first_name": "Beatriz",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0015": [
+      {
+        "contact_id": "con_0036",
+        "first_name": "Monique",
+        "relationship": "mother",
+        "email": "monique.coleman92@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0037",
+        "first_name": "Erica",
+        "relationship": "father",
+        "email": "erica.coleman67@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0038",
+        "first_name": "Nadia",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0016": [
+      {
+        "contact_id": "con_0039",
+        "first_name": "Nadia",
+        "relationship": "mother",
+        "email": "nadia.chen25@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0040",
+        "first_name": "Tyrone",
+        "relationship": "father",
+        "email": "tyrone.chen41@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0041",
+        "first_name": "Fatima",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0017": [
+      {
+        "contact_id": "con_0042",
+        "first_name": "Hector",
+        "relationship": "mother",
+        "email": "hector.shah57@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0043",
+        "first_name": "Tyrone",
+        "relationship": "father",
+        "email": "tyrone.shah25@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0044",
+        "first_name": "Carlos",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0018": [
+      {
+        "contact_id": "con_0045",
+        "first_name": "Kevin",
+        "relationship": "mother",
+        "email": "kevin.brooks17@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0046",
+        "first_name": "Rosa",
+        "relationship": "father",
+        "email": "rosa.brooks43@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0047",
+        "first_name": "Tyrone",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0019": [
+      {
+        "contact_id": "con_0048",
+        "first_name": "Terrence",
+        "relationship": "mother",
+        "email": "terrence.bennett24@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0049",
+        "first_name": "Terrence",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0020": [
+      {
+        "contact_id": "con_0050",
+        "first_name": "Denise",
+        "relationship": "mother",
+        "email": "denise.bailey79@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0051",
+        "first_name": "Monique",
+        "relationship": "father",
+        "email": "monique.bailey53@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0052",
+        "first_name": "Sunita",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0021": [
+      {
+        "contact_id": "con_0053",
+        "first_name": "Kenji",
+        "relationship": "mother",
+        "email": "kenji.moore52@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0054",
+        "first_name": "Darnell",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0022": [
+      {
+        "contact_id": "con_0055",
+        "first_name": "Alma",
+        "relationship": "father",
+        "email": "alma.jackson43@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0056",
+        "first_name": "Alma",
+        "relationship": "mother",
+        "email": "alma.jackson70@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0057",
+        "first_name": "Oscar",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0023": [
+      {
+        "contact_id": "con_0058",
+        "first_name": "Mei",
+        "relationship": "mother",
+        "email": "mei.wilson81@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0059",
+        "first_name": "Sunita",
+        "relationship": "father",
+        "email": "sunita.wilson28@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0060",
+        "first_name": "Patricia",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0024": [
+      {
+        "contact_id": "con_0061",
+        "first_name": "Ingrid",
+        "relationship": "grandmother",
+        "email": "ingrid.clark67@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0062",
+        "first_name": "Brian",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0025": [
+      {
+        "contact_id": "con_0063",
+        "first_name": "Luis",
+        "relationship": "mother",
+        "email": "luis.brown64@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0064",
+        "first_name": "Oscar",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0026": [
+      {
+        "contact_id": "con_0065",
+        "first_name": "Marisol",
+        "relationship": "father",
+        "email": "marisol.anderson13@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0066",
+        "first_name": "Tamika",
+        "relationship": "mother",
+        "email": "tamika.anderson78@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0067",
+        "first_name": "Victor",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0027": [
+      {
+        "contact_id": "con_0068",
+        "first_name": "Robert",
+        "relationship": "mother",
+        "email": "robert.ramirez46@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0069",
+        "first_name": "Kevin",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0028": [
+      {
+        "contact_id": "con_0070",
+        "first_name": "Robert",
+        "relationship": "father",
+        "email": "robert.hall12@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0071",
+        "first_name": "Sunita",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0029": [
+      {
+        "contact_id": "con_0072",
+        "first_name": "Lakshmi",
+        "relationship": "foster parent",
+        "email": "lakshmi.bailey90@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0073",
+        "first_name": "Erica",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0030": [
+      {
+        "contact_id": "con_0074",
+        "first_name": "Sunita",
+        "relationship": "mother",
+        "email": "sunita.martin99@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0075",
+        "first_name": "Keisha",
+        "relationship": "father",
+        "email": "keisha.martin38@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0076",
+        "first_name": "Fatima",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0031": [
+      {
+        "contact_id": "con_0077",
+        "first_name": "Nadia",
+        "relationship": "mother",
+        "email": "nadia.murphy79@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0078",
+        "first_name": "Tamika",
+        "relationship": "father",
+        "email": "tamika.murphy91@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0079",
+        "first_name": "Marisol",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0032": [
+      {
+        "contact_id": "con_0080",
+        "first_name": "Lakshmi",
+        "relationship": "mother",
+        "email": "lakshmi.campbell60@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0081",
+        "first_name": "Lakshmi",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0033": [
+      {
+        "contact_id": "con_0082",
+        "first_name": "Lakshmi",
+        "relationship": "father",
+        "email": "lakshmi.thompson76@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0083",
+        "first_name": "Alma",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0034": [
+      {
+        "contact_id": "con_0084",
+        "first_name": "Mei",
+        "relationship": "mother",
+        "email": "mei.patel48@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0085",
+        "first_name": "Keisha",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0035": [
+      {
+        "contact_id": "con_0086",
+        "first_name": "Anthony",
+        "relationship": "father",
+        "email": "anthony.green34@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0087",
+        "first_name": "Jamal",
+        "relationship": "mother",
+        "email": "jamal.green20@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0088",
+        "first_name": "Denise",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0036": [
+      {
+        "contact_id": "con_0089",
+        "first_name": "Patricia",
+        "relationship": "mother",
+        "email": "patricia.scott72@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0090",
+        "first_name": "Erica",
+        "relationship": "father",
+        "email": "erica.scott58@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0091",
+        "first_name": "Sunita",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0037": [
+      {
+        "contact_id": "con_0092",
+        "first_name": "Alma",
+        "relationship": "father",
+        "email": "alma.reyes62@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0093",
+        "first_name": "Terrence",
+        "relationship": "mother",
+        "email": "terrence.reyes3@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0094",
+        "first_name": "James",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0038": [
+      {
+        "contact_id": "con_0095",
+        "first_name": "Samuel",
+        "relationship": "mother",
+        "email": "samuel.chen37@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0096",
+        "first_name": "Jennifer",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0039": [
+      {
+        "contact_id": "con_0097",
+        "first_name": "Oscar",
+        "relationship": "mother",
+        "email": "oscar.freeman6@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0098",
+        "first_name": "Patricia",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0040": [
+      {
+        "contact_id": "con_0099",
+        "first_name": "Luis",
+        "relationship": "mother",
+        "email": "luis.lee33@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0100",
+        "first_name": "Jennifer",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0041": [
+      {
+        "contact_id": "con_0101",
+        "first_name": "Tamika",
+        "relationship": "aunt",
+        "email": "tamika.freeman18@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0102",
+        "first_name": "Darnell",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0042": [
+      {
+        "contact_id": "con_0103",
+        "first_name": "Anthony",
+        "relationship": "father",
+        "email": "anthony.diaz48@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0104",
+        "first_name": "Mei",
+        "relationship": "mother",
+        "email": "mei.diaz73@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0105",
+        "first_name": "Brian",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0043": [
+      {
+        "contact_id": "con_0106",
+        "first_name": "Helen",
+        "relationship": "father",
+        "email": "helen.sanchez20@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0107",
+        "first_name": "Beatriz",
+        "relationship": "mother",
+        "email": "beatriz.sanchez58@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0108",
+        "first_name": "Oscar",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0044": [
+      {
+        "contact_id": "con_0109",
+        "first_name": "Gregory",
+        "relationship": "father",
+        "email": "gregory.bailey50@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0110",
+        "first_name": "Yolanda",
+        "relationship": "mother",
+        "email": "yolanda.bailey5@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0111",
+        "first_name": "Tyrone",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0045": [
+      {
+        "contact_id": "con_0112",
+        "first_name": "Patricia",
+        "relationship": "father",
+        "email": "patricia.diaz2@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0113",
+        "first_name": "Fatima",
+        "relationship": "mother",
+        "email": "fatima.diaz92@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0114",
+        "first_name": "Terrence",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0046": [
+      {
+        "contact_id": "con_0115",
+        "first_name": "Michael",
+        "relationship": "father",
+        "email": "michael.murphy87@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0116",
+        "first_name": "Helen",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0047": [
+      {
+        "contact_id": "con_0117",
+        "first_name": "Denise",
+        "relationship": "father",
+        "email": "denise.martin27@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0118",
+        "first_name": "Hector",
+        "relationship": "mother",
+        "email": "hector.martin60@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0119",
+        "first_name": "Nadia",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0048": [
+      {
+        "contact_id": "con_0120",
+        "first_name": "Sunita",
+        "relationship": "father",
+        "email": "sunita.williams78@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0121",
+        "first_name": "Brian",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0049": [
+      {
+        "contact_id": "con_0122",
+        "first_name": "Monique",
+        "relationship": "father",
+        "email": "monique.thomas37@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0123",
+        "first_name": "Patricia",
+        "relationship": "mother",
+        "email": "patricia.thomas1@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0124",
+        "first_name": "David",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0050": [
+      {
+        "contact_id": "con_0125",
+        "first_name": "Darnell",
+        "relationship": "grandmother",
+        "email": "darnell.price60@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0126",
+        "first_name": "Denise",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0051": [
+      {
+        "contact_id": "con_0127",
+        "first_name": "Curtis",
+        "relationship": "mother",
+        "email": "curtis.diaz48@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0128",
+        "first_name": "Michael",
+        "relationship": "father",
+        "email": "michael.diaz69@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0129",
+        "first_name": "Jamal",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0052": [
+      {
+        "contact_id": "con_0130",
+        "first_name": "Beatriz",
+        "relationship": "mother",
+        "email": "beatriz.martinez89@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0131",
+        "first_name": "Beatriz",
+        "relationship": "father",
+        "email": "beatriz.martinez75@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0132",
+        "first_name": "Monique",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0053": [
+      {
+        "contact_id": "con_0133",
+        "first_name": "Brian",
+        "relationship": "mother",
+        "email": "brian.williams82@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0134",
+        "first_name": "Alma",
+        "relationship": "father",
+        "email": "alma.williams21@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0135",
+        "first_name": "Mei",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0054": [
+      {
+        "contact_id": "con_0136",
+        "first_name": "Oscar",
+        "relationship": "mother",
+        "email": "oscar.bennett96@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0137",
+        "first_name": "Samuel",
+        "relationship": "father",
+        "email": "samuel.bennett5@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0138",
+        "first_name": "Bianca",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0055": [
+      {
+        "contact_id": "con_0139",
+        "first_name": "Helen",
+        "relationship": "father",
+        "email": "helen.nelson78@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0140",
+        "first_name": "Fatima",
+        "relationship": "mother",
+        "email": "fatima.nelson58@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0141",
+        "first_name": "Angela",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0056": [
+      {
+        "contact_id": "con_0142",
+        "first_name": "Gregory",
+        "relationship": "father",
+        "email": "gregory.ramirez34@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0143",
+        "first_name": "Michael",
+        "relationship": "mother",
+        "email": "michael.ramirez3@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0144",
+        "first_name": "James",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0057": [
+      {
+        "contact_id": "con_0145",
+        "first_name": "Gregory",
+        "relationship": "father",
+        "email": "gregory.thomas65@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0146",
+        "first_name": "James",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0058": [
+      {
+        "contact_id": "con_0147",
+        "first_name": "Kevin",
+        "relationship": "father",
+        "email": "kevin.wilson67@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0148",
+        "first_name": "Michael",
+        "relationship": "mother",
+        "email": "michael.wilson63@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0149",
+        "first_name": "Carlos",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0059": [
+      {
+        "contact_id": "con_0150",
+        "first_name": "Terrence",
+        "relationship": "father",
+        "email": "terrence.williams75@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0151",
+        "first_name": "Kevin",
+        "relationship": "mother",
+        "email": "kevin.williams2@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0152",
+        "first_name": "James",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0060": [
+      {
+        "contact_id": "con_0153",
+        "first_name": "Erica",
+        "relationship": "mother",
+        "email": "erica.murphy94@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0154",
+        "first_name": "Gloria",
+        "relationship": "father",
+        "email": "gloria.murphy77@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0155",
+        "first_name": "Ingrid",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0061": [
+      {
+        "contact_id": "con_0156",
+        "first_name": "Nadia",
+        "relationship": "aunt",
+        "email": "nadia.patel66@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0157",
+        "first_name": "Helen",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0062": [
+      {
+        "contact_id": "con_0158",
+        "first_name": "Mei",
+        "relationship": "foster parent",
+        "email": "mei.chen60@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0159",
+        "first_name": "Kevin",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0063": [
+      {
+        "contact_id": "con_0160",
+        "first_name": "Alma",
+        "relationship": "mother",
+        "email": "alma.adams40@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0161",
+        "first_name": "Lakshmi",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0064": [
+      {
+        "contact_id": "con_0162",
+        "first_name": "James",
+        "relationship": "mother",
+        "email": "james.clark9@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0163",
+        "first_name": "Victor",
+        "relationship": "father",
+        "email": "victor.clark79@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0164",
+        "first_name": "Sunita",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0065": [
+      {
+        "contact_id": "con_0165",
+        "first_name": "Marcus",
+        "relationship": "guardian",
+        "email": "marcus.robinson81@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0166",
+        "first_name": "Fatima",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0066": [
+      {
+        "contact_id": "con_0167",
+        "first_name": "Robert",
+        "relationship": "father",
+        "email": "robert.perez38@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0168",
+        "first_name": "David",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0067": [
+      {
+        "contact_id": "con_0169",
+        "first_name": "Keisha",
+        "relationship": "guardian",
+        "email": "keisha.patel37@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0170",
+        "first_name": "Darnell",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0068": [
+      {
+        "contact_id": "con_0171",
+        "first_name": "Keisha",
+        "relationship": "mother",
+        "email": "keisha.young65@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0172",
+        "first_name": "Oscar",
+        "relationship": "father",
+        "email": "oscar.young17@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0173",
+        "first_name": "Marisol",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0069": [
+      {
+        "contact_id": "con_0174",
+        "first_name": "Yolanda",
+        "relationship": "father",
+        "email": "yolanda.martin13@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0175",
+        "first_name": "Rosa",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0070": [
+      {
+        "contact_id": "con_0176",
+        "first_name": "Tamika",
+        "relationship": "father",
+        "email": "tamika.nguyen85@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0177",
+        "first_name": "Helen",
+        "relationship": "mother",
+        "email": "helen.nguyen84@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0178",
+        "first_name": "Keisha",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0071": [
+      {
+        "contact_id": "con_0179",
+        "first_name": "Sunita",
+        "relationship": "mother",
+        "email": "sunita.taylor13@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0180",
+        "first_name": "Brian",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0072": [
+      {
+        "contact_id": "con_0181",
+        "first_name": "Gloria",
+        "relationship": "grandmother",
+        "email": "gloria.ramirez43@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0182",
+        "first_name": "Anthony",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0073": [
+      {
+        "contact_id": "con_0183",
+        "first_name": "Marcus",
+        "relationship": "father",
+        "email": "marcus.wright93@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0184",
+        "first_name": "Jamal",
+        "relationship": "mother",
+        "email": "jamal.wright13@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0185",
+        "first_name": "Brian",
+        "relationship": "neighbor",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0074": [
+      {
+        "contact_id": "con_0186",
+        "first_name": "Marisol",
+        "relationship": "father",
+        "email": "marisol.jackson52@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0187",
+        "first_name": "Anthony",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0075": [
+      {
+        "contact_id": "con_0188",
+        "first_name": "Lakshmi",
+        "relationship": "mother",
+        "email": "lakshmi.ortiz5@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0189",
+        "first_name": "Brian",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0076": [
+      {
+        "contact_id": "con_0190",
+        "first_name": "Marisol",
+        "relationship": "mother",
+        "email": "marisol.reyes2@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0191",
+        "first_name": "Patricia",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0077": [
+      {
+        "contact_id": "con_0192",
+        "first_name": "Marcus",
+        "relationship": "father",
+        "email": "marcus.brown99@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0193",
+        "first_name": "Erica",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0078": [
+      {
+        "contact_id": "con_0194",
+        "first_name": "Monique",
+        "relationship": "mother",
+        "email": "monique.mitchell50@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0195",
+        "first_name": "Marcus",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0079": [
+      {
+        "contact_id": "con_0196",
+        "first_name": "Bianca",
+        "relationship": "mother",
+        "email": "bianca.martinez20@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0197",
+        "first_name": "Denise",
+        "relationship": "father",
+        "email": "denise.martinez9@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0198",
+        "first_name": "Brian",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0080": [
+      {
+        "contact_id": "con_0199",
+        "first_name": "Luis",
+        "relationship": "grandmother",
+        "email": "luis.johnson12@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0200",
+        "first_name": "Luis",
+        "relationship": "family friend",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0081": [
+      {
+        "contact_id": "con_0201",
+        "first_name": "Keisha",
+        "relationship": "mother",
+        "email": "keisha.taylor32@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0202",
+        "first_name": "Ingrid",
+        "relationship": "father",
+        "email": "ingrid.taylor98@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0203",
+        "first_name": "Marisol",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0082": [
+      {
+        "contact_id": "con_0204",
+        "first_name": "James",
+        "relationship": "mother",
+        "email": "james.robinson18@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0205",
+        "first_name": "Alma",
+        "relationship": "father",
+        "email": "alma.robinson73@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0206",
+        "first_name": "Samuel",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0083": [
+      {
+        "contact_id": "con_0207",
+        "first_name": "Kenji",
+        "relationship": "foster parent",
+        "email": "kenji.lopez39@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0208",
+        "first_name": "Anthony",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0084": [
+      {
+        "contact_id": "con_0209",
+        "first_name": "Tyrone",
+        "relationship": "father",
+        "email": "tyrone.walker83@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0210",
+        "first_name": "Alma",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0085": [
+      {
+        "contact_id": "con_0211",
+        "first_name": "Gloria",
+        "relationship": "aunt",
+        "email": "gloria.green80@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0212",
+        "first_name": "Kenji",
+        "relationship": "uncle",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0086": [
+      {
+        "contact_id": "con_0213",
+        "first_name": "Tyrone",
+        "relationship": "father",
+        "email": "tyrone.martinez8@example.com",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0214",
+        "first_name": "Jamal",
+        "relationship": "aunt",
+        "email": null,
+        "receives_reports": false
+      }
+    ],
+    "stu_0087": [
+      {
+        "contact_id": "con_0215",
+        "first_name": "David",
+        "relationship": "father",
+        "email": "david.williams54@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0216",
+        "first_name": "Yolanda",
+        "relationship": "mother",
+        "email": "yolanda.williams48@example.org",
+        "receives_reports": true
+      },
+      {
+        "contact_id": "con_0217",
+        "first_name": "Oscar",
+        "relationship": "grandfather",
+        "email": null,
+        "receives_reports": false
+      }
+    ]
+  }
+}

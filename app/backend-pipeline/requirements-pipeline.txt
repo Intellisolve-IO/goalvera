@@ -1,0 +1,8 @@
+flask>=3.0
+gunicorn>=22.0
+google-cloud-storage>=2.18
+google-cloud-speech>=2.33
+google-genai>=1.40.0
+jsonschema>=4.20.0
+google-cloud-kms>=3.0
+cryptography>=42

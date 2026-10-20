@@ -1,0 +1,433 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0005-v2",
+  "studentSourcedId": "u-stu-0005",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0005-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-08-25",
+  "startDate": "2026-08-26",
+  "endDate": "2027-08-24",
+  "annualReviewDue": "2027-08-24",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2026-02-03",
+  "reevaluationDue": "2029-02-02",
+  "eligibilityDate": "2021-02-18",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-DHH",
+      "federalCode": "HI",
+      "label": "Deaf/Hard of Hearing",
+      "determinedDate": "2021-02-18"
+    }
+  ],
+  "evaluationSummary": "Reevaluation 2026-02 (fictional results): audiological report on file with the school (no details recorded here). PPVT-5 standard score 84; CELF-5 Core Language 86. Speech intelligibility is good. Uses personal hearing devices and a classroom remote microphone.",
+  "strengths": "Bashful decodes at grade level, is a careful listener with the remote microphone in place, enjoys drawing, and works well with a partner.",
+  "needs": "Vocabulary and comprehension of grade-level content; telling an adult when his equipment isn't working; following oral directions in noise.",
+  "parentConcerns": "His family wants him to speak up when he hasn't heard something.",
+  "disabilityImpact": "Reduced access to spoken language in noisy settings and a vocabulary gap affect comprehension of instruction and grade-level text.",
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Decodes grade 3 text accurately; answers comprehension questions with 55% accuracy on grade 3 passages."
+    },
+    {
+      "area": "communication",
+      "text": "Defines grade-level content vocabulary with 50% accuracy. Follows 3-step oral directions in a noisy room in 50% of trials with the remote microphone."
+    },
+    {
+      "area": "self_advocacy",
+      "text": "Tells an adult when a device isn't working or asks for repetition in 1 of 5 opportunities."
+    },
+    {
+      "area": "math",
+      "text": "Grade-level skills; needs vocabulary pre-taught for word problems."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": false,
+    "bipDeveloped": false,
+    "lep": false,
+    "visual": false,
+    "communication": true,
+    "deafHoh": true,
+    "assistiveTech": true,
+    "altFormat": [],
+    "notes": "Communication mode: spoken English. Remote microphone system used by every speaker; captions on all media. Direct communication with peers and staff in his communication mode is available throughout the day."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0005-v2-g1",
+      "number": 1,
+      "area": "self_advocacy",
+      "category": "Functional",
+      "baseline": "Reports problems or asks for repetition in 1 of 5 opportunities.",
+      "statement": "Bashful will tell an adult when his equipment isn't working, or ask for repetition or clarification, in 4 of 5 opportunities across 4 weeks.",
+      "criteriaForMastery": "4 of 5 opportunities, 4 weeks",
+      "measurementMethod": "DHH teacher observation / data sheet",
+      "targetDate": "2027-08-24",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0005-v2-g1-o1",
+          "number": 1,
+          "statement": "Bashful will do a daily equipment check with an adult and report any problem in 4 of 5 days.",
+          "criteria": "4 of 5"
+        },
+        {
+          "sourcedId": "iep-0005-v2-g1-o2",
+          "number": 2,
+          "statement": "Bashful will use a taught phrase to ask for repetition in 3 of 5 opportunities.",
+          "criteria": "3 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-g2",
+      "number": 2,
+      "area": "communication",
+      "category": "Academic",
+      "baseline": "Defines content vocabulary with 50% accuracy.",
+      "statement": "Bashful will define and use grade 3 content vocabulary in sentences with 80% accuracy on weekly probes for 3 consecutive weeks.",
+      "criteriaForMastery": "80% accuracy, 3 consecutive weeks",
+      "measurementMethod": "Vocabulary probes",
+      "targetDate": "2027-08-24",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0005-v2-g2-o1",
+          "number": 1,
+          "statement": "Bashful will match vocabulary words to pictures or definitions with 80% accuracy.",
+          "criteria": "80%"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-g3",
+      "number": 3,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "55% accuracy on grade 3 comprehension questions.",
+      "statement": "Bashful will answer literal and inferential questions about grade 3 passages with 80% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "80% accuracy, 3 probes",
+      "measurementMethod": "Comprehension probes",
+      "targetDate": "2027-08-24",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0005-v2-g3-o1",
+          "number": 1,
+          "statement": "Bashful will answer literal questions with 85% accuracy.",
+          "criteria": "85%"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-g4",
+      "number": 4,
+      "area": "listening",
+      "category": "Functional",
+      "baseline": "Follows 3-step directions in noise in 50% of trials.",
+      "statement": "With the remote microphone in use, Bashful will follow 3-step oral directions in a noisy setting in 80% of trials across 3 sessions.",
+      "criteriaForMastery": "80% of trials, 3 sessions",
+      "measurementMethod": "DHH teacher / SLP data",
+      "targetDate": "2027-08-24",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0005-v2-g4-o1",
+          "number": 1,
+          "statement": "Bashful will follow 2-step directions in noise in 80% of trials.",
+          "criteria": "80%"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0005-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0005-v2-s2",
+      "type": "deaf_hoh",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 60,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "dhh_teacher",
+      "providerSourcedId": "u-stf-0018",
+      "location": "Small-group room",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0005-v2-s3",
+      "type": "deaf_hoh",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "month",
+      "groupSize": "individual",
+      "providerRole": "dhh_teacher",
+      "providerSourcedId": "u-stf-0018",
+      "location": "Room 104",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0005-v2-s4",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Speech room",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0005-v2-s5",
+      "type": "assistive_tech",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "reporting_period",
+      "groupSize": "individual",
+      "providerRole": "dhh_teacher",
+      "providerSourcedId": "u-stf-0018",
+      "location": "Room 104 (remote microphone checks)",
+      "startDate": "2026-08-26",
+      "endDate": "2027-08-24",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0005-v2-a1",
+      "category": "instructional",
+      "description": "Remote microphone system used by all speakers, including peers during discussion",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-a2",
+      "category": "instructional",
+      "description": "Captions on all video and media",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-a3",
+      "category": "instructional",
+      "description": "Seating with a clear view of the speaker's face; reduced background noise",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-a4",
+      "category": "instructional",
+      "description": "Written and visual copies of directions; vocabulary pre-taught",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-a5",
+      "category": "classroom_testing",
+      "description": "Directions repeated or clarified; small group; remote microphone",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-a6",
+      "category": "personnel_support",
+      "description": "Training for classroom staff on the remote microphone and daily checks (DHH teacher)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0005-v2-t1",
+      "category": "state_testing",
+      "description": "Georgia Milestones Grade 3 ELA and Mathematics",
+      "subjects": [],
+      "stateTestSetting": "Small group",
+      "stateTestTiming": "",
+      "stateTestPresentation": "Directions clarified; remote microphone",
+      "stateTestResponse": "",
+      "standardOrConditional": "standard"
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Bashful attends a separate special education school by family choice. Itinerant DHH services are provided on site.",
+  "esy": {
+    "needed": false,
+    "notes": "Considered; not needed."
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0005-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "insufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5. Baseline: Reports problems or asks for repetition in 1 of 5 opportunities.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0005-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 62%. Baseline: Defines content vocabulary with 50% accuracy.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0005-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 65%. Baseline: 55% accuracy on grade 3 comprehension questions.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0005-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 60%. Baseline: Follows 3-step directions in noise in 50% of trials.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": null,
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0012",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0018",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0015",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-25 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-08-11",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-08-22",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-08-25",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0012",
+      "dateGiven": "2020-11-10"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0012",
+      "dateGiven": "2021-02-25"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0012",
+      "dateGiven": "2025-12-25"
+    }
+  ]
+}
