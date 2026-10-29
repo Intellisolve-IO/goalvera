@@ -1,4 +1,4 @@
-// Speaker selector from the roster: the session's class first (its teachers,
+// Speaker selector from the roster (David, Oct 10 2026; tasks#104): the session's class first (its teachers,
 // RBTs and students, first name + last initial), then everyone else (search narrows it), then generic options;
 // an earlier choice stays selectable; read-only disables it. RBTs show their supervisor on the Teachers tab.
 import React from 'react';
@@ -12,7 +12,7 @@ const text = (h) => h.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\
 const CHOICES = {
   basis: { kind: 'class', name: 'Room 104 Reading' },
   in_class: [
-    { id: 'stf_0001', label: 'Snow W.', kind: 'staff', role: 'Lead Special Education Teacher', classroom: 'Room 104' },
+    { id: 'stf_0001', label: 'Alex M.', kind: 'staff', role: 'Lead Special Education Teacher', classroom: 'Room 104' },
     { id: 'stf_0010', label: 'Flynn R.', kind: 'staff', role: 'RBT', classroom: 'Room 104' },
     { id: 'stu_0001', label: 'Doc D.', kind: 'student', role: 'Student', classroom: 'Room 104', session_student: true },
     { id: 'stu_0006', label: 'Sneezy D.', kind: 'student', role: 'Student', classroom: 'Room 104' },
@@ -31,7 +31,7 @@ describe('speaker picker', () => {
     const t = text(h);
     expect(h.indexOf('label="In Room 104 Reading"')).toBeLessThan(h.indexOf('label="Everyone else"'));
     expect(h.indexOf('label="Everyone else"')).toBeLessThan(h.indexOf('label="Other"'));
-    expect(t).toContain('Snow W. · Lead Special Education Teacher');
+    expect(t).toContain('Alex M. · Lead Special Education Teacher');
     expect(t).toContain('Flynn R. · RBT');
     expect(h).toContain('value="Sneezy D."');
     expect(t).toContain('Ava B. (Room 101)');

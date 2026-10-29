@@ -1,4 +1,4 @@
-"""Students in this session: the class roster is suggested, nothing
+"""Students in this session (David, Oct 10 2026; tasks#106): the class roster is suggested, nothing
 is linked until the teacher clicks Save; saved on the server (audit record, ids only) and journaled
 (counts only); linked sessions show on each student's week; classmates are hidden from the AI.
 
@@ -93,8 +93,8 @@ def test_refusals(env, actor, body, code):
 
 
 def test_classmates_are_hidden_from_the_ai_and_never_put_back():
-    m = Mask(["Doc"], ["Snow White"], others=["Sneezy", "Happy", "Dwarf"])
-    hidden = m.hide({"t": "Doc and Sneezy shared blocks; Happy Dwarf watched. Snow White helped."})
+    m = Mask(["Doc"], ["Alex Morgan"], others=["Sneezy", "Happy", "Dwarf"])
+    hidden = m.hide({"t": "Doc and Sneezy shared blocks; Happy Dwarf watched. Alex Morgan helped."})
     assert hidden["t"] == ("the student and another student shared blocks; another student another student "
                            "watched. the teacher the teacher helped.")
     assert "Sneezy" not in m.show(hidden)["t"] and "Doc" in m.show(hidden)["t"]

@@ -3,6 +3,8 @@
 #include "esp_log.h"
 #include "nvs.h"
 #include "nvs_flash.h"
+#include "nvs_migrate.h"
+#include "sdkconfig.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
@@ -26,7 +28,11 @@ void prefs_init(void)
         return;
     }
     s_done = true;
+#if CONFIG_NVS_ENCRYPTION
+    esp_err_t err = nvs_migrate_init(); /* tasks#22: encrypted NVS (migrates plaintext once) */
+#else
     esp_err_t err = nvs_flash_init();
+#endif
     if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         ESP_LOGW(TAG, "NVS partition needs a reset (%s)", esp_err_to_name(err));
         ESP_ERROR_CHECK(nvs_flash_erase());
@@ -35,8 +41,13 @@ void prefs_init(void)
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "nvs init: %s", esp_err_to_name(err));
     }
-    /* Flash encryption and NVS encryption are a later step ().
-     * Values stored here, including the last-used teacher, are plaintext. */
+#if !CONFIG_NVS_ENCRYPTION && CONFIG_RECORDER_NVS_MIGRATE_DRY_RUN
+    if (err == ESP_OK) {
+        nvs_migrate_dry_run();
+    }
+#endif
+    /* Without CONFIG_NVS_ENCRYPTION (CrowPanel, plain Hosyond builds) values
+     * here are plaintext. See sdkconfig.defaults.secure (tasks#22). */
 }
 
 esp_err_t prefs_get(const char *key, char *out, size_t len)

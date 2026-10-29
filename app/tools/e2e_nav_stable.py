@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The top navigation must not move between tabs.
+"""The top navigation must not move between tabs (David, Oct 8 2026; tasks#85).
 
 Fully offline, same setup as e2e_planner.py: built UI + review service + Firebase Auth
 emulator + fictional data. For a teacher and a demo admin, at 1024 / 1280 / 1440 px wide,
@@ -36,7 +36,7 @@ os.environ.setdefault("PLANNER_TODAY", "2026-10-07")
 
 import e2e_planner as ep  # noqa: E402  (helpers only; its ports are overridden below)
 
-PROJECT = "demo-goalvera-review"
+PROJECT = "demo-atlanta-review"
 EMU = "127.0.0.1:9399"
 PORT = 8797
 BASE = f"http://127.0.0.1:{PORT}"
@@ -81,7 +81,7 @@ def sign_in(page, email, password):
     page.wait_for_timeout(800)
 
 
-LONG_NAME = "Maplewood Learning Academy for Exceptional Children of the Greater Springfield Area"
+LONG_NAME = "Peachtree Learning Academy for Exceptional Children of Greater Atlanta"
 TALL_SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="60" height="120" viewBox="0 0 60 120" onload="alert(1)">
 <script>document.title='pwned'</script><rect width="60" height="120" rx="10" fill="#1d4e89"/>
 <circle cx="30" cy="40" r="18" fill="#f2b632"/><rect x="12" y="72" width="36" height="30" fill="#ffffff"/></svg>"""
@@ -104,7 +104,7 @@ def set_custom_branding(browser, shots, workdir):
     page = ctx.new_page()
     sign_in(page, *ADMIN)
     before = brand_state(page)
-    check("default top bar: Sample Elementary School with its badge", before["name"] == "Sample Elementary School" and (before["logo"] or before["badge"]),
+    check("default top bar: Everyday Heroes Academy with its badge", before["name"] == "Everyday Heroes Academy" and (before["logo"] or before["badge"]),
           json.dumps(before))
     page.screenshot(path=str(shots / "branding_default.png"), clip={"x": 0, "y": 0, "width": 1024, "height": 120})
     page.locator("[data-testid=tab-settings]").click()

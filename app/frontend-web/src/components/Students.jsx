@@ -8,7 +8,7 @@ import { IEP_STATUS, weekRange } from '../plannerWeeks.js';
 import { isSampleId, sampleDetail, sampleDraft, sampleStudents } from '../samples.js';
 import { recordedLabel } from '../sessionTitle.js';
 
-// Students tab. Every student for every role (Oct 2 decision);
+// Students tab (David, Oct 8 2026; tasks#85). Every student for every role (Oct 2 decision);
 // the list opens filtered to the viewer's own classrooms. A student's page: the IEP, one school
 // week (Mon–Fri) of daily session summaries, then the weekly summary and the draft parent report.
 // That summary + report is built only here now; the lesson planner links to it. Nothing is sent.
@@ -30,7 +30,7 @@ const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 export function StudentList({ data, samples, onOpen, initialClasses = null }) {
   const rows = data?.students || [];
   const classes = useMemo(() => [...new Set(rows.flatMap((r) => r.class_codes))].sort(), [rows]);
-  // opens on the viewer's default classroom; admins: All
+  // opens on the viewer's default classroom (David, Oct 8); admins: All
   const opening = () => (data?.default_classroom && classes.includes(data.default_classroom) ? [data.default_classroom] : []);
   const [picked, setPicked] = useState(() => initialClasses ?? opening());
   useEffect(() => {
@@ -239,7 +239,7 @@ function WeeklyReport({ d, student, reviewerId, readOnly, onSaved }) {
             </div>
           ) : null}
           {canEdit && !d.sample && saved?.parent_email ? (
-            // Weekly parent email (): recipients, exact text, demo redirect; one click sends
+            // Weekly parent email (tasks#106): recipients, exact text, demo redirect; one click sends
             <ParentEmailPanel studentId={d.student_id} week={d.week} reviewerId={reviewerId}
               version={`${saved.saved_at || ''}${saved.status}`} />
           ) : null}

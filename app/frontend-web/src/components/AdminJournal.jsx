@@ -30,7 +30,7 @@ const ACTIONS = [
 ];
 
 /**
- * Admin activity journal (): newest first, Eastern time. Shows what the
+ * Admin activity journal (tasks#77): newest first, Eastern time. Shows what the
  * server returns: its display name for the person and student, else the internal id.
  * Opening it is journaled on the server (journal_viewed).
  */
@@ -137,11 +137,11 @@ export default function AdminJournal({ onClose = null, load = loadJournal, initi
           </div>
         </div>
   );
-  // Activity Log tab: the same journal, on its own tab instead of a pop-up
+  // Activity Log tab (David, Oct 8): the same journal, on its own tab instead of a pop-up
   if (inline) {
     return (
       <section className="activity-log" data-testid="journal-panel">
-        {/* The activity report CSV (by person / by student, date range) lives here now:
+        {/* The activity report CSV (by person / by student, date range) lives here now (David, Oct 10):
             the Download button at the top right of every page is gone; this is its only way in. */}
         <div className="activity-head">
           <p className="muted">Newest first. Times are Eastern (ET). Opening this page is recorded in the journal.</p>

@@ -1,6 +1,6 @@
 #pragma once
 /*
- * SD-card recording encryption ( / pilot checklist G5), format "APENC1".
+ * SD-card recording encryption (tasks#22 / pilot checklist G5), format "APENC1".
  *
  * Envelope encryption, public key only on the device:
  *   - a fresh random 256-bit AES key per recording,

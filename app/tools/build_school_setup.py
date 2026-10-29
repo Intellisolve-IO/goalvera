@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Seed files for the review site's Domains and Classes tabs.
+"""Seed files for the review site's Domains and Classes tabs (David, Oct 10 2026; tasks#103).
 
-    # Domains: from the sample Educational Methodology document (Word). Needs python-docx.
+    # Domains: from David's Educational Methodology document (Word). Needs python-docx.
     python3 app/tools/build_school_setup.py --docx /path/to/educational-methodology.docx
-    # Classes: from the FICTIONAL sample school (app/samples/sis-demo, Sample Elementary School).
+    # Classes: from the FICTIONAL sample school (app/samples/sis-demo, Everyday Heroes Academy).
     python3 app/tools/build_school_setup.py --classes
     python3 app/tools/build_school_setup.py --check    # exit 1 if classes.json is out of date or
                                                        # domains.json doesn't hold together
@@ -36,7 +36,7 @@ SIS = APP / "samples" / "sis-demo"
 OUT = APP / "samples" / "school-setup"
 LABEL = "Fictional sample data"
 HEADERS = ["Subject / Domain", "Core Educational Methodology", "Key Curricular Programs", "Recommended Book / Guide"]
-# OneRoster subject -> Subject / Domain in the sample methodology document. Homeroom (Morning Meeting) and Social Skills
+# OneRoster subject -> Subject / Domain in David's document. Homeroom (Morning Meeting) and Social Skills
 # are the self-regulation / SEL blocks of the day.
 DOMAIN_FOR_SUBJECT = {"Homeroom": "Social-Emotional & Self-Regulation", "Reading": "Reading & Phonics",
                       "Math": "Mathematics", "Social Skills": "Social-Emotional & Self-Regulation"}
@@ -96,7 +96,7 @@ def parse_docx(path: Path) -> dict:
             name, desc = text.split(": ", 1)
             if desc.strip():                          # the lead-in sentence ends with ":" and is skipped
                 formats.append({"name": name.strip(), "description": desc.strip()})
-    return {"_meta": {"source": "the sample Educational Methodology document (Oct 10 2026), the table "
+    return {"_meta": {"source": "David's Educational Methodology document (Oct 10 2026), the table "
                                 "\"Methodology by Subject & Recommended Reference Books\"; built by "
                                 "app/tools/build_school_setup.py. Not student data.",
                       "columns": HEADERS, "missing_fields": missing},
@@ -140,7 +140,7 @@ def build_classes(domains: dict) -> dict:
             "schedule": [{"days": [d for d in DAYS if d in per["days"].split(",")], "start": per["startTime"],
                           "minutes": _minutes(per["startTime"], per["endTime"]), "period": per["name"]}],
             "grades": c["grades"], "subject": subject, "sis_id": c["sourcedId"], "label": LABEL})
-    return {"_meta": {"synthetic": True, "label": LABEL, "school_profile": "sample-school",
+    return {"_meta": {"synthetic": True, "label": LABEL, "school_profile": "everyday-heroes",
                       "source": "app/samples/sis-demo classes.csv, enrollments.csv, ext_periods.csv (fictional); "
                                 "domains mapped by app/tools/build_school_setup.py DOMAIN_FOR_SUBJECT. Do not edit by hand."},
             "classes": out}
@@ -152,7 +152,7 @@ def _dump(obj) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--docx", type=Path, help="the sample Educational Methodology document -> domains.json")
+    ap.add_argument("--docx", type=Path, help="David's Educational Methodology document -> domains.json")
     ap.add_argument("--classes", action="store_true", help="rebuild classes.json from sis-demo")
     ap.add_argument("--check", action="store_true", help="exit 1 if classes.json is out of date")
     a = ap.parse_args()

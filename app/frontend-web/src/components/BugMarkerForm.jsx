@@ -4,7 +4,7 @@ import { BUG_AREAS, BUG_HINT, BUG_THANKS, MARKER_TYPES, parseClock } from '../bu
 import { apiErrorText } from '../labels.js';
 
 /**
- * "Add a marker" on a session (): marker type dropdown (Bug), time in the
+ * "Add a marker" on a session (tasks#94): marker type dropdown (Bug), time in the
  * recording, where on the screen, and a note. Teachers and admins only (the server
  * refuses RBTs). submit(payload) -> the server's answer.
  */

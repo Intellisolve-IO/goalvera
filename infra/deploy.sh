@@ -57,7 +57,7 @@ rm -f "$ROOT/app/upload-api/safelog.py.new"
 gcloud run deploy "$UPLOAD_SERVICE" --source="$ROOT/app/upload-api" --region="$REGION" \
   --service-account="$UPLOAD_SA" --build-service-account="projects/$PROJECT_ID/serviceAccounts/$BUILD_SA" \
   --no-invoker-iam-check --ingress=all \
-  --min-instances=1 --max-instances=2 --cpu=1 --memory=512Mi --concurrency=20 --timeout=60 \
+  --min-instances=0 --max-instances=2 --cpu=1 --memory=512Mi --concurrency=20 --timeout=60 \
   --set-env-vars="$UPLOAD_ENV" --quiet
 fi
 

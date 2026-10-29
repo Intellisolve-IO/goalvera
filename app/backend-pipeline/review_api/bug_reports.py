@@ -1,9 +1,9 @@
-"""Bug markers: a teacher reports a problem with the review site.
+"""Bug markers: a teacher reports a problem with the review site (David, Oct 7 2026; tasks#94).
 
 A teacher (or an admin) picks the marker type "Bug" on a session, types a note and
 submits it. The review service files it as an issue in your-org/your-issues-repo, labelled
 `bug` and `teacher-feedback`, on the org's Team Board (Project 1) with Project =
-"the legacy school".
+"Goalvera".
 
 What the issue may contain (Chief of Staff, Oct 7), and nothing else:
   * the teacher's note, with every roster student first or last name replaced by
@@ -61,7 +61,7 @@ BUG_TYPE = "Bug"
 REVIEW_MARKER_TYPES = (BUG_TYPE,)       # the types a teacher can add on the review site
 HIDDEN_MARKER_TYPES = frozenset({BUG_TYPE})   # never in the markers line, incidents or any PDF
 THANKS = "Thanks, sent to our team."
-# Recorder Bug markers: the device's marker list gains "Bug"; a recording carries
+# Recorder Bug markers (David, Oct 8): the device's marker list gains "Bug"; a recording carries
 # a marker of type "bug" at an offset. Handled like a review-site Bug report, with no teacher note.
 DEVICE_NOTE = "Reported from recorder"
 DEVICE_SCREEN = "recorder"
@@ -96,7 +96,7 @@ _STAFF_KEY = re.compile(r"(^|_)(teacher_?name|name|full_?name|first_?name|last_?
 _STOP = {"demo", "teacher", "teachers", "rbt", "staff", "admin", "the", "and", "student", "sample", "class",
          "room", "speech", "reading", "art", "gym", "mr", "mrs", "ms", "dr"}
 
-# Generic placeholders that stand in for a person but are not a name (, Oct 10): a value made
+# Generic placeholders that stand in for a person but are not a name (tasks#94, Oct 10): a value made
 # only of these (plus numbers / single letters), e.g. "Student", "Student 2", "Demo Teacher", "the
 # student", "Unknown", is never treated as a name. A value with any other word ("Pat Speech",
 # "Student Marcus") is still a name, and the other words are still caught on their own.

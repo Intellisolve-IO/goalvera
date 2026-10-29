@@ -195,7 +195,7 @@ static __attribute__((unused)) void build_wav_header(uint8_t *h, uint32_t data_b
 }
 
 #if CONFIG_RECORDER_SD_ENCRYPTION
-/* / G5: recordings are APENC1 on the SD card (see rec_crypt.h).
+/* tasks#22 / G5: recordings are APENC1 on the SD card (see rec_crypt.h).
  * Only the public key is on the device; the cloud unwraps with Cloud KMS. */
 extern const unsigned char rec_pubkey_pem_start[] asm("_binary_recording_pubkey_pem_start");
 extern const unsigned char rec_pubkey_pem_end[] asm("_binary_recording_pubkey_pem_end");

@@ -4,10 +4,10 @@
     python3 app/tools/build_sis_demo.py      # rewrites app/samples/sis-demo/ (deterministic, seeded)
     python3 app/tools/validate_sis_demo.py   # checks links and the fictional flag
 
-Everything is fictional sample data for the sign-in-only demo: character
+Everything is fictional sample data for the sign-in-only demo (David, Oct 10 2026): character
 first names, invented people, example.com/example.org emails, 555-01xx phones, fake addresses,
 invented assessment results. Eligibility and needs are assigned independently of character names.
-Health is a "health alert on file" flag only. School name: Sample Elementary School.
+Health is a "health alert on file" flag only. School name (David, Oct 10): Everyday Heroes Academy.
 """
 from __future__ import annotations
 
@@ -47,7 +47,7 @@ ATT_CODES = [  # code, description, counts as absent, counts as tardy
 
 # ------------------------------------------------------------------ staff
 STAFF = [  # key, first, last, staffType, onerosterRole, title, room
- ("snow", "Snow", "White", "teacher", "teacher", "Lead Special Education Teacher", "RM104"),
+ ("snow", "Alex", "Morgan", "teacher", "teacher", "Lead Special Education Teacher", "RM104"),
  ("belle", "Belle", "Beaumont", "teacher", "teacher", "Special Education Teacher", "RM101"),
  ("tiana", "Tiana", "Rogers", "teacher", "teacher", "Special Education Teacher", "RM102"),
  ("mulan", "Mulan", "Fa", "teacher", "teacher", "Special Education Teacher", "RM103"),
@@ -111,7 +111,7 @@ SURNAMES = ["Johnson", "Williams", "Brown", "Garcia", "Martinez", "Davis", "Lope
 ADULT = ["Marisol", "Denise", "Robert", "Angela", "Kevin", "Tamika", "Luis", "Jennifer", "Michael", "Keisha", "David", "Linh",
          "Rosa", "James", "Fatima", "Carlos", "Monique", "Brian", "Yolanda", "Anthony", "Sunita", "Gregory", "Patricia",
          "Hector", "Lakshmi", "Darnell", "Ingrid", "Samuel", "Beatriz", "Terrence", "Nadia", "Paul", "Erica", "Victor",
-         "Gloria", "Marcus", "Helen", "Jamal", "Mei", "Oscar", "Renee", "Tyrone", "Alma", "Kenji", "Bianca", "Curtis"]
+         "Gloria", "Marcus", "Helen", "Jamal", "Mei", "Oscar", "Riley", "Tyrone", "Alma", "Kenji", "Bianca", "Curtis"]
 DWARF_GUARDIANS = {"doc": [("Marigold", "mother"), ("Elliot", "father")], "grumpy": [("Hazel", "grandmother")],
                    "happy": [("June", "mother"), ("Oren", "stepfather")], "sleepy": [("Rowan", "father"), ("Iris", "mother")],
                    "bashful": [("Clementine", "mother")], "sneezy": [("Wren", "foster parent")], "dopey": [("Basil", "father"), ("Poppy", "mother")]}
@@ -300,7 +300,7 @@ def build():
         nguard = sum(1 for l in links if l["studentSourcedId"] == s["sid"])
         add_contact(rng.choice(ADULT), rng.choice(surnames), rng.choice(["aunt", "uncle", "neighbor", "family friend", "grandfather"]),
                     False, s, emergency=nguard + 1, email=False)
-    # Non-custodial contacts: fixed values, no random draws, so every other
+    # Non-custodial contacts (Ops, Oct 10; tasks#106): fixed values, no random draws, so every other
     # row is unchanged. They have an email but "receivesWeeklyDraft" is false: the weekly parent email
     # must leave them out, and the demo shows that.
     for key, (fn, ln, dom) in NONCUSTODIAL.items():
@@ -317,7 +317,7 @@ def build():
     # -------------------------------------------------- OneRoster: orgs, sessions, courses, classes
     write_csv(OUT / "orgs.csv", ["sourcedId", "status", "dateLastModified", "name", "type", "identifier", "parentSourcedId"], [
         dict(sourcedId=DISTRICT, name="Fictional County School District (sample)", type="district", identifier="FICT-LEA-000"),
-        dict(sourcedId=SCHOOL, name="Sample Elementary School", type="school", identifier="FICT-0001",
+        dict(sourcedId=SCHOOL, name="Everyday Heroes Academy", type="school", identifier="FICT-0001",
              parentSourcedId=DISTRICT)])
     sess = [dict(sourcedId=SY, title="School Year 2026-2027", type="schoolYear", startDate="2026-08-03", endDate="2027-05-21", schoolYear="2027"),
             dict(sourcedId=SEM[0], title="Semester 1", type="semester", startDate="2026-08-03", endDate="2026-12-18", parentSourcedId=SY, schoolYear="2027"),
@@ -619,7 +619,7 @@ def build():
     write_csv(OUT / "ext_periods.csv", ["sourcedId", "name", "startTime", "endTime", "days", "rotation"],
               [dict(sourcedId=p, name=n, startTime=a, endTime=b, days="Mon,Tue,Wed,Thu,Fri") for p, n, a, b in PERIODS])
 
-    # -------------------------------------------------- daily attendance
+    # -------------------------------------------------- daily attendance (David, Oct 10: in scope)
     # School days from the first day (Aug 3) to Oct 9, 2026, minus Labor Day. One row per student per
     # school day they were enrolled. Its own seeded generator, so every other file is unchanged.
     arng = random.Random(20261011)

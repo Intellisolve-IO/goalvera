@@ -4,7 +4,7 @@ import { FictionalLabel } from './Students.jsx';
 import { loadClasses, saveClass } from '../dataStore.js';
 import { WEEK, endTime, meetingProblem, setupError } from '../schoolSetup.js';
 
-// Classes tab: the actual class. Name, teacher(s), educational domain
+// Classes tab (David, Oct 10 2026; tasks#103): the actual class. Name, teacher(s), educational domain
 // (Domains tab), students, classroom and schedule (one or more meeting patterns: days, start, length).
 // Everyone sees every class; the list opens on the viewer's default classroom like the other tabs.
 // Admins add, edit and delete; a teacher edits the classes they teach. Every change is journaled.

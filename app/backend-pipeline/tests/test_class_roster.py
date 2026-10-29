@@ -1,5 +1,5 @@
 """Class-code normalization, teacher fallback, needs-class-assignment and the
-roster backfill (). Offline: local store / fake gcloud runner.
+roster backfill (tasks#35). Offline: local store / fake gcloud runner.
 
   python -m pytest app/backend-pipeline/tests -q
 """
@@ -28,7 +28,7 @@ _spec = importlib.util.spec_from_file_location("backfill_session_roster", REPO /
 bf = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(bf)
 
-ROSTER = json.loads((REPO / "app/samples/legacy_demo_roster.json").read_text())   # old shape
+ROSTER = json.loads((REPO / "app/samples/profiles/demo-school/demo_roster.json").read_text())   # old shape
 FIRMWARE_CLASSES = ["Reading 3A", "Math 2B", "Circle Time"]
 TEACHER = "usr_demo_sarah"
 
@@ -62,7 +62,6 @@ def test_roster_has_the_firmware_classes_with_the_demo_teacher():
 
 
 def test_roster_matches_firmware_sample_list_when_available():
-    # the firmware worktree sits next to this one on the demo box; skip elsewhere
     fw = REPO / "firmware/recorder-idf/main/sample_device.json"
     if not fw.is_file():
         pytest.skip("firmware checkout not present")
@@ -146,7 +145,7 @@ RID = "rec_a4cb8fc08704_20260929_131649_Reading_3A"
 def _seed_unknown(root: Path, *, code="Reading-3A", sidecar_class="Reading 3A", with_sidecar=True) -> LocalStore:
     store = LocalStore(root)
     m = _manifest(code)
-    side = {"class_code": sidecar_class, "teacher": "Demo Teacher", "classroom_code": "room-210", "markers": []}
+    side = {"class_code": sidecar_class, "teacher": "Demo Teacher", "classroom_code": "room-b", "markers": []}
     t = build_transcript(rid=RID, manifest=m, turns=[{"speaker": "Speaker 1", "start": 0.0, "end": 1.0, "text": "synthetic"}],
                          roster=OLD_ROSTER, billed_seconds=12, speech_location="us", sidecar=side)
     wrapped = {"prompt_version": "v1", "source": "sample", "model": "gemini-3.8-flash",

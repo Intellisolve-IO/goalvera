@@ -1,4 +1,4 @@
-// Weekly lesson planner (), rendered to HTML with react-dom/server.
+// Weekly lesson planner (tasks#83), rendered to HTML with react-dom/server.
 // The middle column is always this week; the arrows only change the left column.
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';

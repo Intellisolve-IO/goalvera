@@ -1,4 +1,4 @@
-"""Pipeline service (Cloud Run, private) - steps 2-4.
+"""Pipeline service (Cloud Run, private) - tasks#35 steps 2-4.
 
 Eventarc delivers every "object finalized" event in the recordings bucket.
 The service is event-driven in two stages so no request ever waits on a long
@@ -49,7 +49,7 @@ BUCKET = os.environ.get("BUCKET", "")
 SPEECH_LOCATION = os.environ.get("SPEECH_LOCATION", "us")
 LANGUAGE = os.environ.get("SPEECH_LANGUAGE", "en-US")
 ROSTER_OBJECT = os.environ.get("ROSTER_OBJECT", "config/demo_roster.json")
-REC_KMS_KEYRING_PATH = os.environ.get("REC_KMS_KEYRING_PATH", "")  #
+REC_KMS_KEYRING_PATH = os.environ.get("REC_KMS_KEYRING_PATH", "")  # tasks#22
 _unwrap = None
 MAX_AUDIO_BYTES = int(os.environ.get("MAX_AUDIO_BYTES", str(400 * 1024 * 1024)))
 
@@ -143,7 +143,7 @@ def start_transcription(obj: dict, m: re.Match) -> None:
         with open(local, "rb") as fh:
             head = fh.read(8)
         if recording_crypto.is_encrypted(head):
-            #: APENC1 from the recorder. Unwrap the file key in Cloud KMS,
+            # tasks#22: APENC1 from the recorder. Unwrap the file key in Cloud KMS,
             # write plain WAV only to the temp dir and the work/ prefix.
             global _unwrap
             try:
@@ -303,7 +303,7 @@ def finish_session(rid: str) -> None:
     log("draft_saved", step="gemini", ms=t.ms, model=wrapped.get("model"), status="pending_review", **base)
 
 
-# ---------------------------------------------------------------- Teacher Notes photos ()
+# ---------------------------------------------------------------- Teacher Notes photos (tasks#112)
 
 def media_list(rid: str) -> list[dict]:
     """Confirmed uploads for this recording (media/<rid>/<mid>.json, written by upload-api)."""

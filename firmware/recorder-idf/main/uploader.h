@@ -11,7 +11,7 @@ void uploader_net_unlock(void);
 bool uploader_net_mem_ok(void);
 
 /* Wi-Fi upload of finished recordings (.wav + .json sidecar) to the
- * the Goalvera upload-api. The SD copy is deleted ONLY after the service
+ * Goalvera upload-api. The SD copy is deleted ONLY after the service
  * returns verified=true with a receipt whose HMAC we recompute and whose
  * size/MD5/CRC32C match what we hashed locally. Anything else keeps the
  * file and retries later. Uploads run only while no session is active. */
@@ -42,7 +42,7 @@ void uploader_hold(bool hold);
 /* True when no upload attempt is running. */
 bool uploader_idle(void);
 
-/* Teacher Notes QR (0.7.2,). Blocking HTTPS call: never from the
+/* Teacher Notes QR (0.7.2, tasks#112). Blocking HTTPS call: never from the
  * LVGL thread. Asks the upload-api for a one-time phone upload link tied to
  * the recording local_wav (the cloud name uses class_code, as for uploads).
  * 0: url (https://.../u/<token>) and *ttl_s set. -1: err holds a short reason.
@@ -54,3 +54,7 @@ int uploader_media_token(const char *local_wav, const char *class_code, char *ur
 /* School display name from the review site's admin settings (POST /v1/device/school,
  * this recorder's upload key). 0: out holds the name. -1: no key, offline or error. */
 int uploader_school_name(char *out, size_t cap);
+
+/* POST JSON to the upload API with the device token. Returns the HTTP status,
+ * or -1 if there is no token or the server was not reached. Takes the TLS lock. */
+int uploader_api_post(const char *path, const char *json);

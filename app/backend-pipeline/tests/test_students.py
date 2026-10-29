@@ -1,4 +1,4 @@
-"""Students / Teachers / Settings tabs: every role sees every
+"""Students / Teachers / Settings tabs (David, Oct 8 2026; tasks#85): every role sees every
 student and IEP (Oct 2 decision; the list only opens on the viewer's own classrooms), every IEP
 opening is journaled (iep_viewed + the student's internal id), one school week Mon-Fri of daily
 summaries, parent emails only for the student's teachers and admins, Settings admin-only.

@@ -12,7 +12,7 @@ import { authFetch } from './auth.js';
 const STORAGE_KEY = 'ocr_hitl_session_overrides_v1';
 const SPEAKER_MAP_KEY = 'ocr_speaker_map_v1';
 
-// Sessions produced by the cloud pipeline (), served read-only by
+// Sessions produced by the cloud pipeline (tasks#35), served read-only by
 // app/backend-pipeline/review_api via the Vite /api proxy. If the read
 // service is not running, the UI falls back to the sample fixtures only.
 let pipelineSessions = [];
@@ -30,7 +30,7 @@ export async function loadPipelineSessions() {
   }
 }
 
-/** Recordings still processing () -> {uploads: [{recording_id, state, label, error_text, ...}], processing} */
+/** Recordings still processing (tasks#106) -> {uploads: [{recording_id, state, label, error_text, ...}], processing} */
 export async function loadUploadsStatus() {
   const res = await authFetch('/api/uploads/status', { cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -222,7 +222,7 @@ export async function downloadApprovedPdf(recordingId, reviewerId) {
 }
 
 /**
- * One incident's report for the print view (Download PDF on an incident).
+ * One incident's report for the print view (Download PDF on an incident; tasks#85).
  * The server checks who may export it, logs the click (audit trail + journal, ids
  * only) and returns only what may be printed; the browser makes the PDF.
  */
@@ -247,7 +247,7 @@ export async function fetchIncidentNames(recordingId) {
   return (await res.json()).incidents || [];
 }
 
-/** A teacher's Bug marker () -> {status: "filed" | "pending", issue_url, message}. */
+/** A teacher's Bug marker (tasks#94) -> {status: "filed" | "pending", issue_url, message}. */
 export async function submitBugReport(recordingId, payload, reviewerId) {
   const res = await authFetch(`/api/sessions/${encodeURIComponent(recordingId)}/bug_report`, {
     method: 'POST',
@@ -272,7 +272,7 @@ export function resetOverrides() {
   localStorage.removeItem(SPEAKER_MAP_KEY);
 }
 
-// ---------------------------------------------------------------- weekly lesson planner ()
+// ---------------------------------------------------------------- weekly lesson planner (tasks#83)
 
 /** Last week (or an earlier one: past=YYYY-MM-DD Monday), this week and next week for a classroom. */
 export async function loadPlanner(classCode, past, reviewerId) {
@@ -310,7 +310,7 @@ export async function savePlanner(what, body, reviewerId) {
   return res.json();
 }
 
-// ---- Students / Teachers / Settings tabs. Read-only fetches.
+// ---- Students / Teachers / Settings tabs (David, Oct 8; tasks#85). Read-only fetches.
 async function getJson(url, reviewerId) {
   const res = await authFetch(url, {
     headers: reviewerId ? { 'X-Reviewer-Id': reviewerId } : {},
@@ -341,7 +341,7 @@ export function loadSettings(reviewerId) {
   return getJson('/api/admin/settings', reviewerId);
 }
 
-// ---------------------------------------------------------------- classroom materials ()
+// ---------------------------------------------------------------- classroom materials (tasks#99)
 // Teacher Notes -> up to 3 suggested materials -> the teacher picks and adjusts -> a printable PDF,
 // downloadable here and (school setting) emailed to the teacher's own staff address. The server
 // decides who may do what, masks names before any AI call and logs every step.
@@ -441,7 +441,7 @@ export async function saveMaterialsInstruction(body, reviewerId) {
   return res.json();
 }
 
-// ---------------------------------------------------------------- Domains + Classes ()
+// ---------------------------------------------------------------- Domains + Classes (tasks#103)
 // Domains: Subject / Domain -> core methodology, programs, book (educational methodology document).
 // Classes: name, teacher(s), domain, students, classroom, schedule. Everyone signed in reads both; the
 // server decides who may change what (admins; a teacher on their own class) and journals each change.
@@ -476,12 +476,12 @@ export function saveClass({ id = null, klass = null, version, remove = false }, 
 }
 
 /** -> {class (picked, else suggested), source: teacher|suggested|cleared|null, suggested_id, choices, can_change} */
-/** Speaker selector choices (): the class's people first, then everyone, then generic options. */
+/** Speaker selector choices (tasks#104): the class's people first, then everyone, then generic options. */
 export function loadSpeakers(recordingId, reviewerId) {
   return getJson(`/api/sessions/${encodeURIComponent(recordingId)}/speakers`, reviewerId);
 }
 
-/** Weekly parent email (): preview (recipients, excluded contacts, exact text, demo redirect). */
+/** Weekly parent email (tasks#106): preview (recipients, excluded contacts, exact text, demo redirect). */
 export function loadParentEmail(studentId, week, reviewerId) {
   return getJson(`/api/students/${encodeURIComponent(studentId)}/parent_email?week=${encodeURIComponent(week)}`, reviewerId);
 }
@@ -501,7 +501,7 @@ export function saveParentEmailSetting(redirect, reviewerId) {
   return postJson('/api/admin/parent_email', { redirect }, reviewerId);
 }
 
-/** Students in this session () -> {student_ids, saved, suggestion, choices, others, max, can_change} */
+/** Students in this session (tasks#106) -> {student_ids, saved, suggestion, choices, others, max, can_change} */
 export function loadSessionStudents(recordingId, reviewerId) {
   return getJson(`/api/sessions/${encodeURIComponent(recordingId)}/students`, reviewerId);
 }
@@ -518,7 +518,7 @@ export function saveSessionClass(recordingId, classId, reviewerId) {
   return postJson(`/api/sessions/${encodeURIComponent(recordingId)}/class`, { class_id: classId || null }, reviewerId);
 }
 
-// ---------------------------------------------------------------- lesson plan materials ()
+// ---------------------------------------------------------------- lesson plan materials (tasks#99)
 // "Create worksheet" on a week of the Lesson planner, and "Add to lesson plan" on a session's
 // materials. Same Make flow, instructions, privacy rules and journal as the session materials.
 
@@ -576,7 +576,7 @@ export function attachMaterial(recordingId, materialId, body, reviewerId) {
   );
 }
 
-// My profile: the signed-in user's own profile. Role and email are
+// My profile (David, Oct 10 2026; tasks#107): the signed-in user's own profile. Role and email are
 // read-only unless the server's PROFILE_SELF_EDIT_ACCESS flag is on (can_edit_access).
 export function loadMyProfile() {
   return getJson('/api/profile/me');
@@ -591,7 +591,7 @@ export function changeAccess({ person = null, currentEmail = null, email = null,
   return postJson('/api/admin/people/access', { person, current_email: currentEmail, email, role });
 }
 
-// Teacher Notes photo / video (): fetched with the sign-in header, shown from a blob: URL.
+// Teacher Notes photo / video (tasks#112): fetched with the sign-in header, shown from a blob: URL.
 export async function fetchMediaUrl(recordingId, mediaId, reviewerId) {
   const res = await authFetch(`/api/sessions/${encodeURIComponent(recordingId)}/media/${encodeURIComponent(mediaId)}`, {
     headers: reviewerId ? { 'X-Reviewer-Id': reviewerId } : {},

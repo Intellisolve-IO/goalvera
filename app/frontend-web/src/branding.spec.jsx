@@ -1,4 +1,4 @@
-// School name + logo setting: top bar brand, Settings › School,
+// School name + logo setting (David, Oct 9 2026; tasks#85): top bar brand, Settings › School,
 // and the calls the browser makes. The server re-checks everything (tests/test_branding.py).
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -16,24 +16,24 @@ const { default: SchoolBrand } = await import('./components/SchoolBrand.jsx');
 const { default: SchoolSettings } = await import('./components/SchoolSettings.jsx');
 const { SettingsView } = await import('./components/Settings.jsx');
 
-const custom = { ...br.DEFAULT_BRANDING, school_name: 'Maplewood Learning Academy', is_default: false,
+const custom = { ...br.DEFAULT_BRANDING, school_name: 'Peachtree Learning Academy', is_default: false,
   logo: { content_type: 'image/png', url: '/api/branding/logo?v=abc' } };
 
 afterEach(() => vi.unstubAllGlobals());
 
 describe('top bar brand', () => {
-  test('default: Sample Elementary School with the SE badge (until the built-in logo loads)', () => {
+  test('default: Everyday Heroes Academy with the EH badge (until the built-in logo loads)', () => {
     const html = renderToStaticMarkup(<SchoolBrand branding={br.DEFAULT_BRANDING} />);
-    expect(html).toContain('>Sample Elementary School<');
-    expect(html).not.toContain('Legacy School');
+    expect(html).toContain('>Everyday Heroes Academy<');
+    expect(html).not.toContain('Atlanta');
     expect(html).toContain('data-testid="school-badge"');
-    expect(html).toContain('>SE<');
+    expect(html).toContain('>EH<');
     expect(html).not.toContain('<img');
   });
   test('custom name and logo; the name keeps a tooltip and the one-line (ellipsis) class', () => {
     const html = renderToStaticMarkup(<SchoolBrand branding={custom} logoUrl="blob:http://x/1" />);
     expect(html).toContain('src="blob:http://x/1"');
-    expect(html).toContain('class="school-name" title="Maplewood Learning Academy"');
+    expect(html).toContain('class="school-name" title="Peachtree Learning Academy"');
     expect(html).not.toContain('school-badge');
   });
 });
@@ -48,7 +48,7 @@ describe('Settings › School', () => {
   test('everyone else reads it only', () => {
     const html = renderToStaticMarkup(<SchoolSettings branding={custom} canEdit={false} />);
     expect(html).not.toMatch(/<(input|select|textarea|button)/);
-    expect(html).toContain('Maplewood Learning Academy');
+    expect(html).toContain('Peachtree Learning Academy');
     expect(html).toContain('Read-only · admins change this');
   });
   test('the School section sits at the top of the Settings tab', () => {
@@ -74,7 +74,7 @@ describe('checks and calls', () => {
     }));
     const file = new Blob(['<svg/>'], { type: 'image/svg+xml' });
     const b = await br.uploadLogo(file);
-    expect(b.school_name).toBe('Maplewood Learning Academy');
+    expect(b.school_name).toBe('Peachtree Learning Academy');
     expect(calls[0][0]).toBe('/api/admin/branding/logo');
     expect(calls[0][1].method).toBe('POST');
     expect(calls[0][1].headers['Content-Type']).toBe('image/svg+xml');
@@ -87,6 +87,6 @@ describe('checks and calls', () => {
   });
   test('top bar falls back to the defaults if the server is unreachable', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('offline'); }));
-    expect((await br.loadBranding()).school_name).toBe('Sample Elementary School');
+    expect((await br.loadBranding()).school_name).toBe('Everyday Heroes Academy');
   });
 });

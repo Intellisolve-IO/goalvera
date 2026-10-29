@@ -10,7 +10,7 @@ export function markerTone(type) {
 }
 
 /**
- * Horizontal timeline of the recording (): an mm:ss axis, one track per
+ * Horizontal timeline of the recording (tasks#82): an mm:ss axis, one track per
  * diarized speaker (who-is-who dropdown on the left, talking blocks on the
  * right) and a marker track. Clicking a block or marker calls onJump(seconds,
  * turnIndex). Mapping is the same browser-only speaker map as before.

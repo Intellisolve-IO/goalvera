@@ -1,4 +1,4 @@
-"""Recordings still being processed.
+"""Recordings still being processed (David, Oct 10 2026; tasks#106).
 
 A recording shows in the Recordings list as soon as its upload lands, before its notes exist:
 "Uploaded, waiting", "Transcribing", "Drafting notes", or a clear failure. The browser polls this

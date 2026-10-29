@@ -1,5 +1,5 @@
 /*
- * Wi-Fi network picker (, 0.6.3). Included by ui_app.c after the
+ * Wi-Fi network picker (tasks#20, 0.6.3). Included by ui_app.c after the
  * board layout, so it uses the same helpers (label, style_box, make_bars)
  * and the board's PK_* sizes. Same screens on both boards.
  *

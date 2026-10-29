@@ -1,4 +1,4 @@
-// Sign in with Google (): the button shows only when the server lists "google.com" in
+// Sign in with Google (tasks#108): the button shows only when the server lists "google.com" in
 // auth-config; password sign-in stays. Access is still decided by the server (verified email, exact
 // staff-list match, access not removed); the page only shows plain messages for Google's refusals.
 import React from 'react';

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""End-to-end check of Bug markers (), offline, in the real review UI on the
+"""End-to-end check of Bug markers (tasks#94), offline, in the real review UI on the
 synthetic sample session. Saves screenshots.
 
   1. seed the sample session into a fresh local store (one incident at 0:49); put a full
@@ -14,7 +14,7 @@ synthetic sample session. Saves screenshots.
   5. a note quoting the transcript is refused (QUOTES_TRANSCRIPT); nothing is saved
   6. incidents, their numbering, the timeline's markers, the incident print view and the
      session PDF are exactly as before
-  The review screen has no separate markers section: markers are in the
+  The review screen has no separate markers section (David, Oct 8): markers are in the
   timeline, and "+ Add marker" (same form: type incl. Bug, time, note) sits just below it.
 
   python app/tools/e2e_bug_marker.py --shots /workspace/ap-bug-marker-2026-10-07/local-e2e
@@ -66,7 +66,7 @@ def prepare(store_dir: Path) -> None:
     d = s.read_json(f"drafts/{RID}.json")
     d["analysis"]["incident_analysis"] = INCIDENTS
     s.write_json(f"drafts/{RID}.json", d)
-    r = s.read_json("config/demo_roster.json") or json.loads((APP / "samples/legacy_demo_roster.json").read_text())
+    r = s.read_json("config/demo_roster.json") or json.loads((APP / "samples/profiles/demo-school/demo_roster.json").read_text())
     r["students"] = r.get("students") or {}
     r["students"]["stu_101"] = {**(r["students"].get("stu_101") or {}), "first_name": "Marcus",
                                 "last_name": LAST_NAME, "dob": DOB, "school_id": SCHOOL_ID}

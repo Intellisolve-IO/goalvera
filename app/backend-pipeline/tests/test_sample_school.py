@@ -1,12 +1,12 @@
-"""Sample Elementary School: the fictional sample school as the demo's roster (
-). app/samples/demo_roster.json is built from app/samples/sis-demo by
+"""Everyday Heroes Academy: the fictional sample school as the demo's roster (David, Oct 10 2026;
+tasks#98). app/samples/demo_roster.json is built from app/samples/sis-demo by
 app/tools/build_demo_roster.py.
 
 * the roster is up to date, fictional, labelled, and carries no ids, birth dates, contacts,
   pronouns or credential numbers (Ops)
-* Room 104 is Snow White's with the seven Dwarfs; many students per classroom work everywhere
+* Room 104 is Alex Morgan's with the seven Dwarfs; many students per classroom work everywhere
   (Students, Teachers, Settings, planner, default classrooms)
-* recordings made under the old the legacy school roster land in Room 104 when read (nothing rewritten)
+* recordings made under the old Goalvera roster land in Room 104 when read (nothing rewritten)
 * the incident-name and AI-payload safeguards still hold with the new names
 
   python -m pytest app/backend-pipeline/tests/test_sample_school.py -q
@@ -50,11 +50,11 @@ def test_roster_is_built_from_the_sample_school_and_up_to_date():
 
 
 def test_roster_counts_and_room_104():
-    assert ROSTER["_meta"]["synthetic"] is True and ROSTER["_meta"]["school_name"] == "Sample Elementary School"
+    assert ROSTER["_meta"]["synthetic"] is True and ROSTER["_meta"]["school_name"] == "Everyday Heroes Academy"
     assert len(ROSTER["students"]) == 87 and len(ROSTER["class_codes"]) == 8
-    assert len(ROSTER["teachers"]) + len(ROSTER["staff"]) == 23 and "rbts" not in ROSTER   # one staff list ()
+    assert len(ROSTER["teachers"]) + len(ROSTER["staff"]) == 23 and "rbts" not in ROSTER   # one staff list (tasks#104)
     room = ROSTER["class_codes"]["Room 104"]
-    assert room["teacher_name"] == "Snow White"
+    assert room["teacher_name"] == "Alex Morgan"
     kids = sorted(s["first_name"] for s in ROSTER["students"].values() if s["class_codes"] == ["Room 104"])
     assert set(DWARFS) <= set(kids) and len(kids) == 10
     assert ROSTER["teachers"][room["teacher_id"]]["default_class_code"] == "Room 104"
@@ -62,9 +62,9 @@ def test_roster_counts_and_room_104():
 
 
 def test_snow_white_has_her_demo_staff_email_and_no_one_else_does():
-    # : the alias on his Workspace account is Snow White's staff address on file
+    # David, Oct 10 2026: the alias on his Workspace account is Alex Morgan's staff address on file
     snow = ROSTER["teachers"][ROSTER["class_codes"]["Room 104"]["teacher_id"]]
-    assert snow["teacher_name"] == "Snow White" and snow["emails"] == ["snowwhite@staff.example"]
+    assert snow["teacher_name"] == "Alex Morgan" and snow["emails"] == ["snowwhite@staff.example"]
     others = [t["emails"] for tid, t in ROSTER["teachers"].items() if t is not snow]
     assert others and all(e == [] for e in others)
     snow_id = ROSTER["class_codes"]["Room 104"]["teacher_id"]
@@ -106,7 +106,7 @@ def test_roster_has_only_what_the_site_needs():
 
 def test_legacy_codes_are_aliases_of_room_104():
     from common.classcodes import find_class
-    for code in ("RM12", "Reading 3A", "reading-3a", "Math 2B", "Circle Time", "room-210", "Room 210", "Gym",
+    for code in ("RM12", "Reading 3A", "reading-3a", "Math 2B", "Circle Time", "room-b", "Room B", "Hall",
                  "RM104", "room-104"):
         assert find_class(ROSTER, code)[0] == "Room 104", code
     assert find_class(ROSTER, "RM101")[0] == "Room 101"
@@ -120,7 +120,7 @@ def hstore(tmp_path):
     seed_planner(str(tmp_path))                      # old RM12 recordings (Marcus A., Sarah Jenkins)
     s = LocalStore(tmp_path)
     r = json.loads(json.dumps(ROSTER))
-    r["teachers"]["stf_0001"]["emails"] = [TEACHER_EMAIL]      # someone acting as Snow White
+    r["teachers"]["stf_0001"]["emails"] = [TEACHER_EMAIL]      # someone acting as Alex Morgan
     r["teachers"]["stf_0002"]["emails"] = [OTHER_TEACHER]      # Belle Beaumont, Room 101
     s.write_json("config/demo_roster.json", r)
     s.write_json("config/review_allowlist.json", {"users": [
@@ -152,7 +152,7 @@ def test_students_tab_lists_all_87_and_opens_on_room_104(site):
     mine = [s for s in r["students"] if s["mine"]]
     assert {s["name"].split()[0] for s in mine} >= set(DWARFS) and len(mine) == 10
     doc = next(s for s in r["students"] if s["name"] == "Doc D.")
-    assert doc["class_codes"] == ["Room 104"] and doc["teacher_names"] == ["Snow White"]
+    assert doc["class_codes"] == ["Room 104"] and doc["teacher_names"] == ["Alex Morgan"]
     assert doc["label"] == "Fictional sample data" and doc["plan_type"] == "IEP" and doc["iep_goals"] == 5
     assert sorted(r["classrooms"]) == [f"Room 10{i}" for i in range(1, 9)]
 
@@ -162,7 +162,7 @@ def test_a_dwarfs_iep_opens_with_its_label_and_is_journaled(site, journal):
     assert d["name"] == "Doc D." and d["label"] == "Fictional sample data" and d["grade"] == "5"
     iep = d["iep"]
     assert len(iep["goals"]) == 5 and iep["eligibility"] == ["Autism", "Speech-Language Impairment"]
-    assert iep["case_manager"] == "Snow White" and iep["present_levels"] and iep["services"] and iep["accommodations"]
+    assert iep["case_manager"] == "Alex Morgan" and iep["present_levels"] and iep["services"] and iep["accommodations"]
     assert iep["behavior_plan"].startswith("Behavior plan targets:")
     assert d["can_edit"] is False
     assert site["students"].detail(who(site, TEACHER_EMAIL), "stu_0001", THIS)["can_edit"] is True
@@ -174,7 +174,7 @@ def test_teachers_tab_has_all_23_staff_with_roles(site):
     t = site["students"].teachers(who(site, ADMIN))["teachers"]
     named = [x for x in t if not x.get("allowlist_only")]
     assert len(named) == 23
-    snow = next(x for x in named if x["name"] == "Snow White")
+    snow = next(x for x in named if x["name"] == "Alex Morgan")
     assert snow["classrooms"] == ["Room 104"] and snow["default_classroom"] == "Room 104"
     assert snow["label"] == "Fictional sample data"
     assert {x["role"] for x in named} >= {"RBT (read-only)", "BCBA", "Principal", "Case manager"}
@@ -182,9 +182,9 @@ def test_teachers_tab_has_all_23_staff_with_roles(site):
 
 def test_settings_counts(site):
     s = site["students"].settings(who(site, ADMIN))
-    assert s["roster"]["students"] == 87 and s["roster"]["classrooms"] == 8 and s["roster"]["school"] == "Sample Elementary School"
+    assert s["roster"]["students"] == 87 and s["roster"]["classrooms"] == 8 and s["roster"]["school"] == "Everyday Heroes Academy"
     room = next(c for c in s["classrooms"] if c["class_code"] == "Room 104")
-    assert room["students"] == 10 and room["teacher_name"] == "Snow White" and "RM12" in room["aliases"]
+    assert room["students"] == 10 and room["teacher_name"] == "Alex Morgan" and "RM12" in room["aliases"]
 
 
 def test_default_classrooms(site):
@@ -207,14 +207,14 @@ def test_planner_shows_the_whole_classroom(site):
 def test_old_recordings_land_in_room_104_without_rewriting(site, hstore):
     before = (Path(hstore.root) / f"drafts/{RID}.json").read_bytes() if hasattr(hstore, "root") else None
     row = site["notes"].session(RID, who(site, ADMIN))
-    assert row["class_code"] == "Room 104" and row["teacher_name"] == "Snow White"
+    assert row["class_code"] == "Room 104" and row["teacher_name"] == "Alex Morgan"
     assert row["needs_class_assignment"] is False and row["student_id"] is None   # Marcus isn't in this school
     ctx = site["notes"].context(RID)
     assert ctx["classroom_remapped_from"] == "RM12" and ctx["legacy_student_id"] == "stu_101"
     assert hstore.read_json(f"drafts/{RID}.json")["session"]["class_code"] == "RM12"   # stored record unchanged
     if before is not None:
         assert (Path(hstore.root) / f"drafts/{RID}.json").read_bytes() == before
-    # Snow White (by her sign-in) may now act on it; Belle (another classroom) may not
+    # Alex Morgan (by her sign-in) may now act on it; Belle (another classroom) may not
     assert site["notes"].session(RID, who(site, TEACHER_EMAIL))["viewer_may_act"] is True
     assert site["notes"].session(RID, who(site, OTHER_TEACHER))["viewer_may_act"] is False
     rows = site["notes"].list_sessions(who(site, TEACHER_EMAIL))
@@ -223,10 +223,10 @@ def test_old_recordings_land_in_room_104_without_rewriting(site, hstore):
 
 def test_room_210_and_unknown_codes(site, hstore):
     d = hstore.read_json(f"drafts/{RID}.json")
-    d["session"].update(class_code="Room 210", teacher_id=None, teacher_name=None, needs_class_assignment=True)
+    d["session"].update(class_code="Room B", teacher_id=None, teacher_name=None, needs_class_assignment=True)
     hstore.write_json("drafts/rec_laptop_demo_20261001_090000_Room_210.json", {**d, "recording_id": "rec_laptop_demo_20261001_090000_Room_210"})
     row = site["notes"].session("rec_laptop_demo_20261001_090000_Room_210", who(site, ADMIN))
-    assert (row["class_code"], row["teacher_name"], row["needs_class_assignment"]) == ("Room 104", "Snow White", False)
+    assert (row["class_code"], row["teacher_name"], row["needs_class_assignment"]) == ("Room 104", "Alex Morgan", False)
     d["session"].update(class_code="Art 9Z")
     hstore.write_json("drafts/rec_laptop_demo_20261001_100000_Art.json", {**d, "recording_id": "rec_laptop_demo_20261001_100000_Art"})
     row = site["notes"].session("rec_laptop_demo_20261001_100000_Art", who(site, ADMIN))
@@ -274,8 +274,8 @@ def never(site):
 @pytest.mark.parametrize("leak", [
     "Doc left his seat during reading", "Left seat when Grumpy called out", "Covered ears near Happy",
     "Walked out as Sleepy watched", "Bashful hid under the table", "Sneezy dropped the tablet",
-    "Dopey ran to the door", "Pushed a peer while Snow White read", "Snow asked for quiet",
-    "Left area, Ms White redirected", "Refused task from Mary Poppins", "Elsa Winters came in",
+    "Dopey ran to the door", "Pushed a peer while Alex Morgan read", "Alex asked for quiet",
+    "Left area, Ms Morgan redirected", "Refused task from Mary Poppins", "Elsa Winters came in",
     "Flynn Rider walked with the student", "Called out Cinderella's name", "Left with the Dwarf group",
 ])
 def test_ai_incident_names_with_people_from_the_new_school_are_rejected(never, leak):
@@ -311,7 +311,7 @@ def test_plan_draft_for_room_104_sends_no_names_or_pronouns(site, monkeypatch):
     monkeypatch.setenv("PLANNER_AI", "live")
     site["planner"].draft_plan(t, {"class_code": "Room 104", "week": THIS})
     text = json.dumps(sent)
-    for n in [*DWARFS, "Dwarf", "Snow", "White", "Giulia", "Alberto", "Russell"]:
+    for n in [*DWARFS, "Dwarf", "Alex", "Morgan", "Giulia", "Alberto", "Russell"]:
         assert n not in text, n
     assert "pronoun" not in text.lower()
 
@@ -321,7 +321,7 @@ def test_namer_falls_back_to_incident_n_for_new_school_names(site, never):
     capitalized unknown word -> retried once -> still there -> "Incident N"; plain names pass."""
     replies = [
         {"names": [{"index": 0, "name": "Doc left his seat"}, {"index": 1, "name": "Pushed a peer near Grumpy"},
-                   {"index": 2, "name": "Covered ears as Snow White read"}, {"index": 3, "name": "Waved at Rumpel"},
+                   {"index": 2, "name": "Covered ears as Alex Morgan read"}, {"index": 3, "name": "Waved at Rumpel"},
                    {"index": 4, "name": "Left seat and walked to the window"}]},
         {"names": [{"index": 3, "name": "Waved at Rumpel again"}]},
     ]
@@ -332,7 +332,7 @@ def test_namer_falls_back_to_incident_n_for_new_school_names(site, never):
     assert out[4] == ("Left seat and walked to the window", "ok")
 
 
-# ---------------------------------------------------------------- attendance
+# ---------------------------------------------------------------- attendance (David, Oct 10)
 
 def test_sample_data_validates_including_attendance():
     r = subprocess.run([sys.executable, str(REPO / "app/tools/validate_sis_demo.py")], capture_output=True, text=True)

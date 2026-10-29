@@ -1,4 +1,4 @@
-"""Code-built classroom pages.
+"""Code-built classroom pages (David, Oct 10 2026; tasks#99).
 
 Math and literacy pages are not drawn by the AI. The AI only fills a few structured parameters (which
 table, which range, which words); this module computes every number and the whole layout itself,

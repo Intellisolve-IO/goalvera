@@ -74,7 +74,7 @@ describe('teachers', () => {
     const html = modal({ ...base, status: 'pending_review', approved_at: null, viewer_may_act: true,
       can_approve: true, viewer_may_change_classroom: true, processed_analysis: analysis(true) });
     expect(buttons(html)).toEqual(expect.arrayContaining(['Save Draft', 'Approve', 'Move']));
-    expect(html).not.toContain(PARENT_TEXT);              // off the session screen
+    expect(html).not.toContain(PARENT_TEXT);              // David, Oct 8: off the session screen
     expect(text(html)).not.toMatch(/parent email/i);
     expect(html).toContain('<option value="Reading 3A">Reading 3A</option>');
     expect(html).not.toContain('<option value="RM12">');          // not its current classroom
@@ -95,7 +95,7 @@ describe('teachers', () => {
 describe('labels say "Classroom"', () => {
   const sessions = [
     { ...base, recording_id: 'a', status: 'pending_review', class_code: 'RM12' },
-    { ...base, recording_id: 'b', status: 'pending_review', class_code: 'Gym', teacher_name: '', needs_class_assignment: true },
+    { ...base, recording_id: 'b', status: 'pending_review', class_code: 'Hall', teacher_name: '', needs_class_assignment: true },
   ];
   const bareClass = /\bclass(es)?\b/i;
 

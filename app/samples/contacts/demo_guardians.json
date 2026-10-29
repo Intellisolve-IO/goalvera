@@ -1,7 +1,7 @@
 {
   "label": "Fictional sample data",
-  "school": "Sample Elementary School",
-  "note": "Weekly parent email recipients (). Fictional; example.com / example.org only.",
+  "school": "Everyday Heroes Academy",
+  "note": "Weekly parent email recipients (tasks#106). Fictional; example.com / example.org only.",
   "students": {
     "stu_0001": [
       {
@@ -268,7 +268,7 @@
       },
       {
         "contact_id": "con_0033",
-        "first_name": "Renee",
+        "first_name": "Riley",
         "relationship": "family friend",
         "email": null,
         "receives_reports": false

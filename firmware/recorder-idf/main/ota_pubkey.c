@@ -1,0 +1,15 @@
+/* Public half of the recorder OTA signing key (Ed25519, 32 bytes).
+ *
+ * The private key is not in this repo. It belongs in Secret Manager
+ * (recorder-ota-signing-key). All zeros is the placeholder: the firmware
+ * refuses every manifest until tools/embed_ota_pubkey.py replaces this file
+ * and the image is rebuilt. See docs/ota.md.
+ */
+#include "ota_policy.h"
+
+const uint8_t ota_embedded_pubkey[OTA_PUB_BYTES] = {
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+};

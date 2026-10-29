@@ -1,4 +1,4 @@
-"""Weekly parent email (Oct 10 2026).
+"""Weekly parent email (David + Ops, Oct 10 2026; tasks#106).
 
   * recipients = only that student's guardians with "receives reports" on (never all contacts);
     non-custodial contacts in the sample data are excluded and shown as excluded;

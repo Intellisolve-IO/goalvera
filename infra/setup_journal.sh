@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Admin activity journal (): one-time, idempotent setup. NOT run yet - run it
+# Admin activity journal (tasks#77): one-time, idempotent setup. NOT run yet - run it
 # after `gcloud auth login` (the box's sign-in had expired when this was written).
 #
 #   $JOURNAL_DATASET            this school's own dataset, us-east1, encrypted with the
@@ -58,8 +58,8 @@ gcloud kms keys add-iam-policy-binding "$KEY" --keyring="$KEYRING" --location="$
 say "Dataset $DS ($REGION)"
 if ! bq show --format=none "$DS" >/dev/null 2>&1; then
   bq --location="$REGION" mk --dataset --default_kms_key="$KMS_KEY" \
-    --label=school:default --label=data:activity-journal --label=retention:contract-term \
-    --description="Goalvera admin activity journal. Internal ids only. Add-only for the app." "$DS"
+    --label=school:goalvera --label=data:activity-journal --label=retention:contract-term \
+    --description="Goalvera admin activity journal (tasks#77). Internal ids only. Add-only for the app." "$DS"
 fi
 
 say "Table $TBL"
@@ -75,7 +75,7 @@ fi
 
 say "Reports dataset $RDS + view"
 if ! bq show --format=none "$RDS" >/dev/null 2>&1; then
-  bq --location="$REGION" mk --dataset --default_kms_key="$KMS_KEY" --label=school:default \
+  bq --location="$REGION" mk --dataset --default_kms_key="$KMS_KEY" --label=school:goalvera \
     --description="Read side of the activity journal: authorized view only." "$RDS"
 fi
 COLS="$(python3 -c 'import json,sys; print(", ".join(c["name"] for c in json.load(open(sys.argv[1]))))' "$TMP/schema.json")"
@@ -105,7 +105,7 @@ add_access "$DS" "{\"view\": {\"projectId\": \"$PROJECT_ID\", \"datasetId\": \"$
 say "Add-only role for $REVIEW_SA (table only)"
 if ! gcloud iam roles describe "$JOURNAL_APPEND_ROLE" --project="$PROJECT_ID" >/dev/null 2>&1; then
   gcloud iam roles create "$JOURNAL_APPEND_ROLE" --project="$PROJECT_ID" --title="Journal appender" \
-    --description="Stream rows into the activity journal; nothing else ()." \
+    --description="Stream rows into the activity journal; nothing else (tasks#77)." \
     --permissions=bigquery.tables.updateData,bigquery.tables.get --stage=GA --quiet
 fi
 retry bq add-iam-policy-binding --member="serviceAccount:$REVIEW_SA" \

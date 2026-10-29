@@ -1,4 +1,4 @@
-"""Class codes and the demo roster - the ONE place they are normalized ().
+"""Class codes and the demo roster - the ONE place they are normalized (tasks#35).
 
 The recorder writes the class two ways: the file name token is sanitized by
 the firmware (spaces -> "-", other punctuation dropped, e.g. "Reading-3A"),

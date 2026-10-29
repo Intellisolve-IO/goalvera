@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# School name + logo - one-time cloud setup for the review service.
+# School name + logo (David, Oct 9 2026; tasks#85) - one-time cloud setup for the review service.
 # Idempotent; safe to re-run. review-web may read, list and create-only under branding/ in the
 # bucket (same pattern as planner/, bug_reports/ and incident_names/: never overwrite or delete).
-# Without it the top bar still shows the defaults (Sample Elementary School + SE badge) but admins can't save.
+# Without it the top bar still shows the defaults (Goalvera + AP badge) but admins can't save.
 #
 #   ./infra/setup_branding.sh           set up
 #   ./infra/setup_branding.sh --check   read-only: is it there (no changes)

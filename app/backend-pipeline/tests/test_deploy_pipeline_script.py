@@ -1,6 +1,6 @@
 """infra/deploy.sh with stubbed gcloud (nothing reaches the cloud): it stops before
 changing anything if a deploy would drop or change a live setting, and
-`deploy.sh pipeline` leaves upload-api alone ()."""
+`deploy.sh pipeline` leaves upload-api alone (tasks#73)."""
 from __future__ import annotations
 
 import json
@@ -12,7 +12,9 @@ ROOT = Path(__file__).resolve().parents[3]
 SCRIPT = ROOT / "infra" / "deploy.sh"
 P = "example-project"
 PIPELINE_ENV = {"BUCKET": f"{P}-recordings", "GOOGLE_CLOUD_PROJECT": P, "SPEECH_LOCATION": "us",
-                "VERTEX_AI": "1", "GEMINI_LOCATION": "us", "GEMINI_MODEL": "gemini-3.8-flash"}
+                "VERTEX_AI": "1", "GEMINI_LOCATION": "us", "GEMINI_MODEL": "gemini-3.8-flash",
+                # deploy.sh keeps the recording key path set by setup_rec_key.sh (tasks#22)
+                "REC_KMS_KEYRING_PATH": f"projects/{P}/locations/us-east1/keyRings/goalvera"}
 
 
 def run(tmp_path, live_env: dict, *args, extra_env=None):

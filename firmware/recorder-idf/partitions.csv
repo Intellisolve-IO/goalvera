@@ -1,6 +1,7 @@
 # Name,   Type, SubType, Offset,  Size, Flags
-# Two OTA app slots so a later update can switch images. No OTA client is
-# included yet. With otadata blank, the bootloader starts ota_0.
+# Two 6 MB app slots and otadata. Offsets and sizes match 0.7.x so NVS and
+# a previously flashed image stay put. main/ota_update.c writes the inactive
+# slot. With otadata blank, the bootloader starts ota_0.
 nvs,      data, nvs,     0x9000,  0x6000,
 otadata,  data, ota,     0xf000,  0x2000,
 phy_init, data, phy,     0x11000, 0x1000,

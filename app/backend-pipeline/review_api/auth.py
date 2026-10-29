@@ -19,7 +19,7 @@ within a minute without a redeploy:
              {"email": "admin@example.org",   "role": "admin"},
              {"email": "rbt@example.org",     "role": "rbt"}]}
 
-Everyone approved reads every classroom and session.
+Everyone approved reads every classroom and session (David, Oct 2; DPA rev g).
 role "admin" = demo admin: may edit, approve, download and move any session.
 role "reviewer" or "teacher" = a teacher: may edit, approve, download and move
 only sessions of their own classrooms or their own students (roster
@@ -31,7 +31,7 @@ listed for their email (config/demo_roster.json -> the RBT's staff record class_
 The rules themselves live in review_api/notes.py.
 
 Sign-in providers (IDP_PROVIDERS, comma-separated; default "password"): "password" and
-"google.com" (Sign in with Google,). Identity Platform issues the same ID token
+"google.com" (Sign in with Google, tasks#108). Identity Platform issues the same ID token
 for both. A token from a provider that isn't switched on here is refused (403
 PROVIDER_NOT_ALLOWED), so the Google button and the server always agree.
 Ops' three checks for every provider (Google included), all on the server:
@@ -232,7 +232,7 @@ class Roster:
 
     teachers.<id>.emails -> teacher ids (a teacher's classes).
     RBT records (staff.<id> with role "rbt", or the older rbts.<id>) emails + class_codes ->
-    classroom class keys. Same scope either way ().
+    classroom class keys. Same scope either way (tasks#104).
     """
 
     def __init__(self, store, name: str = "config/demo_roster.json", ttl: float = ALLOWLIST_TTL, now=time.monotonic):

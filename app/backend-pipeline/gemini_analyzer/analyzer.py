@@ -77,7 +77,7 @@ def _client():
 def _call_gemini(transcript: dict[str, Any], images: list[dict] | None = None) -> dict[str, Any]:
     """Live call. The request carries no student first name (prompt.py, DPA §3(a)(5)).
 
-    images: Teacher Notes photos [{"media_id", "mime", "data": bytes}] (), sent as image
+    images: Teacher Notes photos [{"media_id", "mime", "data": bytes}] (tasks#112), sent as image
     parts after the text. The photos themselves cannot be redacted; the prompt forbids copying any
     written name and scrub_image_insights() removes roster first names from the answer."""
     from .schema import OUTPUT_SCHEMA
@@ -91,7 +91,7 @@ def _call_gemini(transcript: dict[str, Any], images: list[dict] | None = None) -
         contents = [user_prompt] + [gtypes.Part.from_bytes(data=i["data"], mime_type=i["mime"]) for i in images]
 
     schema = json.loads(json.dumps({k: v for k, v in OUTPUT_SCHEMA.items() if k not in ("$schema", "title")}))
-    # The session analyzer writes neither a parent email (weekly summary now, nor
+    # The session analyzer writes neither a parent email (weekly summary now, David Oct 8) nor
     # incident names (the review service names incidents with its own checks: incident_names.py).
     schema["properties"].pop("draft_parent_email", None)
     for k in ("name", "name_source"):

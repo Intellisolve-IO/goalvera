@@ -1,7 +1,7 @@
-"""SVG pages for classroom materials.
+"""SVG pages for classroom materials (David, Oct 10 2026; tasks#99).
 
 A Gemini text model (MATERIALS_SVG_MODEL, default gemini-3.8-flash) writes each draft as one SVG page
-under an admin-editable system instruction (DEFAULT_INSTRUCTION, the default text). What the model
+under an admin-editable system instruction (DEFAULT_INSTRUCTION, David's text, verbatim). What the model
 returns is untrusted:
 
   sanitize()    markdown fences and chatter stripped; must parse as XML with an <svg> root; no DOCTYPE /
@@ -69,7 +69,7 @@ SPECIAL EDUCATION VISUAL STYLE:
 - Bounds: Keep all activity artwork within x: 50 to 750 and y: 150 to 950 to fit below the school header."""
 
 _LINE_STYLE = DEFAULT_INSTRUCTION[DEFAULT_INSTRUCTION.index("SPECIAL EDUCATION VISUAL STYLE:"):]
-# Color flashcards: the same instruction with the visual style switched to flat, bright cartoon color.
+# Color flashcards (David, Oct 10): the same instruction with the visual style switched to flat, bright cartoon color.
 COLOR_INSTRUCTION = DEFAULT_INSTRUCTION.replace(_LINE_STYLE, """SPECIAL EDUCATION VISUAL STYLE (COLOR):
 - Color: Flat, bright cartoon colors (solid fills such as #F94144, #F8961E, #F9C74F, #90BE6D, #43AA8B, #577590). No gradients, shadows, textures or photographs.
 - Outlines: Keep a clear dark outline on every shape (`stroke="#000000"`, `stroke-width="3px"` to `5px"`, `stroke-linecap="round"`, `stroke-linejoin="round"`).
@@ -270,8 +270,8 @@ def render_png(svg: str, width: int = 1600) -> bytes:
 
 
 def user_prompt(request: str, kind: str, n: int, focus: str, of: int = 3, approach: str | None = None) -> str:
-    """The per-draft prompt, in the default shape. approach: the class's domain and core methodology
-    (Domains tab,), e.g. "Mathematics: Concrete-Pictorial-Abstract (CPA) ..."; no student data."""
+    """The per-draft prompt, in David's shape. approach: the class's domain and core methodology
+    (Domains tab, tasks#103), e.g. "Mathematics: Concrete-Pictorial-Abstract (CPA) ..."; no student data."""
     req = " ".join(str(request or "").replace('"', "'").split())
     line = f"Teaching Approach: {' '.join(str(approach).split())}\n" if approach and str(approach).strip() else ""
     return (f'Teacher Request: "{req}"\n'

@@ -1,4 +1,4 @@
-"""Processing rows: a recording shows as soon as its upload lands,
+"""Processing rows (David, Oct 10 2026; tasks#106): a recording shows as soon as its upload lands,
 with its stage from the pipeline's manifest, until its notes exist; failures show a clear state.
 Nothing is read from the audio and nothing is written.
 

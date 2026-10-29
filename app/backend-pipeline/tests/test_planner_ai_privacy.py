@@ -1,4 +1,4 @@
-"""Planner AI drafts (): no student first name - and nothing else that
+"""Planner AI drafts (tasks#83): no student first name - and nothing else that
 identifies anyone - reaches the AI; the reply is checked, names go back on our
 side, a draft that repeats a transcript is discarded, and drafts are not stored.
 
@@ -261,7 +261,7 @@ def test_http_drafts_permissions_and_journal(hosted, journal, pstore):
     assert "marcus" not in json.dumps(journal.rows()).casefold()
 
 
-# ---------------------------------------------------------------- the weekly draft parent email
+# ---------------------------------------------------------------- the weekly draft parent email (David, Oct 8)
 # Moved here from each session: one draft per student per week, at the end of the weekly summary.
 
 def test_weekly_summary_draft_has_the_parent_email_masked_then_named(planner, pstore, live):

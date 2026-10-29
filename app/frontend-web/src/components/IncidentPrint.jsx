@@ -4,14 +4,14 @@ import { DEFAULT_SCHOOL_NAME } from '../branding.js';
 import { PRODUCT_NAME } from '../product.js';
 
 /**
- * One incident's report in a print-ready layout (Download PDF on an incident).
+ * One incident's report in a print-ready layout (Download PDF on an incident; tasks#85).
  * The browser makes the PDF: this sets the document title (= the default file name),
  * shows the report and opens the print dialog (Save as PDF). Nothing is stored.
  *
  * `report` comes from the server (POST /api/sessions/<id>/incident_print), which decides
  * what may be printed (first name + last initial; never a school id, full last name or
  * date of birth) and logs the download. Only the fields listed here are ever rendered.
- * A session not approved yet prints as a draft: "DRAFT" watermark on every
+ * A session not approved yet prints as a draft (David, Oct 7): "DRAFT" watermark on every
  * page, a "Draft, not yet approved by the teacher" line, and DRAFT_ in the title / file name.
  * Approved reports have none of these.
  */

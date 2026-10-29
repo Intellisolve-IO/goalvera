@@ -7,7 +7,7 @@ import {
   IEP_STATUS, canGoBack, canGoForward, initialNav, navReducer, slots, weekRange,
 } from '../plannerWeeks.js';
 
-// Weekly lesson planner (). Three columns: last week (the arrows step it back
+// Weekly lesson planner (tasks#83). Three columns: last week (the arrows step it back
 // through earlier weeks), this week (anchored, never moves) and next week. Each week:
 // lesson plan summary (goals + objectives as bullets), the week's plan, then one card per
 // student with the weekly summary, IEP check and teacher note. The server enforces who

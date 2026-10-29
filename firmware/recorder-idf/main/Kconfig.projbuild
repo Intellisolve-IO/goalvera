@@ -147,7 +147,7 @@ menu "Classroom recorder"
         string "Upload service base URL"
         default "https://upload.example.org"
         help
-            the Goalvera upload-api (POST /v1/uploads, /v1/confirm).
+            Goalvera upload-api (POST /v1/uploads, /v1/confirm).
 
     config RECORDER_UPLOAD_DEVICE_ID
         string "Device id for uploads (empty = Wi-Fi MAC, e.g. a4cb8fc08704)"
@@ -163,17 +163,38 @@ menu "Classroom recorder"
             Never commit sdkconfig after setting this.
 
     config RECORDER_SD_ENCRYPTION
-        bool "Encrypt recordings on the SD card (APENC1,)"
+        bool "Encrypt recordings on the SD card (APENC1, tasks#22)"
         depends on RECORDER_BOARD_HOSYOND_35
         default y
         help
             Each recording gets a fresh AES-256 key, wrapped with the recording
-            public key (build-time input RECORDING_PUBKEY_PEM, private key in Cloud KMS),
+            public key (build-time RECORDING_PUBKEY_PEM; private key in Cloud KMS),
             and is written as AES-256-GCM chunks. Hosyond 3.5" only.
 
     config RECORDER_REC_KEY_ID
         string "Recording key id (<cryptoKey>/<version> in the KMS key ring)"
         depends on RECORDER_SD_ENCRYPTION
         default "recording-wrap/1"
+
+    config RECORDER_NVS_MIGRATE_DRY_RUN
+        bool "Log an NVS snapshot check at boot (counts only, tasks#22)"
+        depends on !NVS_ENCRYPTION
+        default n
+
+    config RECORDER_OTA_BUCKET
+        string "OTA image bucket (Google Cloud Storage)"
+        default "example-project-firmware"
+        help
+            Bucket the signed manifest and the image URL must use. Not a
+            secret. The bucket is not created by the firmware. Wi-Fi
+            passwords are never stored here.
+
+    config RECORDER_OTA_MANIFEST_URL
+        string "OTA manifest URL"
+        default "https://storage.googleapis.com/example-project-firmware/firmware/crowpanel43/manifest.json"
+        help
+            Checked at boot and every 6 hours, only while idle. The Hosyond
+            defaults file points this at firmware/hosyond35/manifest.json so
+            a CrowPanel image is never offered to the 3.5 inch board.
 
 endmenu

@@ -1,11 +1,11 @@
-"""Weekly lesson planner () - first working version, demo data only.
+"""Weekly lesson planner (tasks#83) - first working version, demo data only.
 
-What the screen shows (product spec): a weekly calendar with last week, this
+What the screen shows (David's words): a weekly calendar with last week, this
 week and next week. This week stays anchored; the arrows step the "last week"
 slot back through earlier weeks. Each week opens with its lesson plan summary
 (goals and objectives as bullets), then the week's plan, then one row per
 student: a weekly summary and a teacher note, checked against the student's
-IEP goals (fictional goals from the class roster sample until lands).
+IEP goals (fictional goals from the class roster sample until tasks#75 lands).
 
 Nothing here calls the AI. The per-student "suggestion" is counted from the
 week's APPROVED session notes (Demonstrated / Struggled / Not Observed per
@@ -237,7 +237,7 @@ class Planner:
             s = self.notes._context(rid, d, changes.get(rid, []), links.get(rid), _links_known=True)
             if ckey and s.get("class_key") != ckey:
                 continue
-            if student_id and student_id not in (s.get("student_ids") or []):   # students in the session ()
+            if student_id and student_id not in (s.get("student_ids") or []):   # students in the session (tasks#106)
                 continue
             day = session_date(s)
             if day is None:
@@ -272,7 +272,7 @@ class Planner:
         codes = self.notes.roster().get("class_codes") or {}
         with_students = classrooms_with_students(self.notes.roster())
         if signed_in(actor):
-            d = self.notes.default_classroom(actor)          # the teacher's default classroom
+            d = self.notes.default_classroom(actor)          # the teacher's default classroom (David, Oct 8)
             if d in codes:
                 return d
         home = self.notes.home_classrooms(actor) if signed_in(actor) else \
@@ -405,7 +405,7 @@ class Planner:
             seen.add(c["goal_id"])
             rows.append({"goal_id": c["goal_id"], "status": c["status"],
                          "note": _text(c.get("note"), MAX_NOTE, "iep_check")})
-        # the week's draft parent email. Never sent.
+        # the week's draft parent email (David, Oct 8: moved here from each session). Never sent.
         email = _text(body.get("parent_email"), MAX_TEXT, "parent_email")
         approve = body.get("approve") is True
         week_sessions = [s for s in self._sessions(student_id=st["student_id"]) if s["week"] == wk]
@@ -461,7 +461,7 @@ class Planner:
         r = self.notes.roster()
         names = [t.get("teacher_name") for t in (r.get("teachers") or {}).values() if isinstance(t, dict)]
         names += [t.get("name") for k in ("rbts", "staff") for t in (r.get(k) or {}).values() if isinstance(t, dict)]
-        # My profile (): a display / preferred name is a name too
+        # My profile (tasks#107): a display / preferred name is a name too
         names += [t.get(f) for k in ("teachers", "rbts", "staff") for t in (r.get(k) or {}).values()
                   if isinstance(t, dict) for f in ("display_name", "preferred_name")]
         names += [e.get("teacher_name") for e in (r.get("class_codes") or {}).values() if isinstance(e, dict)]
@@ -488,7 +488,7 @@ class Planner:
         try:
             if not (approved or notes):
                 raise ai.DraftError("NOTHING_TO_DRAFT_FROM")
-            # a classroom session can mention classmates: every other student's name is hidden too ()
+            # a classroom session can mention classmates: every other student's name is hidden too (tasks#106)
             mask = ai.Mask([st["first_name"]], self._teacher_names(), others=self._other_student_names([st["student_id"]]))
             payload = ai.summary_payload(week_label=_week_label(wk), iep_goals=st["iep_goals"],
                                          sessions=approved, notes=notes, mask=mask)

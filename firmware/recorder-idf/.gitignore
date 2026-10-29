@@ -11,3 +11,5 @@ build-wifi-hosyond35/
 build-h35/
 build-pilot/
 main/recording_pubkey.pem
+build-h35-dry/
+build-h35-secure/

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Demo gaps - one-time cloud setup for the review service.
+# Demo gaps (David, Oct 10 2026; tasks#106) - one-time cloud setup for the review service.
 # Idempotent; safe to re-run. Grants review-web:
 #   * read work/<rid>/manifest.json only (the pipeline's status + error code; no transcripts, no audio)
 #     and list work/ and rec/ (file names and upload times): the Recordings "Uploading / processing" rows.
@@ -7,7 +7,7 @@
 #   * read / list / create-only under parent_email/ (the demo redirect setting and the send log for the
 #     weekly parent email; same pattern as materials/: never overwrite or delete, newest record wins).
 # Students in this session are audit records (audit/), which review-web can already create.
-# Retention (): objects under parent_email/ are deleted after $PARENT_EMAIL_RETENTION_DAYS (365)
+# Retention (tasks#108): objects under parent_email/ are deleted after $PARENT_EMAIL_RETENTION_DAYS (365)
 # days, by one bucket lifecycle rule MERGED into the existing ones (infra/lifecycle_merge.py: every
 # existing rule is kept exactly as it is; nothing is added if the rule is already there).
 # Without it: no processing rows (the list just shows finished recordings) and the parent email

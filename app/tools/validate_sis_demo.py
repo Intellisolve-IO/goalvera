@@ -277,10 +277,10 @@ for n in dwarfs:
         ok(len(cur) == 1 and all(cur[0].get(k) for k in ("presentLevels", "specialFactors", "team", "notices", "consents", "goalProgress", "lreExplanation")),
            f"{n} Dwarf: full IEP sections missing")
         ok(all(g["objectives"] for g in cur[0]["goals"]) if cur else False, f"{n} Dwarf: every goal needs short-term objectives")
-        ok(ext_st[sid]["homeroomClassSourcedId"] == "cls-rm104-hr", f"{n} Dwarf: not in Snow White's homeroom")
-snow = [u for u in users.values() if u["givenName"] == "Snow" and u["familyName"] == "White"]
-ok(len(snow) == 1 and any(e["userSourcedId"] == snow[0]["sourcedId"] and e["classSourcedId"] == "cls-rm104-hr" and e["role"] == "teacher" for e in enr),
-   "Snow White must teach the RM104 homeroom")
+        ok(ext_st[sid]["homeroomClassSourcedId"] == "cls-rm104-hr", f"{n} Dwarf: not in Alex Morgan's homeroom")
+lead = [u for u in users.values() if u["givenName"] == "Alex" and u["familyName"] == "Morgan"]
+ok(len(lead) == 1 and any(e["userSourcedId"] == lead[0]["sourcedId"] and e["classSourcedId"] == "cls-rm104-hr" and e["role"] == "teacher" for e in enr),
+   "Alex Morgan must teach the RM104 homeroom")
 
 # ---------------------------------------------------------------- obviously fake contact data, file names
 for u in users.values():

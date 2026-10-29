@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { loadDomains, saveDomain } from '../dataStore.js';
 import { setupError } from '../schoolSetup.js';
 
-// Domains tab: the Educational Methodology module. Every Subject /
+// Domains tab (David, Oct 10 2026; tasks#103): the Educational Methodology module. Every Subject /
 // Domain with its Core Educational Methodology, Key Curricular Programs and Recommended Book / Guide,
-// from the sample methodology document. Admins add, edit and remove (journaled); everyone else reads. Classes pick
+// from David's document. Admins add, edit and remove (journaled); everyone else reads. Classes pick
 // their domain from this list, and materials use the class's domain + methodology.
 
 const EMPTY = { name: '', methodology: '', methodology_detail: '', programs: '', book: '' };

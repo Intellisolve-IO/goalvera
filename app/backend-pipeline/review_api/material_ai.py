@@ -1,4 +1,4 @@
-"""AI for classroom materials: suggestions, the brief, SVG drafts.
+"""AI for classroom materials (David, Oct 10 2026; tasks#99): suggestions, the brief, SVG drafts.
 
 All calls use the review service's own Vertex AI access (MATERIALS_AI = live | offline | off, default:
 the PLANNER_AI setting):
@@ -44,7 +44,7 @@ TEMPLATE_TYPES = ("multiplication_table", "number_line", "letter_tracing")
 DRAFTS = 3
 PHOTO_MAX = 8                                    # photo-style cards per set (one picture each)
 SUGGEST_VERSION = "materials-suggest-v3-2026-10"
-PARAMS_VERSION = "materials-params-v2-2026-10"   # v2: class_domain guidance ()
+PARAMS_VERSION = "materials-params-v2-2026-10"   # v2: class_domain guidance (tasks#103)
 DEFAULT_IMAGE_MODEL = "gemini-3.1-flash-lite-image"
 DEFAULT_IMAGE_LOCATION = "global"
 
@@ -72,7 +72,7 @@ INSTRUCTION_LABEL = {"coloring": "Coloring page (SVG, line art)", "labels": "Cla
                      "multiplication_table": "Multiplication table (template parameters)",
                      "number_line": "Number line (template parameters)",
                      "letter_tracing": "Letter tracing (template parameters)"}
-BRIEF_VERSION = "materials-brief-v3-2026-10"     # v2: class_domain guidance (); v3: flashcard style
+BRIEF_VERSION = "materials-brief-v3-2026-10"     # v2: class_domain guidance (tasks#103); v3: flashcard style
 DEFAULT_SVG_MODEL = "gemini-3.8-flash"
 DEFAULT_SVG_LOCATION = "global"
 

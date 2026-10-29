@@ -1,6 +1,6 @@
-"""Session, approval and audit logic behind the review screen ( PDF slice).
+"""Session, approval and audit logic behind the review screen (tasks#35 PDF slice).
 
-Rules (design review):
+Rules (David's room, Sep 29, Ops agreeing):
   * A person approves. The PDF exists only for sessions a teacher approved;
     the approval is recorded server-side (approvals/<id>.json) with who and when.
   * Download only: no email, no send to any other system.
@@ -9,7 +9,7 @@ Rules (design review):
   * Every approval and every download is written to the audit trail
     (audit/<id>/...json): ids, times, PDF fingerprint - no names, no content.
 
-Who may do what. Enforced here, not by hiding buttons:
+Who may do what (David, Oct 2; DPA rev g). Enforced here, not by hiding buttons:
   * Everyone signed in and approved (admin, teacher, RBT) can read every
     classroom and session.
   * Only the session's teacher or the student's own teacher (roster), or an
@@ -55,7 +55,7 @@ ROSTER_TTL = float(os.environ.get("REVIEW_ALLOWLIST_TTL", "30"))
 READ_ONLY_ROLES = frozenset({"rbt"})
 HIDDEN_MARKER_TYPES = frozenset({"Bug"})   # bug reports (bug_reports.py) are never session markers
 CLASSROOM_EVENT = "classroom_changed"
-# Students in this session (): latest audit record wins; a session can list many students
+# Students in this session (tasks#106): latest audit record wins; a session can list many students
 STUDENTS_EVENT = "session_students_set"
 # any key that carries a parent email draft or a parent / guardian address
 PARENT_KEY_RE = re.compile(r"(parent|guardian)_?e?_?mail", re.IGNORECASE)
@@ -183,9 +183,9 @@ class Notes:
         self._roster_doc, self._roster_at, self._roster_ttl, self._now = {}, None, roster_ttl, now
         self._roster_applied = None
         self._lock = threading.Lock()
-        from .bug_reports import BugReports        # Bug markers (): never markers / incidents
+        from .bug_reports import BugReports        # Bug markers (tasks#94): never markers / incidents
         self.bugs = BugReports(self, **(bug_options or {}))
-        from .incident_names import Namer          # AI incident names
+        from .incident_names import Namer          # AI incident names (David, Oct 8)
         self.names = Namer(self, **(name_options or {}))
 
     def roster_base(self) -> dict:
@@ -239,7 +239,7 @@ class Notes:
         return sorted(d for d, e in codes.items() if isinstance(e, dict) and e.get("teacher_id") in actor.teacher_ids)
 
     def teacher_default_classroom(self, teacher_id) -> str | None:
-        """A teacher's default classroom: roster teachers.<id>.default_class_code
+        """A teacher's default classroom (David, Oct 8): roster teachers.<id>.default_class_code
         when it names one of the roster's classrooms, else their first classroom that has a
         student, else their first classroom. None for no classroom."""
         r = self.roster()
@@ -254,12 +254,12 @@ class Notes:
         return (with_student or own or [None])[0]
 
     def default_classroom(self, actor) -> str | None:
-        """Where every classroom dropdown opens: a teacher's default classroom,
+        """Where every classroom dropdown opens (David, Oct 8): a teacher's default classroom,
         an RBT's first roster classroom; admins and the laptop demo: None (= All)."""
         if not signed_in(actor):
             return None
         if actor.is_admin or is_read_only(actor):
-            # My profile (): an admin's / RBT's own pick, if it is still one of theirs
+            # My profile (tasks#107): an admin's / RBT's own pick, if it is still one of theirs
             from .people import saved_profile
             want = saved_profile(self.store, self.roster(), actor.email).get("default_classroom")
             codes = self.roster().get("class_codes") or {}
@@ -324,7 +324,7 @@ class Notes:
             s["classroom_changed_from"] = last.get("from_class_code")
         else:
             self._remap_legacy(s)
-        # students in this session (): set by a teacher; else the recording's own student, if any
+        # students in this session (tasks#106): set by a teacher; else the recording's own student, if any
         if not _links_known and links is None:
             links = self.session_student_links(rid).get(rid)
         s["students_set"] = links is not None
@@ -350,10 +350,10 @@ class Notes:
         return s
 
     def _remap_legacy(self, s: dict) -> None:
-        """Recordings made before the roster changed (Oct 10: the legacy school demo -> Sample Elementary
+        """Recordings made before the roster changed (Oct 10: Goalvera demo -> Everyday Heroes
         Academy) follow the current roster when they are read; nothing stored is rewritten.
           * classroom: the stored code (or the file-name code) found under another spelling or as an
-            alias of a roster classroom ("RM12", "Reading 3A", "room-210" -> "Room 104") shows as
+            alias of a roster classroom ("RM12", "Reading 3A", "room-b" -> "Room 104") shows as
             that classroom, with classroom_remapped_from = the stored code.
           * teacher: a stored teacher the roster no longer has -> the classroom's teacher.
           * student: a stored student the roster no longer has is unlinked (student_id None,
@@ -402,7 +402,7 @@ class Notes:
 
     def named_analysis(self, rid: str, analysis: dict, s: dict, names: list | None = None) -> dict:
         """The notes as shown and printed: incidents with their names (teacher-edited / approved,
-        else the stored AI name; every name re-checked), and no per-session parent email (
+        else the stored AI name; every name re-checked), and no per-session parent email (David,
         Oct 8: the parent email belongs to the weekly student summary; old ones stay stored, hidden)."""
         from .bug_reports import never_values
         a = self.names.merge(analysis, self.names.stored(rid, names), never_values(self.roster(), s))
@@ -469,7 +469,7 @@ class Notes:
             "device_id": s.get("device_id"),
             "class_code": s.get("class_code"),
             "created_at": d.get("created_at"),
-            # Teacher Notes photos / videos (): from the draft (an approval doesn't carry them);
+            # Teacher Notes photos / videos (tasks#112): from the draft (an approval doesn't carry them);
             # shown in review only, never in the parent email
             "media": session_media(d),
         }
@@ -502,7 +502,7 @@ class Notes:
             rec.update(actor_role=actor.role, sign_in_provider=actor.provider)
             if not ids_only:
                 rec["actor_email"] = actor.email
-        # the admin activity journal (): ids only. Written first when required, so a
+        # the admin activity journal (tasks#77): ids only. Written first when required, so a
         # download that can't be journaled leaves no half record behind.
         if journal_required:
             self.recorder.record(actor, event, record_id=rid, student_id=(session or {}).get("student_id"),
@@ -520,7 +520,7 @@ class Notes:
     REPORTS_AUDIT = "audit/_reports/"     # downloads that aren't about one recording (activity-report CSV)
 
     def audit_report_download(self, actor, report: str, **extra) -> dict:
-        """The bucket audit record for an activity-report CSV download: the same
+        """The bucket audit record for an activity-report CSV download (Ops, tasks#108): the same
         create-only record a PDF download gets (audit/<rid>/...): who (internal id, role, staff email,
         how they signed in), when, which report, row count, size and SHA-256 of the file. The journal
         entry (report_downloaded) is written first by the caller, required, like a PDF's."""
@@ -647,7 +647,7 @@ class Notes:
         """One incident's report for the browser's print view (Download PDF on an incident).
         Same people as the approved-notes PDF: the session's teacher, the student's teacher
         or an admin, never an RBT. Approved sessions print the approved notes; a session not
-        approved yet prints its stored draft, marked DRAFT. Every click is in
+        approved yet prints its stored draft, marked DRAFT (David, Oct 7). Every click is in
         the audit trail and the journal (who, when, recording, incident number, draft or not;
         ids only).
         Nothing is rendered or stored here; see incident_print.py for what may be printed."""
@@ -660,7 +660,7 @@ class Notes:
             raise ApiError(400, "BAD_INCIDENT")
         d = self._draft(rid)
         s = self._context(rid, d)
-        ap = self.approval(rid)                 # none yet: the draft prints, marked DRAFT
+        ap = self.approval(rid)                 # none yet: the draft prints, marked DRAFT (David, Oct 7)
         if not may_act(actor, s):
             raise ApiError(403, "NOT_SESSION_TEACHER")
         try:
@@ -682,7 +682,7 @@ class Notes:
         return model
 
     def bug_report(self, rid: str, actor, body: dict) -> dict:
-        """A "Bug" marker: a teacher's report about the review site (). See bug_reports.py."""
+        """A "Bug" marker: a teacher's report about the review site (tasks#94). See bug_reports.py."""
         return self.bugs.submit(rid, actor, body)
 
     def change_classroom(self, rid: str, actor, to_code) -> dict:

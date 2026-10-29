@@ -1,4 +1,4 @@
-"""Classroom materials from Teacher Notes (): suggestions, the form, the four templates,
+"""Classroom materials from Teacher Notes (tasks#99): suggestions, the form, the four templates,
 the PDF, email to the teacher's own address only, privacy and the activity journal."""
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ def reviewer(role="teacher", teacher_ids=(SNOW,), uid="uid_snow", email="snowwhi
                            teacher_ids=frozenset(teacher_ids), class_keys=frozenset())
 
 
-ADMIN = reviewer("admin", (), "uid_admin", "admin@staff.example")
+ADMIN = reviewer("admin", (), "uid_admin", "admin@example.com")
 SNOW_T = reviewer()
 BELLE_T = reviewer(teacher_ids=(BELLE,), uid="uid_belle", email="belle@example.org")
 RBT = reviewer("rbt", (), "uid_rbt", "demo-rbt@staff.example")
@@ -47,20 +47,20 @@ def seed(store: LocalStore, *, markers=None, roster=None):
     store.write_json("config/demo_roster.json", roster or ROSTER)
     markers = markers if markers is not None else [{"type": "Incident", "offset_seconds": 10.0},
                                                    {"type": "Teacher Notes", "offset_seconds": 40.0}]
-    session = {"recording_id": RID, "class_code": "Room 104", "teacher_id": SNOW, "teacher_name": "Snow White",
+    session = {"recording_id": RID, "class_code": "Room 104", "teacher_id": SNOW, "teacher_name": "Alex Morgan",
                "student_id": DOC, "student_first_name": "Doc", "student_last_initial": "D.",
                "duration_seconds": 120, "markers": markers, "start_time": "2026-10-09T10:15:00-04:00"}
     store.write_json(f"drafts/{RID}.json", {"recording_id": RID, "session": session, "created_at": "2026-10-09T14:20:00Z",
                                             "analysis": {"goal_evaluations": [], "incident_analysis": [],
                                                          "general_session_summary": "Doc worked on reading."}})
-    store.write_json(f"transcripts/{RID}.json", {"recording_id": RID, "teacher_name": "Snow White", "markers": markers,
+    store.write_json(f"transcripts/{RID}.json", {"recording_id": RID, "teacher_name": "Alex Morgan", "markers": markers,
                                                  "speaker_turns": [
                                                      {"speaker": "Speaker 1", "start_seconds": 2, "end_seconds": 8,
                                                       "text": "Good morning Doc, let's read about trains."},
                                                      {"speaker": "Speaker 1", "start_seconds": 41, "end_seconds": 55,
                                                       "text": REQUEST},
                                                      {"speaker": "Speaker 2", "start_seconds": 70, "end_seconds": 80,
-                                                      "text": "Snow White, Grumpy needs a break."}]})
+                                                      "text": "Alex Morgan, Grumpy needs a break."}]})
 
 
 class Spy:
@@ -192,8 +192,8 @@ def test_each_type_makes_three_drafts_and_a_printable_pdf(env, kind, count):
     doc = env.store.read_json(f"materials/{RID}/{m['material_id']}.json")
     for d in doc["drafts"]:
         t = msvg.texts(d["svg"])
-        assert "Sample Elementary School" in t and not any("INSERT SCHOOL" in x for x in t)
-        for bad in ("Doc", "Dwarf", "Snow White"):
+        assert "Everyday Heroes Academy" in t and not any("INSERT SCHOOL" in x for x in t)
+        for bad in ("Doc", "Dwarf", "Alex Morgan"):
             assert not any(bad in x for x in t)
 
 
@@ -237,7 +237,7 @@ def test_names_the_model_returns_are_scrubbed(env):
     def call(what, payload):
         if what == "suggest":
             return mai.offline_suggest(payload)
-        return {"title": "Doc's train page", "teacher_request": "Trains for Doc Dwarf, ask Snow White",
+        return {"title": "Doc's train page", "teacher_request": "Trains for Doc Dwarf, ask Alex Morgan",
                 "variations": ["Grumpy style", "b", "c"]}
     env.mats.ai = mai.MaterialAI(call=call, svg=env.spy.svg)
     env.spy.reply = lambda p: ('<svg xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="9" height="9"/>'
@@ -303,7 +303,7 @@ def test_instruction_default_is_davids_text_and_admin_edits_are_logged(env):
     for body, code in (({"key": "coloring", "instruction": ""}, "BAD_INSTRUCTION"),
                        ({"key": "coloring", "instruction": "x" * 8001}, "INSTRUCTION_TOO_LONG"),
                        ({"key": "coloring", "instruction": "Draw Doc a train"}, "INSTRUCTION_HAS_NAMES"),
-                       ({"key": "number_line", "instruction": "Ask Snow White"}, "INSTRUCTION_HAS_NAMES"),
+                       ({"key": "number_line", "instruction": "Ask Alex Morgan"}, "INSTRUCTION_HAS_NAMES"),
                        ({"key": "nope", "instruction": "x"}, "BAD_INSTRUCTION_KEY"),
                        ({"instruction": "x"}, "BAD_INSTRUCTION_KEY")):
         with pytest.raises(ApiError) as e:
@@ -572,9 +572,9 @@ def test_header_is_ours_whatever_the_model_wrote():
     model = GOOD.replace("</svg>", '<g id="school-header"><text x="400" y="55">Evrday Heros Acadmy</text>'
                                    '<text x="40" y="90">Name: Doc Dwarf</text></g>'
                                    '<text x="10" y="10">[INSERT SCHOOL NAME HERE]</text></svg>')
-    out = msvg.set_header(msvg.sanitize(model), "Sample <School> & Co")
+    out = msvg.set_header(msvg.sanitize(model), "Everyday Heroes <Academy> & Co")
     t = msvg.texts(out)
-    assert "Sample <School> & Co" in t
+    assert "Everyday Heroes <Academy> & Co" in t
     assert "Name: ________________________" in t and "Date: ______________" in t
     for bad in ("Evrday", "Doc Dwarf", "INSERT SCHOOL"):
         assert not any(bad in x for x in t), bad
@@ -712,7 +712,7 @@ def _secrets(name):
 
 def _msg():
     return mailer.build_message(to="snowwhite@staff.example", subject="s", body="b", pdf=b"%PDF-1.4",
-                                filename="a.pdf", from_name="Sample Elementary School")
+                                filename="a.pdf", from_name="Everyday Heroes Academy")
 
 
 def test_gmail_sender_uses_the_refresh_token_and_caches_the_access_token():
@@ -724,7 +724,7 @@ def test_gmail_sender_uses_the_refresh_token_and_caches_the_access_token():
     assert http.calls[0][1]["data"]["refresh_token"] == "rt"
     raw = json.loads(http.calls[1][1]["data"])["raw"]
     sent = base64.urlsafe_b64decode(raw)
-    assert b"From: Sample Elementary School <notifications@staff.example>" in sent
+    assert b"From: Everyday Heroes Academy <notifications@staff.example>" in sent
     assert http.calls[1][1]["headers"]["Authorization"] == "Bearer at"
 
 

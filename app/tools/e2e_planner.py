@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Browser click-through of the weekly lesson planner (), fully offline:
+"""Browser click-through of the weekly lesson planner (tasks#83), fully offline:
 built UI + review service (same code as Cloud Run) + Firebase Auth emulator +
 a local bucket copy with fictional weeks of RM12 sessions (seed_planner_demo.py).
 "Today" is pinned (PLANNER_TODAY, default 2026-10-07) so the weeks are stable.
@@ -9,14 +9,14 @@ a local bucket copy with fictional weeks of RM12 sessions (seed_planner_demo.py)
   this week and next week stay put -> each student card links to "Weekly summary &
   parent report →" (no summary on the planner) -> a note quoting a transcript is
   refused (8 words) -> AI draft of next week's goals + objectives -> saved
-  Students tab (): the link opens the student page for that week (IEP,
+  Students tab (tasks#85): the link opens the student page for that week (IEP,
   Mon-Fri days) -> save a weekly summary with IEP check, stored as "the student" ->
   previous week -> "Generate draft weekly parent report" (marked "AI draft · not
   saved") -> saved as AI-assisted, never sent
   (PLANNER_AI=offline: the local stand-in gets the same masked payload; no network)
   RBT: same screens, no edit controls, report button disabled, direct saves refused (403)
 
-  python app/tools/e2e_planner.py --shots /tmp/goalvera-shots/planner
+  python app/tools/e2e_planner.py --shots shots/planner
 Needs: firebase-tools (FIREBASE_BIN), playwright + Chrome, a built UI (npx vite build).
 Uses ports 8789 / 9199 so it can run next to e2e_hosted_review.py.
 """
@@ -38,7 +38,7 @@ APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP / "tools"))
 sys.path.insert(0, str(APP / "backend-pipeline"))
 
-PROJECT = "demo-goalvera-review"
+PROJECT = "demo-atlanta-review"
 EMU = "127.0.0.1:9199"
 PORT = 8789
 BASE = f"http://127.0.0.1:{PORT}"
@@ -316,7 +316,7 @@ def _run(page, ctx, shots, store_dir, teacher_tok, rbt_tok):
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--shots", default="/tmp/goalvera-shots/planner")
+    ap.add_argument("--shots", default="shots/planner")
     ap.add_argument("--width", type=int, default=1280)
     ap.add_argument("--height", type=int, default=800)
     a = ap.parse_args()

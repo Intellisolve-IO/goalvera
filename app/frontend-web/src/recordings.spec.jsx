@@ -1,4 +1,4 @@
-// Recordings page: the old "Teacher weekly matrix" page is now
+// Recordings page (David, Oct 8 2026; tasks#85): the old "Teacher weekly matrix" page is now
 // "Recordings": no 2-week calendar, no value metrics, a note under the title, and the most recent
 // recordings grouped by classroom (newest first in each), each opening the recording.
 import React from 'react';
@@ -15,9 +15,9 @@ const NOTE = 'Below are the most recent recordings, sorted by classroom. Open a 
 const rec = (id, cls, at, extra = {}) => ({ recording_id: id, class_code: cls, timestamp_start: at, status: 'pending_review',
   device_id: 'dev1', duration_seconds: 600, teacher_name: 'Sarah Jenkins', ...extra });
 const list = [
-  rec('a', 'Room 210', '2026-10-07T09:00:00'), rec('b', 'Gym', '2026-10-08T10:00:00'),
-  rec('c', 'Room 210', '2026-10-08T13:00:00'), rec('d', 'Room 9', '2026-10-06T08:00:00'),
-  rec('e', '', '2026-10-08T15:00:00', { needs_class_assignment: true }), rec('f', 'Gym', '2026-10-08T08:00:00'),
+  rec('a', 'Room B', '2026-10-07T09:00:00'), rec('b', 'Hall', '2026-10-08T10:00:00'),
+  rec('c', 'Room B', '2026-10-08T13:00:00'), rec('d', 'Room 9', '2026-10-06T08:00:00'),
+  rec('e', '', '2026-10-08T15:00:00', { needs_class_assignment: true }), rec('f', 'Hall', '2026-10-08T08:00:00'),
 ];
 const text = (html) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
 
@@ -40,7 +40,7 @@ describe('Recordings page', () => {
 
   test('grouped by classroom, newest first within each; no classroom last', () => {
     const g = groupByClassroom(list);
-    expect(g.map((x) => x.classroom)).toEqual(['Gym', 'Room 9', 'Room 210', '—']);
+    expect(g.map((x) => x.classroom)).toEqual(['Hall', 'Room 9', 'Room B', '—']);
     expect(g.map((x) => x.sessions.map((s) => s.recording_id))).toEqual([['b', 'f'], ['d'], ['c', 'a'], ['e']]);
   });
 
@@ -48,7 +48,7 @@ describe('Recordings page', () => {
     const html = renderToStaticMarkup(<PipelineSessions sessions={list} state={{ ok: true, loading: false }}
       getStudent={() => null} onOpen={() => {}} onReload={() => {}} />);
     const heads = [...html.matchAll(/<h3 class="classroom-name">([^<]+)</g)].map((m) => m[1]);
-    expect(heads).toEqual(['Gym', 'Room 9', 'Room 210', 'No classroom yet']);
+    expect(heads).toEqual(['Hall', 'Room 9', 'Room B', 'No classroom yet']);
     expect(html.match(/data-testid="recording-row"/g)).toHaveLength(6);
     expect((text(html).match(/ Review /g) || []).length).toBe(6);
     expect(html).not.toContain('New recordings from the pipeline');
@@ -62,11 +62,11 @@ describe('Recordings page', () => {
     const opened = [];
     const el = <PipelineSessions sessions={list} samples={samples} state={{ ok: true, loading: false }}
       getStudent={(id) => ({ stu_101: { first_name: 'Marcus', last_initial: 'A.' }, stu_102: { first_name: 'Sophia', last_initial: 'L.' } })[id]}
-      onOpen={(id) => opened.push(id)} onReload={() => {}} homeClassrooms={['Room 210']} />;
+      onOpen={(id) => opened.push(id)} onReload={() => {}} homeClassrooms={['Room B']} />;
     const html = renderToStaticMarkup(el);
     const heads = [...html.matchAll(/<h3 class="classroom-name">([^<]+)</g)].map((m) => m[1]);
     expect(heads[heads.length - 1]).toBe('Samples');
-    expect(heads).toContain('Room 210');                                     // a teacher's own classroom filter
+    expect(heads).toContain('Room B');                                     // a teacher's own classroom filter
     const sampleRows = [...html.matchAll(/<tr[^>]*class="sample-row"[^>]*>([\s\S]*?)<\/tr>/g)].map((m) => text(m[1]));
     expect(sampleRows).toHaveLength(2);
     expect(sampleRows[0]).toMatch(/2026-09-24 Sample Sophia L\./);             // newest first

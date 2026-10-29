@@ -1,4 +1,4 @@
-"""One incident's printable report.
+"""One incident's printable report (David, Oct 7: "Incident 1 · 0:03" + Download PDF).
 
 Incidents are numbered in order within each recording, earliest first: the review
 list, the session's ABC section, the approved-notes PDF and this print view all use
@@ -22,7 +22,7 @@ import re
 from zoneinfo import ZoneInfo
 
 FOOTER = "Confidential, contains student information"
-DRAFT_LINE = "Draft, not yet approved by the teacher"   # drafts print with a DRAFT watermark
+DRAFT_LINE = "Draft, not yet approved by the teacher"   # David, Oct 7: drafts print with a DRAFT watermark
 TEXT_FIELDS = (("Antecedent", "antecedent"), ("Behavior", "behavior"),
                ("Consequence / intervention", "consequence_intervention"))
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -64,7 +64,7 @@ def incident_label(number: int, seconds) -> str:
     return f"Incident {number} \u00b7 {clock(seconds)}"
 
 
-# ---------------------------------------------------------------- clock time
+# ---------------------------------------------------------------- clock time (David, Oct 8)
 # The recorder names each file with its local start time, YYYYMMDD_HHMMSS (firmware/recorder-idf
 # audio_rec.c build_recording_path), only when its clock is set (RTC / SNTP; otherwise NOTIME_...,
 # which the pipeline never accepts). The firmware runs on Eastern time (wifi_time.c:

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Build the review site's demo roster (app/samples/demo_roster.json) from the FICTIONAL sample
-school in app/samples/sis-demo/ (Sample Elementary School).
+school in app/samples/sis-demo/ (Everyday Heroes Academy; David, Oct 10 2026; tasks#98).
 
     python3 app/tools/build_demo_roster.py           # rewrite app/samples/demo_roster.json
     python3 app/tools/build_demo_roster.py --check   # exit 1 if the file is out of date
 
-It also writes app/samples/contacts/demo_guardians.json (): the weekly parent email's
+It also writes app/samples/contacts/demo_guardians.json (tasks#106): the weekly parent email's
 recipients, kept OUT of the roster and read only by review_api/parent_email.py. Per student: contact
 id, first name, relationship, a fictional example.com / example.org email and "receives_reports"
 (the SIS receivesWeeklyDraft flag). Non-custodial contacts are listed with the flag off, so the demo
@@ -20,7 +20,7 @@ Only what the review site needs goes into the roster (data minimization, Ops):
   * never: birth dates, school or state ids, guardians and contacts, addresses, health flags,
     pronouns (Ops: never sent to the AI, so never in the roster), staff credential numbers.
   * staff: names, titles, classrooms; teachers keep the recorder's old labels as device labels.
-    Staff emails only from TEACHER_EMAILS (Snow White's demo alias), never from the sample CSVs.
+    Staff emails only from TEACHER_EMAILS (Alex Morgan's sign-in), never from the sample CSVs.
 Recordings made before the switch keep working: old class codes are aliases of Room 104 (see
 LEGACY_ALIASES and docs/demo-script.md, "Recording remap").
 """
@@ -38,18 +38,18 @@ OUT = APP / "samples" / "demo_roster.json"
 GUARDIANS_OUT = APP / "samples" / "contacts" / "demo_guardians.json"
 FICTIONAL_DOMAINS = ("example.com", "example.org")
 LABEL = "Fictional sample data"
-SCHOOL = "Sample Elementary School"
+SCHOOL = "Everyday Heroes Academy"
 
-# Old legacy-school demo class codes (roster RM12 + the recorder's built-in sample classes and
+# Older demo class codes (roster RM12 + the recorder's built-in sample classes and
 # classrooms, firmware/recorder-idf/main/sample_device.json). Every old demo recording belonged to
-# the one demo teacher, so they all land in Room 104 with Snow White, the demo's lead teacher.
-LEGACY_ALIASES = {"Room 104": ["RM12", "Reading 3A", "Math 2B", "Circle Time", "Room 210", "Gym"]}
-LEGACY_TEACHER_LABELS = {"Snow White": ["Demo Teacher", "J. Rivera", "S. Okonkwo"]}
+# the one demo teacher, so they all land in Room 104 with Alex Morgan, the demo's lead teacher.
+LEGACY_ALIASES = {"Room 104": ["RM12", "Reading 3A", "Math 2B", "Circle Time", "Room B", "Hall"]}
+LEGACY_TEACHER_LABELS = {"Alex Morgan": ["Demo Teacher", "J. Rivera", "S. Okonkwo"]}
 # The demo RBT sign-in keeps working as Room 104's RBT.
 LEGACY_RBT_EMAILS = {"Room 104": ["demo-rbt@staff.example"]}
-# Staff email on file (sign-in + the teacher's own address for emailed materials). Snow White's is an
-# alias on a demo Workspace account so you can show what a teacher receives.
-TEACHER_EMAILS = {"Snow White": ["snowwhite@staff.example"]}
+# Staff email on file (sign-in + the teacher's own address for emailed materials). The default
+# mailbox is a staff.example placeholder (override TEACHER_EMAILS for any other host).
+TEACHER_EMAILS = {"Alex Morgan": ["snowwhite@staff.example"]}
 ROLE_TITLE = {"bcba": "BCBA", "slp": "Speech-language pathologist", "ot": "Occupational therapist",
               "pt": "Physical therapist", "dhh_teacher": "Teacher of the Deaf/Hard of Hearing",
               "tvi": "Vision teacher / O&M", "counselor": "School counselor", "case_manager": "Case manager",
@@ -125,7 +125,7 @@ def build() -> dict:
                              "aliases": [f"RM{num}", *LEGACY_ALIASES.get(name, [])], "iep_goals": [], "label": LABEL}
 
     # staff: one record per person with the role on the record (person schema, docs/sis-schema.md;
-    #). Teachers stay under "teachers" (classrooms point at them); RBTs and every other staff
+    # tasks#104). Teachers stay under "teachers" (classrooms point at them); RBTs and every other staff
     # member are "staff" records with "role" ("rbt", "bcba", ...) and "supervisor_id" (RBTs: the BCBA).
     teachers, other = {}, {}
     sup = lambda s: app_id(s["supervisorSourcedId"]) if s.get("supervisorSourcedId") else None  # noqa: E731
@@ -186,12 +186,12 @@ def build() -> dict:
         students[app_id(sid)] = rec
 
     return {
-        "_meta": {"synthetic": True, "label": LABEL, "school_name": SCHOOL, "school_profile": "sample-school",
+        "_meta": {"synthetic": True, "label": LABEL, "school_name": SCHOOL, "school_profile": "everyday-heroes",
                   "source": "app/samples/sis-demo (built by app/tools/build_demo_roster.py; do not edit by hand)",
                   "note": ("DEMO ONLY - fictional sample school. Every person here is invented. Classrooms are the "
                            "homerooms; recorder class codes match a classroom or one of its aliases (common/classcodes.py). "
-                           "Old legacy-school demo codes are aliases of Room 104. The the legacy school roster is kept in "
-                           "app/samples/legacy_demo_roster.json.")},
+                           "Older demo codes are aliases of Room 104. The placeholder roster is kept in "
+                           "app/samples/profiles/demo-school/demo_roster.json.")},
         "class_codes": class_codes,
         "teachers": teachers,
         "staff": other,
@@ -217,7 +217,7 @@ def build_guardians() -> dict:
             "receives_reports": link["receivesWeeklyDraft"] == "true" and bool(email),
         })
     return {"label": LABEL, "school": SCHOOL,
-            "note": "Weekly parent email recipients (). Fictional; example.com / example.org only.",
+            "note": "Weekly parent email recipients (tasks#106). Fictional; example.com / example.org only.",
             "students": {k: out[k] for k in sorted(out)}}
 
 

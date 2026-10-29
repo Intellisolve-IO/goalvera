@@ -49,17 +49,17 @@ OUTPUT_SCHEMA: dict[str, Any] = {
                     "antecedent": {"type": "string"},
                     "behavior": {"type": "string"},
                     "consequence_intervention": {"type": "string"},
-                    # short observed-behavior name (review service, incident_names.py; 
+                    # short observed-behavior name (review service, incident_names.py; David Oct 8)
                     "name": {"type": "string", "maxLength": 80},
                     "name_source": {"type": "string", "enum": ["ai", "teacher"]},
                 },
             },
         },
         "general_session_summary": {"type": "string", "minLength": 1},
-        # no longer generated per session: the parent email is part of the weekly
+        # no longer generated per session (David, Oct 8): the parent email is part of the weekly
         # student summary (planner). Older drafts still carry one; it stays stored, never shown.
         "draft_parent_email": {"type": "string"},
-        # Teacher Notes photos (): one entry per photo attached to the session. Shown to the
+        # Teacher Notes photos (tasks#112): one entry per photo attached to the session. Shown to the
         # teacher in review only; never part of the parent email. Absent on sessions without photos.
         "image_insights": {
             "type": "array",

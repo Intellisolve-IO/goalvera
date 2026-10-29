@@ -1,7 +1,7 @@
 """Hand-written IEP content for the seven focus students of the fictional sample school.
 
 FICTIONAL SAMPLE DATA. The eligibility categories and needs were assigned independently of
-the characters' names and personalities: no category, goal, behavior plan
+the characters' names and personalities (David, Oct 10 2026): no category, goal, behavior plan
 or health flag echoes a character trait. Health stays a "health alert on file" flag only:
 no diagnoses, medications or medical details anywhere. Assessment results are invented.
 

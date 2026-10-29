@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 // A controlled <textarea> / <input> that also accepts text React never hears about
-// (,). Dictation apps such as Wispr Flow, macOS Dictation and Dragon
+// (tasks#73, tasks#83). Dictation apps such as Wispr Flow, macOS Dictation and Dragon
 // sometimes set the box's value directly (through the accessibility API, or as
 // `el.value = ...` + an 'input' event). The text shows in the box, but React's own
 // onChange doesn't fire, so the state keeps the old text: the next re-render or save

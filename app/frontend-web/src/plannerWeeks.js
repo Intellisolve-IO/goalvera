@@ -1,5 +1,5 @@
-// Weekly lesson planner (): the three week slots and the arrows.
-// Spec: "last week, this week and next week. This week stays anchored; the
+// Weekly lesson planner (tasks#83): the three week slots and the arrows.
+// David: "last week, this week and next week. This week stays anchored; the
 // arrows step through previous weeks in the last-week slot."
 // Weeks are Mondays as 'YYYY-MM-DD' strings; all date math in UTC so the
 // browser's timezone can't shift a day. The server decides what "this week" is.

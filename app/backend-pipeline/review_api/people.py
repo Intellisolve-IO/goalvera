@@ -1,4 +1,4 @@
-"""My profile and admin access changes.
+"""My profile and admin access changes (David, Oct 10 2026; tasks#107).
 
 My profile: the signed-in user (teacher, RBT or admin) opens it from their name at the top right and
 edits their own profile: display name, preferred name, phone, default classroom (one of the classrooms
@@ -27,7 +27,7 @@ review-web may read, list and create under people/, never overwrite or delete
 the roster the app reads (Notes.roster) all apply the same snapshot.
 
 Journal: profile_updated (person id, changed field names; never values) and access_changed (Ops,
-): who made it (actor), the person id, the account's sign-in address (account_email),
+tasks#108): who made it (actor), the person id, the account's sign-in address (account_email),
 "role" / "email", old_role and new_role (admin / teacher / rbt / none), and when the sign-in email
 changes both addresses (old_email, new_email). The same old / new values go into the people/ record's
 "change". Addresses are staff sign-in emails, and only access_changed may carry them (journal.py).

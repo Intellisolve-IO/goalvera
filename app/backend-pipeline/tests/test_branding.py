@@ -1,4 +1,4 @@
-"""School name + logo setting: review_api/branding.py.
+"""School name + logo setting (David, Oct 9 2026; tasks#85): review_api/branding.py.
 
 * SVG uploads are rendered to PNG on the server; a <script> never survives.
 * PNG / JPEG are re-encoded without metadata; the stored type comes from the bytes.
@@ -136,8 +136,8 @@ def test_teacher_cannot_change_admin_can(store, authn):
     journal = MemoryJournal()
     br = b.Branding(store, Recorder(journal))
     teacher, admin = _who(authn, TEACHER_EMAIL), _who(authn, ADMIN)
-    assert br.view()["school_name"] == "Sample Elementary School" and br.view()["is_default"]
-    assert br.view()["logo"]["builtin"] and br.view()["badge_text"] == "SE"
+    assert br.view()["school_name"] == "Everyday Heroes Academy" and br.view()["is_default"]
+    assert br.view()["logo"]["builtin"] and br.view()["badge_text"] == "EH"
     for act in (lambda: br.set_name(teacher, "Teacher School"), lambda: br.set_logo(teacher, png_bytes()),
                 lambda: br.remove_logo(teacher), lambda: br.reset(teacher),
                 lambda: br.set_name("usr_demo_sarah", "Laptop School")):
@@ -146,8 +146,8 @@ def test_teacher_cannot_change_admin_can(store, authn):
         assert (e.value.http, e.value.code) == (403, "ADMIN_ONLY")
     assert store.list(b.PREFIX) == [] and not journal._rows
 
-    v = br.set_name(admin, "Maplewood Learning Academy")
-    assert v["school_name"] == "Maplewood Learning Academy" and not v["is_default"]
+    v = br.set_name(admin, "Peachtree Learning Academy")
+    assert v["school_name"] == "Peachtree Learning Academy" and not v["is_default"]
     v = br.set_logo(admin, EVIL_SVG)
     assert v["logo"]["content_type"] == "image/png"
     data, ctype = br.logo()
@@ -160,10 +160,10 @@ def test_teacher_cannot_change_admin_can(store, authn):
     assert [(r["action"], r["record_id"], r["details"]) for r in rows] == [
         ("settings_changed", "school_branding", {"setting": "school_name"}),
         ("settings_changed", "school_branding", {"setting": "school_logo", "image_format": "svg"})]
-    assert "Maplewood" not in json.dumps(rows)                    # field changed, not the new text
+    assert "Peachtree" not in json.dumps(rows)                    # field changed, not the new text
 
     v = br.reset(admin)
-    assert v["is_default"] and v["school_name"] == "Sample Elementary School" and v["logo"]["builtin"]
+    assert v["is_default"] and v["school_name"] == "Everyday Heroes Academy" and v["logo"]["builtin"]
     data, ctype = br.logo()                                        # back to the built-in badge
     assert ctype == "image/png" and data == b.builtin_logo()
     assert journal._rows[-1]["details"] == {"setting": "reset"}
@@ -190,7 +190,7 @@ def test_never_overwrites(store, authn, monkeypatch):
 def test_http_branding(hosted):
     t_tok, a_tok = token(TEACHER_EMAIL, uid="uidteacher"), token(ADMIN)
     st, body, _ = call(hosted, "/api/branding", tok=t_tok)
-    assert st == 200 and json.loads(body)["school_name"] == "Sample Elementary School"
+    assert st == 200 and json.loads(body)["school_name"] == "Everyday Heroes Academy"
     assert call(hosted, "/api/branding")[0] == 401                  # signed in only
 
     st, body, _ = call(hosted, "/api/admin/branding", tok=t_tok, method="POST", body={"school_name": "X"})
@@ -236,26 +236,28 @@ def test_remove_logo_hides_the_builtin_badge_too(store, authn):
     br = b.Branding(store, Recorder(MemoryJournal()))
     admin = _who(authn, ADMIN)
     v = br.remove_logo(admin)
-    assert v["logo"] is None and v["badge_text"] == "SE" and not v["is_default"]
+    assert v["logo"] is None and v["badge_text"] == "EH" and not v["is_default"]
     with pytest.raises(ApiError):
         br.logo()
     v = br.set_logo(admin, png_bytes())
     assert v["logo"] and not v["logo"].get("builtin")
 
 
-def test_legacy_profile_is_a_saved_profile_not_shown_by_default(store, authn, monkeypatch):
-    """Records from before Oct 10 (no profile) are the legacy school's: kept, shown only with SCHOOL_PROFILE=legacy-school."""
+def test_demo_school_profile_holds_records_with_no_profile(store, authn, monkeypatch):
+    """Records from before Oct 10 (no profile) belong to Demo School, shown only with that profile."""
     store.write_json("branding/20261009T120000.000000Z-aaaaaaaa.json",
-                     {"school_name": "Legacy School Academy", "updated_at": "2026-10-09T12:00:00+00:00"}, create_only=True)
+                     {"school_name": "North Campus", "updated_at": "2026-10-09T12:00:00+00:00"}, create_only=True)
     br = b.Branding(store, Recorder(MemoryJournal()))
     monkeypatch.delenv("SCHOOL_PROFILE", raising=False)
     v = br.view()
-    assert v["school_name"] == "Sample Elementary School" and v["profile"] == "sample-school" and v["is_default"]
+    assert v["school_name"] == "Everyday Heroes Academy" and v["profile"] == "everyday-heroes" and v["is_default"]
     br.set_name(_who(authn, ADMIN), "Heroes Demo")
     assert br.view()["school_name"] == "Heroes Demo"
-    monkeypatch.setenv("SCHOOL_PROFILE", "legacy-school")
+    monkeypatch.setenv("SCHOOL_PROFILE", "demo-school")
     v = br.view()
-    assert (v["school_name"], v["badge_text"], v["logo"], v["profile"]) == ("Legacy School Academy", "LS", None, "legacy-school")
-    assert v["defaults"] == {"school_name": "Legacy School", "badge_text": "LS"}
+    assert (v["school_name"], v["badge_text"], v["logo"], v["profile"]) == ("North Campus", "DS", None, "demo-school")
+    assert v["defaults"] == {"school_name": "Demo School", "badge_text": "DS"}
+    monkeypatch.setenv("SCHOOL_PROFILE", "atlanta-prep")   # stored id from before the rename
+    assert br.view()["profile"] == "demo-school" and br.view()["school_name"] == "North Campus"
     monkeypatch.setenv("SCHOOL_PROFILE", "no-such-school")
     assert br.view()["school_name"] == "Heroes Demo"                   # unknown profile: the demo school

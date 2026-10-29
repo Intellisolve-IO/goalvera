@@ -1,6 +1,6 @@
 #pragma once
 /*
- * Wi-Fi network picker model (, 0.6.3). Pure C, no ESP-IDF headers,
+ * Wi-Fi network picker model (tasks#20, 0.6.3). Pure C, no ESP-IDF headers,
  * so test/host/test_wifi_list.c can run it on the host.
  *
  * - wifi_seen_*: scan results, one entry per network name (strongest radio

@@ -1,7 +1,7 @@
 """infra/deploy_review.sh with stubbed gcloud / bq / curl (nothing reaches the cloud):
-the journal is never switched off, and a deploy never lists or reads API keys ();
+the journal is never switched off, and a deploy never lists or reads API keys (tasks#82);
 planner AI drafts go live only when review-web can reach Vertex AI, and the fictional roster
-is re-uploaded only when it changed ()."""
+is re-uploaded only when it changed (tasks#83)."""
 from __future__ import annotations
 
 import base64
@@ -115,9 +115,9 @@ def test_planner_ai_live_sets_the_pipelines_gemini_settings(tmp_path):
     env = _deploy_line(calls).split("--set-env-vars=", 1)[1]
     for kv in ("PLANNER_AI=live", "VERTEX_AI=1", "GOOGLE_CLOUD_PROJECT=example-project",
                "GEMINI_LOCATION=us", "GEMINI_MODEL=gemini-3.8-flash", "JOURNAL_MODE=bigquery",
-               "SCHOOL_PROFILE=sample-school",                 # the demo school (Oct 10)
-               "PARENT_EMAIL_REDIRECT_DEFAULT=on",               # parent emails go to the teacher ()
-               "IDP_PROVIDERS=password,google.com|"):            # Google sign-in on (provider enabled Oct 11)
+               "SCHOOL_PROFILE=everyday-heroes",                 # the demo school (Oct 10)
+               "PARENT_EMAIL_REDIRECT_DEFAULT=on",               # parent emails go to the teacher (tasks#106)
+               "IDP_PROVIDERS=password,google.com|"):            # Google sign-in on (provider enabled Oct 11; tasks#108)
         assert f"|{kv}" in env or f"^{kv}" in env
     assert "add-iam-policy-binding" not in calls                # checks access, never grants it
 
@@ -160,7 +160,7 @@ def test_dry_run_shows_the_settings_that_would_change(tmp_path):
 
 
 def test_bug_reports_get_the_secret_name_only_and_never_block_a_deploy(tmp_path):
-    """: the service gets the GitHub token's secret NAME and reads it itself at run
+    """tasks#94: the service gets the GitHub token's secret NAME and reads it itself at run
     time; the deploy never touches Secret Manager, so a missing token can't stop it."""
     p, calls = run(tmp_path, bq_ok=True)
     assert p.returncode == 0, p.stderr

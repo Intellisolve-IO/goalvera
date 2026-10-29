@@ -24,7 +24,7 @@ The board uses an ESP32-S3R8 (QFN56, rev v0.2) with 8 MB **octal** PSRAM (AP, 3.
 All of this was read from the device with `esptool flash-id` and matches the boot log (`octal_psram: ... 64 Mbit`, `Found 8MB PSRAM device`).
 
 The only USB port is the S3's own USB-Serial/JTAG. The board has no USB-UART bridge.
-Base MAC: a1:b2:c3:d4:e5:f6, which gives device id `a1b2c3d4e5f6`.
+Base MAC: 14:c1:9f:d1:a7:44, which gives device id `14c19fd1a744`.
 
 ## Pins
 

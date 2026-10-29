@@ -1,4 +1,4 @@
-# SD-card recording encryption (, pilot checklist G5), Hosyond 3.5" only
+# SD-card recording encryption (tasks#22, pilot checklist G5), Hosyond 3.5" only
 
 Since 0.8.0 the Hosyond build writes every recording to the SD card encrypted
 (`CONFIG_RECORDER_SD_ENCRYPTION=y`, format **APENC1**, spec in `main/rec_crypt.h`).
@@ -7,7 +7,7 @@ CrowPanel builds are unchanged (plain WAV, `"encryption": "none"`).
 ## Design
 - **Per-file key**: 256-bit random AES key per recording (hardware RNG).
 - **Wrapped with a public key**: RSA-OAEP-3072/SHA-256 under the recording key's
-  public half, compiled into the firmware (a build-time input, `-D RECORDING_PUBKEY_PEM=<path>`, from
+  public half, compiled into the firmware (`main/recording_pubkey.pem`, from
   `tools/fetch-rec-pubkey.sh`). The private half is an HSM key in Cloud KMS
   (`infra/setup_rec_key.sh`); only the pipeline service account can decrypt.
 - **The recorder cannot decrypt its own recordings.** No secret that decrypts

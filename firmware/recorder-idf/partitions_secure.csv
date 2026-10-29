@@ -1,0 +1,10 @@
+# Name,   Type, SubType,  Offset,  Size, Flags
+# tasks#22 secure layout (Hosyond 3.5" with flash + NVS encryption). Same
+# offsets as partitions.csv; nvs_keys sits in the unused gap after phy_init,
+# so nothing moves and the plaintext NVS can be migrated in place (nvs_migrate.c).
+nvs,      data, nvs,      0x9000,  0x6000,
+otadata,  data, ota,      0xf000,  0x2000,
+phy_init, data, phy,      0x11000, 0x1000,
+nvs_keys, data, nvs_keys, 0x12000, 0x1000, encrypted
+ota_0,    app,  ota_0,    0x20000, 0x600000,
+ota_1,    app,  ota_1,    0x620000,0x600000,

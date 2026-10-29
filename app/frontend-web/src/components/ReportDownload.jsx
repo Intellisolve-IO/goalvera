@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { downloadActivityReport, errorText, lastDays, rangeProblem } from '../adminApi.js';
 
 /**
- * Activity report CSV (): by person or by student, for a date range.
+ * Activity report CSV (tasks#77): by person or by student, for a date range.
  * Fetched with the signed-in token and saved as a file; the server records the
  * download in the journal (report_downloaded).
  */

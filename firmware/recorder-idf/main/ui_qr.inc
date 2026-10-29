@@ -1,4 +1,4 @@
-/* Teacher Notes QR (0.7.2,; intro panel + fetch on tap 0.7.8). Included by ui_app.c (both boards).
+/* Teacher Notes QR (0.7.2, tasks#112; intro panel + fetch on tap 0.7.8). Included by ui_app.c (both boards).
  *
  * Tapping Teacher Notes stores the marker as before, then shows a QR code a
  * phone can scan to add ONE photo or video (up to 30 s) to this recording.
@@ -40,7 +40,7 @@ static int s_qr_ttl;
 
 
 /* ---------------------------------------------------------------- prefetch (0.7.5)
- * : the QR took >10 s (cold server + a fresh TLS handshake on
+ * David, Oct 14 2026: the QR took >10 s (cold server + a fresh TLS handshake on
  * the tap). The net task now fetches a link as soon as a recording is running
  * and refreshes it before its ~5 min expiry, so tapping Teacher Notes shows the
  * QR at once. A link is single-use, so one taken by a tap is dropped and the

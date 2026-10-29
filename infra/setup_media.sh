@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Teacher Notes photos / videos from a phone () - one-time cloud setup. Idempotent.
+# Teacher Notes photos / videos from a phone (tasks#112) - one-time cloud setup. Idempotent.
 # Demo project only: stays inside $PROJECT_ID (example-project); creates no project, bucket, key or SA.
 #
 #   * upload-api: create-only + read under media/ (uploads, their session link) and media_tokens/

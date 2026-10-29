@@ -1,4 +1,4 @@
-"""Teacher Notes QR upload (): token mint, expiry, single use, limits.
+"""Teacher Notes QR upload (tasks#112): token mint, expiry, single use, limits.
 Google libraries are stubbed; nothing reaches the cloud."""
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ import pytest
 
 UPLOAD_API = Path(__file__).resolve().parents[2] / "upload-api"
 TOKEN = "tok-" + "x" * 40
-DEVICE = "a1b2c3d4e5f6"
+DEVICE = "14c19fd1a744"
 STEM = "20261019_140000_ROOM12"
 
 
@@ -86,14 +86,14 @@ def api(monkeypatch):
     transport.requests = requests_mod
     monkeypatch.setenv("BUCKET", "test-bucket")
     monkeypatch.syspath_prepend(str(UPLOAD_API))
-    for m in ("main", "safelog", "media", "school"):
+    for m in ("main", "safelog", "media", "school", "ota_log"):
         sys.modules.pop(m, None)
     main = importlib.import_module("main")
     media = sys.modules["media"]
     clock = {"now": dt.datetime(2026, 10, 19, 18, 0, tzinfo=dt.timezone.utc)}
     monkeypatch.setattr(media, "_now", lambda: clock["now"])
     yield main.app.test_client(), store, clock
-    for m in ("main", "media", "school"):
+    for m in ("main", "media", "school", "ota_log"):
         sys.modules.pop(m, None)
 
 

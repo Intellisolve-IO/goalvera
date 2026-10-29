@@ -1,4 +1,4 @@
-"""AI drafts for the weekly lesson planner ( slices 2 and 4).
+"""AI drafts for the weekly lesson planner (tasks#83 slices 2 and 4).
 
 Two drafts, both made only when a teacher clicks for one, both returned to the
 browser and NOT stored (the teacher edits and saves - that saved version is the
@@ -62,7 +62,7 @@ def mode() -> str:
 # ---------------------------------------------------------------- masking
 
 def _word(name: str) -> re.Pattern | None:
-    """Any length (): 3+ letters any case; 1-2 letters capitalized whole words only
+    """Any length (tasks#104): 3+ letters any case; 1-2 letters capitalized whole words only
     (common/namematch.py), so "Li" is masked and "li" / "Lila" are not."""
     name = (name or "").strip()
     if not name or name.casefold() in ("student", "the student", "teacher"):
@@ -79,7 +79,7 @@ class Mask:
         for i, n in enumerate(names):
             self.labels[n] = STUDENT_PLACEHOLDER if len(names) == 1 else f"student {i + 1}"
         self.out = [(p, lab) for n, lab in self.labels.items() if (p := _word(n))]
-        # classmates named in a classroom session's notes (): hidden, never put back
+        # classmates named in a classroom session's notes (tasks#106): hidden, never put back
         for n in others or ():
             if n and n not in self.labels and (p := _word(n)):
                 self.out.append((p, OTHER_STUDENT_PLACEHOLDER))
@@ -207,7 +207,7 @@ SUMMARY_SCHEMA = {
     "type": "object", "additionalProperties": False, "required": ["summary", "iep_check", "parent_email"],
     "properties": {
         "summary": {"type": "string"},
-        # the draft parent email moved here from each session: one per student per week
+        # the draft parent email moved here from each session (David, Oct 8): one per student per week
         "parent_email": {"type": "string"},
         "iep_check": {"type": "array", "items": {
             "type": "object", "additionalProperties": False, "required": ["goal_id", "status", "note"],

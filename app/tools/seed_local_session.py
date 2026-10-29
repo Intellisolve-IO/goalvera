@@ -28,9 +28,9 @@ from speech_transcriber import build_speaker_turns, words_from_stt_json  # noqa:
 
 SAMPLES = APP / "samples"
 # The RM12 sample clip (Marcus A., Sarah Jenkins) belongs to the old one-student-per-class roster,
-# kept as the legacy school profile; tests and the laptop seed use it. The hosted demo's roster is
-# samples/demo_roster.json (Sample Elementary School, Oct 10), where RM12 is an alias of Room 104.
-FIXTURE_ROSTER = SAMPLES / "legacy_demo_roster.json"
+# kept as the Goalvera profile; tests and the laptop seed use it. The hosted demo's roster is
+# samples/demo_roster.json (Everyday Heroes Academy, Oct 10), where RM12 is an alias of Room 104.
+FIXTURE_ROSTER = SAMPLES / "profiles/demo-school/demo_roster.json"
 DEVICE, STEM = "laptop-demo", "20260928_164500_RM12"
 RID = f"rec_{DEVICE}_{STEM}".replace("-", "_")
 

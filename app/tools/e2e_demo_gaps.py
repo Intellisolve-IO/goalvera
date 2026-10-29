@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Demo gaps in a real browser. Fully offline, same setup as
-e2e_school_setup.py: built UI + review service + Firebase Auth emulator + the fictional sample
+"""Demo gaps in a real browser (David, Oct 10 2026; tasks#106). Fully offline, same setup as
+e2e_school_setup.py: built UI + review service + Firebase Auth emulator + the fictional Everyday
 Heroes Academy roster, one fictional Room 104 session (Monday 8:25 AM, Reading), two fake uploads
 still processing and one failed. Email goes to an in-memory outbox (nothing leaves the machine).
 
-  teacher (Snow White): Recordings shows the Uploading / processing rows; the session's "Students in
+  teacher (Alex Morgan): Recordings shows the Uploading / processing rows; the session's "Students in
            this session" offers Room 104 Reading's 10 students, not confirmed; one click confirms; the
            session then shows on Sneezy's week; after the weekly report is approved, "Send weekly
            email" shows the demo redirect, Sneezy's contacts (Wren receives reports; Rory, a
@@ -39,12 +39,12 @@ sys.path.insert(0, str(APP / "backend-pipeline/tests"))
 
 import e2e_planner as ep  # noqa: E402
 
-PROJECT = "demo-goalvera-review"
+PROJECT = "demo-atlanta-review"
 EMU = "127.0.0.1:9410"
 PORT = 8799
 BASE = f"http://127.0.0.1:{PORT}"
 ep.EMU, ep.PORT, ep.BASE = EMU, PORT, BASE
-TEACHER = ("e2e-gaps-teacher@staff.example", "correct-horse-battery")     # Snow White (stf_0001)
+TEACHER = ("e2e-gaps-teacher@staff.example", "correct-horse-battery")     # Alex Morgan (stf_0001)
 ADMIN = ("e2e-gaps-admin@staff.example", "battery-horse-staple-correct")
 SNEEZY = "stu_0006"
 results, TOKENS = [], {}

@@ -44,7 +44,7 @@ open-classroom-recorder/
 ├── samples/                  # Synthetic fixtures only ✅
 └── docs/
     ├── design-spec.md
-    └── demo-script.md        # 5-minute Rená walkthrough
+    └── demo-script.md        # 5-minute Goalvera walkthrough
 ```
 
 ---
@@ -86,7 +86,7 @@ Prompt version tag: `ocr-gemini-v1-2026-09` (see `prompt.py`).
 
 ---
 
-## Cloud pipeline (, sample audio only)
+## Cloud pipeline (tasks#35, sample audio only)
 
 Upload service → CMEK bucket → Chirp 3 transcript with speaker separation →
 Gemini draft notes (Vertex AI, `gemini-3.8-flash`) → teacher review screen.
@@ -105,12 +105,12 @@ Tabs in order; the last two are for demo admins only. Classes sits next to Stude
 |---|---|
 | **Recordings** | Recent recordings grouped by classroom (plus the Samples group). Open one to review, edit, **Save Draft** and **Approve** (nothing is emailed), then Download PDF. Incident names are AI-suggested from a short transcript excerpt after each marker, with roster names replaced. On the transcript timeline the reviewer says who each speaker is: the session's class first (its teachers, RBTs and students as first name + last initial, e.g. "Sneezy D."), then a search over every student and staff member, then Unknown speaker / Other adult / Other student. That choice stays in the reviewer's browser and is never sent to the AI (`review_api/speakers.py`, `GET /api/sessions/<id>/speakers`). |
 | **Students** | Every student (teachers see all students and every IEP). A student page shows the IEP (read-only; each open is written to the Journal as "viewed IEP"), one school week Mon–Fri with previous/next and that student's daily summaries, and **Generate draft weekly parent report**: the weekly summary + draft parent email, built here only. The AI sees "the student", never the name; the draft is saved, never sent. |
-| **Classes** | Every class: name, classroom, teacher(s), educational domain (from Domains), students and schedule (one or more meeting times: days, start, minutes). Opens on your classroom (admins: All). Admins add, edit and delete; a teacher edits the classes they teach (and stays on them). Each change is in the Activity Log. Sample Elementary School's 32 classes are fictional sample data. |
+| **Classes** | Every class: name, classroom, teacher(s), educational domain (from Domains), students and schedule (one or more meeting times: days, start, minutes). Opens on your classroom (admins: All). Admins add, edit and delete; a teacher edits the classes they teach (and stays on them). Each change is in the Activity Log. Everyday Heroes Academy's 32 classes are fictional sample data. |
 | **Lesson planner** | Last / this / next week per classroom: goals, objectives, the week's plan, a teacher note per student, and a "Weekly summary & parent report →" link to the student page. |
-| **Domains** | Educational methodology by subject, from the sample methodology document: Subject / Domain, Core Educational Methodology, Key Curricular Programs, Recommended Book / Guide, plus how the curriculum is delivered. Admins add, edit and remove (logged); teachers read. |
+| **Domains** | Educational methodology by subject, from David's document: Subject / Domain, Core Educational Methodology, Key Curricular Programs, Recommended Book / Guide, plus how the curriculum is delivered. Admins add, edit and remove (logged); teachers read. |
 | **Teachers** | Every staff member (teachers, RBTs, BCBA, therapists, office) with classroom(s), default classroom and the role from their own staff record; RBTs show their supervising BCBA. Admins also see emails and each person's **sign-in email and app role** (Admin / Teacher / RBT / No access) and change them here (**Change**). |
 | **Activity Log** | Admins: the Journal (newest first, Eastern time) and **Download report (CSV)**: the activity report by person or by student for a date range. (Before Oct 10 this was the Download button at the top right of every page; that button is gone.) |
-| **Settings** | Admins: **School name** and **School logo** (shown in the top bar; the only editable settings), then the configuration (access, retention, classrooms, default classrooms, AI and records), read-only where the app can't change it, and **Reset demo state** (also restores the default name "Sample Elementary School" and its badge). |
+| **Settings** | Admins: **School name** and **School logo** (shown in the top bar; the only editable settings), then the configuration (access, retention, classrooms, default classrooms, AI and records), read-only where the app can't change it, and **Reset demo state** (also restores the default name "Everyday Heroes Academy" and its badge). |
 
 **School name and logo** (`review_api/branding.py`). Admins only; the server refuses anyone else
 (403 `ADMIN_ONLY`) and teachers only see the result. The logo can be PNG, JPEG or SVG, up to 1 MB.
@@ -123,8 +123,8 @@ newest is current; review-web can't overwrite or delete; one-time IAM: `infra/se
 `school_logo`, `school_logo_removed`, `reset`), never the file or the new text.
 `app/tools/e2e_nav_stable.py` checks that a long name and a tall logo don't move the top bar.
 
-**Domains and Classes** (`review_api/school_setup.py`,). The seed is in the repo
-(`app/samples/school-setup/domains.json` from the sample "Educational Methodology" document, and
+**Domains and Classes** (`review_api/school_setup.py`, tasks#103). The seed is in the repo
+(`app/samples/school-setup/domains.json` from David's "Educational Methodology" document, and
 `classes.json`, the 32 fictional OneRoster classes of `sis-demo/`), both rebuilt and checked by
 `app/tools/build_school_setup.py --check`. Admin changes are saved in the bucket under `school_setup/`
 (one create-only record per change; the newest is current; one-time IAM:
@@ -137,7 +137,7 @@ class of that classroom. Classroom materials then tell the AI the class's **doma
 (e.g. "Reading & Phonics: Orton-Gillingham (OG) Approach ...") and nothing else new: no class name,
 programs, book, schedule or student data. `app/tools/e2e_school_setup.py` screenshots both tabs.
 
-**Students in this session** (`review_api/session_students.py`,). Under the class on a
+**Students in this session** (`review_api/session_students.py`, tasks#106). Under the class on a
 recording's page: the class's roster (the picked class, else the suggested one; else the classroom's
 students) is offered ticked and marked "not confirmed"; nothing is linked until the teacher (or an
 admin) clicks **Confirm N students** / **Save students**. Stored as an audit record
@@ -146,7 +146,7 @@ admin) clicks **Confirm N students** / **Save students**. Stored as an audit rec
 (Students tab, Lesson planner) and feeds the weekly summary, the weekly IEP check and the parent report.
 Classmates' names are masked as "another student" in every planner AI call.
 
-**Uploading / processing rows** (`review_api/uploads_status.py`,). `GET /api/uploads/status`
+**Uploading / processing rows** (`review_api/uploads_status.py`, tasks#106). `GET /api/uploads/status`
 lists recent uploads under `rec/` that have no notes yet, with the stage from the pipeline's
 `work/<rid>/manifest.json` (Uploaded, Checking the audio, Transcribing, Drafting notes) or a clear
 failure (not a WAV, unreadable audio, transcription failed, drafting failed, didn't start). The
@@ -154,7 +154,7 @@ Recordings tab shows them at the top and polls every 15 s while one is processin
 otherwise); when one finishes the list reloads. One-time IAM: `infra/setup_demo_gaps.sh` (read the
 manifests only, list `work/` and `rec/`; never the audio).
 
-**Weekly parent email** (`review_api/parent_email.py`,; a new outbound flow for Ops' Schedule B
+**Weekly parent email** (`review_api/parent_email.py`, tasks#106; a new outbound flow for Ops' Schedule B
 amendment list). Recipients come from `app/samples/contacts/demo_guardians.json` (fictional, built by
 `app/tools/build_demo_roster.py`, kept out of the roster): only the student's guardians with
 "receives reports" on; the rest (e.g. non-custodial parents) are shown as excluded. After the teacher
@@ -164,11 +164,11 @@ admins, on by default, logged): every parent email goes to the teacher's own sta
 with "Demo: would have gone to <first name> at <masked address>" at the top; any other address is
 refused. Sends are logged under `parent_email/sends/` (ids, address hashes) and in the journal
 (`parent_email_sent` / `parent_email_send_failed`). Everything under `parent_email/` (send log and the
-redirect setting records) is deleted after 12 months by a bucket lifecycle rule (age 365,;
+redirect setting records) is deleted after 12 months by a bucket lifecycle rule (age 365, tasks#108;
 merged into the existing rules by `infra/setup_demo_gaps.sh`, which `--check` lists). If the redirect
 setting record ages out, the setting falls back to its default (on).
 
-**My profile** (`review_api/people.py`,). The signed-in name at the top right opens My
+**My profile** (`review_api/people.py`, tasks#107). The signed-in name at the top right opens My
 profile for everyone (teacher, RBT, admin): display name, preferred name, phone, default classroom (only
 classrooms they may use: a teacher's own, an RBT's roster classrooms, any for an admin), title and
 credential type. Role and email are shown read-only with "Ask an admin to change this"; one flag,
@@ -181,14 +181,14 @@ them; every change is one create-only record `people/state-<n>.json` with the wh
 is created only once, so two saves can't both win; one-time IAM: `infra/setup_people.sh`), applied on
 top by the allowlist, the email -> person mapping and the app's roster from the same snapshot (other
 instances within 30 s). Activity Log: `profile_updated` (person id + changed field names, never values) and
-`access_changed`: who made the change, the person id and the account's sign-in address,
+`access_changed` (Ops, tasks#108): who made the change, the person id and the account's sign-in address,
 `email` / `role`, the old and new role, and on a sign-in email change both the old and the new address
 (the same values go into the `people/` record's `change`). Only `access_changed` may carry an address. A display or
 preferred name joins the never-to-the-AI name lists. `app/tools/e2e_my_profile.py` checks all three roles
 and screenshots My profile.
 
 **Sign-in** (`review_api/auth.py`, `AuthGate.jsx`). Email + password, and **Sign in with Google**
-(; on since Oct 11: the Google provider is enabled in Identity Platform and `IDP_PROVIDERS` in
+(tasks#108; on since Oct 11: the Google provider is enabled in Identity Platform and `IDP_PROVIDERS` in
 `infra/config.sh` is `password,google.com`; set it back to `password` and redeploy to hide the button -
 the server refuses tokens from any provider not listed). Ops' checks, on the server, for every request and every provider: the account's
 email must be verified; the full address must match a staff / allowlist address exactly
@@ -197,7 +197,7 @@ access removed by an admin (Teachers tab, No access) or taken off the allowlist 
 30 s. Sign-ins are journaled as `sign_in` with `sign_in_provider`. Status and the console steps:
 `./infra/setup_google_signin.sh --check` (read-only).
 
-**Sign-in accounts are created by an admin** new sign-ups stay off in Identity
+**Sign-in accounts are created by an admin** (David, Oct 11: new sign-ups stay off in Identity
 Platform). Nobody can create their own account, with a password or with Google; an admin creates it
 ahead of time with `./infra/review_allowlist.py add <email>` (adds the person to the staff list and
 creates the account if missing) or `./infra/signin_accounts.py create <email> [--name ...]`
@@ -208,9 +208,9 @@ When the person uses Sign in with Google, Firebase attaches their Google identit
 keeps one account per email). For password sign-in instead, send them a reset link (Firebase console ->
 Authentication -> Users -> Reset password). Changing a role or sign-in email on the Teachers tab does not
 create an account; run `signin_accounts.py create` for the new address (the app's service account has no
-permission to create users, on purpose). Snow White (snowwhite@staff.example) has one since Oct 11.
+permission to create users, on purpose). Alex Morgan (snowwhite@staff.example) has one since Oct 11.
 
-**Activity report downloads** (CSV, Activity Log tab) are logged like PDF downloads (): a
+**Activity report downloads** (CSV, Activity Log tab) are logged like PDF downloads (tasks#108): a
 required journal entry (`report_downloaded`, rows, SHA-256, bytes) and a create-only audit record
 `audit/_reports/<time>_report_downloaded_<id>.json` (who, staff email, sign-in provider, report, period,
 rows, SHA-256, bytes). If either can't be written, the file isn't sent.
@@ -220,9 +220,9 @@ any other classroom or All can be picked. Admins start on All.
 
 ---
 
-## Demo school: Sample Elementary School
+## Demo school: Everyday Heroes Academy (David, Oct 10 2026; tasks#98)
 
-The hosted demo is a **fictional sample school**, Sample Elementary School (no real student data;
+The hosted demo is a **fictional sample school**, Everyday Heroes Academy (no real student data;
 sign-in only; nothing public). Every student, staff and IEP record carries the label
 "Fictional sample data", shown as a small badge on each student page, each IEP and the Students
 and Teachers lists.
@@ -231,10 +231,10 @@ and Teachers lists.
 |---|---|
 | 87 students (K–5), 8 classrooms (Rooms 101–108), 8 teachers, 5 RBTs, 10 other staff, 78 IEPs, 5 Section 504 plans | `samples/sis-demo/` (SIS import layout; `tools/build_sis_demo.py`, checked by `tools/validate_sis_demo.py`) |
 | The review site's roster | `samples/demo_roster.json`, built from `sis-demo/` by `tools/build_demo_roster.py` (`--check` in the tests). Do not edit it by hand. Staff are one record each with the role on the record (person schema): teachers under `teachers` (classrooms point at them), RBTs and everyone else under `staff` with `role` (`rbt`, `bcba`, `slp`, ...) and `supervisor_id` (RBTs: BCBA Mary Poppins). `common/roster.py` `staff_directory()` reads both this and older rosters that still have a separate `rbts` list. |
-| Room 104 | Snow White (lead teacher; her default classroom), RBT Flynn Rider (the demo RBT sign-in), Doc, Grumpy, Happy, Sleepy, Bashful, Sneezy and Dopey Dwarf plus 3 classmates |
+| Room 104 | Alex Morgan (lead teacher; her default classroom), RBT Flynn Rider (the demo RBT sign-in), Doc, Grumpy, Happy, Sleepy, Bashful, Sneezy and Dopey Dwarf plus 3 classmates |
 | Attendance | Fictional daily attendance Aug 3 – Oct 9, 2026 in `sis-demo/ext_attendance.csv` (codes P / AE / AU / T in `ext_attendance_codes.csv`). The roster keeps only a per-student summary (days, present, absences, tardies, rate), shown as one line under the student's name. Not sent to the AI. Free/reduced lunch is not in the data; health is a flag only. |
-| Name and badge | `review_api/branding.py` profile `sample-school`: name, "SE" badge and a built-in shield logo (`review_api/assets/sample-school-badge.png`, drawn by `tools/make_school_badge.py`). Admins can still change both on Settings. |
-| the legacy school | Kept as a saved profile, not shown: name "Legacy School", "LS" badge, any name/logo an admin set before Oct 10, and their old roster in `samples/legacy_demo_roster.json`. Switch with `SCHOOL_PROFILE=legacy-school` (`infra/config.sh`) and that roster. |
+| Name and badge | `review_api/branding.py` profile `everyday-heroes`: name, "EH" badge and a built-in shield logo (`review_api/assets/everyday-heroes-badge.png`, drawn by `tools/make_school_badge.py`). Admins can still change both on Settings. |
+| Goalvera | Kept as a saved profile, not shown: name "Goalvera", "AP" badge, any name/logo an admin set before Oct 10, and their old roster in `samples/profiles/demo-school/demo_roster.json`. Switch with `SCHOOL_PROFILE=demo-school` (`infra/config.sh`) and that roster. |
 
 The roster holds only what the site needs: first name, last name (only so the name scrub catches it;
 screens show the last initial), grade, classroom, teachers and an IEP / 504 summary. Never birth
@@ -246,12 +246,12 @@ each student's `class_codes`; the old one-student-per-class-code shape (`class_c
 still works. Recorder class codes match a classroom or one of its `aliases`.
 
 **Old recordings** are read through the new roster, never rewritten: RM12, Reading 3A, Math 2B,
-Circle Time, Room 210 and Gym (the old demo's codes, all the one demo teacher's) show in Room 104 with
-Snow White; a student who isn't in the new school (Marcus A.) is shown without a student link. Full
+Circle Time, Room B and Hall (the old demo's codes, all the one demo teacher's) show in Room 104 with
+Alex Morgan; a student who isn't in the new school (Marcus A.) is shown without a student link. Full
 table: [`docs/demo-script.md`](../docs/demo-script.md#recording-remap-oct-10-2026).
 
 AI incident names still never carry a name: every student and staff name in the roster (Doc,
-Grumpy, Snow White, Mary Poppins…) is masked in the transcript excerpt and rejects a name that
+Grumpy, Alex Morgan, Mary Poppins…) is masked in the transcript excerpt and rejects a name that
 contains it, and a capitalized word that isn't on the allowlist sends it back once, then to
 "Incident N" (`tests/test_sample_school.py`).
 

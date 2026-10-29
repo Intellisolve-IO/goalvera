@@ -1,6 +1,6 @@
 #pragma once
 /*
- * Hosyond top-right battery gauge (0.7.1,). LVGL only, no ESP-IDF,
+ * Hosyond top-right battery gauge (0.7.1, tasks#97). LVGL only, no ESP-IDF,
  * so a host LVGL render can draw exactly this code (previews for the PR).
  *
  * Inside the status chip: a battery outline with a nub, a fill bar that

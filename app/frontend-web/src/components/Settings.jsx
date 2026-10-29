@@ -4,7 +4,7 @@ import { apiErrorText } from '../labels.js';
 import SchoolSettings from './SchoolSettings.jsx';
 import MaterialsInstruction from './MaterialsInstruction.jsx';
 
-// Settings tab, admins only, last tab. Shows the configuration the
+// Settings tab (David, Oct 8 2026; tasks#85), admins only, last tab. Shows the configuration the
 // app runs with. The school name and logo (top bar) can be changed here by admins (Oct 9); every
 // other value is read-only and says where it is set. Reset demo state also restores the default
 // school name and badge.
@@ -25,7 +25,7 @@ const MAIL_STATE = {
   'not checked': 'not checked yet', outbox: 'test mode (nothing leaves this computer)', off: 'off',
 };
 
-/** Admin: email classroom materials to teachers (). Off = download only. Every change is logged. */
+/** Admin: email classroom materials to teachers (tasks#99). Off = download only. Every change is logged. */
 export function MaterialsEmailSetting({ initial = null, reviewerId = null, load = loadMaterialsEmail, save = saveMaterialsEmail }) {
   const [m, setM] = useState(initial);
   const [err, setErr] = useState('');
@@ -56,7 +56,7 @@ export function MaterialsEmailSetting({ initial = null, reviewerId = null, load 
   );
 }
 
-/** Admin: demo redirect for the weekly parent email (). On (default): every parent email goes to
+/** Admin: demo redirect for the weekly parent email (tasks#106). On (default): every parent email goes to
  * the teacher's own staff.example inbox with a "would have gone to ..." banner. Every change is logged. */
 export function ParentEmailSetting({ initial = null, reviewerId = null, load = loadParentEmailSetting, save = saveParentEmailSetting }) {
   const [m, setM] = useState(initial);

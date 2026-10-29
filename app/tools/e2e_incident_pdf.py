@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""End-to-end check of incident numbering + Download PDF on an incident (),
+"""End-to-end check of incident numbering + Download PDF on an incident (tasks#85),
 offline, in the real review UI on the synthetic sample session. Saves screenshots.
 
   1. seed the sample session into a fresh local store; give it three incidents out of
@@ -51,7 +51,7 @@ INCIDENTS = [
     {"timestamp_seconds": 95, "antecedent": "Group work started.", "behavior": "Left the table for the calm corner.",
      "consequence_intervention": "Used the break card; came back after 3 minutes."},
 ]
-# "Incident N: <AI name>" (offline stand-in locally: the first clause of the behavior)
+# David, Oct 8: "Incident N: <AI name>" (offline stand-in locally: the first clause of the behavior)
 # and the Eastern clock time (recording start 4:45:00 PM + offset) with the offset
 WANT = ["Incident 1: Covered his ears and put his head on the desk", "Incident 2: Walked to the window",
         "Incident 3: Left the table for the calm corner"]
@@ -75,7 +75,7 @@ def prepare(store_dir: Path) -> None:
     d = s.read_json(f"drafts/{RID}.json")
     d["analysis"]["incident_analysis"] = INCIDENTS
     s.write_json(f"drafts/{RID}.json", d)
-    r = s.read_json("config/demo_roster.json") or json.loads((APP / "samples/legacy_demo_roster.json").read_text())
+    r = s.read_json("config/demo_roster.json") or json.loads((APP / "samples/profiles/demo-school/demo_roster.json").read_text())
     r.setdefault("students", {})
     r["students"] = r["students"] or {}
     r["students"]["stu_101"] = {**(r["students"].get("stu_101") or {}), "first_name": "Marcus",

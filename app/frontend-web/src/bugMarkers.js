@@ -1,5 +1,5 @@
 /**
- * Bug markers. A teacher picks the marker type "Bug",
+ * Bug markers (David, Oct 7 2026; tasks#94). A teacher picks the marker type "Bug",
  * types a note and submits it; the review service files it as a GitHub issue for our
  * support team (or keeps it pending until it can). Bug markers are never session
  * markers: they stay out of the markers line, the timeline, the incident list and its

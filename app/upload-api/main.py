@@ -1,4 +1,4 @@
-"""Upload service (Cloud Run, public HTTPS, device-token auth) - step 6.
+"""Upload service (Cloud Run, public HTTPS, device-token auth) - tasks#35 step 6.
 
 The recorder never holds a Google credential. It holds one per-device token.
 
@@ -62,7 +62,7 @@ _bucket = _gcs.bucket(BUCKET)
 # time.monotonic() counts from when the instance's sandbox booted, so on a cold
 # start it is only a few seconds, "now - 0.0 > TOKEN_CACHE_SECONDS" stayed false
 # for the first ~30 s, the registry was never read, and every device got a 401
-# until the instance was 30 s old (; seen on every cold start Oct 1-7).
+# until the instance was 30 s old (tasks#35; seen on every cold start Oct 1-7).
 _registry = {"at": None, "devices": {}}
 _lock = threading.Lock()
 _creds, _ = google.auth.default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -213,7 +213,7 @@ def confirm():
                     "safe_to_delete_local_copy": verified})
 
 
-# Teacher Notes photo / video from a phone (): media.py
+# Teacher Notes photo / video from a phone (tasks#112): media.py
 from media import make_blueprint  # noqa: E402
 
 app.register_blueprint(make_blueprint(_bucket, _auth, _signer_args, _err))
@@ -222,6 +222,11 @@ app.register_blueprint(make_blueprint(_bucket, _auth, _signer_args, _err))
 import school  # noqa: E402
 
 app.register_blueprint(school.make_blueprint(_bucket, _auth, _err))
+
+# OTA confirm + update log: ota_log.py
+import ota_log  # noqa: E402
+
+app.register_blueprint(ota_log.make_blueprint(_bucket, _auth, _err))
 
 
 @app.get("/healthz")

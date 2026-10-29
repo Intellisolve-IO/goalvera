@@ -1,6 +1,6 @@
-"""Students, Teachers and Settings tabs.
+"""Students, Teachers and Settings tabs (David, Oct 8 2026; tasks#85).
 
-Students: every roster student, for every signed-in role (design decision:
+Students: every roster student, for every signed-in role (David's Oct 2 decision:
 teachers see all students and every IEP; the list only opens filtered to their own
 classrooms). Opening a student returns the IEP (whatever the roster holds), one
 school week (Mon-Fri) of that student's daily session summaries, and the week's
@@ -177,7 +177,7 @@ class Students:
         r = self.notes.roster()
         admin = signed_in(actor) and actor.is_admin
         from .people import People, self_edit_access
-        allow = People(self.notes).allowlist() if admin else {}   # base file + admins' changes ()
+        allow = People(self.notes).allowlist() if admin else {}   # base file + admins' changes (tasks#107)
         accounts = (People(self.notes).cache.get().get("accounts") or {}) if admin else {}
         rows, seen = [], set()
 
@@ -186,7 +186,7 @@ class Students:
             signin = next((e for e in emails if e.lower() in allow), emails[0] if emails else None)
             role = allow.get((signin or "").lower())
             return {"sign_in_email": signin, "app_role": "teacher" if role == "reviewer" else (role or "none")}
-        # one staff directory, role from each person's own record (): teachers, RBTs (read-only
+        # one staff directory, role from each person's own record (tasks#104): teachers, RBTs (read-only
         # in this app, supervised by the BCBA), BCBA, therapists, office
         for p in staff_directory(r):
             seen.update(e.lower() for e in p["emails"])
@@ -218,7 +218,7 @@ class Students:
         env = os.environ.get
         from .people import People, self_edit_access
         roles: dict = {}
-        for role in People(self.notes).allowlist().values():   # base file + admins' changes ()
+        for role in People(self.notes).allowlist().values():   # base file + admins' changes (tasks#107)
             roles[role] = roles.get(role, 0) + 1
         return {
             "iep_access_rbt": rbt_iep_access(r),

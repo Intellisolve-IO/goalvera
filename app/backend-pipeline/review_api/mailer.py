@@ -1,7 +1,7 @@
-"""Outgoing email for classroom materials (): the app's first and only outgoing email.
+"""Outgoing email for classroom materials (tasks#99): the app's first and only outgoing email.
 
 How it sends (Chief of Staff / Ops, Oct 10 2026): the Gmail API with a single-mailbox OAuth
-consent. The sender mailbox (demo: Snow White's own Workspace user, snowwhite@staff.example)
+consent. The sender mailbox (demo: Alex Morgan's own Workspace user, snowwhite@staff.example)
 approved one scope once, https://www.googleapis.com/auth/gmail.send (send only, no reading). The
 OAuth client and the refresh token are two Secret Manager secrets in this project, readable only by
 the review service account:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Re-run the pipeline's class/teacher (roster) step on an existing session,
-WITHOUT touching the audio or re-running Speech-to-Text or Gemini ().
+WITHOUT touching the audio or re-running Speech-to-Text or Gemini (tasks#35).
 
 Use it when a session came in before its class was in the roster, or when a
 class needs to be assigned by hand. It uses the same resolve_session() as the

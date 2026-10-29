@@ -1,5 +1,5 @@
 sourcedId,staffNumber,title,staffType,appRole,supervisorSourcedId,deviceLabels,employmentStart,employmentEnd,label,metadata.fictional
-u-stf-0001,E20000,Lead Special Education Teacher,teacher,teacher,u-stf-0022,Snow White,2023-07-24,,Fictional sample data,true
+u-stf-0001,E20000,Lead Special Education Teacher,teacher,teacher,u-stf-0022,Demo Teacher,2023-07-24,,Fictional sample data,true
 u-stf-0002,E20037,Special Education Teacher,teacher,teacher,u-stf-0022,Belle Beaumont,2023-07-24,,Fictional sample data,true
 u-stf-0003,E20074,Special Education Teacher,teacher,teacher,u-stf-0022,Tiana Rogers,2023-07-24,,Fictional sample data,true
 u-stf-0004,E20111,Special Education Teacher,teacher,teacher,u-stf-0022,Mulan Fa,2022-07-25,,Fictional sample data,true

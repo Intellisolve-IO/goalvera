@@ -72,7 +72,7 @@ function recordedMs(session) {
 }
 
 /**
- * Recordings page: [{ classroom, sessions }] with classrooms in order
+ * Recordings page (David, Oct 8): [{ classroom, sessions }] with classrooms in order
  * (numeric-aware; "—" for no classroom last) and the newest recording first in each.
  */
 export function groupByClassroom(sessions) {

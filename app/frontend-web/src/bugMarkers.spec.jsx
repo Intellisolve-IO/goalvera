@@ -1,4 +1,4 @@
-// Bug markers. The server decides what may reach the GitHub
+// Bug markers (David, Oct 7 2026; tasks#94). The server decides what may reach the GitHub
 // issue (review_api/bug_reports.py, tests/test_bug_reports.py); these prove the screen
 // offers "Bug" in the marker type dropdown with the names hint, keeps Bug markers out of
 // the markers line and the incident list / numbering, and shows them only as a small
@@ -81,7 +81,7 @@ describe('Bug markers stay out of markers, incidents and their numbering', () =>
   test('the markers line and the incident list never show a Bug marker', () => {
     expect(sessionMarkers(base.markers).map((m) => m.type)).toEqual(['Incident', 'Teacher Notes']);
     const html = modal(base);
-    // no separate markers section: markers are drawn in the timeline only
+    // no separate markers section (David, Oct 8): markers are drawn in the timeline only
     expect(html).not.toContain('markers-section');
     expect(html).not.toMatch(/<h3>Markers<\/h3>|markers-line/);
     const labels = [...html.matchAll(/data-testid="incident-label">([^<]+)</g)].map((m) => m[1]);

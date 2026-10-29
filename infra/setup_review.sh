@@ -11,7 +11,7 @@
 #       read   drafts/ transcripts/ approvals/ audit/ config/demo_roster.json config/review_allowlist.json
 #       list   only with prefix drafts/ or audit/
 #       create approvals/ audit/   (no overwrite, no delete)
-#   * config/review_allowlist.json seeded from infra/review_allowlist.json (or review_allowlist.example.json) if missing
+#   * config/review_allowlist.json seeded from infra/review_allowlist.json if missing
 # Cost: Identity Platform email sign-in is free up to 50,000 monthly active users;
 # the API key and service account are free.
 set -euo pipefail
@@ -102,7 +102,7 @@ bind() {  # role expression title  (condition via file: the expressions contain 
 bind roles/storage.objectViewer "$READ" review-read
 bind roles/storage.objectViewer "$LIST" review-list-drafts-audit
 bind roles/storage.objectCreator "$WRITE" review-create-approvals-audit
-# Weekly lesson planner: read, list and create-only under planner/ (never overwrite
+# Weekly lesson planner (tasks#83): read, list and create-only under planner/ (never overwrite
 # or delete; every save is a new version). Separate bindings so the ones above stay as they are.
 PLANNER_LIST="resource.type == \"storage.googleapis.com/Bucket\" && api.getAttribute(\"storage.googleapis.com/objectListPrefix\", \"\").startsWith(\"planner/\")"
 bind roles/storage.objectViewer "$(obj planner/)" review-read-planner
@@ -112,10 +112,9 @@ echo "bucket access: read/list/create as above; nothing else in the project"
 
 say "Allowlist"
 if ! gcloud storage objects describe "gs://$BUCKET/config/review_allowlist.json" >/dev/null 2>&1; then
-  SEED="$HERE/review_allowlist.json"; [ -f "$SEED" ] || SEED="$HERE/review_allowlist.example.json"
-  gcloud storage cp "$SEED" "gs://$BUCKET/config/review_allowlist.json" \
+  gcloud storage cp "$HERE/review_allowlist.json" "gs://$BUCKET/config/review_allowlist.json" \
     --if-generation-match=0 --content-type=application/json --quiet
-  echo "seeded from infra/review_allowlist.example.json"
+  echo "seeded (David as admin; reviewer placeholder)"
 else
   echo "exists - left as is (edit with ./infra/review_allowlist.py)"
 fi

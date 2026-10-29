@@ -1,4 +1,4 @@
-// My profile: the signed-in name opens it; the user edits their own
+// My profile (David, Oct 10 2026; tasks#107): the signed-in name opens it; the user edits their own
 // display name, preferred name, phone, default classroom (theirs only), title, credential type; role
 // and email read-only ("Ask an admin to change this") unless the server flag allows self-edit. Admins
 // change role / sign-in email from the Teachers tab.
@@ -10,7 +10,7 @@ import { AccessEditor, TeacherTable } from './components/Teachers.jsx';
 import { profileError } from './schoolSetup.js';
 
 const base = {
-  person_id: 'stf_0001', roster_name: 'Snow White', display_name: 'Snow White', preferred_name: 'Snow',
+  person_id: 'stf_0001', roster_name: 'Alex Morgan', display_name: 'Alex Morgan', preferred_name: 'Alex',
   phone: '(404) 555-0100', title: 'Lead Special Education Teacher', credential_type: 'Special education certificate',
   default_classroom: 'Room 104', classrooms: ['Room 104'], email: 'snowwhite@example.org', role: 'teacher',
   role_label: 'Teacher', can_edit_access: false, credential_types: ['', 'Special education certificate', 'Other'],
@@ -64,7 +64,7 @@ describe('My profile form', () => {
 describe('Teachers tab: admins change role / sign-in email', () => {
   const data = {
     emails_shown: true, can_edit_access: true,
-    teachers: [{ id: 'stf_0001', name: 'Snow White', role: 'Lead Special Education Teacher', classrooms: ['Room 104'],
+    teachers: [{ id: 'stf_0001', name: 'Alex Morgan', role: 'Lead Special Education Teacher', classrooms: ['Room 104'],
       emails: ['snowwhite@example.org'], sign_in_email: 'snowwhite@example.org', app_role: 'teacher' },
     { id: 'stf_0002', name: 'Belle Beaumont', role: 'Special Education Teacher', classrooms: ['Room 101'], emails: [],
       sign_in_email: null, app_role: 'none' }],

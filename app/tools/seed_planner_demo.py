@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fictional demo data for the weekly lesson planner (), in a LOCAL folder
+"""Fictional demo data for the weekly lesson planner (tasks#83), in a LOCAL folder
 with the bucket's layout. No cloud calls; nothing here is real student data.
 
 Starts from the synthetic RM12 session (seed_local_session.py) and copies it to
@@ -12,7 +12,7 @@ the "the student" storage rule apply to the seed too).
   PLANNER_TODAY=2026-10-07 python app/backend-pipeline/review_api/server.py --auth off --local-dir /tmp/ap-planner
 
 The class list (config/demo_roster.json) is copied from app/samples/demo_roster.json;
-its IEP goals are the fictional ones the planner checks against until.
+its IEP goals are the fictional ones the planner checks against until tasks#75.
 """
 from __future__ import annotations
 

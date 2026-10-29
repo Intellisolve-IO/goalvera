@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bucket lifecycle: add ONE Delete rule, keeping every existing rule exactly as it is ().
+"""Bucket lifecycle: add ONE Delete rule, keeping every existing rule exactly as it is (tasks#108).
 
   python3 infra/lifecycle_merge.py merge  CURRENT.json PREFIX DAYS > NEW.json   # {"rule": [...]}
   python3 infra/lifecycle_merge.py show   CURRENT.json [PREFIX DAYS]           # one line per rule

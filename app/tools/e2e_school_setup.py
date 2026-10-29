@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Domains + Classes tabs in a real browser.
+"""Domains + Classes tabs in a real browser (David, Oct 10 2026; tasks#103).
 
 Fully offline, same setup as e2e_nav_stable.py: built UI + review service + Firebase Auth
-emulator + the fictional Sample Elementary School roster (app/samples/demo_roster.json) and one
+emulator + the fictional Everyday Heroes Academy roster (app/samples/demo_roster.json) and one
 fictional session in Room 104 on a Monday at 8:25 AM.
 
-  admin:   the Domains tab lists the 6 sample domains with all four columns; adds a domain, edits it,
+  admin:   the Domains tab lists David's 6 domains with all four columns; adds a domain, edits it,
            removes it; the Classes tab lists all 32 fictional classes; edits a class's schedule to two
            meeting patterns; every change is in the Activity Log.
   teacher: Domains read-only; Classes opens on their classroom (Room 104); can edit their own class,
            not someone else's; on the session the class picker suggests "Room 104 Reading" and the
            teacher saves it; the materials panel shows the class's teaching approach; the transcript's
-           speaker selector lists Room 104 Reading's people first (Snow W., Flynn R., Doc D., ...), search
-           finds Mary P. (BCBA), and a choice labels the turns ().
+           speaker selector lists Room 104 Reading's people first (Alex M., Flynn R., Doc D., ...), search
+           finds Mary P. (BCBA), and a choice labels the turns (tasks#104).
 
 Screenshots go to --shots (domains_admin.png, domains_editor.png, classes_admin.png, class_editor.png,
 domains_teacher.png, classes_teacher.png, session_class.png, speaker_lookup_timeline.png, speaker_lookup.png).
@@ -39,12 +39,12 @@ sys.path.insert(0, str(APP / "backend-pipeline/tests"))
 
 import e2e_planner as ep  # noqa: E402  (helpers only; its ports are overridden below)
 
-PROJECT = "demo-goalvera-review"
+PROJECT = "demo-atlanta-review"
 EMU = "127.0.0.1:9400"
 PORT = 8798
 BASE = f"http://127.0.0.1:{PORT}"
 ep.EMU, ep.PORT, ep.BASE = EMU, PORT, BASE
-TEACHER = ("e2e-setup-teacher@example.org", "correct-horse-battery")   # Snow White (stf_0001), Room 104
+TEACHER = ("e2e-setup-teacher@example.org", "correct-horse-battery")   # Alex Morgan (stf_0001), Room 104
 ADMIN = ("e2e-setup-admin@example.org", "battery-horse-staple-correct")
 DOMAINS = ["Reading & Phonics", "Mathematics", "Handwriting & Writing", "Social-Emotional & Self-Regulation",
            "Science & Social Studies", "Physical & Creative Arts"]
@@ -174,15 +174,15 @@ def teacher_flow(browser, shots, rid):
     box.screenshot(path=str(shots / "session_class.png"))
     sc = api(f"/api/sessions/{rid}/class", TEACHER[0])
     check("session: the teacher's pick is saved", sc.get("source") == "teacher" and (sc.get("class") or {}).get("id") == "cls-rm104-rdg", sc)
-    # speaker selector (): the class's people first, then search everyone, then generic options
+    # speaker selector (tasks#104): the class's people first, then search everyone, then generic options
     page.wait_for_selector("[data-testid=speaker-select]", timeout=20000)
     sel = page.locator("[data-testid=speaker-select]").first
     groups = sel.locator("optgroup").evaluate_all("gs => gs.map(g => g.label)")
     check("speakers: class group first, then everyone else, then Other",
           groups[:1] == ["In Room 104 Reading"] and groups[-1] == "Other" and "Everyone else" in groups, groups)
     first = sel.locator("optgroup").first.locator("option").all_inner_texts()
-    check("speakers: Snow W. (teacher), Flynn R. (RBT), Doc D. first; Sneezy D. in the class",
-          first[:3] == ["Snow W. · Lead Special Education Teacher", "Flynn R. · RBT", "Doc D."] and "Sneezy D." in first, first)
+    check("speakers: Alex M. (teacher), Flynn R. (RBT), Doc D. first; Sneezy D. in the class",
+          first[:3] == ["Alex M. · Lead Special Education Teacher", "Flynn R. · RBT", "Doc D."] and "Sneezy D." in first, first)
     sel.select_option("Sneezy D.")
     page.wait_for_timeout(300)
     turns = page.locator(".speaker-label").all_inner_texts()

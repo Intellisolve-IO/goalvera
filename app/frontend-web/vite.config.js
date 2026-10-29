@@ -10,13 +10,13 @@ export default defineConfig({
   server: {
     port: 5173,
     open: false,
-    // Pipeline sessions come from the local read-only review service ().
+    // Pipeline sessions come from the local read-only review service (tasks#35).
     proxy: {
       '/api': 'http://127.0.0.1:8787',
     },
     fs: {
       // Allow importing fixtures from ../samples
-      allow: [path.resolve(__dirname, '../..')],
+      allow: [path.resolve(__dirname, '..')],
     },
   },
   test: {

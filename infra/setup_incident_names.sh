@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Incident names - one-time cloud setup for the review service.
+# Incident names (David, Oct 8 2026; tasks#85) - one-time cloud setup for the review service.
 # Idempotent; safe to re-run. review-web may read, list and create-only under incident_names/ in
 # the bucket (same pattern as planner/ and bug_reports/: never overwrite or delete). Without it the
 # review screen still works: incidents just show as "Incident N" (names aren't saved).
