@@ -100,7 +100,7 @@ class GcsStore:
             return None
 
     def read_bytes(self, name: str) -> bytes | None:
-        """Teacher Notes photos / videos under media/ ()."""
+        """Teacher Notes photos / videos under media/ (tasks#112)."""
         from google.api_core.exceptions import NotFound
         try:
             return self._b.blob(_check(name)).download_as_bytes()

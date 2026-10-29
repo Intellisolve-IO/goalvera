@@ -1,8 +1,8 @@
-"""upload-api device registry on a cold start ().
+"""upload-api device registry on a cold start (tasks#35).
 
 Cloud Run instances start with time.monotonic() near zero. The registry cache
 used to start at 0.0, so for the first ~30 s of every new instance the registry
-was never read and every device got a 401 (a real device upload).
+was never read and every device got a 401 (David's 1:25 PM ET upload, Oct 7).
 Google libraries are stubbed; nothing reaches the cloud.
 """
 from __future__ import annotations
@@ -18,7 +18,7 @@ import pytest
 
 UPLOAD_API = Path(__file__).resolve().parents[2] / "upload-api"
 TOKEN = "tok-" + "x" * 40
-DEVICE = "a1b2c3d4e5f6"
+DEVICE = "14c19fd1a744"
 
 
 class FakeBlob:

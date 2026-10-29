@@ -1,8 +1,8 @@
-"""Short AI-written incident names.
+"""Short AI-written incident names (David, Oct 8 2026; Ops and Chief of Staff guardrails; tasks#85).
 
 Each incident gets a name of 80 characters or fewer that summarizes what was seen or heard,
 shown with its number: "Incident 1: Left seat and refused redirection during reading".
-Since Oct 8 the name comes from the transcript starting at the incident's marker: the
+Since Oct 8 (David) the name comes from the transcript starting at the incident's marker: the
 speaker turns in the next WINDOW_SECONDS (75 s by default, 60-90 via
 INCIDENT_NAME_WINDOW_SECONDS); the incident's own notes go along as context, and alone when there
 is no transcript.

@@ -1,5 +1,5 @@
-// Tabs: the same header on every tab; Recordings, Students, Classes,
-// Lesson planner, Domains, Teachers (Oct 10: Classes + Domains,), then Activity Log and Settings for admins only (Settings last); the Students
+// Tabs (David, Oct 8 2026; tasks#85): the same header on every tab; Recordings, Students, Classes,
+// Lesson planner, Domains, Teachers (Oct 10: Classes + Domains, tasks#103), then Activity Log and Settings for admins only (Settings last); the Students
 // page (IEP, one school week Mon–Fri, then "Generate draft weekly parent report"); samples labelled
 // Sample; every classroom list opens on the teacher's default classroom, admins on All.
 import React from 'react';
@@ -20,7 +20,7 @@ const tabLabels = (html) => [...html.matchAll(/role="tab"[^>]*>([^<]+)</g)].map(
 
 describe('tabs and the shared header', () => {
   test('tab order; Activity Log and Settings for admins only, Settings last', () => {
-    // Classes next to Students, Domains next to the Lesson planner (Oct 10)
+    // Classes next to Students, Domains next to the Lesson planner (Oct 10; tasks#103)
     expect(tabsFor(true).map((t) => t.label)).toEqual(['Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains',
       'Teachers', 'Activity Log', 'Settings']);
     expect(tabsFor(false).map((t) => t.label)).toEqual(['Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains', 'Teachers']);
@@ -89,12 +89,12 @@ describe('Students tab', () => {
     expect(text(html)).toContain('Showing 1 of 2 students');
   });
 
-  test('sample-school rows: grade, plan and the Fictional sample data note', () => {
-    const fict = { students: [{ student_id: 'stu_0001', name: 'Doc D.', class_codes: ['Room 104'], teacher_names: ['Snow White'],
+  test('sample-school rows: grade, plan and the Fictional sample data note (Ops, Oct 10)', () => {
+    const fict = { students: [{ student_id: 'stu_0001', name: 'Doc D.', class_codes: ['Room 104'], teacher_names: ['Alex Morgan'],
       iep_goals: 5, mine: true, grade: '5', plan_type: 'IEP', label: 'Fictional sample data' }],
     home_classrooms: ['Room 104'], default_classroom: 'Room 104' };
     const html = renderToStaticMarkup(<StudentList data={fict} samples={[]} onOpen={() => {}} />);
-    expect(rows(html)[0]).toMatch(/^Doc D\. 5 Room 104 Snow White IEP 5/);
+    expect(rows(html)[0]).toMatch(/^Doc D\. 5 Room 104 Alex Morgan IEP 5/);
     expect(html).toContain('data-testid="students-fictional-note"');
     expect(text(html)).toContain('Fictional sample data');
   });
@@ -102,11 +102,11 @@ describe('Students tab', () => {
   test('a sample-school student page: Fictional sample data label on the profile and the IEP, lists one per line', () => {
     const d = {
       student_id: 'stu_0001', name: 'Doc D.', first_name: 'Doc', grade: '5', label: 'Fictional sample data',
-      class_codes: ['Room 104'], teacher_names: ['Snow White'], iep_hidden: false,
+      class_codes: ['Room 104'], teacher_names: ['Alex Morgan'], iep_hidden: false,
       iep: { goals: [{ goal_id: 'g1', category: 'Academic', description: 'Answers inferential questions.' }],
         plan_type: 'IEP', eligibility: ['Autism', 'Speech-Language Impairment'],
         services: ['Speech-language therapy: 30 min x 2/week (Speech room)', 'Specialized instruction: 1500 min x 1/week'],
-        case_manager: 'Snow White' },
+        case_manager: 'Alex Morgan' },
       week: '2026-10-05', week_end: '2026-10-09', this_week: '2026-10-05', prev_week: null, next_week: null,
       days: [0, 1, 2, 3, 4].map((i) => ({ date: `2026-10-0${5 + i}`, sessions: [] })),
       summary: null, summary_versions: 0, suggestion: null, parent_email_hidden: false, can_edit: false,
@@ -116,7 +116,7 @@ describe('Students tab', () => {
     };
     const html = renderToStaticMarkup(<StudentPage d={d} onWeek={() => {}} onBack={() => {}} />);
     expect((html.match(/data-testid="fictional-label"/g) || []).length).toBe(2);       // header + IEP
-    expect(text(html)).toContain('Grade 5 · Room 104 · Snow White');
+    expect(text(html)).toContain('Grade 5 · Room 104 · Alex Morgan');
     expect(text(html)).toContain('Eligibility: Autism; Speech-Language Impairment');
     expect(text(html)).toContain('Attendance 8/3–10/9: 95.9% · 47 of 49 days present · 0 absent excused · 2 absent unexcused · 3 tardy');
     expect((html.match(/<li>/g) || []).length).toBeGreaterThanOrEqual(2);               // services, one per line

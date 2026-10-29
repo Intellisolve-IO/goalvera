@@ -2,3 +2,9 @@ Goalvera
 
 Copyright 2026 Intellisolve, LLC
 This product includes software developed at Intellisolve, LLC (https://goalvera.app).
+
+This product includes TweetNaCl (tweetnacl.c, tweetnacl.h), which is in the public
+domain. Author: Daniel J. Bernstein. https://tweetnacl.cr.yp.to/
+
+The recorder UI is drawn with LVGL, which bundles the Montserrat font under the
+SIL Open Font License 1.1. The font is not sold on its own.

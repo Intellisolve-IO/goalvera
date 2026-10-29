@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Step 1 — cloud foundation for the Goalvera backend.
+# Step 1 — cloud foundation for the Goalvera demo backend (tasks#35).
 #
 # Creates (idempotently; safe to re-run):
 #   * required APIs
@@ -13,7 +13,7 @@
 #       (a rewritten transcript/draft, e.g. roster backfill, keeps its first creation
 #        time as customTime, so rewriting never extends retention)
 #       work/         temporary chunks/locks -> 1 day
-#       parent_email/ parent email send log  -> $PARENT_EMAIL_RETENTION_DAYS days (365)
+#       parent_email/ parent email send log  -> $PARENT_EMAIL_RETENTION_DAYS days (365; tasks#108)
 #   * config/ holds the demo roster (fictional); control/ holds device-token hashes
 #   * three minimal service accounts (upload-api, pipeline, pipeline-trigger)
 #     plus a build SA, with prefix-scoped bucket IAM (least privilege)

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""End-to-end smoke test for classroom materials (), fictional data only.
+"""End-to-end smoke test for classroom materials (tasks#99), fictional data only.
 
 Runs the deployed code path (review_api.materials) on this computer against a throwaway local store
-seeded with one fictional Room 104 session (Snow White, Doc Dwarf) whose Teacher Note asks for
+seeded with one fictional Room 104 session (Alex Morgan, Doc Dwarf) whose Teacher Note asks for
 flashcards. Live parts: Vertex Gemini (suggestions, brief, 3 SVG drafts) and the Gmail sender
 (Secret Manager OAuth client + refresh token, From notifications@staff.example). Sends ONE email,
-to Snow White's own staff address on the demo roster. Nothing is written to the bucket.
+to Alex Morgan's own staff address on the demo roster. Nothing is written to the bucket.
 
   PROJECT_ID=example-project python3 app/tools/e2e_materials_smoke.py [--no-email] [--out DIR]
 Needs gcloud application-default credentials that may call Vertex and read the two mailer secrets.

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { loadSessionStudents, saveSessionStudents } from '../dataStore.js';
 import { setupError } from '../schoolSetup.js';
 
-// Students in this session (). The class's roster is offered ticked as a suggestion, but
+// Students in this session (tasks#106). The class's roster is offered ticked as a suggestion, but
 // nothing is linked until the teacher (or an admin) clicks Confirm / Save. The choice is saved on the
 // server and logged (Activity Log: counts only). Linked sessions show on each student's week in the
 // Lesson planner and Students tab and feed the weekly summary, IEP check and parent report.

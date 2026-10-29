@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { loadSessionClass, saveSessionClass } from '../dataStore.js';
 import { setupError } from '../schoolSetup.js';
 
-// The session's class (): picked from the Classes of its classroom. Until someone picks, the
+// The session's class (tasks#103): picked from the Classes of its classroom. Until someone picks, the
 // app suggests the class whose schedule matches the recording's start time and length. Picking is
 // logged (audit trail + Activity Log). Classroom materials use the class's domain and methodology.
 export default function SessionClass({ recordingId, classCode, reviewerId = null, readOnly = false, onChange = null }) {

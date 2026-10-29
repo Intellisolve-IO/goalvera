@@ -1,4 +1,4 @@
-"""Weekly lesson planner (): weeks, the anchored current week, who may
+"""Weekly lesson planner (tasks#83): weeks, the anchored current week, who may
 save, the 8-word transcript-quote check, "the student" storage and the journal.
 
   python -m pytest app/backend-pipeline/tests/test_planner.py -q
@@ -306,7 +306,7 @@ def test_laptop_mode_uses_reviewer_header(pstore):
 def test_default_classroom_is_own_with_a_student(planner, authn):
     assert planner.view(who(authn, TEACHER_EMAIL), None)["class_code"] == "RM12"
     assert planner.view("usr_demo_sarah", "")["class_code"] == "RM12"
-    # every classroom list opens on the teacher's own (default) classroom, even one
+    # David, Oct 8: every classroom list opens on the teacher's own (default) classroom, even one
     # with no student yet (Art 9Z); before, the planner skipped to the first classroom with a student
     v = planner.view(who(authn, ART_TEACHER), None)
     assert v["class_code"] == "Art 9Z"

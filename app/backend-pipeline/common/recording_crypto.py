@@ -1,4 +1,4 @@
-"""Decrypt recorder SD files in the "APENC1" format ( / G5).
+"""Decrypt recorder SD files in the "APENC1" format (tasks#22 / G5).
 
 Mirror of firmware/recorder-idf/main/rec_crypt.h. The per-file AES key is
 wrapped with RSA-OAEP-3072/SHA-256; the private key lives in Cloud KMS

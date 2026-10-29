@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchMediaUrl } from '../dataStore.js';
 
-// Teacher Notes photos and videos taken with the phone (QR on the recorder).
+// Teacher Notes photos and videos taken with the phone (QR on the recorder; tasks#112).
 // Photos carry AI notes (no names were sent to the AI); videos have no AI notes in this version.
 // Review only: none of this goes into the parent email.
 function MediaItem({ recordingId, item, reviewerId }) {

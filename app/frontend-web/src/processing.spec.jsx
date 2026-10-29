@@ -1,4 +1,4 @@
-// Processing rows (): uploads show at once with their stage; failures show a clear state.
+// Processing rows (tasks#106): uploads show at once with their stage; failures show a clear state.
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, test } from 'vitest';

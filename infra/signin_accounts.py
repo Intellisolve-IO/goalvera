@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sign-in accounts (Identity Platform users) for people on the review site's staff list ().
+"""Sign-in accounts (Identity Platform users) for people on the review site's staff list (tasks#108).
 
 New sign-ups are OFF in Identity Platform (client.permissions.disabledUserSignup), so nobody can
 create their own account, with a password or with Google. An admin creates the account ahead of time:
@@ -9,7 +9,7 @@ create their own account, with a password or with Google. An admin creates the a
   ./infra/review_allowlist.py add someone@staff.example         # adds to the list AND creates it
 
 What "create" makes: an account with the email address only - no password, no Google link yet,
-emailVerified false. Nobody can sign in to it until the person uses "Sign in with Google" (once an admin
+emailVerified false. Nobody can sign in to it until the person uses "Sign in with Google" (once David
 has enabled the Google provider): staff.example mail is hosted by Google Workspace, so Google is the
 authoritative provider for these addresses, and with "one account per email" (allowDuplicateEmails
 false) Firebase attaches the Google identity to this account (same user id) instead of refusing it.

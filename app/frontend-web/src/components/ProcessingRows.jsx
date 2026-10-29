@@ -7,7 +7,7 @@ export const IDLE_MS = 60000;      // otherwise: new uploads still show within a
 /** "2026-10-10T09:00:00" (recorder's local time) -> "2026-10-10 09:00" */
 const when = (s) => (s || '').replace('T', ' ').slice(0, 16);
 
-// Recordings still being processed (): shown as soon as the upload lands, with the stage
+// Recordings still being processed (tasks#106): shown as soon as the upload lands, with the stage
 // (Uploaded, Transcribing, Drafting notes) or a clear failure; refreshed every 15 s while any is
 // processing (every minute otherwise, so a new upload appears by itself). When one finishes, the Recordings list reloads and the normal row takes its place.
 export function ProcessingTable({ uploads }) {

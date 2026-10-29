@@ -1,4 +1,4 @@
-"""Domains (educational methodology) and Classes: the seed is the sample
+"""Domains (educational methodology) and Classes (David, Oct 10 2026; tasks#103): the seed is David's
 document exactly and the fictional sample school's 32 classes; admins add / edit / remove (journaled,
 ids only, stale saves refused); teachers read, and edit only their own classes; sessions pick a class
 (suggested from classroom + recording time vs schedule; logged); materials get the class's domain name +
@@ -120,11 +120,11 @@ def test_everyone_reads_domains_and_classes_only_admins_edit_domains(env):
     assert {"student_id": DOC, "name": "Doc D."} in row["students"]
     assert "Dwarf" not in json.dumps(row["students"])          # first name + last initial, like the other lists
     assert row["domain_name"] == "Reading & Phonics" and row["schedule_text"] == "Mon–Fri 8:20 AM, 90 min"
-    assert [t["name"] for t in row["teachers"]] == ["Snow White", "Flynn Rider"]
+    assert [t["name"] for t in row["teachers"]] == ["Alex Morgan", "Flynn Rider"]
 
 
 def test_classes_seed_only_for_the_demo_school(env, monkeypatch):
-    monkeypatch.setenv("SCHOOL_PROFILE", "legacy-school")
+    monkeypatch.setenv("SCHOOL_PROFILE", "demo-school")
     assert env.setup.classes_view(ADMIN)["classes"] == []
     assert len(env.setup.domains_view(ADMIN)["domains"]) == 6
 

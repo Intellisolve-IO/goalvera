@@ -1,4 +1,4 @@
-"""Admin journal views and report downloads ().
+"""Admin journal views and report downloads (tasks#77).
 
 The journal holds internal IDs only. Names are looked up here, at view time,
 and only as first name + last initial ("Marcus A.", "Sarah J."). Downloads

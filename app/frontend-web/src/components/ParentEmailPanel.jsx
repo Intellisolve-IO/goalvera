@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { loadParentEmail, sendParentEmail } from '../dataStore.js';
 
-// Weekly parent email (). After the teacher approves the weekly report, this shows exactly
+// Weekly parent email (tasks#106). After the teacher approves the weekly report, this shows exactly
 // what will be sent and to whom: only the student's guardians with "receives reports" on (the
 // others are listed as excluded), the exact text, and, in demo mode, that every email goes to the
 // teacher's own inbox instead. Nothing is sent until the teacher clicks Send; nothing sends by itself.

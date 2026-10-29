@@ -1,4 +1,4 @@
-"""Admin activity journal (), against an in-memory journal and a fake BigQuery.
+"""Admin activity journal (tasks#77), against an in-memory journal and a fake BigQuery.
 
   * internal IDs only (no names, no emails, no free text), add-only
   * views (every RBT view), edits, approvals, exports, classroom moves, refused
@@ -70,7 +70,7 @@ def tok(email):
 def test_entries_hold_internal_ids_only():
     ok = make_entry(action="session_viewed", actor_id="kG7xQ2mVbN8Uid", actor_role="rbt",
                     record_id="rec_laptop_demo_20260929_090000_Reading_3A", student_id="stu_101")
-    assert set(ok) == set(COLUMNS) and ok["record_type"] == "session" and ok["school_id"] == "legacy-school"
+    assert set(ok) == set(COLUMNS) and ok["record_type"] == "session" and ok["school_id"] == "demo-school"
     bad = [
         dict(actor_id="sarah@example.org"),                       # email
         dict(student_id="Marcus"),                                # a name instead of an id

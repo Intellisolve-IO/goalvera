@@ -1,4 +1,4 @@
-// Weekly parent email (): the teacher sees the demo redirect, the recipients (guardians with
+// Weekly parent email (tasks#106): the teacher sees the demo redirect, the recipients (guardians with
 // "receives reports" on), the excluded contacts and exactly what will be sent; one click sends.
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';

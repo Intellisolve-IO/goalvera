@@ -5,7 +5,7 @@
  *
  * Providers come from the server's auth-config "providers" (IDP_PROVIDERS):
  * "password" always, and "google.com" once Sign in with Google is switched on
- * (). The server refuses a token from any provider not in that list,
+ * (tasks#108). The server refuses a token from any provider not in that list,
  * and still checks the verified email and the staff directory on every call.
  */
 import { initializeApp } from 'firebase/app';

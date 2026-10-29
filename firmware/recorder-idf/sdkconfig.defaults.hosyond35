@@ -23,3 +23,6 @@ CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
 # The UI is the CrowPanel layout scaled to 480x320: Montserrat 12 for the
 # small captions and the activity log (the CrowPanel fonts stay enabled).
 CONFIG_LV_FONT_MONTSERRAT_12=y
+
+# Hosyond images only. A CrowPanel manifest must never be applied here.
+CONFIG_RECORDER_OTA_MANIFEST_URL="https://storage.googleapis.com/example-project-firmware/firmware/hosyond35/manifest.json"

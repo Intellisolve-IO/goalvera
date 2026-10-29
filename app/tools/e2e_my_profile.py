@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""My profile + admins' role / email changes in a real browser.
+"""My profile + admins' role / email changes in a real browser (David, Oct 10 2026; tasks#107).
 
 Fully offline, same setup as e2e_school_setup.py: built UI + review service + Firebase Auth emulator +
-the fictional Sample Elementary School roster (app/samples/demo_roster.json).
+the fictional Everyday Heroes Academy roster (app/samples/demo_roster.json).
 
   every role: no Download button at the top right; the signed-in name opens My profile.
-  teacher (Snow White): edits display name, preferred name, phone, default classroom (only Room 104 is
+  teacher (Alex Morgan): edits display name, preferred name, phone, default classroom (only Room 104 is
            offered), title, credential type; role and email read-only with "Ask an admin to change this";
            the top-right name shows the new display name.
   RBT (Flynn Rider): may edit their own profile (the rest of the app stays read-only).
   admin:   Download report (CSV) is on the Activity Log page; the Teachers tab shows each person's app role
-           and sign-in email; the admin moves Snow White to a new sign-in email (the old one stops working,
+           and sign-in email; the admin moves Alex Morgan to a new sign-in email (the old one stops working,
            the new one signs her in as the same teacher); the journal shows profile_updated and
            access_changed with field names only.
 
@@ -39,12 +39,12 @@ sys.path.insert(0, str(APP / "backend-pipeline/tests"))
 
 import e2e_planner as ep  # noqa: E402  (helpers only; its ports are overridden below)
 
-PROJECT = "demo-goalvera-review"
+PROJECT = "demo-atlanta-review"
 EMU = "127.0.0.1:9401"
 PORT = 8799
 BASE = f"http://127.0.0.1:{PORT}"
 ep.EMU, ep.PORT, ep.BASE = EMU, PORT, BASE
-TEACHER = ("e2e-profile-teacher@example.org", "correct-horse-battery")   # Snow White (stf_0001), Room 104
+TEACHER = ("e2e-profile-teacher@example.org", "correct-horse-battery")   # Alex Morgan (stf_0001), Room 104
 RBT = ("e2e-profile-rbt@example.org", "staple-battery-horse")            # Flynn Rider (stf_0010)
 ADMIN = ("e2e-profile-admin@example.org", "battery-horse-staple-correct")
 NEW_EMAIL = ("e2e-profile-snow@example.org", "horse-staple-battery-correct")
@@ -87,7 +87,7 @@ def teacher_flow(browser, shots):
     sign_in(page, *TEACHER)
     check("teacher: no Download button at the top right", page.locator("[data-testid=open-report]").count() == 0)
     check("teacher: the top-right name is the staff record's name",
-          page.inner_text("[data-testid=open-profile]").strip() == "Snow White", page.inner_text("[data-testid=open-profile]"))
+          page.inner_text("[data-testid=open-profile]").strip() == "Alex Morgan", page.inner_text("[data-testid=open-profile]"))
     open_profile(page)
     opts = page.locator("[data-testid=profile-default-classroom] option").all_inner_texts()
     check("teacher: default classroom offers only her own classroom", opts == ["Automatic", "Room 104"], opts)
@@ -96,8 +96,8 @@ def teacher_flow(browser, shots):
           and page.inner_text("[data-testid=profile-role]") == "Teacher"
           and "ask an admin to change this" in page.inner_text("[data-testid=profile-ask-admin]").lower()
           and page.locator("[data-testid=profile-email-input]").count() == 0)
-    page.fill("[data-testid=profile-display-name]", "Snow W. White")
-    page.fill("[data-testid=profile-preferred-name]", "Snow")
+    page.fill("[data-testid=profile-display-name]", "Pat Lee")
+    page.fill("[data-testid=profile-preferred-name]", "Pat")
     page.fill("[data-testid=profile-phone]", "(404) 555-0104")
     page.select_option("[data-testid=profile-default-classroom]", "Room 104")
     page.fill("[data-testid=profile-title]", "Lead Special Education Teacher")
@@ -105,10 +105,10 @@ def teacher_flow(browser, shots):
     page.click("[data-testid=profile-save]")
     page.wait_for_selector("[data-testid=profile-saved]")
     check("teacher: saved; the top-right name shows the new display name",
-          page.inner_text("[data-testid=open-profile]").strip() == "Snow W. White")
+          page.inner_text("[data-testid=open-profile]").strip() == "Pat Lee")
     st, me = api("/api/profile/me", TEACHER[0])
     check("teacher: the profile is stored (phone, preferred name, credential)",
-          st == 200 and me["phone"] == "(404) 555-0104" and me["preferred_name"] == "Snow"
+          st == 200 and me["phone"] == "(404) 555-0104" and me["preferred_name"] == "Pat"
           and me["credential_type"] == "Special education certificate", me)
     page.locator("[data-testid=my-profile]").screenshot(path=str(shots / "my_profile.png"))
     page.click("[data-testid=profile-close]")
@@ -148,22 +148,22 @@ def admin_flow(browser, shots):
 
     page.click("[data-testid=tab-teachers]")
     page.wait_for_selector("[data-testid=teacher-row]")
-    snow = page.locator("[data-testid=teacher-row]:has-text('Snow White')").first
-    check("admin: Teachers tab shows Snow White's app role and sign-in email",
+    snow = page.locator("[data-testid=teacher-row]:has-text('Alex Morgan')").first
+    check("admin: Teachers tab shows Alex Morgan's app role and sign-in email",
           "Teacher" in snow.locator("[data-testid=teacher-access]").inner_text()
           and TEACHER[0] in snow.locator("[data-testid=teacher-access]").inner_text())
     snow.locator("[data-testid=access-change]").click()
     page.fill("[data-testid=access-email]", NEW_EMAIL[0])
     page.click("[data-testid=access-save]")
     page.wait_for_selector(f"[data-testid=teacher-row]:has-text('{NEW_EMAIL[0]}')")
-    page.locator("[data-testid=teacher-row]:has-text('Snow White')").first.screenshot(path=str(shots / "my_profile_admin_row.png"))
+    page.locator("[data-testid=teacher-row]:has-text('Alex Morgan')").first.screenshot(path=str(shots / "my_profile_admin_row.png"))
     st_old, _ = api("/api/me", TEACHER[0])
     me_old = _
     TOKENS[NEW_EMAIL[0]] = ep.make_user(*NEW_EMAIL)
     st_new, me_new = api("/api/me", NEW_EMAIL[0])
     check("admin: the email change moved the sign-in entry (old address no longer approved, new one is the same teacher)",
           me_old.get("approved") is False and st_new == 200 and me_new.get("role") == "teacher"
-          and me_new.get("display_name") == "Snow W. White", (st_old, me_old, st_new, me_new))
+          and me_new.get("display_name") == "Pat Lee", (st_old, me_old, st_new, me_new))
     st, j = api("/api/admin/journal?action=access_changed", ADMIN[0])
     ent = j.get("entries", []) if st == 200 else []
     check("admin: journal has access_changed with field names only (no addresses)",
@@ -171,7 +171,7 @@ def admin_flow(browser, shots):
     st, j = api("/api/admin/journal?action=profile_updated", ADMIN[0])
     ent = j.get("entries", []) if st == 200 else []
     check("admin: journal has profile_updated without values (no phone, no names)",
-          len(ent) >= 2 and "555" not in json.dumps(ent) and "Snow W." not in json.dumps(ent), ent[:2])
+          len(ent) >= 2 and "555" not in json.dumps(ent) and "Pat Lee" not in json.dumps(ent), ent[:2])
     ctx.close()
 
 

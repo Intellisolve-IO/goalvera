@@ -1,4 +1,4 @@
-// Plain words for the Domains / Classes server errors ().
+// Plain words for the Domains / Classes server errors (tasks#103).
 const ERRORS = {
   STALE_VERSION: 'Someone else saved a change first. The list has been reloaded; make your change again.',
   ADMIN_ONLY: 'Only admins can do that.',
@@ -47,7 +47,7 @@ export function meetingProblem(m) {
   return null;
 }
 
-// My profile / Teachers tab access changes ()
+// My profile / Teachers tab access changes (tasks#107)
 const PROFILE_ERRORS = {
   ASK_AN_ADMIN: 'Ask an admin to change your role or email.',
   ADMIN_ONLY: 'Only admins can do that.',

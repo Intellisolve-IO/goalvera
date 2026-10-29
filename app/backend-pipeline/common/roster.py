@@ -1,7 +1,7 @@
-"""Students in the demo roster: the ONE place that knows where they live ().
+"""Students in the demo roster: the ONE place that knows where they live (tasks#98).
 
 Two shapes are read, so older rosters keep working:
-  * roster.students.<student_id>   many students per classroom (Sample Elementary School,
+  * roster.students.<student_id>   many students per classroom (Everyday Heroes Academy,
     Oct 10 2026): first_name, last_initial, last_name, class_codes [...], teacher_ids [...],
     iep_goals [...], iep {...}, label.
   * roster.class_codes.<code>.student_id   the old one-student-per-class-code shape (RM12).
@@ -95,11 +95,11 @@ def classrooms_with_students(roster: dict) -> list[str]:
     return [d for d in ((roster or {}).get("class_codes") or {}) if class_students(roster, d)]
 
 
-# ---------------------------------------------------------------- staff (person schema)
+# ---------------------------------------------------------------- staff (person schema; tasks#104)
 # One staff record per person, with the role on the record (docs/sis-schema.md, PR #22/#23):
 #   roster.staff.<id> = {"name", "title", "role": "rbt"|"bcba"|"slp"|..., "class_codes", "emails",
 #                        "supervisor_id", "label"}
-# Teachers stay under roster.teachers (their classrooms point at them). Older rosters (the legacy
+# Teachers stay under roster.teachers (their classrooms point at them). Older rosters (the Atlanta
 # Prep profile, test fixtures) still keep RBTs under roster.rbts; both are read the same way.
 TEACHER_ROLE, RBT_ROLE = "teacher", "rbt"
 

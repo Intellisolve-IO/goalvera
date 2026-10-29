@@ -1,4 +1,4 @@
-"""Weekly parent email. A new outbound flow (Ops: Schedule B
+"""Weekly parent email (David, Oct 10 2026; tasks#106). A new outbound flow (Ops: Schedule B
 amendment list).
 
 What is sent: the weekly report's parent email text exactly as the teacher approved it on the
@@ -20,7 +20,7 @@ student's teacher's), never to the guardian, with a banner in the email ("Demo: 
 With it off, the mailer's domain allowlist (MATERIALS_MAIL_DOMAINS, staff.example on the demo)
 still applies, so no example.com / example.org address can be sent to either.
 
-From notifications@staff.example through the existing Snow White mailbox sender (mailer.py). Every
+From notifications@staff.example through the existing Alex Morgan mailbox sender (mailer.py). Every
 send is logged: a record under parent_email/sends/ (ids, recipient address hashes, status) and the
 journal (parent_email_sent / parent_email_send_failed: counts and flags, never names or addresses).
 

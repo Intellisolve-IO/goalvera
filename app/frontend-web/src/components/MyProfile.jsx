@@ -5,7 +5,7 @@ import { profileError } from '../schoolSetup.js';
 const FIELDS = ['display_name', 'preferred_name', 'phone', 'default_classroom', 'title', 'credential_type'];
 
 /**
- * My profile: opened from the signed-in name at the top right.
+ * My profile (David, Oct 10 2026; tasks#107): opened from the signed-in name at the top right.
  * The current user (teacher, RBT or admin) edits their own display name, preferred name, phone,
  * default classroom (one of theirs), title and credential type. Role and sign-in email are shown
  * read-only ("Ask an admin to change this") unless the server allows self-edit (can_edit_access).

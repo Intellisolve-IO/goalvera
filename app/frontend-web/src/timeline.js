@@ -1,5 +1,5 @@
 /**
- * Pure helpers for the speaker timeline (): positions, ticks, marker
+ * Pure helpers for the speaker timeline (tasks#82): positions, ticks, marker
  * label layout and the turn a click jumps to. No DOM, no network, no logging.
  */
 

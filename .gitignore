@@ -55,6 +55,10 @@ api-keys*
 .vscode/
 .idea/
 
+# --- firmware build trees besides build/ ---
+firmware/recorder-idf/build-h35-dry/
+firmware/recorder-idf/build-h35-secure/
+
 # --- device tokens ---
 *.token
 infra/deploy.env

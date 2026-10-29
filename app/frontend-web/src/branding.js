@@ -1,13 +1,13 @@
-// School name + logo in the top bar. Server: review_api/branding.py.
+// School name + logo in the top bar (David, Oct 9 2026; tasks#85). Server: review_api/branding.py.
 // Everyone signed in reads them; only admins change them (the server refuses anyone else).
 import { authFetch } from './auth.js';
 
-// The demo school: fictional Sample Elementary School. the legacy school is kept as a
-// saved server-side profile (review_api/branding.py PROFILES), not shown by default.
-export const DEFAULT_SCHOOL_NAME = 'Sample Elementary School';
+// The demo school is fictional Everyday Heroes Academy. Demo School (badge DS) is a second
+// profile on the server (review_api/branding.py PROFILES), not shown by default.
+export const DEFAULT_SCHOOL_NAME = 'Everyday Heroes Academy';
 export const DEFAULT_BRANDING = {
-  school_name: DEFAULT_SCHOOL_NAME, badge_text: 'SE', logo: null, is_default: true,
-  defaults: { school_name: DEFAULT_SCHOOL_NAME, badge_text: 'SE' },
+  school_name: DEFAULT_SCHOOL_NAME, badge_text: 'EH', logo: null, is_default: true,
+  defaults: { school_name: DEFAULT_SCHOOL_NAME, badge_text: 'EH' },
 };
 export const LOGO_TYPES = ['image/png', 'image/jpeg', 'image/svg+xml'];
 export const LOGO_MAX_BYTES = 1024 * 1024;

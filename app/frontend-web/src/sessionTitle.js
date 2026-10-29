@@ -1,5 +1,5 @@
 /**
- * Session modal header (): "Oct 1, 2026 · 10:17 AM · Reading 3A".
+ * Session modal header (tasks#73): "Oct 1, 2026 · 10:17 AM · Reading 3A".
  *
  * timestamp_start is what the review list's "Recorded" column shows. For pipeline
  * sessions it is the recorder's own clock, taken from the file name

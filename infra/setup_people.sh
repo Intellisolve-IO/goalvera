@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# My profile + admin role / email changes - one-time cloud setup for the review service.
+# My profile + admin role / email changes (David, Oct 10 2026; tasks#107) - one-time cloud setup for the review service.
 # Idempotent; safe to re-run. review-web may read, list and create-only under people/ in the
 # bucket (same pattern as school_setup/ and materials/: never overwrite or delete; every change is a
 # new record and the highest number wins). The allowlist file (config/) stays read-only; admins' role / email

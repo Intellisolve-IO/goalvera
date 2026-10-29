@@ -34,8 +34,18 @@ KMS_KEY="projects/${PROJECT_ID}/locations/${REGION}/keyRings/${KEYRING}/cryptoKe
 # Never rely on (or change) the machine's default gcloud project.
 export CLOUDSDK_CORE_PROJECT="${PROJECT_ID}"
 
-# School profile shown on the review site (app/samples/demo_roster.json is the fictional sample school).
-: "${SCHOOL_PROFILE:=sample-school}"
+# Recorder OTA (firmware 0.8.0). These scripts do not create the bucket or the
+# signing secret. See firmware/recorder-idf/docs/ota.md. The bucket must not be
+# publicly writable. OTA_BUCKET defaults to ${PROJECT_ID}-firmware.
+: "${OTA_BUCKET:=${PROJECT_ID}-firmware}"
+: "${OTA_SIGNING_SECRET:=recorder-ota-signing-key}"
+
+# School shown on the review site. everyday-heroes is the fictional demo school
+# (Everyday Heroes Academy, roster app/samples/demo_roster.json). demo-school is
+# the placeholder profile (badge DS; roster app/samples/profiles/demo-school/).
+# SCHOOL_PROFILE=atlanta-prep still selects demo-school so older stored branding
+# records keep loading.
+: "${SCHOOL_PROFILE:=everyday-heroes}"
 
 # Hosted review screen (Cloud Run + Identity Platform)
 : "${REVIEW_SERVICE:=review}"
@@ -77,6 +87,8 @@ REVIEW_SA="${REVIEW_SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com"
 # set "password" to switch Google sign-in off again (redeploy).
 : "${IDP_PROVIDERS:=password,google.com}"
 : "${MAILER_SENDER_MAILBOX:=}"                 # e.g. notifications@your-domain
+: "${MAILER_FROM:=notifications@staff.example}"  # From address; an alias of the sender mailbox
+: "${PARENT_EMAIL_REDIRECT_DOMAIN:=staff.example}"  # demo redirect may only send to this domain
 : "${MAILER_CLIENT_SECRET:=mailer-oauth-client}"
 : "${MAILER_TOKEN_SECRET:=mailer-refresh-token}"
 : "${MATERIALS_SVG_MODEL:=gemini-3.8-flash}"       # SVG drafts (text model; verified in this project Oct 10)

@@ -1,4 +1,4 @@
-// Session modal header (): "<recorded date · time ET> · <classroom>" with the
+// Session modal header (tasks#73): "<recorded date · time ET> · <classroom>" with the
 // student, length and status underneath. No eyebrow line, no raw recording id.
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';

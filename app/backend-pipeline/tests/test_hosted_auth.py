@@ -37,7 +37,7 @@ from review_api.store import LocalStore  # noqa: E402
 from seed_local_session import RID, seed  # noqa: E402
 
 PROJECT = "example-project"
-ADMIN, TEACHER_EMAIL, OTHER = "admin@staff.example", "teacher@example.org", "reviewer@example.org"
+ADMIN, TEACHER_EMAIL, OTHER = "admin@example.com", "teacher@example.org", "reviewer@example.org"
 
 
 def _key_and_cert():
@@ -89,8 +89,8 @@ def store(tmp_path):
         {"email": ADMIN, "role": "admin"},
         {"email": TEACHER_EMAIL, "role": "reviewer"},
         {"email": OTHER, "role": "reviewer"},
-        {"email": "TODO-teacher-email-pending", "role": "reviewer"}]})
-    roster = json.loads((HERE.parents[2] / "samples/legacy_demo_roster.json").read_text())
+        {"email": "todo-reviewer-email-pending", "role": "reviewer"}]})
+    roster = json.loads((HERE.parents[2] / "samples/profiles/demo-school/demo_roster.json").read_text())
     roster["teachers"]["usr_demo_sarah"]["emails"] = [TEACHER_EMAIL.upper()]   # case must not matter
     s.write_json("config/demo_roster.json", roster)
     return s
@@ -144,7 +144,7 @@ def test_unverified_email(authn):
 
 
 def test_not_on_allowlist(authn):
-    for email in ("stranger@example.org", "todo-teacher-email-pending@example.org", "admin@staff.example.evil.com"):
+    for email in ("stranger@example.org", "not-listed@example.org", "admin@example.com.evil.com"):
         with pytest.raises(ApiError) as e:
             authn.require(hdr(token(email)))
         assert (e.value.http, e.value.code) == (403, "NOT_APPROVED")

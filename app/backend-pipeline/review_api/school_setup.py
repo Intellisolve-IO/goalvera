@@ -1,6 +1,6 @@
-"""Domains (educational methodology) and Classes.
+"""Domains (educational methodology) and Classes (David, Oct 10 2026; tasks#103).
 
-Domains: every Subject / Domain from the sample Educational Methodology document with its Core
+Domains: every Subject / Domain from David's Educational Methodology document with its Core
 Educational Methodology (a name and a description), Key Curricular Programs and Recommended Book /
 Guide. Reference data, not student data. Admins add, edit and remove; everyone signed in reads.
 
@@ -25,7 +25,7 @@ starting point. Every admin or teacher change writes ONE new create-only record 
 The newest record of the active school profile is current (review-web can create and read there, never
 overwrite or delete; infra/setup_school_setup.sh). A save names the version it was edited from; a save
 from an older version is refused (409 STALE_VERSION) so two people can't overwrite each other.
-The classes seed belongs to the demo school (sample-school) only; domains apply to every profile.
+The classes seed belongs to the demo school (everyday-heroes) only; domains apply to every profile.
 
 Journal (ids only): domain_added / domain_edited / domain_removed (domain id, changed field names),
 class_added / class_edited / class_removed (class id, changed field names, counts), and
@@ -51,7 +51,7 @@ from .notes import ApiError, actor_id, check_actor, is_read_only, may_act, signe
 from .store import Conflict
 
 PREFIX = "school_setup/"
-DEMO_PROFILE = "sample-school"          # the classes seed is the fictional demo school's
+DEMO_PROFILE = "everyday-heroes"          # the classes seed is the fictional demo school's
 LABEL = "Fictional sample data"
 _HERE = Path(__file__).resolve()
 SEED_DIRS = [_HERE.parents[2] / "samples" / "school-setup",     # repo: app/samples/school-setup
@@ -275,7 +275,7 @@ class SchoolSetup:
         return next((c for c in self.classes() if c.get("id") == cid), None) if cid else None
 
     def _staff(self) -> dict:
-        """id -> {"id", "name", "role"} for every staff member (one directory,)."""
+        """id -> {"id", "name", "role"} for every staff member (one directory, tasks#104)."""
         return {p["id"]: {"id": p["id"], "name": p["name"],
                           "role": "RBT" if p["role"] == "rbt" else (p["title"] or "Staff")}
                 for p in staff_directory(self.notes.roster())}

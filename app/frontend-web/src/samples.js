@@ -1,4 +1,4 @@
-// Sample students for the Students tab: the built-in fictional
+// Sample students for the Students tab (David, Oct 8 2026; tasks#85): the built-in fictional
 // Marcus A. and Sophia L. from the HITL fixtures. Browser only: never sent to the server, so
 // never in reports or the Journal, and their weekly draft is made here without any AI.
 import { getDays, getSessions, getStudents } from './dataStore.js';

@@ -151,7 +151,7 @@ def render_notes_pdf(*, session: dict, approval: dict, goals: dict, recording_id
 
     story.append(_p("Session summary", "h2"))
     story.append(_p(a.get("general_session_summary") or "-"))
-    # No per-session parent email: it belongs to the weekly student summary.
+    # No per-session parent email (David, Oct 8): it belongs to the weekly student summary.
 
     footer = (f"Generated on request {_local(generated_at.isoformat())} - not stored. "
               f"{recording_id}")

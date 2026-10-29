@@ -17,6 +17,7 @@
 #include "sdcard.h"
 #include "status_line.h"
 #include "ui_app.h"
+#include "ota_update.h"
 #include "uploader.h"
 #include "version.h"
 #include "wifi_time.h"
@@ -121,6 +122,7 @@ void app_main(void)
 
     wifi_start_if_configured();
     uploader_start();
+    ota_start();
     ESP_LOGI(TAG, "boot done: internal free %u (largest %u, largest DMA %u, min ever %u), psram free %u",
              (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
              (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL),

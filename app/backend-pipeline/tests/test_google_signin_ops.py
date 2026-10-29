@@ -1,4 +1,4 @@
-"""Sign in with Google + Ops logging + 12-month parent_email/ retention ().
+"""Sign in with Google + Ops logging + 12-month parent_email/ retention (tasks#108).
 
 Ops' three checks for Google sign-in (all on the server, for every request):
   1. only email_verified Google accounts; 2. the full address matches a staff/allowlist entry exactly
@@ -70,13 +70,13 @@ def test_google_unverified_email_refused(gauth):
 # ---------------------------------------------------------------- 2. exact, case-insensitive match only
 
 def test_google_email_match_is_case_insensitive(gauth):
-    assert gauth.require(hdr(gtoken("Admin@Staff.EXAMPLE"))).role == "admin"
+    assert gauth.require(hdr(gtoken("Admin@Example.com"))).role == "admin"
 
 
 @pytest.mark.parametrize("email", [
-    "xadmin@staff.example", "admin@staff.example.evil.com", "admin@mail.staff.example",
-    "admn@staff.example", "admin@staff-other.example", "admin+1@staff.example",
-    "someone@staff.example", "staff.example", "@staff.example", "admin@staff.example@x.io",
+    "xadmin@example.com", "admin@example.com.evil.com", "admin@mail.example.com",
+    "admi@example.com", "admin@example.org", "admin+1@example.com",
+    "someone@example.com", "example.com", "@example.com", "admin@example.com@x.io",
     "stranger@gmail.com", "", None])
 def test_unknown_or_partial_email_refused(gauth, email):
     with pytest.raises(ApiError) as e:
@@ -89,16 +89,16 @@ def test_domain_or_wildcard_entries_on_the_list_match_nobody(store):  # noqa: F8
         {"email": "@staff.example", "role": "admin"}, {"email": "staff.example", "role": "admin"},
         {"email": "*@staff.example", "role": "admin"}, {"email": "a@b@staff.example", "role": "admin"}]})
     g = Authenticator(verifier(), Allowlist(store), Roster(store), providers=BOTH)
-    for email in ("admin@staff.example", "a@b@staff.example"):
+    for email in ("admin@example.com", "a@b@staff.example"):
         with pytest.raises(ApiError) as e:
             g.require(hdr(gtoken(email)))
         assert e.value.code in ("NOT_APPROVED", "EMAIL_NOT_VERIFIED")
 
 
 def test_normalize_email_is_a_full_address_only():
-    assert normalize_email("  Snowwhite@Staff.EXAMPLE ") == "snowwhite@staff.example"
+    assert normalize_email("  Snowwhite@Staff.Example ") == "snowwhite@staff.example"
     for bad in ("@staff.example", "staff.example", "a@b@c.io", "a b@c.io", "a@io", "a@.io", "a@io.",
-                "a@x..io", "TODO-teacher-email-pending", "", None, 5):
+                "a@x..io", "todo-reviewer-email-pending", "", None, 5):
         assert normalize_email(bad) is None, bad
 
 
@@ -196,12 +196,12 @@ def test_auth_config_without_google(store):  # noqa: F811
         srv.shutdown()
 
 
-# ---------------------------------------------------------------- Snow White's sign-in email
+# ---------------------------------------------------------------- Alex Morgan's sign-in email
 
-def test_snow_white_signs_in_with_snowwhite_at_staff_example(tmp_path):
+def test_snow_white_signs_in_with_snowwhite_at_intellisolve_io(tmp_path):
     from review_api.store import LocalStore
     roster = json.loads((ROOT / "app/samples/demo_roster.json").read_text())
-    assert roster["teachers"]["stf_0001"]["teacher_name"] == "Snow White"
+    assert roster["teachers"]["stf_0001"]["teacher_name"] == "Alex Morgan"
     assert roster["teachers"]["stf_0001"]["emails"] == ["snowwhite@staff.example"]
     s = LocalStore(tmp_path)
     s.write_json("config/demo_roster.json", roster)

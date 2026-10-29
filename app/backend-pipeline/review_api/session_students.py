@@ -1,4 +1,4 @@
-"""Students in this session.
+"""Students in this session (David, Oct 10 2026; tasks#106).
 
 A classroom recording has no single student, so the teacher says who was there. The review page
 offers the session's class roster (the class the teacher confirmed, else the one suggested from the
@@ -8,7 +8,7 @@ create-only, the latest wins, expires with the session) and journaled (counts on
 session then shows on each student's week (Students, Lesson planner) and feeds the weekly summary,
 the weekly IEP check and the parent report (planner.py, students.py).
 
-Privacy: student-session links are student data within today's DPA scope (sessions were
+Privacy (Ops, Oct 10): student-session links are student data within today's DPA scope (sessions were
 already per student or class). Ids only in the bucket record and the journal; names are shown to
 signed-in readers of the session, as on the Students tab. RBTs read only.
 

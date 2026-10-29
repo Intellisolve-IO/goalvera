@@ -1,4 +1,4 @@
-// Classroom materials from Teacher Notes (): small helpers shared by the panel and its tests.
+// Classroom materials from Teacher Notes (tasks#99): small helpers shared by the panel and its tests.
 
 export const UNIT = {
   worksheet: 'question', coloring: 'picture', flashcards: 'card', labels: 'label', diagram: 'stage',

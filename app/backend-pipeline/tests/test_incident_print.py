@@ -1,4 +1,4 @@
-"""Incident numbering + one incident's Download PDF (print view), ().
+"""Incident numbering + one incident's Download PDF (print view), David Oct 7 2026 (tasks#85).
 
   * incidents are numbered in order within each recording, earliest first:
     "Incident 1 · 0:03"; the same number in the session PDF and the print view
@@ -81,7 +81,7 @@ def test_numbered_earliest_first_ties_keep_order():
 def test_session_pdf_uses_the_same_numbers(school, authn):
     notes = approve(school, authn)
     text = pdf_text(notes.pdf(RID, authn.require(hdr(tok(TEACHER_EMAIL))))[0])
-    # "Incident N[: name]" and the Eastern clock time + offset (4:45:00 PM start)
+    # David, Oct 8: "Incident N[: name]" and the Eastern clock time + offset (4:45:00 PM start)
     assert "Incident 1\n4:45 PM \u00b7 0:03 into recording" in text and "Incident 2\n4:46 PM \u00b7 1:15 into recording" in text
     assert text.index("Incident 1") < text.index("Incident 2")
     assert "Parent update" not in text                         # no per-session parent email any more
@@ -196,7 +196,7 @@ def test_every_click_is_logged_with_ids_only_and_the_draft_flag(school, authn):
     audits = [a for a in notes.audit_trail(RID) if a["event"] == "incident_pdf_downloaded"]
     assert [(a["actor_id"], a["incident_number"], a["draft"]) for a in audits] == [
         ("uidteacher", 2, True), ("uidteacher", 2, False)]
-    assert all("actor_email" not in a and a["at"] for a in audits)        # ids only
+    assert all("actor_email" not in a and a["at"] for a in audits)        # ids only (Ops, Oct 7)
     lines = [json.loads(x) for x in out.getvalue().splitlines() if "incident_pdf_downloaded" in x]
     assert [(x["recording_id"], x["incident_number"], x["draft"]) for x in lines] == [(RID, 2, True), (RID, 2, False)]
     assert all(x["actor_id"].startswith("u_") for x in lines)

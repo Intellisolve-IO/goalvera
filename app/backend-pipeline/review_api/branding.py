@@ -1,4 +1,4 @@
-"""School name and logo shown in the review site's top bar.
+"""School name and logo shown in the review site's top bar (David, Oct 9 2026; tasks#85).
 
 Admins change them on the Settings tab; everyone else only sees them. Stored in the demo
 bucket under branding/, one create-only JSON record per change (same pattern as planner/ and
@@ -16,12 +16,12 @@ Logo uploads (PNG, JPEG or SVG, at most 1 MB) are never served as uploaded:
     nosniff; the stored type is decided by what the bytes decode as, never by the upload's
     declared type.
 
-School profiles: the demo school is Sample Elementary School
-(fictional; badge "SE" and a built-in shield logo, assets/sample-school-badge.png). legacy
-Prep's name and badge are kept as their own saved profile for their setup after the LOU, not
-shown by default. SCHOOL_PROFILE (infra/config.sh) picks the profile; each record carries its
-profile, and records written before profiles existed belong to the legacy school, so anything an admin
-set for the legacy school is still there when that profile is switched back on.
+School profiles (David, Oct 10 2026; tasks#98): the demo school is Everyday Heroes Academy
+(fictional; badge "EH" and a built-in shield logo, assets/everyday-heroes-badge.png). A second
+profile, Demo School (badge "DS"), holds branding saved before this product was named Goalvera.
+It is not shown by default. SCHOOL_PROFILE (infra/config.sh) picks the profile; each record
+carries its profile. Records with no profile, and records still tagged with the old profile id,
+belong to Demo School, so anything an admin saved there is still there when that profile is on.
 
 Changes are written to the Activity Log as settings_changed with which field changed
 (school_name, school_logo, reset). File contents, names and the new text are not logged.
@@ -45,17 +45,26 @@ PREFIX = "branding/"
 ASSETS = Path(__file__).resolve().parent / "assets"
 PROFILES = {
     # the demo school (fictional sample data): shown by default
-    "sample-school": {"school_name": "Sample Elementary School", "badge_text": "SE",
-                        "logo_file": "sample-school-badge.png"},
-    # the legacy school's own setup after the LOU: saved, not shown unless SCHOOL_PROFILE=legacy-school
-    "legacy-school": {"school_name": "Legacy School", "badge_text": "LS", "logo_file": None},
+    "everyday-heroes": {"school_name": "Everyday Heroes Academy", "badge_text": "EH",
+                        "logo_file": "everyday-heroes-badge.png"},
+    # neutral placeholder profile (not shown unless SCHOOL_PROFILE=demo-school)
+    "demo-school": {"school_name": "Demo School", "badge_text": "DS", "logo_file": None},
 }
-DEFAULT_PROFILE = "sample-school"
-LEGACY_PROFILE = "legacy-school"     # branding records from before Oct 10 have no profile: the legacy school's
+DEFAULT_PROFILE = "everyday-heroes"
+LEGACY_PROFILE = "demo-school"   # branding records from before Oct 10 have no profile
+# Bucket records and SCHOOL_PROFILE values written before the Goalvera rename.
+# Reading still maps this id onto demo-school. New writes use demo-school only.
+STORED_PROFILE_ALIASES = {"atlanta-prep": "demo-school"}
+
+
+def canonical_profile(value: str | None) -> str:
+    if not value:
+        return LEGACY_PROFILE
+    return STORED_PROFILE_ALIASES.get(value, value)
 
 
 def active_profile() -> str:
-    p = os.environ.get("SCHOOL_PROFILE") or DEFAULT_PROFILE
+    p = canonical_profile(os.environ.get("SCHOOL_PROFILE") or DEFAULT_PROFILE)
     return p if p in PROFILES else DEFAULT_PROFILE
 
 
@@ -248,7 +257,7 @@ class Branding:
         want = active_profile()
         for n in sorted((n for n in self.store.list(PREFIX) if n.endswith(".json")), reverse=True):
             r = self.store.read_json(n)
-            if isinstance(r, dict) and (r.get("profile") or LEGACY_PROFILE) == want:
+            if isinstance(r, dict) and canonical_profile(r.get("profile")) == want:
                 return r
         return {}
 

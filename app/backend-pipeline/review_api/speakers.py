@@ -1,7 +1,7 @@
-"""Who is speaking: choices for the transcript's speaker selector.
+"""Who is speaking: choices for the transcript's speaker selector (David, Oct 10 2026; tasks#104).
 
 Speaker separation only gives "Speaker 1/2/3"; the reviewer says who is who. The choices come from
-the roster (fictional Sample Elementary School sample data): students and staff, shown as first name +
+the roster (fictional Everyday Heroes Academy sample data): students and staff, shown as first name +
 last initial ("Sneezy D.", "Flynn R."). People in the session's class come first (the class from the
 Classes tab: its teachers / RBTs and students; else the classroom's teacher, RBTs and students), then
 everyone else (searchable in the browser), then generic options.

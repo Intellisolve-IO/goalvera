@@ -2,7 +2,7 @@
   "_meta": {
     "synthetic": true,
     "label": "Fictional sample data",
-    "school_profile": "sample-school",
+    "school_profile": "everyday-heroes",
     "source": "app/samples/sis-demo classes.csv, enrollments.csv, ext_periods.csv (fictional); domains mapped by app/tools/build_school_setup.py DOMAIN_FOR_SUBJECT. Do not edit by hand."
   },
   "classes": [

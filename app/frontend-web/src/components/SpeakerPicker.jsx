@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Who is this speaker?. Choices come from the roster (students and staff,
+// Who is this speaker? (David, Oct 10 2026; tasks#104). Choices come from the roster (students and staff,
 // first name + last initial): the session's class first, then everyone else (type to narrow), then generic
 // options. The choice is kept in this browser only and never sent to the AI.
 export const FALLBACK_GENERIC = ['Unknown speaker', 'Other adult', 'Other student'];

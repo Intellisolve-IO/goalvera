@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Manage per-device upload tokens ( step 6; checklist row 40).
+"""Manage per-device upload tokens (tasks#35 step 6; checklist row 40).
 
 Tokens are random 32-byte secrets. Only their SHA-256 hash is stored, in
 gs://<bucket>/control/devices.json (CMEK-encrypted, readable only by the

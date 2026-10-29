@@ -78,9 +78,16 @@ CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC=y
 CONFIG_LWIP_TCP_SND_BUF_DEFAULT=16384
 CONFIG_RECORDER_UPLOAD_TOKEN=""
 
-# Teacher Notes QR code for the phone upload link (0.7.2,)
+# Teacher Notes QR code for the phone upload link (0.7.2, tasks#112)
 CONFIG_LV_USE_QRCODE=y
 
 # 0.7.7: allow EXT_RAM_BSS_ATTR so big static buffers that only the CPU
 # touches (LVGL heap, I2S read buffers, dropdown option strings) live in PSRAM.
 CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y
+
+# OTA rollback: a new image stays pending until it reaches the upload API.
+# The bootloader (flashed over USB, not by an app-only update) then reverts
+# if the image never confirms. Partition sizes are unchanged.
+CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
+CONFIG_RECORDER_OTA_BUCKET="example-project-firmware"
+CONFIG_RECORDER_OTA_MANIFEST_URL="https://storage.googleapis.com/example-project-firmware/firmware/crowpanel43/manifest.json"

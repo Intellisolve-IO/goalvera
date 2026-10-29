@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Bug markers () - one-time cloud setup for the review service. Idempotent; safe to re-run.
+# Bug markers (tasks#94) - one-time cloud setup for the review service. Idempotent; safe to re-run.
 #   * review-web: read, list and create-only under bug_reports/ in the bucket (same pattern as
 #     planner/: never overwrite or delete; a report is pending until its .filed.json exists)
 #   * Secret Manager secret $GITHUB_ISSUES_SECRET (github-issues-token): created EMPTY if missing
 #     (user-managed replication in $REGION, label app=goalvera), and review-web may read that
-#     one secret (secret-level binding, nothing project-wide). The value - a fine-grained
-#     GitHub token - is added by an admin as a new version (docs: app/review-web/README.md, "Bug
+#     one secret (secret-level binding, nothing project-wide). The value - David's fine-grained
+#     GitHub token - is added by David as a new version (docs: app/review-web/README.md, "Bug
 #     markers"). This script never adds, reads or prints a secret value.
 # Until the secret has a version, Bug reports are saved as pending and filed automatically once
 # it does (next submission or next instance start; no redeploy needed).
@@ -57,7 +57,7 @@ bind roles/storage.objectViewer "$BUG_LIST" review-list-bug-reports
 bind roles/storage.objectCreator "$(obj bug_reports/)" review-create-bug-reports
 echo "review-web: read / list / create-only under bug_reports/"
 
-say "Secret $GITHUB_ISSUES_SECRET (no value; an admin adds the token as a version)"
+say "Secret $GITHUB_ISSUES_SECRET (no value; David adds the token as a version)"
 if ! gcloud secrets describe "$GITHUB_ISSUES_SECRET" >/dev/null 2>&1; then
   gcloud secrets create "$GITHUB_ISSUES_SECRET" --replication-policy=user-managed --locations="$REGION" \
     --labels=app=goalvera >/dev/null

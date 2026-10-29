@@ -1,4 +1,4 @@
-"""Teacher Notes photos in the session analysis and review ().
+"""Teacher Notes photos in the session analysis and review (tasks#112).
 
 - the photo goes to the AI as an image part, the text part still carries no first name;
 - names the AI copies off a photo anyway are scrubbed on our side;

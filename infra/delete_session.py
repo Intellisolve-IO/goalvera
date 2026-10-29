@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Delete one session everywhere in the demo project ( step 5; checklist row 36).
+"""Delete one session everywhere in the demo project (tasks#35 step 5; checklist row 36).
 
 Removes, for one recording:
   rec/<device>/<stem>.wav and .json (sidecar)     audio + label file
@@ -70,7 +70,7 @@ def main() -> int:
     names += [f"transcripts/{rid}.json", f"drafts/{rid}.json", f"approvals/{rid}.json"]
     names += [bl.name for bl in b.list_blobs(prefix=f"work/{rid}/")]
     names += [bl.name for bl in b.list_blobs(prefix=f"audit/{rid}/")]
-    names += [bl.name for bl in b.list_blobs(prefix=f"media/{rid}/")]   # Teacher Notes photos / videos ()
+    names += [bl.name for bl in b.list_blobs(prefix=f"media/{rid}/")]   # Teacher Notes photos / videos (tasks#112)
     found = [n for n in dict.fromkeys(names) if b.blob(n).exists()]
     if not found:
         print(f"nothing found for {rid}")

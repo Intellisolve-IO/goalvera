@@ -1,4 +1,4 @@
-"""Incident names + Eastern clock time,
+"""Incident names + Eastern clock time (David, Oct 8 2026; Ops / Chief of Staff guardrails; tasks#85),
 and recorder Bug markers (firmware 0.6.7 writes type "bug").
 
   * each incident gets a short AI name (80 characters or fewer) from its own notes; the same name
@@ -338,7 +338,7 @@ def test_recorder_bug_markers_become_pending_reports_and_stay_hidden(school, aut
     assert "bug" not in json.dumps(m).lower()
 
 
-# ---------------------------------------------------------------- named from the transcript
+# ---------------------------------------------------------------- named from the transcript (David, Oct 8)
 
 def test_name_comes_from_the_transcript_window_after_the_marker(school, monkeypatch):
     from review_api.incident_names import PROMPT_VERSION, transcript_window, window_seconds

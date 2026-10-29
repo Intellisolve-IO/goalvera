@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Delete weekly lesson planner records () - pilot end, or one student / classroom.
+"""Delete weekly lesson planner records (tasks#83) - pilot end, or one student / classroom.
 
 The planner's records are NOT on the bucket's 30-day auto-delete rule (they are kept
 to pilot end, DPA impact D1-D3). This script removes them:

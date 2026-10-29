@@ -1,4 +1,4 @@
-"""Teacher Notes photo / video upload from a phone ().
+"""Teacher Notes photo / video upload from a phone (tasks#112).
 
   POST /v1/media/token          Authorization: Bearer <device token>
        {"device_id", "recording": "<YYYYMMDD_HHMMSS_CLASS>"}

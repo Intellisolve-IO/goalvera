@@ -13,7 +13,7 @@ from typing import Any
 
 from common.namematch import name_pattern
 
-PROMPT_VERSION = "ocr-gemini-v4-2026-10"   # v4: Teacher Notes photos (); v3: no per-session parent email
+PROMPT_VERSION = "ocr-gemini-v4-2026-10"   # v4: Teacher Notes photos (tasks#112); v3: no per-session parent email
 STUDENT_PLACEHOLDER = "the student"
 
 SYSTEM_INSTRUCTION = """You are an expert Special Education Compliance Analyst and Behavioral Specialist. You will be provided a classroom session transcript containing speaker diarization, active IEP goals for assigned students, and flagged incident timestamps. Extract observable academic and behavioral indicators accurately and objectively without hallucinating data.
@@ -70,7 +70,7 @@ def _name_pattern(first_name: Any) -> re.Pattern | None:
     name = first_name.strip()
     if not name or name.casefold() in ("student", "the student"):
         return None
-    if len(name) <= 2:      #: short names too, as capitalized whole words (common/namematch.py)
+    if len(name) <= 2:      # tasks#104: short names too, as capitalized whole words (common/namematch.py)
         return name_pattern(name)
     return re.compile(rf"(?<![\w]){re.escape(name)}(?![\w])", re.IGNORECASE)
 

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "source": "the sample Educational Methodology document (Oct 10 2026), the table \"Methodology by Subject & Recommended Reference Books\"; built by app/tools/build_school_setup.py. Not student data.",
+    "source": "David's Educational Methodology document (Oct 10 2026), the table \"Methodology by Subject & Recommended Reference Books\"; built by app/tools/build_school_setup.py. Not student data.",
     "columns": [
       "Subject / Domain",
       "Core Educational Methodology",

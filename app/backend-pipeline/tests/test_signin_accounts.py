@@ -1,4 +1,4 @@
-"""Pre-created sign-in accounts (new sign-ups stay off): infra/signin_accounts.py.
+"""Pre-created sign-in accounts (new sign-ups stay off; tasks#108): infra/signin_accounts.py.
 
   python -m pytest app/backend-pipeline/tests/test_signin_accounts.py -q
 """
@@ -36,9 +36,9 @@ class FakeIdp:
 
 def test_creates_email_only_account_no_password():
     idp = FakeIdp()
-    what, user = sa.ensure_account(idp, "SnowWhite@Staff.example", STAFF, "Snow White")
+    what, user = sa.ensure_account(idp, "SnowWhite@Staff.Example", STAFF, "Alex Morgan")
     assert what == "created" and user["email"] == "snowwhite@staff.example"
-    assert idp.created == [{"email": "snowwhite@staff.example", "emailVerified": False, "displayName": "Snow White"}]
+    assert idp.created == [{"email": "snowwhite@staff.example", "emailVerified": False, "displayName": "Alex Morgan"}]
     body = idp.created[0]
     assert not {"password", "passwordHash", "providerUserInfo", "customAttributes"} & set(body)
 

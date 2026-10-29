@@ -1,4 +1,4 @@
-"""infra/mailer_consent.py (): the one-time sender approval stores nothing unless the right
+"""infra/mailer_consent.py (tasks#99): the one-time sender approval stores nothing unless the right
 mailbox approved exactly gmail.send (+ openid email)."""
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def test_check_accepts_the_sender_with_gmail_send_only():
 
 
 @pytest.mark.parametrize("bad", [
-    {"id_token": idt("admin@staff.example")}, {"id_token": idt(SENDER, verified=False)},
+    {"id_token": idt("admin@example.com")}, {"id_token": idt(SENDER, verified=False)},
     {"scope": "openid email https://www.googleapis.com/auth/gmail.readonly"},
     {"scope": f"openid email {mc.GMAIL_SEND} https://mail.google.com/"}, {"refresh_token": None}])
 def test_check_refuses_anything_else(bad):

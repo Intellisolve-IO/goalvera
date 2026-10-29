@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-#: create the recording key (asymmetric decrypt, HSM) and let only the
+# tasks#22: create the recording key (asymmetric decrypt, HSM) and let only the
 # pipeline service account use it. DRY RUN by default: prints the commands.
-#   APPLY=1 infra/setup_rec_key.sh     (needs the project owner's OK; creates billable KMS key ~ $2.50/mo HSM)
+#   APPLY=1 infra/setup_rec_key.sh     (needs David's OK; creates billable KMS key ~ $2.50/mo HSM)
 set -euo pipefail
 cd -- "$(dirname -- "$0")"
 . ./config.sh

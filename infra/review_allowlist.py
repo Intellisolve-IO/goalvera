@@ -11,7 +11,7 @@ Changes apply within 30 seconds (the service re-reads the file); no redeploy.
 "add" also creates the person's sign-in account if they have none (email only, no password; new
 sign-ups are off, so this is how a new staff member gets one - see infra/signin_accounts.py).
 Skip that with --no-signin-account; it is always skipped with --local-dir.
-Admins can also change a person's app role / sign-in email in the app (Teachers tab,); those
+Admins can also change a person's app role / sign-in email in the app (Teachers tab, tasks#107); those
 changes are kept under people/ in the bucket and apply on top of this file (review_api/people.py).
 Uses your gcloud login by default (--adc: application-default; --local-dir: a folder).
 A person also needs a verified email. Everyone listed reads every classroom.

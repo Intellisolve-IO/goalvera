@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Dictation / paste check for every text box in the review app, lesson planner and the
-student page's weekly summary & parent report ( review screen, planner,
- Students tab). Fully offline, same setup as
+student page's weekly summary & parent report (tasks#73 review screen, tasks#83 planner,
+tasks#85 Students tab). Fully offline, same setup as
 e2e_planner.py: built UI + review service + Firebase Auth emulator + fictional data.
 
 Dictation apps (Wispr Flow, macOS Dictation, Dragon) put text into the focused box
@@ -39,7 +39,7 @@ os.environ.setdefault("PLANNER_TODAY", "2026-10-07")
 
 import e2e_planner as ep  # noqa: E402  (helpers only; its ports are overridden below)
 
-PROJECT = "demo-goalvera-review"
+PROJECT = "demo-atlanta-review"
 EMU = "127.0.0.1:9299"
 PORT = 8795
 BASE = f"http://127.0.0.1:{PORT}"
@@ -94,7 +94,7 @@ def review_fields(page):
                 ("Consequence / intervention", m.locator(".card.abc textarea").nth(2)),
                 ("Incident name", m.locator(".card.abc .abc-name input").first)]
     out += [("Session summary", m.locator("section:has(h3:text-is('Session summary')) textarea"))]
-    # no "Draft parent email" on the session any more
+    # no "Draft parent email" on the session any more (David, Oct 8: weekly summary)
     return out
 
 
@@ -163,7 +163,7 @@ def run_planner(page):
 
 
 def report_editors(page):
-    """Weekly summary + parent report: built once, on the Students tab's student page ()."""
+    """Weekly summary + parent report: built once, on the Students tab's student page (tasks#85)."""
     rep = page.locator("[data-testid=weekly-report]")
     open_ed = lambda: rep.locator("button.link:has-text('summary')").first.click()  # noqa: E731
     return rep, [

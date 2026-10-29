@@ -1,7 +1,7 @@
-"""Admin activity journal (): one add-only record of who did what.
+"""Admin activity journal (tasks#77): one add-only record of who did what.
 
 Every entry: who (internal user id + role), what they did, which record, when.
-Internal IDs only: no names, no emails, no free text. One exception:
+Internal IDs only: no names, no emails, no free text. One exception (Ops, tasks#108):
 an access change (access_changed) carries the staff sign-in address(es) it applied to, and
 both the old and the new address when a sign-in email changes; no other action may. A student appears only by
 their random internal ID (e.g. stu_101); names are looked up when an admin
@@ -14,7 +14,7 @@ rights anywhere), so it can't update, delete or truncate. Reports are read
 through an authorized view by a separate reader account.
 
 Kept for as long as the school is a customer; removed with the dataset at the
-end of the contract (decided on).
+end of the contract (decided on tasks#77).
 
 Writers:
   MemoryJournal    tests and the laptop demo (no update / delete methods)
@@ -32,21 +32,21 @@ import threading
 import uuid
 from dataclasses import dataclass
 
-SCHOOL_ID = os.environ.get("JOURNAL_SCHOOL_ID", "legacy-school")
+SCHOOL_ID = os.environ.get("JOURNAL_SCHOOL_ID", "demo-school")
 
 # action -> what kind of record it is about
 ACTIONS = {
     "sign_in": "account",
     "sessions_listed": None,
     "session_viewed": "session",          # opened a session (its transcript)
-    "media_viewed": "session",            # opened a Teacher Notes photo / video ()
+    "media_viewed": "session",            # opened a Teacher Notes photo / video (tasks#112)
     "audit_viewed": "session",
     "notes_edited": "session",            # edited notes, saved with the approval
     "session_approved": "session",
     "pdf_downloaded": "session",          # export
     "incident_pdf_downloaded": "session", # export: one incident's print view / Save as PDF (number in details)
     "classroom_changed": "session",
-    "bug_reported": "session",            # a teacher's Bug marker (): report id, pending/filed, draft
+    "bug_reported": "session",            # a teacher's Bug marker (tasks#94): report id, pending/filed, draft
     "bug_report_filed": "session",        # that report became a GitHub issue (issue number in details)
     "request_refused": None,              # a refused attempt (e.g. an RBT trying to approve)
     "journal_viewed": "report",
@@ -55,13 +55,13 @@ ACTIONS = {
     "iep_edited": "student",
     "roster_imported": "roster",
     "settings_changed": "settings",
-    "planner_viewed": "plan",             # weekly lesson planner opened ()
+    "planner_viewed": "plan",             # weekly lesson planner opened (tasks#83)
     "planner_plan_saved": "plan",         # a new version of a classroom's weekly plan
     "planner_summary_saved": "student",   # a new version of a student's weekly summary
     "planner_note_saved": "student",      # a new version of a teacher note for the week
     "planner_summary_drafted": "student", # an AI draft of a weekly summary was made (not stored)
     "planner_plan_drafted": "plan",       # an AI draft of a week's goals/objectives was made (not stored)
-    # classroom materials from Teacher Notes (; materials.py)
+    # classroom materials from Teacher Notes (tasks#99; materials.py)
     "materials_suggested": "session",     # AI looked at the session's Teacher Notes (requests found, notes)
     "materials_requested": "session",     # a teacher picked a suggestion / filled the form (type, count)
     "materials_made": "session",          # the material was made (pages, pictures, PDF fingerprint)
@@ -71,7 +71,7 @@ ACTIONS = {
     "materials_send_failed": "session",   # not emailed: email_status says why (setting off, no address...)
     "materials_attached": "plan",         # a session's material was added to its classroom's lesson plan
     "materials_removed": "plan",          # a material was taken off a lesson plan (or replaced by a new version)
-    # Domains (educational methodology) and Classes (; school_setup.py)
+    # Domains (educational methodology) and Classes (tasks#103; school_setup.py)
     "domain_added": "domain",             # admin: a Subject / Domain (changed field names only, no text)
     "domain_edited": "domain",
     "domain_removed": "domain",
@@ -79,11 +79,11 @@ ACTIONS = {
     "class_edited": "class",              # admin, or a teacher on their own class
     "class_removed": "class",
     "session_class_assigned": "session",  # a session's class picked (class id; was it the suggestion)
-    "session_students_set": "session",    # students in this session (): count; was it the suggestion
-    # weekly parent email (; parent_email.py): one teacher click per email, never automatic
+    "session_students_set": "session",    # students in this session (tasks#106): count; was it the suggestion
+    # weekly parent email (tasks#106; parent_email.py): one teacher click per email, never automatic
     "parent_email_sent": "student",       # sent (recipients count; redirected to the teacher in demo mode)
     "parent_email_send_failed": "student",
-    # My profile + admin access changes (; people.py): field names only, never values
+    # My profile + admin access changes (tasks#107; people.py): field names only, never values
     "profile_updated": "person",          # someone edited their own profile (which fields)
     "access_changed": "person",           # an admin changed a person's app role and/or sign-in email
 }
@@ -113,13 +113,13 @@ DETAIL_KEYS = {
     "source_recording_id": "rid",
     "renderer": "id", "style": "id", "instruction_key": "id", "pictures_missing": int,
     "drafts": int, "draft_number": int, "reset": bool, "chars": int, "text_sha256": "hex",     # settings_changed: which field (school_name, school_logo, reset)
-    # Domains / Classes (): ids, field names and counts only, never names or text
+    # Domains / Classes (tasks#103): ids, field names and counts only, never names or text
     "fields": "id", "classroom": "id", "teachers": int, "students": int, "meetings": int,
     "domain_id": "id", "class_id": "id", "suggested": bool,
     "recipients": int, "redirected": bool, "excluded": int,
     "app_role": "id",                     # access_changed: the new app role (admin / teacher / rbt / none)
-    "sign_in_provider": "id",             # sign_in: "password" or "google.com" ()
-    # access_changed: old and new role, and the staff sign-in addresses involved.
+    "sign_in_provider": "id",             # sign_in: "password" or "google.com" (tasks#108)
+    # access_changed (Ops, tasks#108): old and new role, and the staff sign-in addresses involved.
     # "email" values are allowed on access_changed ONLY (make_entry refuses them anywhere else).
     "old_role": "id", "new_role": "id",
     "account_email": "email", "old_email": "email", "new_email": "email",
@@ -185,7 +185,7 @@ def _check_details(details: dict | None, action: str | None = None) -> dict | No
         elif kind == "id":
             out[k] = _check_id(f"details.{k}", v, no_words=True)
         elif kind == "email":
-            # a staff sign-in address, on an access change only; never anywhere else
+            # a staff sign-in address, on an access change only (Ops, tasks#108); never anywhere else
             if action not in EMAIL_DETAIL_ACTIONS:
                 raise JournalError(f"details.{k}: an address is allowed on access changes only")
             if not isinstance(v, str) or not _EMAIL.match(v):

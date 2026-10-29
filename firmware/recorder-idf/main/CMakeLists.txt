@@ -10,19 +10,24 @@ if(CONFIG_RECORDER_BOARD_HOSYOND_35)
     # from your own Cloud KMS key). No fallback to plaintext: a missing key stops the build.
     if(NOT RECORDING_PUBKEY_PEM AND DEFINED ENV{RECORDING_PUBKEY_PEM})
         set(RECORDING_PUBKEY_PEM "$ENV{RECORDING_PUBKEY_PEM}")
-    endif
+    endif()
     if(NOT RECORDING_PUBKEY_PEM OR NOT EXISTS "${RECORDING_PUBKEY_PEM}")
         message(FATAL_ERROR "Recording public key missing: pass -D RECORDING_PUBKEY_PEM=<path> or set the RECORDING_PUBKEY_PEM env var (see docs/sd-encryption.md), or turn off RECORDER_SD_ENCRYPTION")
-    endif
+    endif()
     configure_file("${RECORDING_PUBKEY_PEM}" "${CMAKE_CURRENT_BINARY_DIR}/recording_pubkey.pem" COPYONLY)
     set(rec_crypt_srcs "rec_crypt.c")
     set(rec_crypt_embed "${CMAKE_CURRENT_BINARY_DIR}/recording_pubkey.pem")
-else
+else()
     set(rec_crypt_srcs "")
     set(rec_crypt_embed "")
     set(board_ctrl_src "board_ctrl.c")
     set(board_display_srcs "display.c")
-endif
+endif()
+
+# TweetNaCl is the public-domain Ed25519 verifier (tweetnacl.cr.yp.to). It is
+# compiled as shipped; the sign-compare warnings are in the upstream macros.
+set_source_files_properties(tweetnacl.c PROPERTIES
+    COMPILE_FLAGS "-Wno-sign-compare -Wno-unused-function -Wno-unused-const-variable")
 
 idf_component_register(
     SRCS
@@ -43,6 +48,12 @@ idf_component_register(
         "upload_name.c"
         "uploader.c"
         "pilot_guard.c"
+        "nvs_migrate.c"
+        "ota_policy.c"
+        "ota_sign.c"
+        "ota_pubkey.c"
+        "ota_update.c"
+        "tweetnacl.c"
         ${rec_crypt_srcs}
     INCLUDE_DIRS "."
     EMBED_TXTFILES "sample_device.json" ${rec_crypt_embed}
@@ -79,5 +90,6 @@ idf_component_register(
         mbedtls
         esp_rom
         esp_app_format
+        app_update
         freertos
 )

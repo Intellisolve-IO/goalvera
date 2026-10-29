@@ -9,13 +9,13 @@ const FLASH_MS = 1800;
 /**
  * Diarized transcript with human speaker mapping. Speaker separation only
  * gives "Speaker 1/2/3"; the reviewer decides who is who (kept in this browser, never sent to the AI).
- * The choices are students and staff from the roster (), the session's class first.
- * The timeline above the turns () holds the who-is-who dropdowns.
+ * The choices are students and staff from the roster (tasks#104), the session's class first.
+ * The timeline above the turns (tasks#82) holds the who-is-who dropdowns.
  */
 export default function TranscriptPanel({ recordingId, student, readOnly = false, markers = null, durationSeconds = null,
   durationMs = null, belowTimeline = null, reviewerId = null, choicesKey = 0 }) {
   const [data, setData] = useState(null);
-  const [choices, setChoices] = useState(null);   // roster lookup (); null = the fixed fallback list
+  const [choices, setChoices] = useState(null);   // roster lookup (tasks#104); null = the fixed fallback list
   const [error, setError] = useState(null);
   const [map, setMap] = useState(() => getSpeakerMap(recordingId));
   const [flash, setFlash] = useState(-1);

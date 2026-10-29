@@ -1,7 +1,7 @@
-"""Bug markers.
+"""Bug markers (David, Oct 7 2026; guardrails from Chief of Staff; tasks#94).
 
   * a teacher's "Bug" marker becomes an issue in your-org/your-issues-repo (labels bug +
-    teacher-feedback, Team Board with Project = the legacy school)
+    teacher-feedback, Team Board with Project = Goalvera)
   * the issue holds only: the note (student names -> [student]), the time in the
     recording, the screen, the app revision / firmware, the internal recording id and the
     reporter's role. Never student names, transcript text, teacher names or emails,
@@ -176,7 +176,7 @@ def test_no_token_saves_pending_and_files_later(school, authn):
     assert (out["status"], out["issue_url"], out["message"]) == ("pending", None, THANKS)
     assert gh.issues == [] and len(notes.bugs.pending()) == 1
     assert [i["status"] for i in notes.session(RID, teacher)["bug_reports"]] == ["pending"]
-    tokens.value = "github_pat_test"                         # an admin adds the secret version
+    tokens.value = "github_pat_test"                         # David adds the secret version
     out2 = notes.bug_report(RID, teacher, bug("Second report."))
     assert out2["status"] == "filed" and len(gh.issues) == 2 and gh.project == ["I_500", "I_501"]
     assert "Second report." in gh.issues[0][1] and "First report." in gh.issues[1][1]   # the new one first
@@ -348,13 +348,13 @@ def test_github_client_labels_issue_and_project():
         q = body["query"]
         if "organization" in q:
             return FakeResp(200, {"data": {"organization": {"projectV2": {"id": "PVT_1", "field": {
-                "id": "F_1", "options": [{"id": "o1", "name": "PSA"}, {"id": "o2", "name": "the legacy school"}]}}}}})
+                "id": "F_1", "options": [{"id": "o1", "name": "PSA"}, {"id": "o2", "name": "Goalvera"}]}}}}})
         if "addProjectV2ItemById" in q:
             return FakeResp(200, {"data": {"addProjectV2ItemById": {"item": {"id": "ITEM_1"}}}})
         return FakeResp(200, {"data": {"updateProjectV2ItemFieldValue": {"projectV2Item": {"id": "ITEM_1"}}}})
 
     gh = GitHub("github_pat_SECRET", repo="your-org/your-issues-repo", project_owner="your-org", project_number=1,
-                project_field="Project", project_value="the legacy school", opener=opener)
+                project_field="Project", project_value="Goalvera", opener=opener)
     out = io.StringIO()
     with redirect_stdout(out):
         issue = gh.create_issue("Teacher bug report: x", "body")
@@ -398,7 +398,7 @@ def test_generic_placeholders_are_not_names(value):
     assert never["student"] == [] and never["staff"] == []
 
 
-@pytest.mark.parametrize("value", ["Marcus", "Student Marcus", "Pat Speech", "Doc", "Snow White", "Ms. Rivera"])
+@pytest.mark.parametrize("value", ["Marcus", "Student Marcus", "Pat Speech", "Doc", "Alex Morgan", "Ms. Rivera"])
 def test_real_names_are_still_names(value):
     assert not is_placeholder(value)
     never = never_values({}, {"student_first_name": value})

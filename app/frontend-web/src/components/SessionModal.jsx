@@ -39,7 +39,7 @@ export default function SessionModal({
   const [downloads, setDownloads] = useState(null);
   const [moveTo, setMoveTo] = useState('');
   const [printing, setPrinting] = useState(null);       // the server's report for the print view
-  const [bugs, setBugs] = useState(session.bug_reports || []);   // this viewer's Bug markers ()
+  const [bugs, setBugs] = useState(session.bug_reports || []);   // this viewer's Bug markers (tasks#94)
   const [classTick, setClassTick] = useState(0);                 // class picked: materials reload its domain
   useEffect(() => setBugs(session.bug_reports || []), [session.recording_id, session.bug_reports]);
 
@@ -150,8 +150,8 @@ export default function SessionModal({
     }
   }
 
-  // Download PDF on one incident (): same people as the session PDF. Not approved
-  // yet: the server returns the stored draft marked DRAFT, with a watermark.
+  // Download PDF on one incident (tasks#85): same people as the session PDF. Not approved
+  // yet: the server returns the stored draft marked DRAFT (David, Oct 7), with a watermark.
   const showIncidentPdf = isPipeline && !readOnly && !notMine;
   async function handleIncidentPdf(number) {
     setBusy(true);
@@ -263,23 +263,23 @@ export default function SessionModal({
             </section>
           )}
           {isPipeline && !needsClass && (
-            // The session's class (Classes tab), suggested from classroom + time.
+            // The session's class (Classes tab; tasks#103), suggested from classroom + time.
             <SessionClass recordingId={session.recording_id} classCode={session.class_code}
               reviewerId={reviewer ? reviewer.teacher_id : null} readOnly={readOnly || notMine}
               onChange={() => setClassTick((t) => t + 1)} />
           )}
           {isPipeline && !needsClass && (
-            // Students in this session (): the class roster is suggested; one click confirms.
+            // Students in this session (tasks#106): the class roster is suggested; one click confirms.
             <SessionStudents key={`students-${classTick}`} recordingId={session.recording_id}
               reviewerId={reviewer ? reviewer.teacher_id : null} readOnly={readOnly} />
           )}
           {isPipeline && markers.some((m) => /^teacher notes?$/i.test(String(m.type || '').trim())) && (
-            // Teacher Notes with suggested classroom materials (): next to the classroom,
+            // Teacher Notes with suggested classroom materials (tasks#99): next to the classroom,
             // where the teacher assigns the session. Nothing is made until the teacher picks.
             <MaterialsPanel key={classTick} recordingId={session.recording_id} reviewerId={reviewer ? reviewer.teacher_id : null} />
           )}
           {isPipeline && (session.media || []).length > 0 && (
-            // Teacher Notes photos / videos from the phone (QR on the recorder), with AI photo notes.
+            // Teacher Notes photos / videos from the phone (QR on the recorder; tasks#112), with AI photo notes.
             <MediaPanel recordingId={session.recording_id} media={session.media}
               reviewerId={reviewer ? reviewer.teacher_id : null} />
           )}
@@ -294,7 +294,7 @@ export default function SessionModal({
                 reviewerId={reviewer ? reviewer.teacher_id : null} choicesKey={classTick}
                 markers={markers} durationSeconds={session.duration_seconds}
                 belowTimeline={(bugs.length > 0 || canReportBug) ? (
-                // No separate markers section: markers show in the timeline. Bug reports
+                // No separate markers section (David, Oct 8): markers show in the timeline. Bug reports
                 // and the "Add marker" form (type incl. Bug, time, note) sit just below the timeline.
                 <div className="bug-markers" data-testid="bug-markers">
                   {bugs.length > 0 && (
@@ -395,7 +395,7 @@ export default function SessionModal({
             {incidents.length === 0 && (
               <p className="muted">No incident flags for this session.</p>
             )}
-            {/* One tab per incident: "Incident 1", "Incident 2", ... with the name
+            {/* One tab per incident (David, Oct 8): "Incident 1", "Incident 2", ... with the name
                 underneath (full name on hover). A single incident is one tab. */}
             {numbered.length > 0 && (
               <div className="incident-tabs" role="tablist" aria-label="Incidents">

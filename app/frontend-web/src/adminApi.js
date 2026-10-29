@@ -1,5 +1,5 @@
 /**
- * Admin activity journal + activity report (), for the admin strip.
+ * Admin activity journal + activity report (tasks#77), for the admin strip.
  *
  * The server decides access: both endpoints answer 403 ADMIN_ONLY to anyone who
  * isn't an admin, and every view / download is itself journaled. The UI only

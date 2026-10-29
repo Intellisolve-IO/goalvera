@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "DEMO ONLY - fictional roster. Maps recorder class codes to the fictional teacher (and, for RM12, the fictional student) from the samples. Class codes are matched case-insensitively with spaces, hyphens and underscores treated alike (common/classcodes.py). The board classes come from the recorder's built-in sample lists (firmware/recorder-idf/main/sample_device.json). The real class-code-to-student mapping lives only in the school's project (checklist row 12)."
+  },
+  "class_codes": {
+    "RM12": {
+      "student_id": "stu_101",
+      "student_first_name": "Marcus",
+      "student_last_initial": "A.",
+      "teacher_id": "usr_demo_sarah",
+      "teacher_name": "Sarah Jenkins",
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When experiencing sensory overload, Marcus will independently request or use a calming strategy (e.g., noise-canceling headphones, break space) and return to task within 5 minutes in 4 of 5 opportunities."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Marcus will solve double-digit addition problems with regrouping at 80% accuracy across three consecutive probes."
+        }
+      ]
+    },
+    "Reading 3A": {
+      "teacher_id": "usr_demo_sarah",
+      "teacher_name": "Sarah Jenkins",
+      "iep_goals": []
+    },
+    "Math 2B": {
+      "teacher_id": "usr_demo_sarah",
+      "teacher_name": "Sarah Jenkins",
+      "iep_goals": []
+    },
+    "Circle Time": {
+      "teacher_id": "usr_demo_sarah",
+      "teacher_name": "Sarah Jenkins",
+      "iep_goals": []
+    }
+  },
+  "teachers": {
+    "usr_demo_sarah": {
+      "teacher_name": "Sarah Jenkins",
+      "device_labels": [
+        "Demo Teacher"
+      ],
+      "note": "Fictional demo teacher. 'Demo Teacher' is the recorder's built-in sample label.",
+      "emails": [],
+      "_emails_note": "Sign-in emails of the real person acting as this demo teacher (hosted review screen: only they, or a demo admin, may approve / download). Fill in, e.g. the reviewer's email; empty = demo admins only."
+    }
+  },
+  "settings": {
+    "iep_access": {
+      "rbt": "read",
+      "_note": "The school's IEP access setting for RBTs: read (default) or none. none = RBTs get sessions without IEP goal evaluations."
+    }
+  },
+  "rbts": {
+    "rbt_demo_rm12": {
+      "name": "Demo RBT",
+      "device_labels": ["demo-rbt"],
+      "class_codes": ["RM12"],
+      "emails": ["demo-rbt@staff.example"],
+      "_emails_note": "Sign-in emails of the demo RBT (fictional). Allowlist role must be rbt. An RBT is read-only: they read every classroom, session and student, but never parent emails, and can't edit, approve, export or move a session. Their list opens filtered to these class_codes."
+    }
+  }
+}

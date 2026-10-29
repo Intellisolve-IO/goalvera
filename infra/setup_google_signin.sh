@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sign in with Google for the review site () - READ-ONLY status check. Changes nothing.
+# Sign in with Google for the review site (tasks#108) - READ-ONLY status check. Changes nothing.
 #
 # The app side is in main (review_api/auth.py, AuthGate.jsx): the button shows only when the
 # server's IDP_PROVIDERS (infra/config.sh) lists "google.com", and the server refuses tokens from
@@ -9,12 +9,12 @@
 # Switching it on needs two console clicks by a project owner (no API creates the OAuth web client):
 #   1. Firebase console -> project example-project -> Build -> Authentication ->
 #      Sign-in method -> Add new provider -> Google -> Enable; Project support email:
-#      admin@staff.example -> Save. (This creates the "Web client (auto created by Google
+#      admin@example.com -> Save. (This creates the "Web client (auto created by Google
 #      Service)" OAuth client with the right redirect URI and fills in its ID and secret.)
 #   2. Then: set IDP_PROVIDERS="password,google.com" in infra/config.sh (PR) and ./infra/deploy_review.sh.
-# Both done Oct 11 (.
+# Both done Oct 11 (David enabled the provider; PR #45).
 # New Google users: self sign-up stays OFF in Identity Platform (client.permissions.disabledUserSignup;
-# , so a Google account with no Identity Platform account is refused before it reaches
+# David, Oct 11), so a Google account with no Identity Platform account is refused before it reaches
 # the app (auth/admin-restricted-operation). An admin creates the account first:
 # ./infra/review_allowlist.py add <email> or ./infra/signin_accounts.py create <email> (email only,
 # no password); Sign in with Google then attaches to it.

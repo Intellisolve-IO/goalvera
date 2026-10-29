@@ -17,9 +17,9 @@ COPY backend-pipeline/common/ common/
 COPY backend-pipeline/gemini_analyzer/ gemini_analyzer/
 COPY backend-pipeline/pipeline_service/__init__.py backend-pipeline/pipeline_service/records.py pipeline_service/
 COPY backend-pipeline/review_api/ review_api/
-# Domains + Classes seed (): read by review_api/school_setup.py until an admin saves a change
+# Domains + Classes seed (tasks#103): read by review_api/school_setup.py until an admin saves a change
 COPY samples/school-setup/ samples/school-setup/
-# Weekly parent email recipients (): fictional guardians, read only by review_api/parent_email.py
+# Weekly parent email recipients (tasks#106): fictional guardians, read only by review_api/parent_email.py
 COPY samples/contacts/ samples/contacts/
 COPY --from=ui /ctx/frontend-web/dist /srv/ui
 RUN useradd --uid 10001 --no-create-home app

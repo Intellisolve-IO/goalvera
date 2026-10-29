@@ -1,4 +1,4 @@
-"""Classroom materials from Teacher Notes.
+"""Classroom materials from Teacher Notes (David, Oct 10 2026; tasks#99; scope: issue #26).
 
 When a teacher opens a session to assign students, each "Teacher Notes" marker whose speech looks
 like a request for printable materials shows up to 3 suggested actions. The teacher picks one,
@@ -23,7 +23,7 @@ Rules (Chief of Staff / Ops, Oct 10):
     emails, parent data, other transcript text, audio.
   * Human in the loop: made only on a click; every page says "Suggestion - review before use".
   * Every step is journaled (ids, type, counts, PDF fingerprint; no content, no addresses).
-  * Fictional data only (Sample Elementary School) until the DPA amendment.
+  * Fictional data only (Everyday Heroes Academy) until the DPA amendment.
 
 Storage (CMEK bucket, create-only; materials/ expires with the drafts, 30 days):
   materials/<rec>/suggest-<key>.json        the suggestions for the session's Teacher Notes
@@ -35,7 +35,7 @@ Storage (CMEK bucket, create-only; materials/ expires with the drafts, 30 days):
   materials_settings/instruction-<key>-<t>-<x>.json  admin: the instruction for one activity type
                                             (latest wins; kept; {"instruction": null} = back to the default)
 
-Renderers: one Make flow routes by activity type
+Renderers (David, Oct 10; docs/teacher-materials-renderers.md): one Make flow routes by activity type
 (material_ai.renderer): "svg" (the text model writes 3 SVG drafts: coloring, labels, worksheets,
 diagrams, line-art and color flashcards), "template" (multiplication tables, number lines, letter
 tracing: the AI fills parameters, material_templates builds 3 layouts) and "photo" (photo-style
@@ -208,10 +208,10 @@ class Materials:
         self.notes = notes
         self.domain_context = domain_context
         # approach_view(rid, session) -> {"class_name", "domain", "methodology"} | None: shown above the make
-        # form so the teacher sees what the AI will design for (school_setup.SchoolSetup)
+        # form so the teacher sees what the AI will design for (school_setup.SchoolSetup; tasks#103)
         self.approach_view = approach_view
         # plan_classes(class_code) -> [{"id", "name", "domain_name"}]: the school's classes in a classroom,
-        # for the planner's Make form (school_setup.SchoolSetup.classroom_classes)
+        # for the planner's Make form (school_setup.SchoolSetup.classroom_classes; tasks#103)
         self.plan_classes_hook = None
         self._ctx_session: dict = {}
         self._clock = clock or time.monotonic
@@ -753,7 +753,7 @@ class Materials:
     def _make_svg(self, rid, kind, count, payload, system, never):
         brief = _scrub(mai.clean_brief(self.ai.brief(payload), kind, count, payload["topic"]), never)
         prompts = [msvg.user_prompt(brief["teacher_request"], kind, i + 1, v, mai.DRAFTS,
-                                    approach=payload.get("class_domain"))       # Domains tab ()
+                                    approach=payload.get("class_domain"))       # Domains tab (tasks#103)
                    for i, v in enumerate(brief["variations"])]
         self._blocked(rid, system + "\n" + "\n".join(prompts), never)
         drafts = self._drafts(rid, system, prompts, brief["variations"], never)

@@ -1,5 +1,5 @@
 /**
- * Incident numbering: incidents are numbered in order
+ * Incident numbering (David, Oct 7 2026; tasks#85): incidents are numbered in order
  * within each recording, earliest first, and shown as "Incident 1 · 0:03". The review
  * screen, the approved-notes PDF and the incident print view all number them the same
  * way (server: review_api/incident_print.py incident_numbers / clock).
@@ -31,7 +31,7 @@ export function incidentLabel(number, seconds) {
   return `Incident ${number} \u00b7 ${clock(seconds)}`;
 }
 
-/** Incident names: "Incident 1: Left seat and refused redirection", or plain
+/** Incident names (David, Oct 8): "Incident 1: Left seat and refused redirection", or plain
  * "Incident 1" when there is no usable name. At most 80 characters (server: incident_names.py). */
 export const MAX_INCIDENT_NAME = 80;
 export function incidentTitle(number, name) {

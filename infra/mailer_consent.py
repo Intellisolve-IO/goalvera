@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-time approval for classroom-materials email (): the sender mailbox signs in once.
+"""One-time approval for classroom-materials email (tasks#99): the sender mailbox signs in once.
 
 The review service sends classroom materials with the Gmail API as ONE mailbox, which approves
 exactly one Gmail scope, https://www.googleapis.com/auth/gmail.send (send only, no reading),

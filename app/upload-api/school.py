@@ -1,12 +1,12 @@
-"""School name for the recorder's top banner.
+"""School name for the recorder's top banner (David, Oct 14 2026).
 
   POST /v1/device/school   Authorization: Bearer <device token>   {"device_id": "..."}
-       -> {"school_name": "Sample Elementary School", "profile": "sample-school", "is_default": bool}
+       -> {"school_name": "Everyday Heroes Academy", "profile": "everyday-heroes", "is_default": bool}
 
 Reuses the review site's admin setting (Settings tab -> School name), stored by
 app/backend-pipeline/review_api/branding.py as create-only records under branding/: the newest
 record of the active SCHOOL_PROFILE wins, else that profile's built-in name. Records written
-before profiles existed belong to the legacy school (same rule as branding.py). Only the name is read
+before profiles existed belong to Demo School (same rule as branding.py). Only the name is read
 here; logos stay in the review app. Cached per instance for CACHE_SECONDS.
 Needs upload-api read + list on branding/ (infra/setup_media.sh: upload-read-branding).
 """
@@ -23,15 +23,25 @@ from safelog import log
 
 PREFIX = "branding/"
 # Keep in sync with review_api/branding.py PROFILES (names only).
-PROFILE_NAMES = {"sample-school": "Sample Elementary School", "legacy-school": "Legacy School"}
-DEFAULT_PROFILE = "sample-school"
-LEGACY_PROFILE = "legacy-school"
+PROFILE_NAMES = {"everyday-heroes": "Everyday Heroes Academy", "demo-school": "Demo School"}
+DEFAULT_PROFILE = "everyday-heroes"
+LEGACY_PROFILE = "demo-school"
+# Keep in sync with review_api/branding.py STORED_PROFILE_ALIASES.
+STORED_PROFILE_ALIASES = {"atlanta-prep": "demo-school"}
+
+
+def canonical_profile(value: str | None) -> str:
+    if not value:
+        return LEGACY_PROFILE
+    return STORED_PROFILE_ALIASES.get(value, value)
+
+
 CACHE_SECONDS = int(os.environ.get("SCHOOL_CACHE_SECONDS", "60"))
 MAX_NAME = 80
 
 
 def active_profile() -> str:
-    p = os.environ.get("SCHOOL_PROFILE") or DEFAULT_PROFILE
+    p = canonical_profile(os.environ.get("SCHOOL_PROFILE") or DEFAULT_PROFILE)
     return p if p in PROFILE_NAMES else DEFAULT_PROFILE
 
 
@@ -51,7 +61,7 @@ def make_blueprint(bucket, auth, err) -> Blueprint:
                 r = json.loads(bucket.blob(n).download_as_bytes())
             except Exception:  # noqa: BLE001 - skip an unreadable record
                 continue
-            if isinstance(r, dict) and (r.get("profile") or LEGACY_PROFILE) == prof:
+            if isinstance(r, dict) and canonical_profile(r.get("profile")) == prof:
                 name = r.get("school_name")
                 break
         name = (str(name).strip()[:MAX_NAME] if name else "") or default

@@ -1,4 +1,4 @@
-"""Who may do what on the hosted review screen.
+"""Who may do what on the hosted review screen (David, Oct 2; DPA rev g).
 
   * Every approved role (admin, teacher, RBT) reads every classroom and session.
   * Edit / approve / export / classroom change: the session's teacher, the
@@ -21,7 +21,7 @@ from review_api.notes import ApiError
 
 READING_RID = "rec_laptop_demo_20260929_090000_Reading_3A"
 ART_RID = "rec_laptop_demo_20260929_100000_Art_9Z"
-LOOSE_RID = "rec_laptop_demo_20260929_110000_Gym"
+LOOSE_RID = "rec_laptop_demo_20260929_110000_Hall"
 ART_TEACHER = "art-teacher@example.org"
 SPEECH_TEACHER = "speech-teacher@example.org"
 RBT_EMAIL = "demo-rbt@example.org"
@@ -45,7 +45,7 @@ def world(store):
            class_code="Reading 3A", needs_class_assignment=False)
     _clone(store, ART_RID, teacher_id="usr_art", teacher_name="Jordan Rivera",
            class_code="Art 9Z", needs_class_assignment=False)
-    _clone(store, LOOSE_RID, teacher_id=None, teacher_name=None, class_code="Gym",
+    _clone(store, LOOSE_RID, teacher_id=None, teacher_name=None, class_code="Hall",
            needs_class_assignment=True)
     r = store.read_json("config/demo_roster.json")
     r["class_codes"]["Art 9Z"] = {"teacher_id": "usr_art", "teacher_name": "Jordan Rivera", "iep_goals": []}
@@ -116,7 +116,7 @@ def test_only_own_teachers_or_admin_may_act(world, authn):
 # ---------------------------------------------------------------- parent emails
 
 def test_per_session_parent_email_is_hidden_from_everyone_but_kept_in_storage(world, authn):
-    """ the draft parent email is off the session screen and PDF for everyone (it belongs
+    """David, Oct 8: the draft parent email is off the session screen and PDF for everyone (it belongs
     to the weekly student summary). Drafts already generated stay in storage, hidden."""
     notes = Notes(world)
 

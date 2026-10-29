@@ -1,0 +1,6 @@
+TweetNaCl (tweetnacl.c and tweetnacl.h)
+Public domain. Daniel J. Bernstein.
+https://tweetnacl.cr.yp.to/20140427/tweetnacl.c
+
+Copied unmodified. The recorder uses it only to verify Ed25519 signatures on
+OTA manifests. The device does not sign, and the private key is not here.

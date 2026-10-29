@@ -1,4 +1,4 @@
-// Admin journal + activity report (): who sees the buttons, and that the
+// Admin journal + activity report (tasks#77): who sees the buttons, and that the
 // CSV is fetched with the signed-in user's token from the right URL.
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -26,7 +26,7 @@ const me = (role, extra = {}) => ({ email: `${role}@example.org`, email_verified
 const journalTab = () => renderToStaticMarkup(
   <AdminJournal inline initial={{ loading: false, entries: [], more: false, error: null }} load={async () => ({ entries: [], more: false })} />);
 
-describe('Download report lives in the Activity Log tab (Oct 10)', () => {
+describe('Download report lives in the Activity Log tab (Oct 10; tasks#107)', () => {
   test('the activity report button is on the Activity Log page, not at the top right', () => {
     const html = journalTab();
     expect(html).toContain('data-testid="open-report"');

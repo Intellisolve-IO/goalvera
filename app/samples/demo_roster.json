@@ -2,10 +2,10 @@
   "_meta": {
     "synthetic": true,
     "label": "Fictional sample data",
-    "school_name": "Sample Elementary School",
-    "school_profile": "sample-school",
+    "school_name": "Everyday Heroes Academy",
+    "school_profile": "everyday-heroes",
     "source": "app/samples/sis-demo (built by app/tools/build_demo_roster.py; do not edit by hand)",
-    "note": "DEMO ONLY - fictional sample school. Every person here is invented. Classrooms are the homerooms; recorder class codes match a classroom or one of its aliases (common/classcodes.py). Old legacy-school demo codes are aliases of Room 104. The the legacy school roster is kept in app/samples/legacy_demo_roster.json."
+    "note": "DEMO ONLY - fictional sample school. Every person here is invented. Classrooms are the homerooms; recorder class codes match a classroom or one of its aliases (common/classcodes.py). Older demo codes are aliases of Room 104. The placeholder roster is kept in app/samples/profiles/demo-school/demo_roster.json."
   },
   "class_codes": {
     "Room 101": {
@@ -40,7 +40,7 @@
     },
     "Room 104": {
       "teacher_id": "stf_0001",
-      "teacher_name": "Snow White",
+      "teacher_name": "Alex Morgan",
       "grades": "02, 03, 04, 05",
       "aliases": [
         "RM104",
@@ -48,8 +48,8 @@
         "Reading 3A",
         "Math 2B",
         "Circle Time",
-        "Room 210",
-        "Gym"
+        "Room B",
+        "Hall"
       ],
       "iep_goals": [],
       "label": "Fictional sample data"
@@ -97,11 +97,11 @@
   },
   "teachers": {
     "stf_0001": {
-      "teacher_name": "Snow White",
+      "teacher_name": "Alex Morgan",
       "title": "Lead Special Education Teacher",
       "role": "teacher",
       "device_labels": [
-        "Snow White",
+        "Alex Morgan",
         "Demo Teacher",
         "J. Rivera",
         "S. Okonkwo"
@@ -418,7 +418,7 @@
         ],
         "iep_start_date": "2026-08-21",
         "iep_review_date": "2027-08-19",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "behavior_plan": "Behavior plan targets: Leaving assigned area",
         "esy": "Extended school year: no"
@@ -497,7 +497,7 @@
         ],
         "iep_start_date": "2026-08-28",
         "iep_review_date": "2027-08-26",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },
@@ -571,7 +571,7 @@
         ],
         "iep_start_date": "2026-09-04",
         "iep_review_date": "2027-09-02",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },
@@ -648,7 +648,7 @@
         ],
         "iep_start_date": "2026-09-11",
         "iep_review_date": "2027-09-09",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },
@@ -726,7 +726,7 @@
         ],
         "iep_start_date": "2026-08-26",
         "iep_review_date": "2027-08-24",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },
@@ -810,7 +810,7 @@
         ],
         "iep_start_date": "2026-09-16",
         "iep_review_date": "2027-09-14",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "behavior_plan": "Behavior plan targets: Verbal outburst",
         "esy": "Extended school year: yes"
@@ -888,7 +888,7 @@
         ],
         "iep_start_date": "2026-09-18",
         "iep_review_date": "2027-09-16",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },
@@ -2812,7 +2812,7 @@
         ],
         "iep_start_date": "2026-05-27",
         "iep_review_date": "2027-05-25",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },
@@ -2904,7 +2904,7 @@
         ],
         "iep_start_date": "2026-01-08",
         "iep_review_date": "2027-01-06",
-        "case_manager": "Snow White",
+        "case_manager": "Alex Morgan",
         "placement": "Separate school, full day",
         "esy": "Extended school year: no"
       },

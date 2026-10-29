@@ -1,4 +1,4 @@
-"""Short roster names are masked before every AI call too ( follow-up, ).
+"""Short roster names are masked before every AI call too (tasks#104 follow-up, David, Oct 10 2026).
 
 "Li" in "Shang Li" (and any 1-2 letter name token) is masked as a capitalized whole word, case-
 sensitively, so ordinary words ("li" in "split", "Lila", "a", "I") are not over-masked. Longer names

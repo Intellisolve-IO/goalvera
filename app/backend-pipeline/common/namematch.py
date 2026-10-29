@@ -1,4 +1,4 @@
-"""How a roster name token is matched in text before any AI call ( follow-up, Oct 10 2026).
+"""How a roster name token is matched in text before any AI call (tasks#104 follow-up, Oct 10 2026).
 
 Every roster name token is masked, whatever its length ("Li" in "Shang Li", "Jo", "Al"):
   * 3+ characters: whole word, any case ("Marcus", "MARCUS", "marcus").

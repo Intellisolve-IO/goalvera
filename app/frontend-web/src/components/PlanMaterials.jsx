@@ -6,7 +6,7 @@ import {
 } from '../materials.js';
 
 /**
- * Worksheets and other printable materials attached to one week's lesson plan.
+ * Worksheets and other printable materials attached to one week's lesson plan (David, Oct 10; tasks#99).
  * "Create worksheet" uses the same Make flow as a session's Teacher Notes (same renderers, admin
  * instructions, name masking, journal and email-to-teacher); the result is stored with the lesson plan.
  * Materials made from a session can be added here too (session Materials card: "Add to lesson plan").

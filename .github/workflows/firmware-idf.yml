@@ -48,6 +48,11 @@ jobs:
           cc -Wall -Imain test/host/test_meter.c -lm -o /tmp/tm && /tmp/tm
           cc -Wall -Imain test/host/test_upload.c main/upload_name.c main/crc32c.c -o /tmp/tu && /tmp/tu
           cc -Wall -Imain test/host/test_wifi_list.c -o /tmp/tw && /tmp/tw
+          cc -Wall -Wextra -Werror -Imain test/host/test_pilot_guard.c main/pilot_guard.c -o /tmp/tpg && /tmp/tpg
+          cc -c -O2 -Imain -Wno-sign-compare -Wno-unused-function main/tweetnacl.c -o /tmp/tweetnacl.o
+          cc -Wall -Wextra -Werror -Imain test/host/test_ota_policy.c main/ota_policy.c main/ota_sign.c /tmp/tweetnacl.o -o /tmp/to && /tmp/to
+          python3 -m pip install -q cryptography
+          python3 tools/test_publish_ota.py
 
   rec-crypt:
     name: SD encryption (C encoder -> Python decrypter)

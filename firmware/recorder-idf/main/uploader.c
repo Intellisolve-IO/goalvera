@@ -306,6 +306,15 @@ static int api_post(const char *path, const char *body)
     return api_post_to(path, body, s_resp, RESP_CAP);
 }
 
+int uploader_api_post(const char *path, const char *json)
+{
+    char resp[384];
+    if (!s || !s_token[0] || !path || !json) {
+        return -1;
+    }
+    return api_post_to(path, json, resp, (int)sizeof resp);
+}
+
 static int api_post_to(const char *path, const char *body, char *resp, int cap)
 {
     char url[192];
@@ -1010,7 +1019,7 @@ bool uploader_idle(void)
     return !atomic_load(&s_in_job);
 }
 
-/* ------------------------------------------------------------ Teacher Notes QR (0.7.2,) */
+/* ------------------------------------------------------------ Teacher Notes QR (0.7.2, tasks#112) */
 
 int uploader_media_token(const char *local_wav, const char *class_code, char *url, size_t url_cap,
                          int *ttl_s, char *err, size_t err_cap)

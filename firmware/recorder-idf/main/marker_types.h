@@ -5,7 +5,7 @@
 
 /*
  * Marker types: one big one-tap button each on the recording screen
- * (0.6.8,). Edit this one table to rename or add types (e.g.
+ * (0.6.8, tasks#94). Edit this one table to rename or add types (e.g.
  * "Incident" -> "Behavior Event"). Fixed list only; no free-text entry.
  *
  * label: the button text the teacher sees.

@@ -1,13 +1,13 @@
 #pragma once
 /*
- * On-screen "Mic level" scaling ().
+ * On-screen "Mic level" scaling (tasks#20).
  *
  * The UI lights (level * METER_BARS / 100) bars. Up to 0.6.2 the level was
  * the block peak as a straight percentage of full scale, so one bar of 22
  * was 4.5% = -27 dBFS and everything quieter showed the 1-bar minimum.
  * That suited the CrowPanel (PDM mic with an x8 software gain, hot signal)
  * but not the Hosyond's ES8311: there normal speech at 1 ft peaks around
- * -30 dBFS (measured on real classroom recordings), so the meter sat
+ * -30 dBFS (measured on David's 2026-10-07 recordings), so the meter sat
  * at 1 bar while the audio was fine.
  *
  * meter_db_level() maps the block peak in dBFS linearly onto 0..100

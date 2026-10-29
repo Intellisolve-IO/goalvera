@@ -1,4 +1,4 @@
-// Classes + Domains tabs: the Domains table shows the document's four
+// Classes + Domains tabs (David, Oct 10 2026; tasks#103): the Domains table shows the document's four
 // columns (methodology name bold, then its description); only admins get Add / Edit; the Classes table
 // shows teachers, domain, students and the schedule; the class editor handles several meeting times;
 // the session class picker marks the suggestion; materials show the class's teaching approach.
@@ -21,7 +21,7 @@ const DOMAINS = {
 };
 const CLASS = {
   id: 'cls-rm104-rdg', name: 'Room 104 Reading', classroom: 'Room 104', teacher_ids: ['stf_0001', 'stf_0010'],
-  teachers: [{ id: 'stf_0001', name: 'Snow White' }, { id: 'stf_0010', name: 'Flynn Rider' }],
+  teachers: [{ id: 'stf_0001', name: 'Alex Morgan' }, { id: 'stf_0010', name: 'Flynn Rider' }],
   domain_id: 'dom-reading-phonics', domain_name: 'Reading & Phonics', domain_methodology: 'Orton-Gillingham (OG) Approach',
   student_ids: ['stu_0001'], students: [{ student_id: 'stu_0001', name: 'Doc D.' }],
   schedule: [{ days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], start: '08:20', minutes: 90 }, { days: ['Sat'], start: '09:00', minutes: 30 }],
@@ -30,7 +30,7 @@ const CLASS = {
 const LOOKUPS = {
   classrooms: ['Room 101', 'Room 104'], own_classrooms: ['Room 104'], default_classroom: 'Room 104',
   domains: [{ id: 'dom-reading-phonics', name: 'Reading & Phonics', methodology: 'Orton-Gillingham (OG) Approach' }],
-  staff: [{ id: 'stf_0001', name: 'Snow White', role: 'Lead Special Education Teacher' }, { id: 'stf_0010', name: 'Flynn Rider', role: 'RBT' }],
+  staff: [{ id: 'stf_0001', name: 'Alex Morgan', role: 'Lead Special Education Teacher' }, { id: 'stf_0010', name: 'Flynn Rider', role: 'RBT' }],
   students: [{ student_id: 'stu_0001', name: 'Doc D.', classrooms: ['Room 104'] }, { student_id: 'stu_0101', name: 'Ava B.', classrooms: ['Room 101'] }],
 };
 
@@ -64,7 +64,7 @@ describe('Classes tab', () => {
   test('table: teachers, domain + methodology, students, every meeting time', () => {
     const h = renderToStaticMarkup(<ClassTable rows={[CLASS]} onEdit={() => {}} />);
     expect(text(h)).toContain('Class Classroom Teacher(s) Domain Students Schedule');
-    expect(text(h)).toContain('Snow White, Flynn Rider');
+    expect(text(h)).toContain('Alex Morgan, Flynn Rider');
     expect(text(h)).toContain('Reading & Phonics Orton-Gillingham (OG) Approach');
     expect(text(h)).toContain('Doc D.');
     expect(text(h)).toContain('Mon–Fri 8:20 AM, 90 min; Sat 9:00 AM, 30 min');

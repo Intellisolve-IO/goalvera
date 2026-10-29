@@ -1,4 +1,4 @@
-// Incident numbering + one incident's print view.
+// Incident numbering + one incident's print view (David, Oct 7 2026; tasks#85).
 // The server decides who may print and what may be printed (review_api/incident_print.py,
 // tests/test_incident_print.py); these prove the screen numbers incidents the same way,
 // only offers Download PDF where the server would allow it, and prints nothing beyond
@@ -20,7 +20,7 @@ const analysis = {
   general_session_summary: 'Calm session.',
 };
 const base = {
-  recording_id: 'rec_a1b2c3d4e5f6_20261007_132337_Math_2B',
+  recording_id: 'rec_14c19fd1a744_20261007_132337_Math_2B',
   source: 'pipeline',
   status: 'approved',
   approved_at: '2026-10-07T17:30:00+00:00',
@@ -102,7 +102,7 @@ describe('print view (IE8–IE10)', () => {
     const html = renderToStaticMarkup(<IncidentReport report={report} />);
     const t = text(html);
     expect(html).toContain('data-testid="incident-print-title">Incident 1 · 0:03<');
-    for (const s of ['Goalvera', 'Sample Elementary School', 'Marcus A.', 'Math 2B', 'Sarah Jenkins', 'Covered his ears.',
+    for (const s of ['Goalvera', 'Everyday Heroes Academy', 'Marcus A.', 'Math 2B', 'Sarah Jenkins', 'Covered his ears.',
       'Antecedent', 'Behavior', 'Consequence / intervention']) expect(t).toContain(s);
     expect(html).toMatch(/data-testid="incident-print-footer">Confidential, contains student information</);
   });
@@ -144,7 +144,7 @@ describe('print view (IE8–IE10)', () => {
   });
 });
 
-// Incident names + Eastern clock time
+// Incident names + Eastern clock time (David, Oct 8 2026; tasks#85)
 describe('names and clock time', () => {
   test('title: "Incident N: name", or plain "Incident N"', () => {
     expect(incidentTitle(1, 'Left seat and refused redirection')).toBe('Incident 1: Left seat and refused redirection');

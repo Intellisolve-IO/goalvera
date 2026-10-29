@@ -32,7 +32,7 @@ export const RECORDINGS_NOTE = 'Below are the most recent recordings, sorted by 
   + 'students and process any incidents. Once students are assigned, the session details can be used in the weekly '
   + 'class planner for sending parent summary emails, assessing IEP performance and managing lesson plans.';
 
-// One line under each tab's title.
+// One line under each tab's title (David, Oct 8: the same header on every tab).
 export const TAB_NOTES = {
   recordings: RECORDINGS_NOTE,
   students: 'Every student in the school. Open a student for their IEP, the week’s daily session summaries, '
@@ -53,7 +53,7 @@ export default function App({ user = null, onSignOut = null }) {
   const days = getDays();
   // Built-in sample sessions (fictional Marcus A., Sophia L.): browser-only fixtures, never sent
   // to the server, so never in reports or the Journal. Laptop demo only: the hosted site (signed in)
-  // shows the school's own roster and recordings (Sample Elementary School, Oct 10).
+  // shows the school's own roster and recordings (Everyday Heroes Academy, Oct 10).
   const samples = useMemo(() => getSessions().map((s) => ({
     ...s, is_sample: true,
     timestamp_start: s.timestamp_start || (days.find((d) => d.key === s.day_key) || {}).date || '',
@@ -142,7 +142,7 @@ export default function App({ user = null, onSignOut = null }) {
   }, [logoKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const readOnlyUser = !!(user && user.read_only);
-  // Every classroom dropdown opens on the signed-in teacher's default classroom;
+  // Every classroom dropdown opens on the signed-in teacher's default classroom (David, Oct 8);
   // admins (and the laptop demo) open on All. Everyone can pick any classroom or All.
   const defaultClasses = user && user.default_classroom ? [user.default_classroom] : [];
   const [profileOpen, setProfileOpen] = useState(false);
@@ -163,7 +163,7 @@ export default function App({ user = null, onSignOut = null }) {
 
   return (
     <div className="app">
-      {/* Site header: the same box on every tab. Fixed heights, nothing per-tab in
+      {/* Site header: the same box on every tab (David, Oct 8). Fixed heights, nothing per-tab in
           it, tabs on one line, admin actions at the right end of the tab row. Per-tab title, note
           and filters live in the content area below. */}
       <header className="site-header" data-testid="site-header">
@@ -172,7 +172,7 @@ export default function App({ user = null, onSignOut = null }) {
           {user ? (
             <div className="site-user" data-testid="signed-in-as">
               <span className="label">Signed in{roleLabel}</span>
-              {/* the name opens My profile */}
+              {/* the name opens My profile (David, Oct 10; tasks#107) */}
               <button type="button" className="site-user-name" data-testid="open-profile" title={`My profile (${user.email})`}
                 onClick={() => setProfileOpen(true)}>
                 <strong>{(myName !== null ? myName : user.display_name) || user.email}</strong>

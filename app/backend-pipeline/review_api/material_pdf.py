@@ -1,4 +1,4 @@
-"""Printable classroom materials (): cleaned SVG drafts -> a letter-size PDF.
+"""Printable classroom materials (tasks#99): cleaned SVG drafts -> a letter-size PDF.
 
 Each draft is one page: the SVG (already checked and cleaned by material_svg.sanitize, school header
 set by our code) is rendered server-side to a PNG at print resolution and placed on the page, with the

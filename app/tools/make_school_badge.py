@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Draw the Sample Elementary School badge (Oct 10 2026): a plain shield with a star and "SE".
+"""Draw the Everyday Heroes Academy badge (Oct 10 2026): a plain shield with a star and "EH".
 Original artwork made here from basic shapes; no character or studio imagery.
 
-    python3 app/tools/make_school_badge.py   # writes app/backend-pipeline/review_api/assets/sample-school-badge.png
+    python3 app/tools/make_school_badge.py   # writes app/backend-pipeline/review_api/assets/everyday-heroes-badge.png
 """
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-OUT = Path(__file__).resolve().parents[1] / "backend-pipeline/review_api/assets/sample-school-badge.png"
+OUT = Path(__file__).resolve().parents[1] / "backend-pipeline/review_api/assets/everyday-heroes-badge.png"
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 NAVY, GOLD, WHITE = (27, 58, 107, 255), (242, 182, 50, 255), (255, 255, 255, 255)
 
@@ -41,9 +41,9 @@ def main():
              cy - (ro if i % 2 == 0 else ri) * math.cos(i * math.pi / 5)) for i in range(10)]
     d.polygon(star, fill=GOLD)
     f = ImageFont.truetype(FONT, 70 * s)
-    box = d.textbbox((0, 0), "SE", font=f)
+    box = d.textbbox((0, 0), "EH", font=f)
     tw, th = box[2] - box[0], box[3] - box[1]
-    d.text(((W - tw) / 2 - box[0], 128 * s - box[1]), "SE", font=f, fill=WHITE)
+    d.text(((W - tw) / 2 - box[0], 128 * s - box[1]), "EH", font=f, fill=WHITE)
     im = im.resize((256, 256), Image.LANCZOS)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     im.save(OUT, format="PNG", optimize=True)

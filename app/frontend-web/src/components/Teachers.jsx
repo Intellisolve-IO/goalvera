@@ -5,7 +5,7 @@ import { profileError } from '../schoolSetup.js';
 const ROLE_NAMES = { admin: 'Admin', teacher: 'Teacher', rbt: 'RBT (read-only)', none: 'No access' };
 
 /**
- * Admins: change a person's app role and sign-in email. The email is
+ * Admins (David, Oct 10 2026; tasks#107): change a person's app role and sign-in email. The email is
  * the sign-in key: the server moves the sign-in list entry with it in one change, and journals which
  * fields changed (never the addresses).
  */
@@ -33,10 +33,10 @@ export function AccessEditor({ row, onSave, onCancel, saving = false, error = nu
   );
 }
 
-// Teachers tab: every staff member from the class list (teachers, RBTs,
+// Teachers tab (David, Oct 8 2026; tasks#85): every staff member from the class list (teachers, RBTs,
 // BCBA, therapists, office), with their classrooms and the role from their own staff record; RBTs show
-// their supervising BCBA (). Emails, sign-in and app role: admins only; admins change role /
-// sign-in email here (). Everyone edits their own profile from their name (My profile).
+// their supervising BCBA (tasks#104). Emails, sign-in and app role: admins only; admins change role /
+// sign-in email here (tasks#107). Everyone edits their own profile from their name (My profile).
 export function TeacherTable({ data, editing = null, onEdit = null, editor = null }) {
   const rows = data?.teachers || [];
   const emails = !!data?.emails_shown;

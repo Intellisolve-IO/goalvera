@@ -9,7 +9,7 @@ import {
 } from '../materials.js';
 
 /**
- * Teacher Notes and classroom materials. When a Teacher Note asks
+ * Teacher Notes and classroom materials (David, Oct 10 2026; tasks#99). When a Teacher Note asks
  * for printable materials, the server suggests up to 3 actions; the teacher picks one, checks the
  * details, and clicks Make it. Nothing is made or emailed before that. The server enforces who
  * may do what (teacher of the session or admin; RBTs read only) and masks names before the AI.
@@ -120,7 +120,7 @@ export default function MaterialsPanel({
         </p>
       )}
       {view.can_make && view.teaching_approach ? (
-        // the class's domain + methodology go into the AI prompt (Domains tab)
+        // the class's domain + methodology go into the AI prompt (Domains tab; tasks#103)
         <p className="hint" data-testid="teaching-approach">
           Designed for <strong>{view.teaching_approach.domain}</strong> ({view.teaching_approach.class_name}):{' '}
           {view.teaching_approach.methodology}

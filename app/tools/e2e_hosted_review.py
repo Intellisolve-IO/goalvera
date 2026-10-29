@@ -12,9 +12,9 @@ synthetic RM12 session.
   API response, no edit/approve/export/move control, direct writes refused (403),
   no Activity Log / Settings tabs, no Download report button and 403 on the admin endpoints
   then a demo admin: tabs Recordings, Students, Lesson planner, Teachers, Activity Log,
-  Settings (); opens a student's IEP on the Students tab -> the Activity Log
+  Settings (tasks#85); opens a student's IEP on the Students tab -> the Activity Log
   tab shows the Journal (newest first, ET) with that "viewed IEP" entry; Settings has
-  Reset demo state; the activity report CSV download (); the journal runs in
+  Reset demo state; the activity report CSV download (tasks#77); the journal runs in
   memory (JOURNAL_MODE=memory)
 
   python app/tools/e2e_hosted_review.py --shots /workspace/ap-shots/hosted
@@ -42,7 +42,7 @@ sys.path.insert(0, str(APP / "tools"))
 sys.path.insert(0, str(APP / "backend-pipeline"))
 from seed_local_session import RID, seed  # noqa: E402
 
-PROJECT = "demo-goalvera-review"          # "demo-" = emulator never talks to a real project
+PROJECT = "demo-atlanta-review"          # "demo-" = emulator never talks to a real project
 EMU = "127.0.0.1:9099"
 PORT = 8788
 BASE = f"http://127.0.0.1:{PORT}"
@@ -54,11 +54,11 @@ REAL_ROWS = ".pipeline-table tbody tr[data-testid=recording-row]:not(.sample-row
 
 
 def group(cls):
-    """Recordings are grouped by classroom (): the group under that classroom's heading."""
+    """Recordings are grouped by classroom (tasks#85): the group under that classroom's heading."""
     return f".classroom-group:has(h3:text-is('{cls}'))"
 
 
-TAB_ORDER = ["Recordings", "Students", "Classes", "Lesson planner", "Domains", "Teachers", "Activity Log", "Settings"]  #
+TAB_ORDER = ["Recordings", "Students", "Classes", "Lesson planner", "Domains", "Teachers", "Activity Log", "Settings"]  # tasks#103
 READING_RID = "rec_laptop_demo_20260929_090000_Reading_3A"
 results = []
 
@@ -127,7 +127,7 @@ def main() -> int:
     work = Path(tempfile.mkdtemp(prefix="e2e-hosted-"))
     store_dir = work / "bucket"
     seed(str(store_dir))
-    roster = json.loads((APP / "samples/legacy_demo_roster.json").read_text())
+    roster = json.loads((APP / "samples/profiles/demo-school/demo_roster.json").read_text())
     roster["teachers"]["usr_demo_sarah"]["emails"] = [EMAIL]      # this user plays the session's teacher
     roster["rbts"]["rbt_demo_rm12"]["emails"] = [RBT_EMAIL]
     # a second classroom, so "every classroom" means something
@@ -141,7 +141,7 @@ def main() -> int:
         (store_dir / f"{kind}/{READING_RID}.json").write_text(json.dumps(doc))
     (store_dir / "config").mkdir(exist_ok=True)
     (store_dir / "config/demo_roster.json").write_text(json.dumps(roster))
-    shutil.copy(ROOT / "infra/review_allowlist.example.json", store_dir / "config/review_allowlist.json")
+    shutil.copy(ROOT / "infra/review_allowlist.json", store_dir / "config/review_allowlist.json")
     (work / "firebase.json").write_text(json.dumps({"emulators": {"auth": {"port": 9099, "host": "127.0.0.1"},
                                                                  "ui": {"enabled": False}}}))
     fb = os.environ.get("FIREBASE_BIN", "/workspace/tools/fbtools/node_modules/.bin/firebase")
@@ -224,7 +224,7 @@ def main() -> int:
 
             page.click(f"{group('RM12')} button:has-text('Review')")
             page.wait_for_selector(".turns li")
-            # Header (): recorded date/time (school time) · classroom; student · length · status below.
+            # Header (tasks#73): recorded date/time (school time) · classroom; student · length · status below.
             head = page.inner_text(".modal-head")
             check("review header: title is 'Sep 28, 2026 · 4:45 PM · RM12'",
                   page.inner_text("[data-testid=session-title]").strip() == "Sep 28, 2026 · 4:45 PM · RM12")
@@ -238,7 +238,7 @@ def main() -> int:
                   "voices separated" not in page.inner_text(".modal").lower())
             page.evaluate("document.querySelector('.modal').scrollTop = 0")
             page.screenshot(path=str(shots / "06_review_before_approve.png"))
-            # Oct 8: no separate markers section, markers in the timeline, "+ Add marker" just
+            # Oct 8 (David): no separate markers section, markers in the timeline, "+ Add marker" just
             # below it; incidents as tabs with the time read-only at the top; Approve / Save Draft
             page.wait_for_selector(".speaker-timeline .tl-marker")
             check("review: no separate markers section; markers shown in the timeline",
@@ -316,7 +316,7 @@ def main() -> int:
             for cls in ("RM12", "Reading 3A"):
                 page.click(f"{group(cls)} button:has-text('Review')")
                 page.wait_for_selector(".turns li")
-                # Timeline blocks / markers are buttons too, but they only scroll the transcript ().
+                # Timeline blocks / markers are buttons too, but they only scroll the transcript (tasks#82).
                 check(f"RBT {cls}: header title is 'Sep 28, 2026 · 4:45 PM · {cls}'",
                       page.inner_text("[data-testid=session-title]").strip() == f"Sep 28, 2026 · 4:45 PM · {cls}")
                 labels = [b.strip() for b in page.locator(".modal button:not(.speaker-timeline button)").all_inner_texts()]
@@ -360,7 +360,7 @@ def main() -> int:
             page.click("[data-testid=signed-in-as] button:has-text('Sign out')")
             page.wait_for_selector("[data-testid=signin-form]")
 
-            # ---------------------------------------------------------- demo admin: journal + report ()
+            # ---------------------------------------------------------- demo admin: journal + report (tasks#77)
             adm = admin_creates_account(ADMIN_EMAIL, ADMIN_PASSWORD)
             verify_email(ctx, ADMIN_EMAIL, adm["idToken"])
             subprocess.run([sys.executable, str(ROOT / "infra/review_allowlist.py"), "add", ADMIN_EMAIL, "--admin",

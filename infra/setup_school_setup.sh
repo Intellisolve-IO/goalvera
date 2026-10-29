@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Domains + Classes tabs - one-time cloud setup for the review service.
+# Domains + Classes tabs (David, Oct 10 2026; tasks#103) - one-time cloud setup for the review service.
 # Idempotent; safe to re-run. review-web may read, list and create-only under school_setup/ in the
 # bucket (same pattern as school_setup/ and materials/: never overwrite or delete; every admin change is a
 # new record and the newest wins). Without it the tabs show the seed from app/samples/school-setup

@@ -728,7 +728,7 @@ static void mark_hide(void)
     lv_obj_add_flag(ui.mark, LV_OBJ_FLAG_HIDDEN);
 }
 
-static void qr_open(void);   /* ui_qr.inc: Teacher Notes QR (0.7.2,) */
+static void qr_open(void);   /* ui_qr.inc: Teacher Notes QR (0.7.2, tasks#112) */
 
 /* Store marker i at the captured tap time and say so: activity line plus a
  * toast ("Incident marked at 1:02 PM"; Bug keeps its own toast). */

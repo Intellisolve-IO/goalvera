@@ -1,5 +1,5 @@
 """Recorder banner school name (POST /v1/device/school): device auth, newest record of the
-active profile, legacy records = the legacy school, default when unset or storage fails."""
+active profile, legacy records = Demo School, default when unset or storage fails."""
 from __future__ import annotations
 
 import json
@@ -37,23 +37,24 @@ def test_needs_device_auth(bucket_with_list):
 def test_default_when_never_set(bucket_with_list):
     c, _, _ = bucket_with_list
     j = ask(c).get_json()
-    assert j == {"school_name": "Sample Elementary School", "profile": "sample-school", "is_default": True}
+    assert j == {"school_name": "Everyday Heroes Academy", "profile": "everyday-heroes", "is_default": True}
 
 
 def test_newest_record_of_active_profile_wins(bucket_with_list):
     c, store, _ = bucket_with_list
-    rec(store, "20261010T000000Z_a", profile="sample-school", school_name="Old Name")
-    rec(store, "20261012T000000Z_b", profile="sample-school", school_name="  Maplewood Learning Academy ")
-    rec(store, "20261013T000000Z_c", school_name="Legacy AP Name")   # no profile: the legacy school's
+    rec(store, "20261010T000000Z_a", profile="everyday-heroes", school_name="Old Name")
+    rec(store, "20261012T000000Z_b", profile="everyday-heroes", school_name="  Peachtree Learning Academy ")
+    rec(store, "20261013T000000Z_c", school_name="Legacy Campus")   # no profile: Demo School's
     j = ask(c).get_json()
-    assert j["school_name"] == "Maplewood Learning Academy" and j["is_default"] is False
+    assert j["school_name"] == "Peachtree Learning Academy" and j["is_default"] is False
 
 
-def test_legacy_records_belong_to_legacy_profile(bucket_with_list, monkeypatch):
+def test_legacy_records_belong_to_demo_school(bucket_with_list, monkeypatch):
     c, store, _ = bucket_with_list
-    monkeypatch.setenv("SCHOOL_PROFILE", "legacy-school")
-    rec(store, "20261013T000000Z_c", school_name="Legacy School Academy")
-    assert ask(c).get_json()["school_name"] == "Legacy School Academy"
+    monkeypatch.setenv("SCHOOL_PROFILE", "atlanta-prep")  # id stored before the Goalvera rename
+    rec(store, "20261013T000000Z_c", school_name="North Campus")
+    j = ask(c).get_json()
+    assert j["school_name"] == "North Campus" and j["profile"] == "demo-school"
 
 
 def test_storage_failure_falls_back_to_default(bucket_with_list):
@@ -62,4 +63,4 @@ def test_storage_failure_falls_back_to_default(bucket_with_list):
         raise RuntimeError("x")
     b.list_blobs = boom
     r = ask(c)
-    assert r.status_code == 200 and r.get_json()["school_name"] == "Sample Elementary School"
+    assert r.status_code == 200 and r.get_json()["school_name"] == "Everyday Heroes Academy"

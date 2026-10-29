@@ -1,4 +1,4 @@
-// Students in this session (): the class roster is offered ticked, marked "not confirmed",
+// Students in this session (tasks#106): the class roster is offered ticked, marked "not confirmed",
 // and one click (Confirm N students) saves it; saved sessions list the students; RBTs see no controls.
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';

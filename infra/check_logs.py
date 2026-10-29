@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Check that a test run left no names or transcript text in Cloud Logging
-( step 4). Searches every log entry from the demo project's Cloud Run
+(tasks#35 step 4). Searches every log entry from the demo project's Cloud Run
 services, Eventarc and Speech/Vertex audit logs in the time window for:
   * every name in the demo roster / samples (student, teacher)
   * distinctive phrases from the synthetic script and from saved transcripts

@@ -1,4 +1,4 @@
-"""Speaker selector from the roster + RBTs as staff records.
+"""Speaker selector from the roster + RBTs as staff records (David, Oct 10 2026; tasks#104).
 
 Choices: the session's class first (its teachers / RBTs and students), else the classroom's, then
 everyone else, then generic options; first name + last initial only; nothing stored. RBTs are staff
@@ -67,7 +67,7 @@ def test_one_staff_directory_with_the_role_from_each_record():
     assert len(d) == 23 and len({p["id"] for p in d}) == 23
     flynn = next(p for p in d if p["id"] == FLYNN)
     assert flynn["role"] == "rbt" and flynn["class_codes"] == ["Room 104"] and flynn["supervisor_name"] == "Mary Poppins"
-    assert flynn["short_name"] == "Flynn R." and short_name("Snow White") == "Snow W." and short_name("Cher") == "Cher"
+    assert flynn["short_name"] == "Flynn R." and short_name("Alex Morgan") == "Alex M." and short_name("Cher") == "Cher"
     assert sum(p["role"] == "rbt" for p in d) == 5 and sum(p["role"] == "teacher" for p in d) == 8
 
 
@@ -111,7 +111,7 @@ def test_class_first_when_the_recording_matches_a_class(tmp_path):
     c = sp.choices(RID, SNOW_T)
     assert c["basis"] == {"kind": "class", "name": "Room 104 Reading"}
     labels = [p["label"] for p in c["in_class"]]
-    assert labels[:3] == ["Snow W.", "Flynn R.", "Doc D."]                # teacher, RBT, the session's student
+    assert labels[:3] == ["Alex M.", "Flynn R.", "Doc D."]                # teacher, RBT, the session's student
     assert "Sneezy D." in labels and len(labels) == 12
     assert c["in_class"][2]["session_student"] is True and c["in_class"][2]["id"] == DOC
     assert c["generic"] == GENERIC and "Unknown speaker" in GENERIC

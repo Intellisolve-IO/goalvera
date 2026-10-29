@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Classroom materials from Teacher Notes () - one-time cloud setup for the review service.
+# Classroom materials from Teacher Notes (tasks#99) - one-time cloud setup for the review service.
 # Idempotent; safe to re-run. Stays inside $PROJECT_ID; creates no project, no key, no OAuth client.
 #
 #   * bucket: review-web may read, list and create-only under materials/ (made materials, suggestions,
@@ -99,6 +99,6 @@ cat <<TXT
   1. Cloud console > Google Auth Platform ($PROJECT_ID): Branding, Audience = Internal, Data access:
      scope https://www.googleapis.com/auth/gmail.send; Clients > Create client > Desktop app.
      Download the client JSON.
-  2. python3 infra/mailer_consent.py --client-json <file>   (sign in as
+  2. In David's 1:1 chat: python3 infra/mailer_consent.py --client-json <file>   (sign in as
      $MAILER_SENDER_MAILBOX, approve "Send email on your behalf"). The script stores both secrets.
 TXT

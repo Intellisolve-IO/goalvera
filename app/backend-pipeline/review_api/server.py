@@ -1,4 +1,4 @@
-"""Review service for the teacher review screen ().
+"""Review service for the teacher review screen (tasks#35).
 
 Two ways to run it:
 
@@ -16,20 +16,20 @@ Writes these records, all in the same bucket. The first two are on the same
   approvals/<id>.json   who approved, when, and the approved (edited) notes
   audit/<id>/*.json     one record per approval and per PDF download
   incident_names/<id>/<key>.json  AI incident names, one per incident content (create-only; incident_names.py)
-  bug_reports/...       teachers' Bug markers (): the scrubbed report, then .filed.json once
+  bug_reports/...       teachers' Bug markers (tasks#94): the scrubbed report, then .filed.json once
                         it is a GitHub issue. Create-only, kept to pilot end. See review_api/bug_reports.py.
-  people/state-N.json   My profile + admins' role / email changes (): one create-only record per
+  people/state-N.json   My profile + admins' role / email changes (tasks#107): one create-only record per
                         change with the whole state (highest number wins). See review_api/people.py.
-  school_setup/...      Domains + Classes (): one create-only record per change with the whole
+  school_setup/...      Domains + Classes (tasks#103): one create-only record per change with the whole
                         list (newest wins; seed files in the image). See review_api/school_setup.py.
-  planner/...           weekly lesson planner (): plans, per-student weekly
+  planner/...           weekly lesson planner (tasks#83): plans, per-student weekly
                         summaries and teacher notes, one create-only object per save.
                         Kept to pilot end (no auto-delete), removed with
                         infra/delete_planner.py. See review_api/planner.py.
 
 The approved-notes PDF is rendered in memory on each download and streamed to
 the browser. It is never stored. The only email the app sends is a classroom material a
-teacher asked for, to that teacher's own staff address (materials.py / mailer.py,).
+teacher asked for, to that teacher's own staff address (materials.py / mailer.py, tasks#99).
 
   python server.py --auth off                      # laptop demo, bucket via ADC
   python server.py --auth off --local-dir /tmp/ap  # offline, local folder
@@ -43,7 +43,7 @@ Endpoints
   GET  /api/sessions
   GET  /api/sessions/<id>/transcript
   GET  /api/sessions/<id>/audit
-  GET  /api/sessions/<id>/media/<media_id>  Teacher Notes photo / video bytes (; same access as the session)
+  GET  /api/sessions/<id>/media/<media_id>  Teacher Notes photo / video bytes (tasks#112; same access as the session)
   POST /api/sessions/<id>/approve     {"analysis": {...}}   -> approval record
   POST /api/sessions/<id>/classroom   {"class_code": "..."} -> session (move logged in audit)
   GET  /api/sessions/<id>/pdf                               -> application/pdf (attachment)
@@ -53,8 +53,8 @@ Endpoints
                                view; review_api/incident_names.py) and returns {"incidents": [...]}
   POST /api/sessions/<id>/bug_report  {"type": "Bug", "note", "offset_seconds", "area"} -> a teacher's
                                Bug marker: filed as a GitHub issue in your-org/your-issues-repo, or saved as
-                               pending until the token exists (bug_reports.py,)
-  GET  /api/planner?class_code=RM12&past=YYYY-MM-DD   weekly lesson planner: past / this / next week ()
+                               pending until the token exists (bug_reports.py, tasks#94)
+  GET  /api/planner?class_code=RM12&past=YYYY-MM-DD   weekly lesson planner: past / this / next week (tasks#83)
   POST /api/planner/plan       {"class_code","week","goals":[],"objectives":[],"plan","approve"}
   POST /api/planner/summary    {"student_id","week","summary","iep_check":[{goal_id,status,note}],"approve"}
   POST /api/planner/note       {"student_id","week","note"}
@@ -64,7 +64,7 @@ Endpoints
                                PLANNER_AI=offline (local stand-in) | live (Gemini) | off; see planner_ai.py
   GET  /api/sessions/<id>/materials   Teacher Notes with up to 3 suggested materials each (AI, names
                                masked; made once per session for a teacher who may act on it), the
-                               materials made for the session, and where the email would go ()
+                               materials made for the session, and where the email would go (tasks#99)
   POST /api/sessions/<id>/materials   {"note_index","type","count","topic","student_ids","due",
                                "regenerate_of"} -> makes one printable material; emails it to the
                                teacher's own staff address when the admin setting is on (materials.py)
@@ -84,7 +84,7 @@ Endpoints
                                (journaled: settings_changed, setting=materials_instruction)
   GET  /api/admin/materials_email     admin only: email delivery for materials on/off (+ sender state)
   POST /api/admin/materials_email     admin only: {"enabled": true|false} (journaled: settings_changed)
-  GET  /api/domains                   Subject / Domain list (educational methodology); everyone signed in ()
+  GET  /api/domains                   Subject / Domain list (educational methodology); everyone signed in (tasks#103)
   POST /api/domains                   admin: {"version", "domain": {name, methodology, methodology_detail, programs, book}}
   POST /api/domains/<id>              admin: edit (same body);  POST /api/domains/<id>/delete  {"version"}
   GET  /api/classes                   every class + lookups (domains, staff, students, classrooms); everyone signed in
@@ -94,16 +94,16 @@ Endpoints
                                every save names the version it was edited from (409 STALE_VERSION); journaled
   GET  /api/sessions/<id>/class       the session's class (picked, else suggested from its classroom + start time)
   GET  /api/sessions/<id>/speakers    speaker selector: the class's people first, then everyone (first name +
-                                      last initial), then generic options; read-only, nothing stored ()
+                                      last initial), then generic options; read-only, nothing stored (tasks#104)
   POST /api/sessions/<id>/class       {"class_id": "..."|null}: session teacher or admin; audit trail + journal
   GET  /api/students                  every roster student (all roles; list opens on own classrooms)
   GET  /api/students/<id>?week=Mon     IEP + one school week of daily summaries + weekly summary /
                                draft parent email (journaled: iep_viewed, every time); review_api/students.py
-  GET  /api/sessions/<id>/students    students in this session (class roster suggested)
+  GET  /api/sessions/<id>/students    students in this session (class roster suggested; tasks#106)
   POST /api/sessions/<id>/students    {"student_ids": [...]}: session teacher or admin; audit trail + journal
-  GET  /api/uploads/status            recordings still processing (upload landed, no notes yet)
+  GET  /api/uploads/status            recordings still processing (upload landed, no notes yet; tasks#106)
   GET  /api/students/<id>/parent_email?week=Mon   weekly parent email preview: recipients (guardians with
-                                      "receives reports" on), excluded contacts, exact text ()
+                                      "receives reports" on), excluded contacts, exact text (tasks#106)
   POST /api/students/<id>/parent_email/send       {"week", "preview_sha256"}: one teacher click sends it
   GET  /api/admin/parent_email        admin only: demo redirect (parent emails go to the teacher instead)
   POST /api/admin/parent_email        admin only: {"redirect": true|false} (journaled: settings_changed)
@@ -116,14 +116,14 @@ Endpoints
                                PNG server-side and discarded, PNG/JPEG re-encoded (review_api/branding.py)
   POST /api/admin/branding/logo/remove  admin only: back to the badge
   POST /api/admin/branding/reset      admin only: default name + badge (Reset demo state)
-  GET  /api/admin/journal?from=&to=&actor=&action=&student=&limit=   admin only ()
+  GET  /api/admin/journal?from=&to=&actor=&action=&student=&limit=   admin only (tasks#77)
   GET  /api/admin/reports/activity.csv?by=person|student&from=&to=   admin only, download (logged)
 
 Admin activity journal (review_api/journal.py): sign-ins, every list / session /
 audit view (an RBT's view is refused if it can't be journaled), approvals, edits,
 exports, classroom changes, refused attempts, journal views and report downloads.
 
-Read-only RBTs: every POST is refused with 403 READ_ONLY_ROLE before routing (except their own My profile,),
+Read-only RBTs: every POST is refused with 403 READ_ONLY_ROLE before routing (except their own My profile, tasks#107),
 and the PDF export is refused too (notes.py). Parent emails are removed from
 every response for anyone who is not that student's teacher or an admin.
 """
@@ -174,7 +174,7 @@ GOOGLE_SCRIPT_ORIGIN = "https://apis.google.com"   # the Firebase SDK's popup he
 
 
 def _csp(extra_connect: str = "", *, google_auth_domain: str | None = None) -> str:
-    """google_auth_domain: Sign in with Google is on (). The popup needs Google's helper script
+    """google_auth_domain: Sign in with Google is on (tasks#108). The popup needs Google's helper script
     and the project's auth handler frame (https://<authDomain>); nothing else is loosened."""
     script = f"'self' {GOOGLE_SCRIPT_ORIGIN}" if google_auth_domain else "'self'"
     frame = f"frame-src https://{google_auth_domain}; " if google_auth_domain else ""
@@ -200,8 +200,8 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
     session_students = SessionStudents(notes, setup)
     uploads = UploadsStatus(notes)
     parent_email = ParentEmail(notes, planner, sender=getattr(mats, "sender", None))
-    profiles = People(notes)                # My profile + admins' role / email changes ()
-    if getattr(mats, "domain_context", None) is None:    # materials get the class's domain + methodology ()
+    profiles = People(notes)                # My profile + admins' role / email changes (tasks#107)
+    if getattr(mats, "domain_context", None) is None:    # materials get the class's domain + methodology (tasks#103)
         mats.domain_context = setup.domain_context
     if getattr(mats, "approach_view", None) is None:
         mats.approach_view = setup.approach_view
@@ -358,7 +358,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                 return self._send(200, me)
             actor = self._actor() if auth is not None else None   # hosted: every data call checked here
             if path == "/api/profile/me":
-                # My profile (): everyone signed in, RBTs too (their own profile, no student data)
+                # My profile (tasks#107): everyone signed in, RBTs too (their own profile, no student data)
                 if auth is None:
                     raise ApiError(404, "NOT_FOUND")
                 if method == "GET":
@@ -370,7 +370,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                 return self._branding(method, path, actor if auth is not None else self.headers.get("X-Reviewer-Id"))
             if method == "GET" and path == "/api/health":
                 return self._send(200, {"ok": True, "store": store_label})
-            if method == "GET" and path == "/api/uploads/status":   # processing rows (); polled
+            if method == "GET" and path == "/api/uploads/status":   # processing rows (tasks#106); polled
                 return self._send(200, uploads.view())
             if method == "GET" and path == "/api/sessions":
                 rows = notes.list_sessions(actor)
@@ -399,7 +399,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                     raise ApiError(500, "REPORT_BLOCKED") from exc
                 digest = hashlib.sha256(data).hexdigest()
                 period = {"period_from": q.period_from.isoformat(), "period_to": q.period_to.isoformat()}
-                # logged like a PDF download: journal first (required), then the bucket
+                # logged like a PDF download (Ops, tasks#108): journal first (required), then the bucket
                 # audit record; if either can't be written, the file isn't sent
                 rec.record(actor, "report_downloaded", record_id=f"activity_by_{by}", required=True,
                            report=f"activity_by_{by}", group_by=by, row_count=len(body), report_sha256=digest,
@@ -410,7 +410,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                 return self._send(200, data, ctype="text/csv; charset=utf-8",
                                   headers={"Content-Disposition": f'attachment; filename="{fname}"'})
             pe = re.match(r"^/api/students/([^/]+)/parent_email(/send)?$", path)
-            if pe:                              # weekly parent email (): preview, then one click sends
+            if pe:                              # weekly parent email (tasks#106): preview, then one click sends
                 who = actor if auth is not None else self.headers.get("X-Reviewer-Id")
                 if method == "GET" and not pe.group(2):
                     return self._send(200, parent_email.preview(who, pe.group(1), self._params().get("week")))
@@ -434,7 +434,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                 sid = path[len("/api/students/"):]
                 return self._send(200, students.detail(who, sid, self._params().get("week")))
             if method == "POST" and path == "/api/admin/people/access":
-                # Teachers tab (): an admin changes a person's app role / sign-in email
+                # Teachers tab (tasks#107): an admin changes a person's app role / sign-in email
                 if auth is None:
                     raise ApiError(404, "NOT_FOUND")
                 body = self._json_body()
@@ -453,12 +453,12 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                 return self._school_setup(method, path, actor if auth is not None
                                           else self.headers.get("X-Reviewer-Id"))
             sp = re.match(r"^/api/sessions/([^/]+)/speakers$", path)
-            if sp and method == "GET":         # speaker selector choices (); nothing is stored
+            if sp and method == "GET":         # speaker selector choices (tasks#104); nothing is stored
                 rid = check_rid(sp.group(1))
                 return self._send(200, speakers.choices(rid, actor if auth is not None
                                                         else self.headers.get("X-Reviewer-Id")))
             ss = re.match(r"^/api/sessions/([^/]+)/students$", path)
-            if ss and method in ("GET", "POST"):   # students in this session ()
+            if ss and method in ("GET", "POST"):   # students in this session (tasks#106)
                 rid = check_rid(ss.group(1))
                 who = actor if auth is not None else self.headers.get("X-Reviewer-Id")
                 if method == "GET":
@@ -491,7 +491,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                     return self._send(200, mats.attach(rid, mid, who, self._json_body()))
                 raise ApiError(405, "METHOD_NOT_ALLOWED")
             pm = re.match(r"^/api/planner/materials(?:/([^/]+)/(pdf|resend|continue|remove))?$", path)
-            if pm:                                       # lesson plan materials (): materials.py
+            if pm:                                       # lesson plan materials (tasks#99): materials.py
                 who = actor if auth is not None else self.headers.get("X-Reviewer-Id")
                 mid, what = pm.group(1), pm.group(2)
                 if what is None and method == "GET":
@@ -511,7 +511,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
                 return self._planner(method, path, actor if auth is not None
                                      else self.headers.get("X-Reviewer-Id"))
             md = re.match(r"^/api/sessions/([^/]+)/media/(m[0-9a-f]{12})$", path)
-            if md and method == "GET":   # Teacher Notes photo / video (): whoever may see the session
+            if md and method == "GET":   # Teacher Notes photo / video (tasks#112): whoever may see the session
                 rid = check_rid(md.group(1))
                 if auth is not None and not may_see(actor, notes.context(rid)):
                     raise ApiError(404, "NOT_FOUND")
@@ -571,7 +571,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
             raise ApiError(405, "METHOD_NOT_ALLOWED")
 
         def _school_setup(self, method: str, path: str, actor):
-            """Domains + Classes (): review_api/school_setup.py. Reading: everyone signed in.
+            """Domains + Classes (tasks#103): review_api/school_setup.py. Reading: everyone signed in.
             Writing: admins (domains; add / remove classes), a teacher on their own class (edit)."""
             if method == "GET" and path == "/api/domains":
                 return self._send(200, setup.domains_view(actor))
@@ -593,7 +593,7 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
             return self._send(200, (setup.remove_class if delete else setup.edit_class)(actor, rid, body))
 
         def _planner(self, method: str, path: str, actor):
-            """Weekly lesson planner (): review_api/planner.py."""
+            """Weekly lesson planner (tasks#83): review_api/planner.py."""
             if method == "GET" and path == "/api/planner":
                 p = self._params()
                 return self._send(200, planner.view(actor, p.get("class_code"), p.get("past")))
@@ -699,7 +699,7 @@ def main() -> int:
         if a.auth == "emulator" and not emu:
             raise SystemExit("--auth emulator needs FIREBASE_AUTH_EMULATOR_HOST")
         from review_api.auth import sign_in_providers
-        providers = sign_in_providers()       # IDP_PROVIDERS: "password" or "password,google.com" ()
+        providers = sign_in_providers()       # IDP_PROVIDERS: "password" or "password,google.com" (tasks#108)
         kw = {"auth": build_auth(store, a.auth, PROJECT, providers), "static_dir": a.static,
               "origins": {o.strip() for o in os.environ.get("REVIEW_ALLOWED_ORIGINS", "").split(",") if o.strip()},
               "auth_config": {
@@ -709,7 +709,7 @@ def main() -> int:
                   "providers": list(providers),       # the server refuses any other provider's token
                   "emulator": f"http://{emu}" if emu else None}}
     srv = build_server(store, a.port, label, host=a.host, **kw)
-    # Bug markers saved while the GitHub token was missing: file them now if it's there ()
+    # Bug markers saved while the GitHub token was missing: file them now if it's there (tasks#94)
     import threading
     threading.Thread(target=srv.RequestHandlerClass.notes.bugs.file_pending, daemon=True).start()
     print(f"review service on http://{a.host}:{a.port}  ({label}; auth={a.auth}; PDFs rendered on demand, never stored)",

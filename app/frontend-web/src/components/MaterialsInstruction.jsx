@@ -10,7 +10,7 @@ const RENDERER_HINT = {
     + '{subject} is replaced by what the card shows.',
 };
 
-/** The instruction the AI follows for each activity type (). Admins edit them (Settings) and
+/** The instruction the AI follows for each activity type (tasks#99). Admins edit them (Settings) and
  * can reset each to its default; teachers see them read-only. The server decides who may edit
  * (can_edit) and logs every change (who / when / which type). `only` shows a single type. */
 export default function MaterialsInstruction({ initial = null, reviewerId = null, only = null,

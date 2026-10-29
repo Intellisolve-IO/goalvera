@@ -1,4 +1,4 @@
-"""My profile + admins' role / email changes.
+"""My profile + admins' role / email changes (David, Oct 10 2026; tasks#107).
 
 Everyone signed in (teacher, RBT, admin) edits their own display name, preferred name, phone, default
 classroom (only one of theirs), title and credential type; role and email are read-only unless the one
@@ -117,8 +117,8 @@ def test_rbt_edits_own_profile_default_within_own_classrooms(env, authn):
 def test_admin_not_in_roster_gets_an_account_id_and_a_default_classroom(env, authn):
     a = who(authn, ADMIN)
     assert env.people.me(a)["person_id"] is None and env.notes.default_classroom(a) is None
-    out = env.people.save_me(a, {"display_name": "Alex H", "default_classroom": "Art 9Z"})
-    assert out["person_id"].startswith("acct_") and out["display_name"] == "Alex H"
+    out = env.people.save_me(a, {"display_name": "David H", "default_classroom": "Art 9Z"})
+    assert out["person_id"].startswith("acct_") and out["display_name"] == "David H"
     assert env.notes.default_classroom(a) == "Art 9Z"
     (j,) = rows(env, "profile_updated")
     assert j["record_id"] == out["person_id"] and "@" not in json.dumps(j)
@@ -148,7 +148,7 @@ def test_admin_changes_teacher_email_moves_allowlist_and_roster_in_one_record(en
     assert authn.roster.teacher_ids_for("sarah.new@example.org") == {"usr_demo_sarah"}
     assert authn.roster.teacher_ids_for(TEACHER_EMAIL) == frozenset()
     (j,) = rows(env, "access_changed")
-    # Ops (): an email change logs both addresses and the (unchanged) old / new role
+    # Ops (tasks#108): an email change logs both addresses and the (unchanged) old / new role
     assert j["details"] == {"fields": "email", "app_role": "teacher", "old_role": "teacher", "new_role": "teacher",
                             "account_email": TEACHER_EMAIL, "old_email": TEACHER_EMAIL,
                             "new_email": "sarah.new@example.org"}
@@ -234,7 +234,7 @@ def test_only_admins_change_access(env, authn):
 
 def test_the_last_admin_stays(env, authn):
     a = who(authn, ADMIN)
-    out = env.people.save_me(a, {"display_name": "Alex"})
+    out = env.people.save_me(a, {"display_name": "David"})
     with pytest.raises(ApiError) as e:
         env.people.change_access(a, out["person_id"], {"role": "teacher"})
     assert e.value.code == "LAST_ADMIN"
@@ -272,11 +272,11 @@ def test_two_saves_at_once_both_land(env, authn):
     stale = dict(other.get())
     env.store.write_json("people/state-00000002.json", {**stale, "version": 2,
                          "profiles": {**stale["profiles"], "usr_demo_sarah": {"phone": "404 555 0102"}}}, create_only=True)
-    env.people.save_me(a, {"display_name": "Alex"})
+    env.people.save_me(a, {"display_name": "David"})
     assert env.store.list("people/")[-1] == "people/state-00000003.json"
     st = env.store.read_json("people/state-00000003.json")
     assert st["profiles"]["usr_demo_sarah"]["phone"] == "404 555 0102"       # the other save kept
-    assert any(p.get("display_name") == "Alex" for p in st["profiles"].values())
+    assert any(p.get("display_name") == "David" for p in st["profiles"].values())
 
 
 def test_records_are_never_overwritten(tmp_path):
