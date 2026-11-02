@@ -5,7 +5,7 @@ made only from `main`; the deployed commit is shown on the review site's Setting
 
 ## 2026-11-02
 
-- **iPhone web recorder** (David, Nov 2): a Record page in the review site for teachers and admins (RBTs stay read-only). Safari records AAC in about 60-second pieces, holds them in IndexedDB only until the server confirms each one, then deletes them. Uploads are HTTPS only (no encryption on the phone). A lock, app switch, or call pauses the same session and marks the gap. The upload service adds `/v1/web/uploads` and `/v1/web/confirm`. ffmpeg joins the pieces into a 16 kHz mono 16-bit WAV under `rec/web-<user>/`, and the existing transcript path runs. The Hosyond 3.5" board stays the only supported recorder hardware. The demo shows a sample lesson and a reminder not to record real students. Setup is `infra/setup_web_recorder.sh`; nothing here is deployed. Test plan: `docs/iphone-web-recorder.md`.
+- **iPhone web recorder** (David, Nov 2; PR #3): a Record page in the review site for teachers and admins (RBTs stay read-only). Safari records AAC in about 60-second pieces, holds them in IndexedDB only until the server confirms each one, then deletes them. Uploads are HTTPS only (no encryption on the phone). A lock, app switch, or call pauses the same session and marks the gap. The upload service adds `/v1/web/uploads` and `/v1/web/confirm`. ffmpeg joins the pieces into a 16 kHz mono 16-bit WAV under `rec/web-<user>/`, and the existing transcript path runs. The Hosyond 3.5" board stays the only supported recorder hardware. The demo shows a sample lesson and a reminder not to record real students. Setup is `infra/setup_web_recorder.sh`; nothing here is deployed. Test plan: `docs/iphone-web-recorder.md`.
 
 ## 2026-10-29
 
