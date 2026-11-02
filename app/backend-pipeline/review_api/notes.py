@@ -347,6 +347,10 @@ class Notes:
                     side = _read_sidecar(self.store, src[:-4] + ".json")
                 markers = markers_from_sidecar(side, s.get("duration_seconds"))
             s["markers"] = markers
+        if "recording_gaps" not in s:
+            if t is None:
+                t = self.store.read_json(f"transcripts/{rid}.json") or {}
+            s["recording_gaps"] = (t or {}).get("recording_gaps") or []
         return s
 
     def _remap_legacy(self, s: dict) -> None:
@@ -468,6 +472,10 @@ class Notes:
             "prompt_version": d.get("prompt_version"),
             "device_id": s.get("device_id"),
             "class_code": s.get("class_code"),
+            # Phone recordings: "Recording paused 2:14 for 40 s" (empty for a board recording).
+            "recording_gaps": [g for g in (s.get("recording_gaps") or [])
+                               if isinstance(g, dict) and isinstance(g.get("offset_seconds"), (int, float))
+                               and isinstance(g.get("duration_seconds"), (int, float))],
             "created_at": d.get("created_at"),
             # Teacher Notes photos / videos (tasks#112): from the draft (an approval doesn't carry them);
             # shown in review only, never in the parent email

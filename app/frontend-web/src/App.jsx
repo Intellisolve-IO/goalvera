@@ -26,6 +26,8 @@ import AdminJournal from './components/AdminJournal.jsx';
 import SchoolBrand from './components/SchoolBrand.jsx';
 import { isAdminUser } from './adminApi.js';
 import { DEFAULT_BRANDING, loadBranding, loadLogoUrl, resetBranding } from './branding.js';
+import RecordPage from './components/RecordPage.jsx';
+import { canRecord } from './webRecorder.js';
 import { TABS, hashFor, parseHash, tabsFor } from './routes.js';
 
 export const RECORDINGS_NOTE = 'Below are the most recent recordings, sorted by classroom. Open a recording to assign '
@@ -34,6 +36,8 @@ export const RECORDINGS_NOTE = 'Below are the most recent recordings, sorted by 
 
 // One line under each tab's title (David, Oct 8: the same header on every tab).
 export const TAB_NOTES = {
+  record: 'Record a session on this phone. It is a page in the browser, not a second recorder board. '
+    + 'The Hosyond 3.5" board is still the only supported recorder hardware.',
   recordings: RECORDINGS_NOTE,
   students: 'Every student in the school. Open a student for their IEP, the week’s daily session summaries, '
     + 'and the weekly summary and draft parent report.',
@@ -73,7 +77,7 @@ export default function App({ user = null, onSignOut = null }) {
 
   const [activeId, setActiveId] = useState(null);
   const admin = isAdminUser(user);
-  const tabs = tabsFor(admin);
+  const tabs = tabsFor(admin, { canRecord: canRecord(user) });
   const [route, setRoute] = useState(() => parseHash(typeof window !== 'undefined' ? window.location.hash : ''));
   useEffect(() => {
     const onHash = () => setRoute(parseHash(window.location.hash));
@@ -209,6 +213,7 @@ export default function App({ user = null, onSignOut = null }) {
         <p className="page-note" data-testid={tab === 'recordings' ? 'recordings-note' : 'page-note'}>{TAB_NOTES[tab]}</p>
       </div>
 
+      {tab === 'record' ? <RecordPage user={user} /> : null}
       {tab === 'recordings' ? (
         <PipelineSessions
           sessions={pipeline}

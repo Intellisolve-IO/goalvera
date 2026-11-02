@@ -12,6 +12,7 @@ import MediaPanel from './MediaPanel.jsx';
 import SessionClass from './SessionClass.jsx';
 import SessionStudents from './SessionStudents.jsx';
 import { bugItemText, sessionMarkers } from '../bugMarkers.js';
+import RecordingPauses from './RecordingPauses.jsx';
 
 export default function SessionModal({
   session,
@@ -283,6 +284,7 @@ export default function SessionModal({
             <MediaPanel recordingId={session.recording_id} media={session.media}
               reviewerId={reviewer ? reviewer.teacher_id : null} />
           )}
+          <RecordingPauses gaps={session.recording_gaps} />
           {session.source === 'pipeline' && (
             <section>
               <h3>Transcript</h3>

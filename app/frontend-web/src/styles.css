@@ -777,3 +777,19 @@ table.guardians tr.excluded td { color: #7a828c; }
 .access-edit { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
 .access-edit input { width: 14rem; }
 @media (max-width: 640px) { .profile-grid { grid-template-columns: 1fr; } }
+
+/* Phone Record page. Big controls, safe area, a level meter. */
+.record-page { display: grid; gap: 0.75rem; max-width: 36rem; padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+.record-page .record-keep { background: var(--accent-soft); border-color: #b7e0d2; color: #0c4a3a; }
+.record-script { background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.8rem 1rem; }
+.record-script pre { white-space: pre-wrap; font-family: inherit; margin: 0.4rem 0 0; }
+.record-class select, .record-class input { font: inherit; padding: 0.55rem 0.6rem; border: 1px solid var(--line); border-radius: 10px; background: white; color: var(--ink); }
+.record-meter { height: 0.55rem; background: #e7e1d6; border-radius: 999px; overflow: hidden; }
+.record-meter span { display: block; height: 100%; background: var(--accent); width: 0; }
+.record-timer { font-variant-numeric: tabular-nums; font-size: 2.4rem; font-weight: 700; letter-spacing: -0.03em; }
+.record-status { min-height: 1.4em; }
+.record-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.record-go, .record-stop { min-width: 8rem; min-height: 3rem; font-size: 1.05rem; }
+.record-stop { background: var(--flag); color: white; }
+.record-gaps { margin: 0; padding-left: 1.1rem; }
+.recording-pauses ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }

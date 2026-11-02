@@ -27,6 +27,8 @@ jobs:
             app/review-web/requirements.txt
       - name: Install
         run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
           pip install -r app/backend-pipeline/requirements-pipeline.txt \
                       -r app/review-web/requirements.txt \

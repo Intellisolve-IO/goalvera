@@ -13,6 +13,7 @@
 #       (a rewritten transcript/draft, e.g. roster backfill, keeps its first creation
 #        time as customTime, so rewriting never extends retention)
 #       work/         temporary chunks/locks -> 1 day
+#       web/          phone recording pieces -> 1 day (also deleted after conversion)
 #       parent_email/ parent email send log  -> $PARENT_EMAIL_RETENTION_DAYS days (365; tasks#108)
 #   * config/ holds the demo roster (fictional); control/ holds device-token hashes
 #   * three minimal service accounts (upload-api, pipeline, pipeline-trigger)
@@ -60,6 +61,7 @@ cat >"$LIFECYCLE" <<JSON
   {"action": {"type": "Delete"}, "condition": {"age": ${DERIVED_RETENTION_DAYS}, "matchesPrefix": ["transcripts/", "drafts/", "approvals/", "audit/", "materials/"]}},
   {"action": {"type": "Delete"}, "condition": {"daysSinceCustomTime": ${DERIVED_RETENTION_DAYS}, "matchesPrefix": ["transcripts/", "drafts/", "approvals/", "audit/"]}},
   {"action": {"type": "Delete"}, "condition": {"age": 1, "matchesPrefix": ["work/"]}},
+  {"action": {"type": "Delete"}, "condition": {"age": 1, "matchesPrefix": ["web/"]}},
   {"action": {"type": "Delete"}, "condition": {"age": ${PARENT_EMAIL_RETENTION_DAYS}, "matchesPrefix": ["parent_email/"]}}
 ]}
 JSON
