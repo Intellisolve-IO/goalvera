@@ -67,6 +67,9 @@ class Blob:
         self.store["signed"].append((self.name, kw["headers"]))
         return f"https://storage.example/{self.name}?sig"
 
+    def delete(self):
+        self.store["objs"].pop(self.name, None)
+
 
 class Bucket:
     def __init__(self, store):
@@ -90,6 +93,8 @@ def api(monkeypatch):
         {"email": ADMIN, "role": "admin"},
         {"email": REVIEWER, "role": "reviewer"},
         {"email": RBT, "role": "rbt"},
+        {"email": "coach@example.org", "role": "coach"},
+        {"email": "norole@example.org"},
     ]}).encode()}
     storage = types.ModuleType("google.cloud.storage")
     storage.Client = lambda *a, **k: types.SimpleNamespace(bucket=lambda name: Bucket(store))
@@ -147,13 +152,40 @@ def test_teacher_gets_a_create_only_url_under_web_and_rbt_does_not(api, capsys):
     assert out["headers"]["x-goog-if-generation-match"] == "0"
     assert out["headers"]["Content-MD5"] == body["md5"]
     assert store["signed"][0][0] == out["object"]
-    assert c.post("/v1/web/uploads", json=body, headers=hdr(RBT, "RbtUid123456")).status_code == 403
     admin_body = {**body, "session_id": "s" + "cd" * 16}
     assert c.post("/v1/web/uploads", json=admin_body, headers=hdr(ADMIN, "AdminUid12345")).status_code == 200
-    assert c.post("/v1/web/uploads", json=body, headers=hdr(REVIEWER, "ReviewerUid1")).status_code == 403  # teacher already owns SID
+    admin_part = f"web/{admin_body['session_id']}/part_0001.m4a"
+    _put(store, admin_part, b"x" * 12)
+    assert c.post("/v1/web/confirm", json={"session_id": admin_body["session_id"], "object": admin_part,
+                                           "size": 12, "md5": body["md5"]},
+                  headers=hdr(ADMIN, "AdminUid12345")).status_code == 200
     log = capsys.readouterr().out
     assert TEACHER not in log and "@" not in log
     assert "TeacherUID123" not in log
+
+
+def _denied(c, email, uid):
+    body = {"session_id": "s" + "11" * 16, "filename": "part_0001.m4a", "size": 4,
+            "md5": base64.b64encode(hashlib.md5(b"abcd").digest()).decode()}
+    up = c.post("/v1/web/uploads", json=body, headers=hdr(email, uid))
+    conf = c.post("/v1/web/confirm", json={"session_id": body["session_id"], "object": f"web/{body['session_id']}/part_0001.m4a",
+                                           "size": 4, "md5": body["md5"]}, headers=hdr(email, uid))
+    return up, conf
+
+
+def test_only_teacher_and_admin_may_record(api):
+    c, _ = api
+    denied = {
+        "reviewer": (REVIEWER, "ReviewerUid1", "READ_ONLY_ROLE"),
+        "rbt": (RBT, "RbtUid123456", "READ_ONLY_ROLE"),
+        "unknown": ("coach@example.org", "CoachUid12345", "READ_ONLY_ROLE"),
+        "missing-role": ("norole@example.org", "NoRoleUid1234", "READ_ONLY_ROLE"),
+        "not-on-list": ("stranger@example.org", "StrangerUid12", "NOT_APPROVED"),
+    }
+    for name, (email, uid, code) in denied.items():
+        up, conf = _denied(c, email, uid)
+        assert up.status_code == 403 and up.get_json()["error"] == code, name
+        assert conf.status_code == 403 and conf.get_json()["error"] == code, name
 
 
 def test_missing_token_bad_names_and_the_board_path_still_wants_a_device_token(api):
@@ -235,6 +267,62 @@ def test_finalize_writes_the_marker_the_pipeline_watches(api):
     assert marker["wav_object"] == body["object"]
     again = c.post("/v1/web/confirm", json=fin, headers=hdr(TEACHER, "TeacherUID123"))
     assert again.get_json()["recording_id"] == body["recording_id"]
+
+
+def test_discard_deletes_only_that_session(api):
+    c, store = api
+    raw = b"piece"
+    md5 = base64.b64encode(hashlib.md5(raw).digest()).decode()
+    mine, other = "s" + "22" * 16, "s" + "33" * 16
+    c.post("/v1/web/uploads", json={"session_id": mine, "filename": "part_0001.m4a", "size": len(raw), "md5": md5},
+           headers=hdr(TEACHER, "TeacherUID123"))
+    _put(store, f"web/{mine}/part_0001.m4a", raw)
+    store["objs"][f"web/{other}/part_0001.m4a"] = {"data": raw, "size": len(raw)}
+    store["objs"][f"web/{other}/owner.json"] = {"data": json.dumps({"user_id": "AdminUid12345", "device_id": "web-admin"}).encode()}
+    blocked = c.post("/v1/web/confirm", json={"session_id": mine, "discard": True}, headers=hdr(ADMIN, "AdminUid12345"))
+    assert blocked.status_code == 403
+    assert f"web/{mine}/part_0001.m4a" in store["objs"]
+    gone = c.post("/v1/web/confirm", json={"session_id": mine, "discard": True}, headers=hdr(TEACHER, "TeacherUID123"))
+    assert gone.status_code == 200 and gone.get_json()["deleted"] >= 1
+    assert not any(n.startswith(f"web/{mine}/") for n in store["objs"])
+    assert f"web/{other}/part_0001.m4a" in store["objs"]
+    # a reviewer cannot discard, and an empty session does not create objects
+    assert c.post("/v1/web/confirm", json={"session_id": other, "discard": True},
+                  headers=hdr(REVIEWER, "ReviewerUid1")).status_code == 403
+    empty = c.post("/v1/web/confirm", json={"session_id": "s" + "44" * 16, "discard": True},
+                   headers=hdr(TEACHER, "TeacherUID123"))
+    assert empty.status_code == 200 and empty.get_json() == {"discarded": True, "deleted": 0}
+    assert f"web/{'s' + '44' * 16}/owner.json" not in store["objs"]
+
+
+def test_demo_recorder_is_off_unless_this_is_the_demo(monkeypatch):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from review_api.server import demo_recorder
+    monkeypatch.delenv("WEB_DEMO_RECORDER", raising=False)
+    monkeypatch.delenv("SCHOOL_PROFILE", raising=False)
+    assert demo_recorder() is False
+    monkeypatch.setenv("SCHOOL_PROFILE", "everyday-heroes")
+    assert demo_recorder() is True
+    monkeypatch.setenv("SCHOOL_PROFILE", "demo-school")
+    assert demo_recorder() is True
+    monkeypatch.setenv("SCHOOL_PROFILE", "a-real-school")
+    assert demo_recorder() is False
+    monkeypatch.setenv("SCHOOL_PROFILE", "everyday-heroes")
+    monkeypatch.setenv("WEB_DEMO_RECORDER", "off")
+    assert demo_recorder() is False
+    monkeypatch.setenv("WEB_DEMO_RECORDER", "on")
+    monkeypatch.setenv("SCHOOL_PROFILE", "a-real-school")
+    assert demo_recorder() is True
+
+
+def test_setup_script_enforces_private_bucket_and_does_not_let_the_pipeline_write_web():
+    text = (Path(__file__).resolve().parents[3] / "infra" / "setup_web_recorder.sh").read_text()
+    assert "--public-access-prevention" in text
+    assert 'pap" == "enforced"' in text or "pap\" == \"enforced\"" in text or '[[ "$pap" == "enforced" ]]' in text
+    assert "storage.objects.create" not in text.split("webPieceCleanup")[1].split("CLEAN_ROLE")[0]
+    assert 'roles/storage.objectUser' not in text
+    assert "$(obj rec/web-)" in text
+    assert "upload-discard-web" in text and "pipeline-cleanup-web" in text
 
 
 def test_rs256_verifier_agrees_with_the_review_service():

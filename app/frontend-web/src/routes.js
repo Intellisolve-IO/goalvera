@@ -16,7 +16,7 @@ export const TABS = [
 ];
 
 export function tabsFor(admin, opts = {}) {
-  const canRecord = opts.canRecord !== undefined ? opts.canRecord : true;
+  const canRecord = opts.canRecord === true;
   return TABS.filter((t) => (admin || !t.admin) && (canRecord || !t.record));
 }
 

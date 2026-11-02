@@ -242,6 +242,8 @@ def make_blueprint(bucket, signer_args, auth: WebAuthenticator | None = None) ->
         session_id = str(body.get("session_id", ""))
         if not SESSION_RE.match(session_id):
             return _err("BAD_SESSION", 400, step="web_confirm", who=user)
+        if body.get("discard") is True:
+            return _discard(user, session_id)
         try:
             if not claim_owner(session_id, user):
                 return _err("SESSION_OWNED", 403, step="web_confirm", who=user, session_id=session_id)
@@ -268,6 +270,34 @@ def make_blueprint(bucket, signer_args, auth: WebAuthenticator | None = None) ->
             verified=verified, size_bytes=blob.size, object_generation=str(blob.generation))
         return jsonify({"verified": verified, "object": obj, "stored": stored, "checks": checks,
                         "safe_to_delete_local_copy": verified})
+
+    def _discard(user: dict, session_id: str):
+        """Delete this user's pieces under web/<session>/. Does not create an owner record."""
+        prefix = f"web/{session_id}/"
+        owner = read_json(prefix + "owner.json")
+        if owner is None:
+            log("web_discard", step="web_discard", actor_id=user["actor_id"], session_id=session_id,
+                part_count=0, status="empty")
+            return jsonify({"discarded": True, "deleted": 0})
+        if owner.get("user_id") != user["uid"]:
+            return _err("SESSION_OWNED", 403, step="web_discard", who=user, session_id=session_id)
+        try:
+            names = [getattr(b, "name", "") for b in bucket.list_blobs(prefix=prefix)]
+        except Exception:  # noqa: BLE001
+            return _err("DISCARD_FAILED", 503, step="web_discard", who=user, session_id=session_id)
+        deleted = 0
+        for name in names:
+            if not name.startswith(prefix) or name == prefix:
+                continue
+            try:
+                bucket.blob(name).delete()
+                deleted += 1
+            except Exception:  # noqa: BLE001 - the 1-day lifecycle still removes it
+                log("web_discard", "WARNING", step="web_discard", actor_id=user["actor_id"],
+                    session_id=session_id, error_code="DELETE_FAILED")
+        log("web_discard", step="web_discard", actor_id=user["actor_id"], session_id=session_id,
+            part_count=deleted, status="deleted")
+        return jsonify({"discarded": True, "deleted": deleted})
 
     def _finalize(user: dict, session_id: str, body: dict):
         label = body.get("class_label")

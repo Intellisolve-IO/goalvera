@@ -20,11 +20,10 @@ const MD5_S = [
 export const SEGMENT_MS = 60_000;
 export const PREFERRED_MIME = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/aac', 'audio/webm;codecs=opus', 'audio/webm'];
 
-/** Teacher and admin (and the laptop demo, which has no signed-in role). RBT stays read-only. */
+/** Teacher or admin only. Reviewer, RBT, a missing role, and an unknown role are read-only. */
 export function canRecord(user) {
-  if (!user) return true;
-  if (user.read_only || user.role === 'rbt') return false;
-  return user.role === 'admin' || user.role === 'teacher' || user.role === 'reviewer';
+  if (!user || user.read_only) return false;
+  return user.role === 'admin' || user.role === 'teacher';
 }
 
 /** Same filename rule as the Hosyond board: spaces become '-', 16 characters. */

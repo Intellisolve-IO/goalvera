@@ -182,9 +182,23 @@ def upload_public_url() -> str:
     return ""
 
 
+_DEMO_PROFILES = frozenset({"everyday-heroes", "demo-school"})
+
+
 def demo_recorder() -> bool:
-    """The fictional demo profiles keep Record on, with the sample script and the on-screen reminder."""
-    return os.environ.get("SCHOOL_PROFILE", "everyday-heroes") in ("everyday-heroes", "demo-school")
+    """Sample lesson and the "do not record real students" reminder.
+
+    On only for the fictional demo profiles (SCHOOL_PROFILE=everyday-heroes or demo-school).
+    Unset SCHOOL_PROFILE is off, so a deploy that is not the demo does not inherit the demo page.
+    A real school must set SCHOOL_PROFILE to its own id and WEB_DEMO_RECORDER=off.
+    WEB_DEMO_RECORDER=on forces the reminder on; off forces it off even for a demo profile.
+    """
+    flag = os.environ.get("WEB_DEMO_RECORDER", "").strip().lower()
+    if flag in ("0", "off", "false", "no"):
+        return False
+    if flag in ("1", "on", "true", "yes"):
+        return True
+    return os.environ.get("SCHOOL_PROFILE", "").strip() in _DEMO_PROFILES
 
 
 def _csp(extra_connect: str = "", *, google_auth_domain: str | None = None, upload_origin: str | None = None) -> str:

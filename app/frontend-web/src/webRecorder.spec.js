@@ -8,12 +8,16 @@ import { createWakeLock } from './wakeLock.js';
 import { DEMO_RECORD_WARNING, SAMPLE_LESSON_SCRIPT } from './sampleLesson.js';
 
 describe('phone recorder helpers', () => {
-  test('only teachers and admins record; an RBT does not', () => {
-    expect(canRecord(null)).toBe(true);
+  test('only a teacher or an admin may record', () => {
     expect(canRecord({ role: 'teacher' })).toBe(true);
-    expect(canRecord({ role: 'reviewer' })).toBe(true);
     expect(canRecord({ role: 'admin' })).toBe(true);
+    expect(canRecord(null)).toBe(false);
+    expect(canRecord({})).toBe(false);
+    expect(canRecord({ role: 'reviewer' })).toBe(false);
     expect(canRecord({ role: 'rbt', read_only: true })).toBe(false);
+    expect(canRecord({ role: 'rbt' })).toBe(false);
+    expect(canRecord({ role: 'coach' })).toBe(false);
+    expect(canRecord({ role: '' })).toBe(false);
     expect(canRecord({ role: 'teacher', read_only: true })).toBe(false);
   });
 

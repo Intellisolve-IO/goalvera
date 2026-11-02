@@ -35,7 +35,8 @@ SECURETOKEN_CERTS = "https://www.googleapis.com/robot/v1/metadata/x509/securetok
 CLOCK_SKEW = 30
 KNOWN_PROVIDERS = ("password", "google.com")
 ROLES = frozenset({"admin", "teacher", "reviewer", "rbt"})
-RECORD_ROLES = frozenset({"admin", "teacher", "reviewer"})
+# Recording is teacher or admin only. reviewer, rbt, and any other value are read-only.
+RECORD_ROLES = frozenset({"admin", "teacher"})
 _EMAIL = re.compile(r"^[^@\s]{1,64}@[A-Za-z0-9.\-]{1,190}\.[A-Za-z]{2,24}$")
 
 
@@ -210,7 +211,9 @@ class Allowlist:
             e = normalize_email(u.get("email"))
             if e:
                 role = u.get("role")
-                users[e] = role if role in ROLES else "reviewer"
+                # A missing or unknown role stays on the list so the call is refused as
+                # read-only, rather than being treated as a teacher.
+                users[e] = role if role in ROLES else "unknown"
         return _apply_access(users, self._people_state())
 
     def role(self, email: str | None) -> str | None:
@@ -248,6 +251,7 @@ class WebAuthenticator:
         if role is None:
             raise AuthError(403, "NOT_APPROVED")
         if role not in RECORD_ROLES:
+            # reviewer, rbt, missing role, or any role this service does not record for
             raise AuthError(403, "READ_ONLY_ROLE")
         uid = claims["sub"]
         return {"uid": uid, "role": role, "actor_id": actor_ref(uid), "device_id": web_device_id(uid)}

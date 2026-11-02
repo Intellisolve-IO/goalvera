@@ -21,13 +21,17 @@ const tabLabels = (html) => [...html.matchAll(/role="tab"[^>]*>([^<]+)</g)].map(
 describe('tabs and the shared header', () => {
   test('tab order; Activity Log and Settings for admins only, Settings last', () => {
     // Classes next to Students, Domains next to the Lesson planner (Oct 10; tasks#103)
-    expect(tabsFor(true).map((t) => t.label)).toEqual(['Record', 'Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains',
+    const recording = { canRecord: true };
+    expect(tabsFor(true, recording).map((t) => t.label)).toEqual(['Record', 'Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains',
       'Teachers', 'Activity Log', 'Settings']);
-    expect(tabsFor(false).map((t) => t.label)).toEqual(['Record', 'Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains', 'Teachers']);
-    expect(tabsFor(false, { canRecord: false }).map((t) => t.label)).not.toContain('Record');
-    expect(tabLabels(renderToStaticMarkup(<App user={admin} />))).toEqual(tabsFor(true).map((t) => t.label));
-    expect(tabLabels(renderToStaticMarkup(<App user={teacher} />))).toEqual(tabsFor(false).map((t) => t.label));
+    expect(tabsFor(false, recording).map((t) => t.label)).toEqual(['Record', 'Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains', 'Teachers']);
+    expect(tabsFor(true).map((t) => t.label)).not.toContain('Record');
+    expect(tabsFor(false).map((t) => t.label)).not.toContain('Record');
+    expect(tabLabels(renderToStaticMarkup(<App user={admin} />))).toEqual(tabsFor(true, recording).map((t) => t.label));
+    expect(tabLabels(renderToStaticMarkup(<App user={teacher} />))).toEqual(tabsFor(false, recording).map((t) => t.label));
+    expect(tabLabels(renderToStaticMarkup(<App user={{ ...teacher, role: 'reviewer' }} />))).not.toContain('Record');
     expect(tabLabels(renderToStaticMarkup(<App user={{ ...teacher, role: 'rbt', read_only: true }} />))).not.toContain('Settings');
+    expect(tabLabels(renderToStaticMarkup(<App user={{ ...teacher, role: 'rbt', read_only: true }} />))).not.toContain('Record');
   });
 
   test('no Download button at the top right any more; the signed-in name opens My profile (Oct 10)', () => {

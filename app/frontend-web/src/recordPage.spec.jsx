@@ -15,21 +15,26 @@ const labels = (user) => {
 };
 
 describe('the Record page', () => {
-  test('teachers and admins see it; an RBT does not', () => {
+  test('teachers and admins see it; reviewer, RBT, and unknown roles do not', () => {
     expect(labels(teacher)).toContain('Record');
     expect(labels(admin)).toContain('Record');
     expect(labels(rbt)).not.toContain('Record');
-    expect(labels(null)).toContain('Record');
+    expect(labels(null)).not.toContain('Record');
+    expect(labels({ ...teacher, role: 'reviewer' })).not.toContain('Record');
+    expect(labels({ ...teacher, role: 'coach' })).not.toContain('Record');
+    expect(labels({ email: 'n@x.org', approved: true })).not.toContain('Record');
   });
 
-  test('an RBT who opens #record stays on Recordings', () => {
-    globalThis.window = { location: { hash: '#record' } };
-    try {
-      const html = renderToStaticMarkup(<App user={rbt} />);
-      expect(html).toContain('<h1>Recordings</h1>');
-      expect(html).not.toContain('data-testid="record-page"');
-    } finally {
-      delete globalThis.window;
+  test('an RBT or reviewer who opens #record stays on Recordings', () => {
+    for (const user of [rbt, { ...teacher, role: 'reviewer' }, { email: 'n@x.org', approved: true }]) {
+      globalThis.window = { location: { hash: '#record' } };
+      try {
+        const html = renderToStaticMarkup(<App user={user} />);
+        expect(html).toContain('<h1>Recordings</h1>');
+        expect(html).not.toContain('data-testid="record-page"');
+      } finally {
+        delete globalThis.window;
+      }
     }
   });
 

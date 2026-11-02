@@ -55,12 +55,12 @@ export async function loadAuthConfig() {
 
 export const isHosted = () => auth !== null;
 
-/** What the Record page needs from /api/auth-config. Laptop demo (no config) is a demo with no upload host. */
+/** What the Record page needs from /api/auth-config. The sample lesson is on only when the server says demoRecorder is true. */
 export function recorderSettings() {
-  if (!config) return { uploadApi: '', demo: true, hosted: false };
+  if (!config) return { uploadApi: '', demo: false, hosted: false };
   return {
     uploadApi: config.uploadApi || '',
-    demo: config.demoRecorder !== false,
+    demo: config.demoRecorder === true,
     hosted: true,
   };
 }

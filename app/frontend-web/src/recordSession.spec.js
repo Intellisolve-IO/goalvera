@@ -9,6 +9,7 @@ function harness({ failTimes = 0 } = {}) {
   const puts = [];
   let fails = failTimes;
   const finalized = [];
+  const discarded = [];
   const upload = {
     async sign(body) {
       return { object: `web/${body.session_id}/${body.filename}`, upload_url: 'https://storage.example/put', headers: { 'Content-MD5': body.md5 } };
@@ -19,6 +20,7 @@ function harness({ failTimes = 0 } = {}) {
       return { verified: true, safe_to_delete_local_copy: true };
     },
     async finalize(body) { finalized.push(body); return { recording_id: 'rec_web_abc_20261102_180000_Room_104', ok: true }; },
+    async discard(body) { discarded.push(body); return { discarded: true, deleted: 1 }; },
   };
   const session = createRecordSession({
     storage,
@@ -28,7 +30,7 @@ function harness({ failTimes = 0 } = {}) {
     checksum: async (blob) => checksums(new Uint8Array(await blob.arrayBuffer())),
     randomBytes: () => new Uint8Array(16).fill(4),
   });
-  return { session, storage, puts, finalized, setNow: (n) => { now = n; } };
+  return { session, storage, puts, finalized, discarded, setNow: (n) => { now = n; } };
 }
 
 const blob = (n = 8) => new Blob([new Uint8Array(n)]);
@@ -88,6 +90,17 @@ describe('a phone session', () => {
     expect(finalized[0].parts).toEqual([expect.objectContaining({ name: 'part_0001.m4a' })]);
     expect(finalized[0].class_label).toBe('Room 104');
     expect(finalized[0].finalize).toBeUndefined();
+  });
+
+  test('discard deletes the server pieces and the phone copy', async () => {
+    const { session, storage, discarded } = harness();
+    session.start('Room 104');
+    const sid = session.getState().sessionId;
+    await session.onSegment({ blob: blob(4), durationMs: 500, mime: 'audio/mp4' });
+    await session.discard();
+    expect(discarded).toEqual([{ session_id: sid }]);
+    expect(await storage.listSegments()).toEqual([]);
+    expect(session.getState().sessionId).toBe(null);
   });
 
   test('drop forgets the session the way sign-out does', async () => {

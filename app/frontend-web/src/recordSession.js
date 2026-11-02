@@ -255,9 +255,17 @@ export function createRecordSession(io) {
     },
 
     async discard() {
+      const sid = state.sessionId;
       generation += 1;
       finalizeWanted = false;
       pumping = false;
+      if (sid && io.upload && typeof io.upload.discard === 'function') {
+        try {
+          await io.upload.discard({ session_id: sid });
+        } catch {
+          /* Phone copies are still removed below. The bucket lifecycle deletes web/<session>/ after a day. */
+        }
+      }
       await io.storage.clear();
       state = blank();
       emit(false);

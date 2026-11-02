@@ -36,6 +36,7 @@ function makeUpload(base) {
     },
     confirm: (body) => post(body),
     finalize: (body) => post({ ...body, finalize: true }),
+    discard: (body) => (root ? post({ ...body, discard: true }) : { discarded: true, deleted: 0 }),
     async put(url, headers, blob) {
       const res = await fetch(url, { method: 'PUT', headers, body: blob });
       if (!res.ok) throw new Error('PUT');

@@ -2,9 +2,10 @@
 # iPhone web recorder — bucket access, one-day lifecycle under web/, and CORS for the
 # review site to PUT a signed URL. Idempotent. Does not deploy a service.
 #
-#   * upload-api: create + read web/ (signed PUT, confirm, owner.json, session.json, complete.json)
-#     and read the review allowlist plus people/ (role check, including "no access")
-#   * pipeline:   read and delete web/ (convert, then delete the audio pieces) and create rec/web-*
+#   * upload-api: create + read web/ (signed PUT, confirm, owner.json, session.json, complete.json),
+#     delete web/ when the teacher discards a session, and read the review allowlist plus people/
+#   * pipeline:   read and delete web/ only (no create). It writes the WAV under rec/web-* only
+#   * the bucket's public access prevention is enforced (the bucket cannot be made public)
 #   * lifecycle:  delete anything still under web/ after 1 day (the shortest Cloud Storage age)
 #   * CORS:       the review site may PUT to storage.googleapis.com with the checksum headers
 #
@@ -25,11 +26,15 @@ RUN_REVIEW="https://${REVIEW_SERVICE}-${PROJECT_NUMBER}.${REGION}.run.app"
 
 if [[ "$CHECK" == 1 ]]; then
   pol="$(gcloud storage buckets get-iam-policy "gs://$BUCKET" --format=json)"
-  for t in upload-create-web upload-read-web upload-read-allowlist upload-read-people pipeline-use-web pipeline-create-webrec; do
+  for t in upload-create-web upload-read-web upload-read-allowlist upload-read-people upload-discard-web pipeline-cleanup-web pipeline-create-webrec; do
     grep -q "\"$t\"" <<<"$pol" && echo "  $t: yes" || echo "  $t: NO"
   done
+  pap="$(gcloud storage buckets describe "gs://$BUCKET" --format='value(public_access_prevention)')"
+  if [[ "$pap" == "enforced" ]]; then echo "  public access prevention: enforced"
+  else echo "  public access prevention: NO (${pap:-unset})"; fi
   gcloud storage buckets describe "gs://$BUCKET" --format='json(cors_config,lifecycle_config)'
-  exit 0
+  [[ "$pap" == "enforced" ]]
+  exit
 fi
 
 obj() { printf 'resource.name.startsWith("projects/_/buckets/%s/objects/%s")' "$BUCKET" "$1"; }
@@ -42,15 +47,33 @@ bind() {  # member role expression title
   rm -f "$f"
 }
 
-say "Bucket access for web/"
+say "Public access prevention (enforced)"
+gcloud storage buckets update "gs://$BUCKET" --public-access-prevention
+pap="$(gcloud storage buckets describe "gs://$BUCKET" --format='value(public_access_prevention)')"
+[[ "$pap" == "enforced" ]] || { echo "public access prevention is '$pap', not enforced" >&2; exit 1; }
+echo "public access prevention: enforced"
+
+say "Read and delete under web/, without letting the pipeline create objects there"
+# Custom role: get, list, and delete. No storage.objects.create, so the pipeline cannot write web/.
+if gcloud iam roles describe webPieceCleanup --project="$PROJECT_ID" >/dev/null 2>&1; then
+  gcloud iam roles update webPieceCleanup --project="$PROJECT_ID" --stage=GA \
+    --permissions="storage.objects.get,storage.objects.list,storage.objects.delete" >/dev/null
+else
+  gcloud iam roles create webPieceCleanup --project="$PROJECT_ID" --stage=GA \
+    --title="Goalvera web piece cleanup" \
+    --description="Read and delete phone recording pieces under web/. Cannot create or overwrite." \
+    --permissions="storage.objects.get,storage.objects.list,storage.objects.delete" >/dev/null
+fi
+CLEAN_ROLE="projects/${PROJECT_ID}/roles/webPieceCleanup"
 bind "serviceAccount:$UPLOAD_SA" roles/storage.objectCreator "$(obj web/)" upload-create-web
 bind "serviceAccount:$UPLOAD_SA" roles/storage.objectViewer "$(obj web/) || $(obj config/review_allowlist.json)" upload-read-web
 bind "serviceAccount:$UPLOAD_SA" roles/storage.objectViewer "$(obj people/)" upload-read-people
 bind "serviceAccount:$UPLOAD_SA" roles/storage.objectViewer "$(lst people/)" upload-list-people
-# pipeline reads the pieces, deletes them after the WAV is stored, and creates only rec/web-*
-bind "serviceAccount:$PIPELINE_SA" roles/storage.objectUser "$(obj web/)" pipeline-use-web
+bind "serviceAccount:$UPLOAD_SA" "$CLEAN_ROLE" "$(obj web/) || $(lst web/)" upload-discard-web
+# pipeline reads and deletes the pieces after conversion. It creates only rec/web-* (the WAV).
+bind "serviceAccount:$PIPELINE_SA" "$CLEAN_ROLE" "$(obj web/) || $(lst web/)" pipeline-cleanup-web
 bind "serviceAccount:$PIPELINE_SA" roles/storage.objectCreator "$(obj rec/web-)" pipeline-create-webrec
-echo "upload-api create/read web/; pipeline read/delete web/ and create rec/web-"
+echo "upload-api create/read/delete web/; pipeline read/delete web/ and create rec/web- only"
 
 say "Lifecycle: web/ deleted after 1 day (existing rules kept)"
 LC="$(mktemp)"
