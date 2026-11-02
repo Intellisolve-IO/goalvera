@@ -34,7 +34,10 @@ PY
     echo "ALLOW_ENV_CHANGE=1: going ahead with the change above"
   fi
 }
-UPLOAD_ENV="BUCKET=$BUCKET,EXPECTED_KMS_KEY=$KMS_KEY,SCHOOL_PROFILE=$SCHOOL_PROFILE"
+# PROJECT_ID and IDP_PROVIDERS let /v1/web/* check the same Identity Platform token as the
+# review site. WEB_ALLOWED_ORIGINS is the review site's origin (the phone page). The first
+# deploy after this change needs ALLOW_ENV_CHANGE=1. Nothing here is deployed by the app change.
+UPLOAD_ENV="BUCKET=$BUCKET,EXPECTED_KMS_KEY=$KMS_KEY,SCHOOL_PROFILE=$SCHOOL_PROFILE,PROJECT_ID=$PROJECT_ID,IDP_PROVIDERS=$IDP_PROVIDERS,WEB_ALLOWED_ORIGINS=https://${REVIEW_DOMAIN}"
 PIPELINE_ENV="BUCKET=$BUCKET,GOOGLE_CLOUD_PROJECT=$PROJECT_ID,SPEECH_LOCATION=$SPEECH_LOCATION,VERTEX_AI=1,GEMINI_LOCATION=$GEMINI_LOCATION,GEMINI_MODEL=$GEMINI_MODEL,REC_KMS_KEYRING_PATH=$REC_KMS_KEYRING_PATH"
 ONLY="${1:-all}"
 case "$ONLY" in
@@ -66,7 +69,7 @@ say "Pipeline service ($PIPELINE_SERVICE, private)"
 gcloud run deploy "$PIPELINE_SERVICE" --source="$ROOT/app/backend-pipeline" --region="$REGION" \
   --service-account="$PIPELINE_SA" --build-service-account="projects/$PROJECT_ID/serviceAccounts/$BUILD_SA" \
   --no-allow-unauthenticated --ingress=all \
-  --min-instances=0 --max-instances=2 --cpu=1 --memory=1Gi --concurrency=4 --timeout=300 \
+  --min-instances=0 --max-instances=2 --cpu=1 --memory=2Gi --concurrency=4 --timeout=900 \
   --set-env-vars="$PIPELINE_ENV" \
   --quiet
 gcloud run services add-iam-policy-binding "$PIPELINE_SERVICE" --region="$REGION" \

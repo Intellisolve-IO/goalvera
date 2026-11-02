@@ -9,6 +9,7 @@
  * and still checks the verified email and the staff directory on every call.
  */
 import { initializeApp } from 'firebase/app';
+import { clearLocalAudio } from './webRecorderStore.js';
 import {
   GoogleAuthProvider,
   browserLocalPersistence,
@@ -53,6 +54,16 @@ export async function loadAuthConfig() {
 }
 
 export const isHosted = () => auth !== null;
+
+/** What the Record page needs from /api/auth-config. The sample lesson is on only when the server says demoRecorder is true. */
+export function recorderSettings() {
+  if (!config) return { uploadApi: '', demo: false, hosted: false };
+  return {
+    uploadApi: config.uploadApi || '',
+    demo: config.demoRecorder === true,
+    hosted: true,
+  };
+}
 export const googleEnabled = () => !!(config && (config.providers || []).includes('google.com'));
 export const currentUser = () => (auth ? auth.currentUser : null);
 export const onUserChanged = (cb) => onIdTokenChanged(auth, cb);
@@ -105,7 +116,19 @@ export async function refreshUser() {
   return auth.currentUser;
 }
 
+let recorderSignOut = null;
+
+/** The Record page registers this so sign-out can stop the mic and delete leftover audio first. */
+export function onRecorderSignOut(fn) {
+  recorderSignOut = fn;
+  return () => { if (recorderSignOut === fn) recorderSignOut = null; };
+}
+
 export async function signOut() {
+  if (recorderSignOut) {
+    try { await recorderSignOut(); } catch { /* still sign out and still delete local audio */ }
+  }
+  await clearLocalAudio();
   if (auth) await fbSignOut(auth);
 }
 

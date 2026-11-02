@@ -63,7 +63,7 @@ def api(monkeypatch):
     transport.requests = requests_mod
     monkeypatch.setenv("BUCKET", "test-bucket")
     monkeypatch.syspath_prepend(str(UPLOAD_API))
-    for m in ("main", "safelog"):
+    for m in ("main", "safelog", "web_rec", "idp_auth", "media", "school", "ota_log"):
         sys.modules.pop(m, None)
     main = importlib.import_module("main")
     clock = {"now": 3.0}  # a fresh instance: a few seconds since the sandbox booted

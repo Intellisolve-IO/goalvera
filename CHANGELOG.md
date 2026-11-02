@@ -3,6 +3,10 @@
 What changed on `main`, newest first. One line per change, with the PR and card. Deploys are
 made only from `main`; the deployed commit is shown on the review site's Settings tab.
 
+## 2026-11-02
+
+- **iPhone web recorder** (David, Nov 2; PR #3): a Record page in the review site for teachers and admins only (reviewers, RBTs, and unknown roles are read-only). Discard deletes that session's `web/` pieces. A real school sets `WEB_DEMO_RECORDER=off`. Safari records AAC in about 60-second pieces, holds them in IndexedDB only until the server confirms each one, then deletes them. Uploads are HTTPS only (no encryption on the phone). A lock, app switch, or call pauses the same session and marks the gap. The upload service adds `/v1/web/uploads` and `/v1/web/confirm`. ffmpeg joins the pieces into a 16 kHz mono 16-bit WAV under `rec/web-<user>/`, and the existing transcript path runs. The Hosyond 3.5" board stays the only supported recorder hardware. The demo shows a sample lesson and a reminder not to record real students. Setup is `infra/setup_web_recorder.sh`; nothing here is deployed. Test plan: `docs/iphone-web-recorder.md`.
+
 ## 2026-10-29
 
 - **Goalvera**: the school pilot is cancelled and the product name is Goalvera. The saved school profile is Demo School (badge DS). The demo lead teacher is Alex Morgan; the recorder's sample rooms are Room 104, Room B, and Hall. Recorder sample data is 0.8.1. Live Google Cloud project, bucket, dataset, secret, and hostname defaults are unchanged. See `docs/open-source-readiness.md` and `docs/demo-hosting-cost.md`.

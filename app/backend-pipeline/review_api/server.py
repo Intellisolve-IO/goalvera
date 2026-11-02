@@ -173,11 +173,43 @@ IDP_ORIGINS = "https://identitytoolkit.googleapis.com https://securetoken.google
 GOOGLE_SCRIPT_ORIGIN = "https://apis.google.com"   # the Firebase SDK's popup helper (Sign in with Google)
 
 
-def _csp(extra_connect: str = "", *, google_auth_domain: str | None = None) -> str:
+def upload_public_url() -> str:
+    """The upload service the Record page calls. Only a plain https origin (or local http) is returned,
+    so it can be dropped into the page's connect-src without carrying other text."""
+    raw = os.environ.get("UPLOAD_PUBLIC_URL", "").strip().rstrip("/")
+    if re.fullmatch(r"https://[A-Za-z0-9._:-]{1,200}", raw) or re.fullmatch(r"http://(localhost|127\.0\.0\.1)(:\d{1,5})?", raw):
+        return raw
+    return ""
+
+
+_DEMO_PROFILES = frozenset({"everyday-heroes", "demo-school"})
+
+
+def demo_recorder() -> bool:
+    """Sample lesson and the "do not record real students" reminder.
+
+    On only for the fictional demo profiles (SCHOOL_PROFILE=everyday-heroes or demo-school).
+    Unset SCHOOL_PROFILE is off, so a deploy that is not the demo does not inherit the demo page.
+    A real school must set SCHOOL_PROFILE to its own id and WEB_DEMO_RECORDER=off.
+    WEB_DEMO_RECORDER=on forces the reminder on; off forces it off even for a demo profile.
+    """
+    flag = os.environ.get("WEB_DEMO_RECORDER", "").strip().lower()
+    if flag in ("0", "off", "false", "no"):
+        return False
+    if flag in ("1", "on", "true", "yes"):
+        return True
+    return os.environ.get("SCHOOL_PROFILE", "").strip() in _DEMO_PROFILES
+
+
+def _csp(extra_connect: str = "", *, google_auth_domain: str | None = None, upload_origin: str | None = None) -> str:
     """google_auth_domain: Sign in with Google is on (tasks#108). The popup needs Google's helper script
-    and the project's auth handler frame (https://<authDomain>); nothing else is loosened."""
+    and the project's auth handler frame (https://<authDomain>); nothing else is loosened.
+    upload_origin: the Record page PUTs audio to a signed URL, so that host and storage.googleapis.com
+    join connect-src only when phone recording is configured."""
     script = f"'self' {GOOGLE_SCRIPT_ORIGIN}" if google_auth_domain else "'self'"
     frame = f"frame-src https://{google_auth_domain}; " if google_auth_domain else ""
+    if upload_origin:
+        extra_connect = (extra_connect + f" {upload_origin} https://storage.googleapis.com").strip()
     return (f"default-src 'none'; script-src {script}; {frame}"
             f"connect-src 'self' {IDP_ORIGINS}{(' ' + extra_connect) if extra_connect else ''}; "
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; "
@@ -211,7 +243,8 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
     static_root = Path(static_dir).resolve() if static_dir else None
     emulator = (auth_config or {}).get("emulator")
     google_on = "google.com" in ((auth_config or {}).get("providers") or ())
-    csp = _csp(emulator or "", google_auth_domain=(auth_config or {}).get("authDomain") if google_on else None)
+    csp = _csp(emulator or "", google_auth_domain=(auth_config or {}).get("authDomain") if google_on else None,
+               upload_origin=upload_public_url() or None)
 
     class Handler(BaseHTTPRequestHandler):
         server_version = "review-api"
@@ -335,7 +368,11 @@ def make_handler(notes: Notes, store_label: str, *, auth=None, static_dir: str |
             if method == "GET" and path == "/api/auth-config":
                 if auth is None:
                     raise ApiError(404, "NOT_FOUND")
-                return self._send(200, auth_config or {})
+                cfg = dict(auth_config or {})
+                if upload_public_url():
+                    cfg["uploadApi"] = upload_public_url()
+                cfg["demoRecorder"] = demo_recorder()
+                return self._send(200, cfg)
             if method == "GET" and path == "/api/me":
                 if auth is None:
                     raise ApiError(404, "NOT_FOUND")

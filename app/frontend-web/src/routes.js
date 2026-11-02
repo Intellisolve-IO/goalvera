@@ -1,8 +1,10 @@
 // Tabs and their addresses (David, Oct 8 2026; tasks#85). One tab per hash so links work:
-// #recordings (default), #students, #students/<id>, #students/<id>/<monday>, #classes, #planner,
-// #domains, #teachers, #activity, #settings. Activity Log and Settings are admins only.
+// #record (teachers and admins), #recordings (default), #students, #students/<id>,
+// #students/<id>/<monday>, #classes, #planner, #domains, #teachers, #activity, #settings.
+// Activity Log and Settings are admins only. Record is hidden from RBTs.
 // Classes sits next to Students, Domains next to the Lesson planner (curriculum) (Oct 10; tasks#103).
 export const TABS = [
+  { key: 'record', label: 'Record', title: 'Record', record: true },
   { key: 'recordings', label: 'Recordings', title: 'Recordings' },
   { key: 'students', label: 'Students', title: 'Students' },
   { key: 'classes', label: 'Classes', title: 'Classes' },
@@ -13,8 +15,9 @@ export const TABS = [
   { key: 'settings', label: 'Settings', title: 'Settings', admin: true },
 ];
 
-export function tabsFor(admin) {
-  return TABS.filter((t) => admin || !t.admin);
+export function tabsFor(admin, opts = {}) {
+  const canRecord = opts.canRecord === true;
+  return TABS.filter((t) => (admin || !t.admin) && (canRecord || !t.record));
 }
 
 /** '#students/stu_101/2026-10-05' -> { tab: 'students', studentId: 'stu_101', week: '2026-10-05' } */
