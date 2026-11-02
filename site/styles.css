@@ -1,0 +1,33 @@
+@font-face{font-family:"Lexend";font-weight:600;font-style:normal;font-display:swap;src:url(/fonts/lexend-600.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/atkinson-400.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-weight:700;font-style:normal;font-display:swap;src:url(/fonts/atkinson-700.woff2) format("woff2")}
+:root{--ink:#1E2B33;--teal:#0F6B6B;--deep:#0B4F50;--marigold:#F2A93B;--paper:#FBF7F0;--mist:#E3F1EF;--slate:#55636B;--brick:#B4472F}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-size:1rem;line-height:1.5}
+h1,h2,h3{font-family:"Lexend",Arial,sans-serif;font-weight:600;line-height:1.2;color:var(--ink)}
+h1{font-size:clamp(2rem,5vw,3rem);margin:.6em 0 .4em;max-width:18em}
+h2{font-size:1.6rem;margin:0 0 .6em}
+h3{font-size:1.1rem;margin:1.2em 0 .3em}
+a{color:var(--teal)}
+a:hover{color:var(--deep)}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:#fff;padding:.5rem}
+.hero{padding:2.5rem 0 3rem;border-bottom:4px solid var(--marigold)}
+.brand{margin:0}.brand img{height:50px;width:auto}
+.lead{font-size:1.15rem;max-width:40em}
+.cta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.5rem}
+.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:.75rem 1.4rem;border-radius:.5rem}
+.btn:hover{background:var(--deep);color:#fff}
+.btn.light{background:#fff;color:var(--deep)}.btn.light:hover{background:var(--mist);color:var(--deep)}
+.link{font-weight:700}
+main section{padding:2.5rem 0;border-bottom:1px solid var(--mist)}
+main section.card{background:var(--mist);border-radius:1rem;padding:2rem 1.5rem;margin:2rem 0;border:0}
+.steps{padding-left:1.4rem}.steps li{margin:.7em 0}.steps li::marker{color:var(--teal);font-family:"Lexend",Arial,sans-serif;font-weight:600}
+ul li{margin:.35em 0}
+.final{background:var(--deep);color:#fff;padding:3rem 0;text-align:center}
+.final h2{color:#fff}
+footer{background:var(--deep);color:#fff;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.15)}
+footer .wrap{display:flex;align-items:center;gap:1rem}
+footer img{height:32px;width:auto}
+.notfound{padding:4rem 1.25rem}
