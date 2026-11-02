@@ -39,9 +39,9 @@ def render(pub: bytes) -> str:
     body = "\n".join(rows)
     return f"""/* Public half of the recorder OTA signing key (Ed25519, 32 bytes).
  *
- * The private key is not in this repo. It belongs in Secret Manager
- * (recorder-ota-signing-key). Written by tools/embed_ota_pubkey.py.
- * See docs/ota.md.
+ * The private key is not in this repo. Read it from Secret Manager with
+ * PROJECT_ID and OTA_SIGNING_SECRET (default name recorder-ota-signing-key).
+ * Written by tools/embed_ota_pubkey.py. See docs/ota.md.
  */
 #include "ota_policy.h"
 

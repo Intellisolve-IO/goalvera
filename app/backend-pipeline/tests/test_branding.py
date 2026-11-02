@@ -257,7 +257,5 @@ def test_demo_school_profile_holds_records_with_no_profile(store, authn, monkeyp
     v = br.view()
     assert (v["school_name"], v["badge_text"], v["logo"], v["profile"]) == ("North Campus", "DS", None, "demo-school")
     assert v["defaults"] == {"school_name": "Demo School", "badge_text": "DS"}
-    monkeypatch.setenv("SCHOOL_PROFILE", "atlanta-prep")   # stored id from before the rename
-    assert br.view()["profile"] == "demo-school" and br.view()["school_name"] == "North Campus"
     monkeypatch.setenv("SCHOOL_PROFILE", "no-such-school")
     assert br.view()["school_name"] == "Heroes Demo"                   # unknown profile: the demo school

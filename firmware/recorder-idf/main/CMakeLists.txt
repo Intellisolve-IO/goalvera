@@ -26,8 +26,10 @@ endif()
 
 # TweetNaCl is the public-domain Ed25519 verifier (tweetnacl.cr.yp.to). It is
 # compiled as shipped; the sign-compare warnings are in the upstream macros.
+if(NOT CMAKE_BUILD_EARLY_EXPANSION)
 set_source_files_properties(tweetnacl.c PROPERTIES
     COMPILE_FLAGS "-Wno-sign-compare -Wno-unused-function -Wno-unused-const-variable")
+endif()
 
 idf_component_register(
     SRCS

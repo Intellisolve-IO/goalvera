@@ -35,16 +35,16 @@ KMS_KEY="projects/${PROJECT_ID}/locations/${REGION}/keyRings/${KEYRING}/cryptoKe
 export CLOUDSDK_CORE_PROJECT="${PROJECT_ID}"
 
 # Recorder OTA (firmware 0.8.0). These scripts do not create the bucket or the
-# signing secret. See firmware/recorder-idf/docs/ota.md. The bucket must not be
-# publicly writable. OTA_BUCKET defaults to ${PROJECT_ID}-firmware.
+# signing secret. The private key is Secret Manager secret $OTA_SIGNING_SECRET
+# in $PROJECT_ID. The public half is firmware/recorder-idf/main/ota_pubkey.c.
+# See firmware/recorder-idf/docs/ota.md. The bucket must not be publicly writable.
+# OTA_BUCKET defaults to ${PROJECT_ID}-firmware.
 : "${OTA_BUCKET:=${PROJECT_ID}-firmware}"
 : "${OTA_SIGNING_SECRET:=recorder-ota-signing-key}"
 
 # School shown on the review site. everyday-heroes is the fictional demo school
 # (Everyday Heroes Academy, roster app/samples/demo_roster.json). demo-school is
 # the placeholder profile (badge DS; roster app/samples/profiles/demo-school/).
-# SCHOOL_PROFILE=atlanta-prep still selects demo-school so older stored branding
-# records keep loading.
 : "${SCHOOL_PROFILE:=everyday-heroes}"
 
 # Hosted review screen (Cloud Run + Identity Platform)

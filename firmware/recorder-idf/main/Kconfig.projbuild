@@ -186,8 +186,9 @@ menu "Classroom recorder"
         default "example-project-firmware"
         help
             Bucket the signed manifest and the image URL must use. Not a
-            secret. The bucket is not created by the firmware. Wi-Fi
-            passwords are never stored here.
+            secret. Override this for a real build with $OTA_BUCKET
+            (default ${PROJECT_ID}-firmware). The bucket is not created by
+            the firmware. Wi-Fi passwords are never stored here.
 
     config RECORDER_OTA_MANIFEST_URL
         string "OTA manifest URL"

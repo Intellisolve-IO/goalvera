@@ -51,7 +51,7 @@ def test_newest_record_of_active_profile_wins(bucket_with_list):
 
 def test_legacy_records_belong_to_demo_school(bucket_with_list, monkeypatch):
     c, store, _ = bucket_with_list
-    monkeypatch.setenv("SCHOOL_PROFILE", "atlanta-prep")  # id stored before the Goalvera rename
+    monkeypatch.setenv("SCHOOL_PROFILE", "demo-school")
     rec(store, "20261013T000000Z_c", school_name="North Campus")
     j = ask(c).get_json()
     assert j["school_name"] == "North Campus" and j["profile"] == "demo-school"

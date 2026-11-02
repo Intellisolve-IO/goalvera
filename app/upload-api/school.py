@@ -26,14 +26,13 @@ PREFIX = "branding/"
 PROFILE_NAMES = {"everyday-heroes": "Everyday Heroes Academy", "demo-school": "Demo School"}
 DEFAULT_PROFILE = "everyday-heroes"
 LEGACY_PROFILE = "demo-school"
-# Keep in sync with review_api/branding.py STORED_PROFILE_ALIASES.
-STORED_PROFILE_ALIASES = {"atlanta-prep": "demo-school"}
 
 
 def canonical_profile(value: str | None) -> str:
+    """Records with no profile belong to Demo School. Any other id is used as written."""
     if not value:
         return LEGACY_PROFILE
-    return STORED_PROFILE_ALIASES.get(value, value)
+    return value
 
 
 CACHE_SECONDS = int(os.environ.get("SCHOOL_CACHE_SECONDS", "60"))

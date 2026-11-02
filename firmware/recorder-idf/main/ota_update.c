@@ -133,7 +133,7 @@ static void confirm_or_rollback(void)
         switch (ota_rollback_decide(&in)) {
         case OTA_RB_CONFIRM:
             if (esp_ota_mark_app_valid_cancel_rollback() == ESP_OK) {
-                char msg[48];
+                char msg[80];
                 snprintf(msg, sizeof msg, "Firmware v%s confirmed", FW_VERSION);
                 note(msg);
                 return;
@@ -467,8 +467,10 @@ void ota_start(void)
     char msg[48];
     snprintf(msg, sizeof msg, "Firmware v%s", FW_VERSION);
     note(msg);
+    /* Stack must be internal RAM: this task calls esp_ota_* / flash APIs, which
+     * disable the cache and assert if the caller stack is in PSRAM. */
     if (xTaskCreatePinnedToCoreWithCaps(ota_task, "ota", 24576, NULL, 1, NULL, 0,
-                                        MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT) != pdPASS) {
+                                        MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT) != pdPASS) {
         status_error("Firmware update task did not start");
     }
 }

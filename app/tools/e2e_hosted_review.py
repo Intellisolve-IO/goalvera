@@ -42,7 +42,7 @@ sys.path.insert(0, str(APP / "tools"))
 sys.path.insert(0, str(APP / "backend-pipeline"))
 from seed_local_session import RID, seed  # noqa: E402
 
-PROJECT = "demo-atlanta-review"          # "demo-" = emulator never talks to a real project
+PROJECT = "demo-local-review"          # "demo-" = emulator never talks to a real project
 EMU = "127.0.0.1:9099"
 PORT = 8788
 BASE = f"http://127.0.0.1:{PORT}"

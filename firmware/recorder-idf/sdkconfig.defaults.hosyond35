@@ -25,4 +25,5 @@ CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
 CONFIG_LV_FONT_MONTSERRAT_12=y
 
 # Hosyond images only. A CrowPanel manifest must never be applied here.
+# Placeholder URL. Set the live bucket with $OTA_BUCKET (default ${PROJECT_ID}-firmware).
 CONFIG_RECORDER_OTA_MANIFEST_URL="https://storage.googleapis.com/example-project-firmware/firmware/hosyond35/manifest.json"

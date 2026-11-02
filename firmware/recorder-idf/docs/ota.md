@@ -29,7 +29,7 @@ APOTA1
 <sha256>
 ```
 
-(each line ends with `\n`). The URL must be `https://storage.googleapis.com/<bucket>/<object>` with no query string. The public key is compiled in (`main/ota_pubkey.c`). All zeros is the placeholder: the device rejects every manifest until a real key is embedded and the image is rebuilt. The private key is not in this repo.
+(each line ends with `\n`). The URL must be `https://storage.googleapis.com/<bucket>/<object>` with no query string. The public key is compiled in (`main/ota_pubkey.c`). The private key is not in this repo. Publish reads it from Secret Manager using `PROJECT_ID` and `OTA_SIGNING_SECRET` (the default secret name is `recorder-ota-signing-key`). Do not put the project id or the private key in git.
 
 ## Rollback
 
@@ -41,15 +41,15 @@ OTA does not update the bootloader. The first image that should be able to roll 
 
 ## One-time Google Cloud setup
 
-Do this in your own project. `PROJECT_ID` comes from the environment or `infra/deploy.env`. The `example-project` names below, and the manifest URLs in `sdkconfig.defaults`, are placeholders, not a live bucket. These commands are not run by the firmware build. They create the bucket and the secret; review them before running.
+`PROJECT_ID` and `OTA_BUCKET` come from the environment or `infra/deploy.env`. The manifest URLs in `sdkconfig.defaults` are build-time placeholders, not a live bucket. These commands are not run by the firmware build. They create the bucket. The signing secret already exists for the project you set in `PROJECT_ID`; the commands below only show how to create one in a new project.
 
 The firmware bucket is world-readable so a recorder with no Google credential can fetch the manifest and the image. It must not be world-writable. Do not grant `objectAdmin`, `objectCreator`, `objectUser`, or any legacy writer role to `allUsers` or `allAuthenticatedUsers`.
 
 ```bash
-PROJECT_ID=example-project
-REGION=us-east1
-OTA_BUCKET="${PROJECT_ID}-firmware"
-OTA_SIGNING_SECRET=recorder-ota-signing-key
+: "${PROJECT_ID:?set PROJECT_ID}"
+: "${OTA_SIGNING_SECRET:=recorder-ota-signing-key}"
+REGION="${REGION:-us-east1}"
+OTA_BUCKET="${OTA_BUCKET:-${PROJECT_ID}-firmware}"
 
 gcloud storage buckets create "gs://${OTA_BUCKET}" \
   --project="${PROJECT_ID}" --location="${REGION}" --uniform-bucket-level-access
@@ -68,9 +68,11 @@ gcloud storage buckets get-iam-policy "gs://${OTA_BUCKET}"
 
 If an organization policy blocks `allUsers`, the binding above fails and devices cannot fetch the manifest anonymously. Leave the bucket private in that case and do not publish until there is another way for the device to read it. Do not turn public access prevention off in order to grant a writer role.
 
-Signing key (Ed25519). The private key goes to Secret Manager and is then deleted from disk. Only the public half is compiled in.
+Signing key (Ed25519). The public half is already in `main/ota_pubkey.c`. The private half is only in Secret Manager. `publish_ota.py` reads it with `PROJECT_ID` and `OTA_SIGNING_SECRET` (default `recorder-ota-signing-key`). To rotate the key in a project, generate a new pair outside the repo, store the private half, then embed the public half and rebuild:
 
 ```bash
+: "${PROJECT_ID:?set PROJECT_ID}"
+: "${OTA_SIGNING_SECRET:=recorder-ota-signing-key}"
 umask 077
 openssl genpkey -algorithm ED25519 -out /tmp/recorder-ota-private.pem
 openssl pkey -in /tmp/recorder-ota-private.pem -pubout -out /tmp/recorder-ota-public.pem
