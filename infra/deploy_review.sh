@@ -79,6 +79,10 @@ review_env() {  # the full env list for --set-env-vars ("|"-separated); $1 = jou
   e+="|REVIEW_URL=https://${REVIEW_DOMAIN}|MATERIALS_EMAIL_DEFAULT=$MATERIALS_EMAIL_DEFAULT|MATERIALS_MAIL_DOMAINS=$MATERIALS_MAIL_DOMAINS|PARENT_EMAIL_REDIRECT_DEFAULT=$PARENT_EMAIL_REDIRECT_DEFAULT"
   e+="|PROFILE_SELF_EDIT_ACCESS=$PROFILE_SELF_EDIT_ACCESS"      # My profile: self-edit of role / email (default off)
   e+="|IDP_PROVIDERS=$IDP_PROVIDERS"      # sign-in providers (): password[,google.com]
+  # Phone Record page. Set UPLOAD_PUBLIC_URL to the upload service origin before deploying
+  # (https://upload-api-....run.app). Absent until then, so a review deploy does not change
+  # the live env just because this script grew a new setting.
+  [[ -n "${UPLOAD_PUBLIC_URL:-}" ]] && e+="|UPLOAD_PUBLIC_URL=${UPLOAD_PUBLIC_URL}"
   e+="|MAILER_CLIENT_SECRET=$MAILER_CLIENT_SECRET|MAILER_TOKEN_SECRET=$MAILER_TOKEN_SECRET|MAILER_FROM=$MAILER_FROM|PARENT_EMAIL_REDIRECT_DOMAIN=$PARENT_EMAIL_REDIRECT_DOMAIN|MATERIALS_SVG_MODEL=$MATERIALS_SVG_MODEL|MATERIALS_SVG_LOCATION=$MATERIALS_SVG_LOCATION|MATERIALS_IMAGE_MODEL=$MATERIALS_IMAGE_MODEL|MATERIALS_IMAGE_LOCATION=$MATERIALS_IMAGE_LOCATION"
   printf '%s' "$e"
 }

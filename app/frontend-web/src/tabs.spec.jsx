@@ -21,9 +21,10 @@ const tabLabels = (html) => [...html.matchAll(/role="tab"[^>]*>([^<]+)</g)].map(
 describe('tabs and the shared header', () => {
   test('tab order; Activity Log and Settings for admins only, Settings last', () => {
     // Classes next to Students, Domains next to the Lesson planner (Oct 10; tasks#103)
-    expect(tabsFor(true).map((t) => t.label)).toEqual(['Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains',
+    expect(tabsFor(true).map((t) => t.label)).toEqual(['Record', 'Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains',
       'Teachers', 'Activity Log', 'Settings']);
-    expect(tabsFor(false).map((t) => t.label)).toEqual(['Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains', 'Teachers']);
+    expect(tabsFor(false).map((t) => t.label)).toEqual(['Record', 'Recordings', 'Students', 'Classes', 'Lesson planner', 'Domains', 'Teachers']);
+    expect(tabsFor(false, { canRecord: false }).map((t) => t.label)).not.toContain('Record');
     expect(tabLabels(renderToStaticMarkup(<App user={admin} />))).toEqual(tabsFor(true).map((t) => t.label));
     expect(tabLabels(renderToStaticMarkup(<App user={teacher} />))).toEqual(tabsFor(false).map((t) => t.label));
     expect(tabLabels(renderToStaticMarkup(<App user={{ ...teacher, role: 'rbt', read_only: true }} />))).not.toContain('Settings');
@@ -60,6 +61,7 @@ describe('tabs and the shared header', () => {
 
   test('routes: one hash per tab and per student week; unknown -> Recordings', () => {
     expect(parseHash('#students/stu_101/2026-10-05')).toEqual({ tab: 'students', studentId: 'stu_101', week: '2026-10-05', sessionId: null });
+    expect(parseHash('#record').tab).toBe('record');
     expect(parseHash('#planner').tab).toBe('planner');
     expect(parseHash('#nope').tab).toBe('recordings');
     expect(parseHash('').tab).toBe('recordings');

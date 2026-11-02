@@ -42,7 +42,9 @@ from common import recording_crypto  # noqa: E402
 from speech_transcriber import (  # noqa: E402
     build_speaker_turns, plan_chunks, read_wav_info, words_from_stt_json, write_chunks,
 )
-from pipeline_service.records import build_draft, build_transcript, markers_from_sidecar  # noqa: E402
+from pipeline_service.records import (  # noqa: E402
+    build_draft, build_transcript, gaps_from_sidecar, markers_from_sidecar,
+)
 
 PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT", "")
 BUCKET = os.environ.get("BUCKET", "")
@@ -277,6 +279,7 @@ def finish_session(rid: str) -> None:
     transcript = build_transcript(
         rid=rid, manifest=manifest, turns=turns, roster=roster, billed_seconds=billed,
         speech_location=SPEECH_LOCATION, markers=markers, sidecar=sidecar,
+        recording_gaps=gaps_from_sidecar(sidecar),
     )
     write_json(f"transcripts/{rid}.json", transcript)
     speakers = len({t["speaker"] for t in turns})
@@ -374,6 +377,18 @@ def on_event():
         m = MEDIA_RE.match(name)
         if m:
             add_late_media(m["rid"])
+            return ("", 204)
+        from pipeline_service.web_convert import COMPLETE_RE, ConvertError, convert_web_session
+        m = COMPLETE_RE.match(name)
+        if m:
+            try:
+                convert_web_session(bucket(), name, log=log)
+            except ConvertError as exc:
+                log("web_convert_failed", "ERROR", step="web_convert", error_code=exc.code,
+                    session_id=m["sid"])
+                if exc.retry:
+                    return ("", 500)
+            return ("", 204)
         return ("", 204)
     except Exception as exc:  # noqa: BLE001
         log("unhandled_error", "ERROR", step="event", error_type=type(exc).__name__, error_code="INTERNAL")

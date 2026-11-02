@@ -86,14 +86,14 @@ def api(monkeypatch):
     transport.requests = requests_mod
     monkeypatch.setenv("BUCKET", "test-bucket")
     monkeypatch.syspath_prepend(str(UPLOAD_API))
-    for m in ("main", "safelog", "media", "school", "ota_log"):
+    for m in ("main", "safelog", "media", "school", "ota_log", "web_rec", "idp_auth"):
         sys.modules.pop(m, None)
     main = importlib.import_module("main")
     media = sys.modules["media"]
     clock = {"now": dt.datetime(2026, 10, 19, 18, 0, tzinfo=dt.timezone.utc)}
     monkeypatch.setattr(media, "_now", lambda: clock["now"])
     yield main.app.test_client(), store, clock
-    for m in ("main", "media", "school", "ota_log"):
+    for m in ("main", "media", "school", "ota_log", "web_rec", "idp_auth"):
         sys.modules.pop(m, None)
 
 

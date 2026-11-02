@@ -54,9 +54,27 @@ ROSTER_FIELDS = (
 )
 
 
+def gaps_from_sidecar(sidecar: dict | None) -> list[dict]:
+    """Pauses from a phone recording: offset into the audio, and how long the mic was closed."""
+    out: list[dict] = []
+    for g in (sidecar or {}).get("recording_gaps") or []:
+        if not isinstance(g, dict):
+            continue
+        off, dur = g.get("offset_seconds"), g.get("duration_seconds")
+        if isinstance(off, bool) or isinstance(dur, bool):
+            continue
+        if not isinstance(off, (int, float)) or not isinstance(dur, (int, float)):
+            continue
+        if off < 0 or dur < 0 or off > 6 * 3600 or dur > 2 * 3600:
+            continue
+        out.append({"offset_seconds": round(float(off), 1), "duration_seconds": round(float(dur), 1)})
+    return out[:50]
+
+
 def build_transcript(
     *, rid: str, manifest: dict, turns: list[dict], roster: dict, billed_seconds: int,
     speech_location: str, markers: list[dict] | None = None, sidecar: dict | None = None,
+    recording_gaps: list[dict] | None = None,
 ) -> dict[str, Any]:
     """roster = the whole roster document (class_codes + teachers)."""
     ctx = resolve_session(roster, filename_code=manifest["class_code"], sidecar=sidecar)
@@ -73,6 +91,7 @@ def build_transcript(
         # writes ABC notes for; all markers are kept for the review screen and PDF.
         "incident_flags": [int(m["offset_seconds"]) for m in markers if m["type"] in INCIDENT_MARKER_TYPES],
         "markers": markers,
+        "recording_gaps": recording_gaps if recording_gaps is not None else gaps_from_sidecar(sidecar),
         "iep_goals": ctx["iep_goals"],
         "speaker_turns": turns,
         "_meta": {
@@ -85,7 +104,7 @@ def build_transcript(
 
 
 SESSION_KEYS = ROSTER_FIELDS + ("device_id", "timestamp_start", "duration_seconds", "markers", "source_object",
-                                "start_time", "start_time_valid", "firmware_version")
+                                "start_time", "start_time_valid", "firmware_version", "recording_gaps")
 _FW = re.compile(r"^[A-Za-z0-9._+\-]{1,40}$")
 
 

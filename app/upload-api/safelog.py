@@ -22,6 +22,7 @@ ALLOWED_KEYS = {
     "operation_id", "reason", "markers", "actor_id", "pdf_sha256", "pdf_bytes",
     "incident_number", "draft", "report_id", "issue_number",
     "from_version", "to_version",
+    "session_id", "part_count",
 }
 # ids like rec_dev01_20260924_101400_RM12, error codes like BAD_FORMAT, models like gemini-3.8-flash
 _SAFE_STR = re.compile(r"^[A-Za-z0-9_.:/\-]{0,120}$")

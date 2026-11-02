@@ -49,6 +49,25 @@ docs/                   # design spec, agents design, runbooks
 
 The classroom-recorder firmware is `firmware/recorder-idf/` (ESP-IDF v5, LVGL 9). Build, flash, the config JSON, and the on-board checklist are in [`firmware/recorder-idf/README.md`](firmware/recorder-idf/README.md). Approved screen mockups are in `docs/ui-mockups/`.
 
+The **Hosyond 3.5" board is the only supported recorder hardware.** Recording on an iPhone is a page in the review web app, not a second board.
+
+## iPhone web recorder
+
+A signed-in **Record** page lets a teacher record a session in Safari on an iPhone. There is no native app. The page uses the same Identity Platform sign-in and roles as the review site.
+
+David's decisions for this version:
+
+- **No encryption on the phone.** The upload is HTTPS. The bucket's existing key encrypts the file at rest. Each piece is deleted from the phone as soon as the server confirms it. Sign-out also deletes anything still on the phone.
+- **Teachers and admins record. RBTs stay read-only.** The Record tab is hidden from an RBT, and `/v1/web/uploads` returns 403.
+- **A lock, an app switch, or a call pauses the same session.** The teacher taps Resume. The gap is marked and shown on the review page (`Recording paused 2:14 for 40 s`).
+- **On the demo, Record stays on.** The page shows a sample lesson to read aloud and a reminder not to record real students.
+
+Safari records AAC in mp4, in pieces of about 60 seconds, with a screen wake lock while the microphone is open. Pieces wait in IndexedDB only until `/v1/web/confirm` says they arrived. The next time the page opens, unsent pieces can be resumed or discarded. Add to Home Screen uses the web app manifest.
+
+`POST /v1/web/uploads` and `POST /v1/web/confirm` on the upload service check the teacher's ID token (the same verifier and allowlist as the review site, including an admin's "no access" change) and sign a create-only upload under `web/<session>/`. The board's `/v1/uploads` path and device tokens are unchanged. When the teacher taps Stop, the service writes `complete.json`. The pipeline's ffmpeg step joins the pieces, writes 16 kHz mono 16-bit WAV to `rec/web-<user>/<YYYYMMDD_HHMMSS_CLASS>.wav`, deletes the pieces, and the existing transcript path runs. Anything left under `web/` is deleted by the bucket lifecycle after one day (Cloud Storage's shortest age).
+
+This change does not deploy anything. Before a phone can upload, someone has to run [`infra/setup_web_recorder.sh`](infra/setup_web_recorder.sh) and then deploy with `ALLOW_ENV_CHANGE=1`, setting `UPLOAD_PUBLIC_URL` to the upload service origin for the review deploy. The manual test plan for a real iPhone is [`docs/iphone-web-recorder.md`](docs/iphone-web-recorder.md).
+
 ## App: run locally (fixtures)
 
 Teacher review UI:

@@ -228,6 +228,11 @@ import ota_log  # noqa: E402
 
 app.register_blueprint(ota_log.make_blueprint(_bucket, _auth, _err))
 
+# iPhone Safari recorder: per-user signed URLs under web/<session>/ (web_rec.py).
+import web_rec  # noqa: E402
+
+app.register_blueprint(web_rec.make_blueprint(_bucket, _signer_args))
+
 
 @app.get("/healthz")
 def healthz():
