@@ -99,8 +99,8 @@ def classrooms_with_students(roster: dict) -> list[str]:
 # One staff record per person, with the role on the record (docs/sis-schema.md, PR #22/#23):
 #   roster.staff.<id> = {"name", "title", "role": "rbt"|"bcba"|"slp"|..., "class_codes", "emails",
 #                        "supervisor_id", "label"}
-# Teachers stay under roster.teachers (their classrooms point at them). Older rosters (the Atlanta
-# Prep profile, test fixtures) still keep RBTs under roster.rbts; both are read the same way.
+# Teachers stay under roster.teachers (their classrooms point at them). Older rosters and
+# test fixtures still keep RBTs under roster.rbts; both are read the same way.
 TEACHER_ROLE, RBT_ROLE = "teacher", "rbt"
 
 

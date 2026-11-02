@@ -89,5 +89,6 @@ CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y
 # The bootloader (flashed over USB, not by an app-only update) then reverts
 # if the image never confirms. Partition sizes are unchanged.
 CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
+# Placeholders. A real image should use $OTA_BUCKET (default ${PROJECT_ID}-firmware).
 CONFIG_RECORDER_OTA_BUCKET="example-project-firmware"
 CONFIG_RECORDER_OTA_MANIFEST_URL="https://storage.googleapis.com/example-project-firmware/firmware/crowpanel43/manifest.json"

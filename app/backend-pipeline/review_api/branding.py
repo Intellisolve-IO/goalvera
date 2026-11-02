@@ -18,10 +18,9 @@ Logo uploads (PNG, JPEG or SVG, at most 1 MB) are never served as uploaded:
 
 School profiles (David, Oct 10 2026; tasks#98): the demo school is Everyday Heroes Academy
 (fictional; badge "EH" and a built-in shield logo, assets/everyday-heroes-badge.png). A second
-profile, Demo School (badge "DS"), holds branding saved before this product was named Goalvera.
-It is not shown by default. SCHOOL_PROFILE (infra/config.sh) picks the profile; each record
-carries its profile. Records with no profile, and records still tagged with the old profile id,
-belong to Demo School, so anything an admin saved there is still there when that profile is on.
+profile, Demo School (badge "DS"), is not shown by default. SCHOOL_PROFILE (infra/config.sh)
+picks the profile; each record carries its profile. Records with no profile belong to Demo
+School, so they show only when that profile is selected.
 
 Changes are written to the Activity Log as settings_changed with which field changed
 (school_name, school_logo, reset). File contents, names and the new text are not logged.
@@ -52,15 +51,13 @@ PROFILES = {
 }
 DEFAULT_PROFILE = "everyday-heroes"
 LEGACY_PROFILE = "demo-school"   # branding records from before Oct 10 have no profile
-# Bucket records and SCHOOL_PROFILE values written before the Goalvera rename.
-# Reading still maps this id onto demo-school. New writes use demo-school only.
-STORED_PROFILE_ALIASES = {"atlanta-prep": "demo-school"}
 
 
 def canonical_profile(value: str | None) -> str:
+    """Records with no profile belong to Demo School. Any other id is used as written."""
     if not value:
         return LEGACY_PROFILE
-    return STORED_PROFILE_ALIASES.get(value, value)
+    return value
 
 
 def active_profile() -> str:

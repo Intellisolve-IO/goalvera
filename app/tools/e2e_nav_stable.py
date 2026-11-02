@@ -36,7 +36,7 @@ os.environ.setdefault("PLANNER_TODAY", "2026-10-07")
 
 import e2e_planner as ep  # noqa: E402  (helpers only; its ports are overridden below)
 
-PROJECT = "demo-atlanta-review"
+PROJECT = "demo-local-review"
 EMU = "127.0.0.1:9399"
 PORT = 8797
 BASE = f"http://127.0.0.1:{PORT}"

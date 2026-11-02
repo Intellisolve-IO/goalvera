@@ -39,7 +39,7 @@ sys.path.insert(0, str(APP / "backend-pipeline/tests"))
 
 import e2e_planner as ep  # noqa: E402  (helpers only; its ports are overridden below)
 
-PROJECT = "demo-atlanta-review"
+PROJECT = "demo-local-review"
 EMU = "127.0.0.1:9401"
 PORT = 8799
 BASE = f"http://127.0.0.1:{PORT}"

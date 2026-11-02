@@ -38,7 +38,7 @@ APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP / "tools"))
 sys.path.insert(0, str(APP / "backend-pipeline"))
 
-PROJECT = "demo-atlanta-review"
+PROJECT = "demo-local-review"
 EMU = "127.0.0.1:9199"
 PORT = 8789
 BASE = f"http://127.0.0.1:{PORT}"

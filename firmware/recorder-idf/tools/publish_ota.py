@@ -26,8 +26,6 @@ from cryptography.hazmat.primitives.serialization import load_pem_private_key
 
 ROOT = Path(__file__).resolve().parents[3]  # repo root
 PUBKEY_C = Path(__file__).resolve().parents[1] / "main" / "ota_pubkey.c"
-PROJECT = os.environ.get("PROJECT_ID", "example-project")
-BUCKET = os.environ.get("OTA_BUCKET", f"{PROJECT}-firmware")
 SECRET = os.environ.get("OTA_SIGNING_SECRET", "recorder-ota-signing-key")
 HOST = "storage.googleapis.com"
 
@@ -126,6 +124,21 @@ def _inside_repo(path: Path) -> bool:
         return False
 
 
+def project_id() -> str:
+    """Google Cloud project that holds the signing secret. Never a default."""
+    project = os.environ.get("PROJECT_ID", "").strip()
+    if not project:
+        raise SystemExit("set PROJECT_ID to the project that holds the OTA signing secret")
+    return project
+
+
+def ota_bucket() -> str:
+    bucket = os.environ.get("OTA_BUCKET", "").strip()
+    if bucket:
+        return bucket
+    return f"{project_id()}-firmware"
+
+
 def read_signing_key() -> bytes:
     """PEM bytes. From OTA_SIGNING_KEY (outside the repo) or Secret Manager."""
     given = os.environ.get("OTA_SIGNING_KEY", "")
@@ -136,18 +149,19 @@ def read_signing_key() -> bytes:
         if _inside_repo(path):
             raise SystemExit("refusing to read a signing key from inside the repo")
         return path.read_bytes()
+    project = project_id()
     try:
         proc = subprocess.run(
             ["gcloud", "secrets", "versions", "access", "latest",
-             "--secret", SECRET, "--project", PROJECT],
+             "--secret", SECRET, "--project", project],
             check=True, capture_output=True,
         )
     except (OSError, subprocess.CalledProcessError) as exc:
         err = getattr(exc, "stderr", b"") or b""
         sys.stderr.write(err.decode(errors="replace"))
         raise SystemExit(
-            f"could not read secret {SECRET} in {PROJECT}. "
-            "Create it with the commands in docs/ota.md. The key was not printed."
+            f"could not read secret {SECRET} in {project}. "
+            "Set PROJECT_ID and OTA_SIGNING_SECRET. The key was not printed."
         ) from exc
     data = proc.stdout
     if b"PRIVATE KEY" not in data and len(data.strip()) == 0:
@@ -181,7 +195,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--bin", required=True, type=Path, help="recorder.bin to publish")
     p.add_argument("--version", help="X.Y.Z (default: PROJECT_VER in CMakeLists.txt)")
     p.add_argument("--board", choices=sorted(BOARDS), default="hosyond35")
-    p.add_argument("--bucket", default=BUCKET)
+    p.add_argument("--bucket", default=None, help="default: $OTA_BUCKET or ${PROJECT_ID}-firmware")
     p.add_argument("--embedded-pubkey", type=Path, default=PUBKEY_C)
     p.add_argument("--dry-run", action="store_true", help="print the manifest, do not upload")
     p.add_argument("--manifest-out", type=Path, help="also write the manifest JSON here")
@@ -194,7 +208,6 @@ def main(argv: list[str] | None = None) -> int:
     if not VER_RE.match(version):
         raise SystemExit(f"bad version {version}")
     sha = hashlib.sha256(args.bin.read_bytes()).hexdigest()
-    url = image_url(args.bucket, args.board, version)
     key = load_private_key(read_signing_key())
     embedded = parse_embedded_pubkey(args.embedded_pubkey.read_text())
     pub = public_raw(key)
@@ -206,13 +219,15 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(
             "firmware public key does not match this signing key. "
             "Run tools/embed_ota_pubkey.py and rebuild before publishing.")
+    bucket = args.bucket or ota_bucket()
+    url = image_url(bucket, args.board, version)
     manifest = sign_manifest(key, version, url, sha)
     text = json.dumps(manifest, separators=(",", ":"))
     bin_obj, man_obj = object_names(args.board, version)
     print(f"version {version}")
     print(f"sha256 {sha}")
-    print(f"image gs://{args.bucket}/{bin_obj}")
-    print(f"manifest gs://{args.bucket}/{man_obj}")
+    print(f"image gs://{bucket}/{bin_obj}")
+    print(f"manifest gs://{bucket}/{man_obj}")
     print(text)
     if args.manifest_out:
         args.manifest_out.write_text(text + "\n")
@@ -220,14 +235,14 @@ def main(argv: list[str] | None = None) -> int:
         print("dry-run: nothing uploaded")
         return 0
 
-    writers = public_writer_bindings(fetch_iam_policy(args.bucket))
+    writers = public_writer_bindings(fetch_iam_policy(bucket))
     if writers:
         raise SystemExit("refusing to publish; bucket is publicly writable: " + ", ".join(writers))
     with tempfile.TemporaryDirectory(prefix="ota-manifest-") as tmp:
         man = Path(tmp) / "manifest.json"
         man.write_text(text + "\n")
-        upload(args.bin, f"gs://{args.bucket}/{bin_obj}", "application/octet-stream", "public, max-age=3600")
-        upload(man, f"gs://{args.bucket}/{man_obj}", "application/json", "no-cache")
+        upload(args.bin, f"gs://{bucket}/{bin_obj}", "application/octet-stream", "public, max-age=3600")
+        upload(man, f"gs://{bucket}/{man_obj}", "application/json", "no-cache")
     print("published")
     return 0
 

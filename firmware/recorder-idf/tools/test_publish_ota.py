@@ -64,10 +64,13 @@ class PublishTests(unittest.TestCase):
         self.assertIn("allUsers roles/storage.legacyBucketWriter", found)
         self.assertFalse(any(x.startswith("user:") for x in found))
 
-    def test_placeholder_pubkey_and_no_private_key_in_firmware(self):
+    def test_embedded_pubkey_is_public_and_not_a_placeholder(self):
         text = (TOOLS.parent / "main" / "ota_pubkey.c").read_text()
         self.assertNotIn("PRIVATE KEY", text)
-        self.assertEqual(pub.parse_embedded_pubkey(text), bytes(32))
+        raw = pub.parse_embedded_pubkey(text)
+        self.assertEqual(len(raw), 32)
+        self.assertNotEqual(raw, bytes(32))
+        self.assertNotIn("goalvera-app", text)
 
     def test_project_version(self):
         text = (TOOLS.parent / "CMakeLists.txt").read_text()
@@ -104,6 +107,7 @@ class PublishTests(unittest.TestCase):
             blob.write_bytes(b"not-a-real-image")
             env = dict(os.environ)
             env["OTA_SIGNING_KEY"] = str(key_path)
+            env["OTA_BUCKET"] = "example-project-firmware"
             proc = subprocess.run(
                 [sys.executable, str(TOOLS / "publish_ota.py"),
                  "--bin", str(blob), "--version", "0.8.0", "--dry-run",
@@ -121,7 +125,7 @@ class PublishTests(unittest.TestCase):
                 check=False, capture_output=True, text=True, env=env,
             )
             self.assertNotEqual(proc2.returncode, 0)
-            self.assertIn("placeholder", proc2.stderr)
+            self.assertIn("does not match", proc2.stderr)
 
 
 if __name__ == "__main__":
