@@ -308,28 +308,51 @@ def finish_session(rid: str) -> None:
 
 # ---------------------------------------------------------------- Teacher Notes photos (tasks#112)
 
+def _media_unavailable(exc: Exception, rid: str) -> bool:
+    """True when the recordings bucket has no media/ access for this SA (preview missed setup_media.sh)."""
+    if type(exc).__name__ not in ("Forbidden", "PermissionDenied", "PermissionError"):
+        return False
+    log("media_list_unavailable", "WARNING", step="media", error_type=type(exc).__name__, recording_id=rid)
+    return True
+
+
 def media_list(rid: str) -> list[dict]:
-    """Confirmed uploads for this recording (media/<rid>/<mid>.json, written by upload-api)."""
+    """Confirmed uploads for this recording (media/<rid>/<mid>.json, written by upload-api).
+
+    Listing media/ is a separate IAM grant (infra/setup_media.sh). If it is missing, return
+    [] so the notes draft can still run from the transcript; do not leave analysis.lock stuck.
+    """
     out = []
-    for blob in storage_client().list_blobs(BUCKET, prefix=f"media/{rid}/"):
-        if blob.name.endswith(".json"):
-            meta = read_json(blob.name) or {}
-            if meta.get("recording_id") == rid and meta.get("kind") in ("photo", "video"):
-                out.append({k: meta.get(k) for k in ("media_id", "kind", "object", "content_type",
-                                                     "size_bytes", "uploaded_at")})
+    try:
+        blobs = storage_client().list_blobs(BUCKET, prefix=f"media/{rid}/")
+        for blob in blobs:
+            if blob.name.endswith(".json"):
+                meta = read_json(blob.name) or {}
+                if meta.get("recording_id") == rid and meta.get("kind") in ("photo", "video"):
+                    out.append({k: meta.get(k) for k in ("media_id", "kind", "object", "content_type",
+                                                         "size_bytes", "uploaded_at")})
+    except Exception as exc:  # noqa: BLE001
+        if _media_unavailable(exc, rid):
+            return []
+        raise
     return sorted(out, key=lambda m: m.get("uploaded_at") or "")
 
 
 def load_photos(rid: str) -> list[dict]:
     """Photo bytes for the analyzer (videos: no AI notes in this version)."""
     photos = []
-    for m in media_list(rid):
-        if m["kind"] != "photo" or not m.get("object") or (m.get("size_bytes") or 0) > MAX_PHOTO_BYTES:
-            continue
-        if len(photos) >= MAX_PHOTOS:
-            break
-        photos.append({"media_id": m["media_id"], "mime": m["content_type"] or "image/jpeg",
-                       "data": bucket().blob(m["object"]).download_as_bytes()})
+    try:
+        for m in media_list(rid):
+            if m["kind"] != "photo" or not m.get("object") or (m.get("size_bytes") or 0) > MAX_PHOTO_BYTES:
+                continue
+            if len(photos) >= MAX_PHOTOS:
+                break
+            photos.append({"media_id": m["media_id"], "mime": m["content_type"] or "image/jpeg",
+                           "data": bucket().blob(m["object"]).download_as_bytes()})
+    except Exception as exc:  # noqa: BLE001
+        if _media_unavailable(exc, rid):
+            return []
+        raise
     return photos
 
 

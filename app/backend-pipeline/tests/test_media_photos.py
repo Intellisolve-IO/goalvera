@@ -7,9 +7,11 @@
 """
 from __future__ import annotations
 
+import io
 import json
 import sys
 import types
+from contextlib import redirect_stdout
 from pathlib import Path
 
 import pytest
@@ -103,3 +105,48 @@ def test_review_media_joins_notes_without_paths():
     rows = session_media(d)
     assert rows[0]["insights"] == "obs" and rows[1]["insights"] is None
     assert "object" not in json.dumps(rows) and "media/rec_a" not in json.dumps(rows)
+
+
+def test_media_list_forbidden_returns_empty(monkeypatch):
+    """A missing media/ IAM grant must not abort the notes draft (preview smoke, tasks#165)."""
+    import pipeline_service.main as main
+
+    class Forbidden(Exception):
+        pass
+
+    class Dummy:
+        def list_blobs(self, *a, **k):
+            raise Forbidden("no media list")
+
+    monkeypatch.setattr(main, "storage_client", lambda: Dummy())
+    monkeypatch.setattr(main, "BUCKET", "bucket-1")
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        assert main.media_list("rec_preview_smoke") == []
+        assert main.load_photos("rec_preview_smoke") == []
+    events = [json.loads(line) for line in buf.getvalue().splitlines() if line.strip()]
+    assert any(e.get("event") == "media_list_unavailable" and e.get("error_type") == "Forbidden"
+               and e.get("recording_id") == "rec_preview_smoke" for e in events)
+
+
+def test_load_photos_forbidden_on_download_returns_empty(monkeypatch):
+    import pipeline_service.main as main
+
+    class Forbidden(Exception):
+        pass
+
+    monkeypatch.setattr(main, "media_list", lambda rid: [{
+        "media_id": "m0123456789ab", "kind": "photo", "object": "media/rec_a/m.jpg",
+        "content_type": "image/jpeg", "size_bytes": 12, "uploaded_at": "2026-11-11T00:00:00Z",
+    }])
+
+    class Blob:
+        def download_as_bytes(self):
+            raise Forbidden("no media read")
+
+    monkeypatch.setattr(main, "bucket", lambda: types.SimpleNamespace(blob=lambda name: Blob()))
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        assert main.load_photos("rec_a") == []
+    events = [json.loads(line) for line in buf.getvalue().splitlines() if line.strip()]
+    assert any(e.get("event") == "media_list_unavailable" and e.get("error_type") == "Forbidden" for e in events)
