@@ -1,0 +1,1310 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "label": "Fictional sample data",
+    "school_profile": "everyday-heroes",
+    "source": "app/samples/sis-demo classes.csv, enrollments.csv, ext_periods.csv (fictional); domains mapped by app/tools/build_school_setup.py DOMAIN_FOR_SUBJECT. Do not edit by hand."
+  },
+  "classes": [
+    {
+      "id": "cls-rm101-hr",
+      "name": "Room 101 Homeroom",
+      "classroom": "Room 101",
+      "teacher_ids": [
+        "stf_0002",
+        "stf_0014"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0008",
+        "stu_0009",
+        "stu_0010",
+        "stu_0011",
+        "stu_0012",
+        "stu_0013",
+        "stu_0014",
+        "stu_0015",
+        "stu_0016",
+        "stu_0017",
+        "stu_0018"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "KG,01",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm101-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm101-rdg",
+      "name": "Room 101 Reading",
+      "classroom": "Room 101",
+      "teacher_ids": [
+        "stf_0002",
+        "stf_0014"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0008",
+        "stu_0009",
+        "stu_0010",
+        "stu_0011",
+        "stu_0012",
+        "stu_0013",
+        "stu_0014",
+        "stu_0015",
+        "stu_0016",
+        "stu_0017",
+        "stu_0018"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "KG,01",
+      "subject": "Reading",
+      "sis_id": "cls-rm101-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm101-mth",
+      "name": "Room 101 Math",
+      "classroom": "Room 101",
+      "teacher_ids": [
+        "stf_0002",
+        "stf_0014"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0008",
+        "stu_0009",
+        "stu_0010",
+        "stu_0011",
+        "stu_0012",
+        "stu_0013",
+        "stu_0014",
+        "stu_0015",
+        "stu_0016",
+        "stu_0017",
+        "stu_0018"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "KG,01",
+      "subject": "Math",
+      "sis_id": "cls-rm101-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm101-soc",
+      "name": "Room 101 Social Skills",
+      "classroom": "Room 101",
+      "teacher_ids": [
+        "stf_0002",
+        "stf_0014"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0008",
+        "stu_0009",
+        "stu_0010",
+        "stu_0011",
+        "stu_0012",
+        "stu_0013",
+        "stu_0014",
+        "stu_0015",
+        "stu_0016",
+        "stu_0017",
+        "stu_0018"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "KG,01",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm101-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm102-hr",
+      "name": "Room 102 Homeroom",
+      "classroom": "Room 102",
+      "teacher_ids": [
+        "stf_0003",
+        "stf_0014"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0019",
+        "stu_0020",
+        "stu_0021",
+        "stu_0022",
+        "stu_0023",
+        "stu_0024",
+        "stu_0025",
+        "stu_0026",
+        "stu_0027",
+        "stu_0028",
+        "stu_0029"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "KG,01,02",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm102-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm102-rdg",
+      "name": "Room 102 Reading",
+      "classroom": "Room 102",
+      "teacher_ids": [
+        "stf_0003",
+        "stf_0014"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0019",
+        "stu_0020",
+        "stu_0021",
+        "stu_0022",
+        "stu_0023",
+        "stu_0024",
+        "stu_0025",
+        "stu_0026",
+        "stu_0027",
+        "stu_0028",
+        "stu_0029"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "KG,01,02",
+      "subject": "Reading",
+      "sis_id": "cls-rm102-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm102-mth",
+      "name": "Room 102 Math",
+      "classroom": "Room 102",
+      "teacher_ids": [
+        "stf_0003",
+        "stf_0014"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0019",
+        "stu_0020",
+        "stu_0021",
+        "stu_0022",
+        "stu_0023",
+        "stu_0024",
+        "stu_0025",
+        "stu_0026",
+        "stu_0027",
+        "stu_0028",
+        "stu_0029"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "KG,01,02",
+      "subject": "Math",
+      "sis_id": "cls-rm102-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm102-soc",
+      "name": "Room 102 Social Skills",
+      "classroom": "Room 102",
+      "teacher_ids": [
+        "stf_0003",
+        "stf_0014"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0019",
+        "stu_0020",
+        "stu_0021",
+        "stu_0022",
+        "stu_0023",
+        "stu_0024",
+        "stu_0025",
+        "stu_0026",
+        "stu_0027",
+        "stu_0028",
+        "stu_0029"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "KG,01,02",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm102-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm103-hr",
+      "name": "Room 103 Homeroom",
+      "classroom": "Room 103",
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0030",
+        "stu_0031",
+        "stu_0032",
+        "stu_0033",
+        "stu_0034",
+        "stu_0035",
+        "stu_0036",
+        "stu_0037",
+        "stu_0038",
+        "stu_0039",
+        "stu_0040"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "01,02,03",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm103-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm103-rdg",
+      "name": "Room 103 Reading",
+      "classroom": "Room 103",
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0030",
+        "stu_0031",
+        "stu_0032",
+        "stu_0033",
+        "stu_0034",
+        "stu_0035",
+        "stu_0036",
+        "stu_0037",
+        "stu_0038",
+        "stu_0039",
+        "stu_0040"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "01,02,03",
+      "subject": "Reading",
+      "sis_id": "cls-rm103-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm103-mth",
+      "name": "Room 103 Math",
+      "classroom": "Room 103",
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0030",
+        "stu_0031",
+        "stu_0032",
+        "stu_0033",
+        "stu_0034",
+        "stu_0035",
+        "stu_0036",
+        "stu_0037",
+        "stu_0038",
+        "stu_0039",
+        "stu_0040"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "01,02,03",
+      "subject": "Math",
+      "sis_id": "cls-rm103-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm103-soc",
+      "name": "Room 103 Social Skills",
+      "classroom": "Room 103",
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0030",
+        "stu_0031",
+        "stu_0032",
+        "stu_0033",
+        "stu_0034",
+        "stu_0035",
+        "stu_0036",
+        "stu_0037",
+        "stu_0038",
+        "stu_0039",
+        "stu_0040"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "01,02,03",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm103-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm104-hr",
+      "name": "Room 104 Homeroom",
+      "classroom": "Room 104",
+      "teacher_ids": [
+        "stf_0001",
+        "stf_0010"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0001",
+        "stu_0002",
+        "stu_0003",
+        "stu_0004",
+        "stu_0005",
+        "stu_0006",
+        "stu_0007",
+        "stu_0041",
+        "stu_0042",
+        "stu_0043"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "02,03,04,05",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm104-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm104-rdg",
+      "name": "Room 104 Reading",
+      "classroom": "Room 104",
+      "teacher_ids": [
+        "stf_0001",
+        "stf_0010"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0001",
+        "stu_0002",
+        "stu_0003",
+        "stu_0004",
+        "stu_0005",
+        "stu_0006",
+        "stu_0007",
+        "stu_0041",
+        "stu_0042",
+        "stu_0043"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "02,03,04,05",
+      "subject": "Reading",
+      "sis_id": "cls-rm104-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm104-mth",
+      "name": "Room 104 Math",
+      "classroom": "Room 104",
+      "teacher_ids": [
+        "stf_0001",
+        "stf_0010"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0001",
+        "stu_0002",
+        "stu_0003",
+        "stu_0004",
+        "stu_0005",
+        "stu_0006",
+        "stu_0007",
+        "stu_0041",
+        "stu_0042",
+        "stu_0043"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "02,03,04,05",
+      "subject": "Math",
+      "sis_id": "cls-rm104-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm104-soc",
+      "name": "Room 104 Social Skills",
+      "classroom": "Room 104",
+      "teacher_ids": [
+        "stf_0001",
+        "stf_0010"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0001",
+        "stu_0002",
+        "stu_0003",
+        "stu_0004",
+        "stu_0005",
+        "stu_0006",
+        "stu_0007",
+        "stu_0041",
+        "stu_0042",
+        "stu_0043"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "02,03,04,05",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm104-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm105-hr",
+      "name": "Room 105 Homeroom",
+      "classroom": "Room 105",
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0044",
+        "stu_0045",
+        "stu_0046",
+        "stu_0047",
+        "stu_0048",
+        "stu_0049",
+        "stu_0050",
+        "stu_0051",
+        "stu_0052",
+        "stu_0053",
+        "stu_0054"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "03,04",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm105-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm105-rdg",
+      "name": "Room 105 Reading",
+      "classroom": "Room 105",
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0044",
+        "stu_0045",
+        "stu_0046",
+        "stu_0047",
+        "stu_0048",
+        "stu_0049",
+        "stu_0050",
+        "stu_0051",
+        "stu_0052",
+        "stu_0053",
+        "stu_0054"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "03,04",
+      "subject": "Reading",
+      "sis_id": "cls-rm105-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm105-mth",
+      "name": "Room 105 Math",
+      "classroom": "Room 105",
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0044",
+        "stu_0045",
+        "stu_0046",
+        "stu_0047",
+        "stu_0048",
+        "stu_0049",
+        "stu_0050",
+        "stu_0051",
+        "stu_0052",
+        "stu_0053",
+        "stu_0054"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "03,04",
+      "subject": "Math",
+      "sis_id": "cls-rm105-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm105-soc",
+      "name": "Room 105 Social Skills",
+      "classroom": "Room 105",
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0044",
+        "stu_0045",
+        "stu_0046",
+        "stu_0047",
+        "stu_0048",
+        "stu_0049",
+        "stu_0050",
+        "stu_0051",
+        "stu_0052",
+        "stu_0053",
+        "stu_0054"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "03,04",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm105-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm106-hr",
+      "name": "Room 106 Homeroom",
+      "classroom": "Room 106",
+      "teacher_ids": [
+        "stf_0006",
+        "stf_0011"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0055",
+        "stu_0056",
+        "stu_0057",
+        "stu_0058",
+        "stu_0059",
+        "stu_0060",
+        "stu_0061",
+        "stu_0062",
+        "stu_0063",
+        "stu_0064",
+        "stu_0065",
+        "stu_0066"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "03,04,05",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm106-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm106-rdg",
+      "name": "Room 106 Reading",
+      "classroom": "Room 106",
+      "teacher_ids": [
+        "stf_0006",
+        "stf_0011"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0055",
+        "stu_0056",
+        "stu_0057",
+        "stu_0058",
+        "stu_0059",
+        "stu_0060",
+        "stu_0061",
+        "stu_0062",
+        "stu_0063",
+        "stu_0064",
+        "stu_0065",
+        "stu_0066"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "03,04,05",
+      "subject": "Reading",
+      "sis_id": "cls-rm106-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm106-mth",
+      "name": "Room 106 Math",
+      "classroom": "Room 106",
+      "teacher_ids": [
+        "stf_0006",
+        "stf_0011"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0055",
+        "stu_0056",
+        "stu_0057",
+        "stu_0058",
+        "stu_0059",
+        "stu_0060",
+        "stu_0061",
+        "stu_0062",
+        "stu_0063",
+        "stu_0064",
+        "stu_0065",
+        "stu_0066"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "03,04,05",
+      "subject": "Math",
+      "sis_id": "cls-rm106-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm106-soc",
+      "name": "Room 106 Social Skills",
+      "classroom": "Room 106",
+      "teacher_ids": [
+        "stf_0006",
+        "stf_0011"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0055",
+        "stu_0056",
+        "stu_0057",
+        "stu_0058",
+        "stu_0059",
+        "stu_0060",
+        "stu_0061",
+        "stu_0062",
+        "stu_0063",
+        "stu_0064",
+        "stu_0065",
+        "stu_0066"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "03,04,05",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm106-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm107-hr",
+      "name": "Room 107 Homeroom",
+      "classroom": "Room 107",
+      "teacher_ids": [
+        "stf_0007",
+        "stf_0012"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0067",
+        "stu_0068",
+        "stu_0069",
+        "stu_0070",
+        "stu_0071",
+        "stu_0072",
+        "stu_0073",
+        "stu_0074",
+        "stu_0075",
+        "stu_0076",
+        "stu_0077",
+        "stu_0078"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "04,05",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm107-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm107-rdg",
+      "name": "Room 107 Reading",
+      "classroom": "Room 107",
+      "teacher_ids": [
+        "stf_0007",
+        "stf_0012"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0067",
+        "stu_0068",
+        "stu_0069",
+        "stu_0070",
+        "stu_0071",
+        "stu_0072",
+        "stu_0073",
+        "stu_0074",
+        "stu_0075",
+        "stu_0076",
+        "stu_0077",
+        "stu_0078"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "04,05",
+      "subject": "Reading",
+      "sis_id": "cls-rm107-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm107-mth",
+      "name": "Room 107 Math",
+      "classroom": "Room 107",
+      "teacher_ids": [
+        "stf_0007",
+        "stf_0012"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0067",
+        "stu_0068",
+        "stu_0069",
+        "stu_0070",
+        "stu_0071",
+        "stu_0072",
+        "stu_0073",
+        "stu_0074",
+        "stu_0075",
+        "stu_0076",
+        "stu_0077",
+        "stu_0078"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "04,05",
+      "subject": "Math",
+      "sis_id": "cls-rm107-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm107-soc",
+      "name": "Room 107 Social Skills",
+      "classroom": "Room 107",
+      "teacher_ids": [
+        "stf_0007",
+        "stf_0012"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0067",
+        "stu_0068",
+        "stu_0069",
+        "stu_0070",
+        "stu_0071",
+        "stu_0072",
+        "stu_0073",
+        "stu_0074",
+        "stu_0075",
+        "stu_0076",
+        "stu_0077",
+        "stu_0078"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "04,05",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm107-soc",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm108-hr",
+      "name": "Room 108 Homeroom",
+      "classroom": "Room 108",
+      "teacher_ids": [
+        "stf_0008",
+        "stf_0013"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0079",
+        "stu_0080",
+        "stu_0081",
+        "stu_0082",
+        "stu_0083",
+        "stu_0084",
+        "stu_0085",
+        "stu_0086",
+        "stu_0087"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:00",
+          "minutes": 20,
+          "period": "Morning Meeting"
+        }
+      ],
+      "grades": "KG,01,02,03,04,05",
+      "subject": "Homeroom",
+      "sis_id": "cls-rm108-hr",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm108-rdg",
+      "name": "Room 108 Reading",
+      "classroom": "Room 108",
+      "teacher_ids": [
+        "stf_0008",
+        "stf_0013"
+      ],
+      "domain_id": "dom-reading-phonics",
+      "student_ids": [
+        "stu_0079",
+        "stu_0080",
+        "stu_0081",
+        "stu_0082",
+        "stu_0083",
+        "stu_0084",
+        "stu_0085",
+        "stu_0086",
+        "stu_0087"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "08:20",
+          "minutes": 90,
+          "period": "Reading Block"
+        }
+      ],
+      "grades": "KG,01,02,03,04,05",
+      "subject": "Reading",
+      "sis_id": "cls-rm108-rdg",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm108-mth",
+      "name": "Room 108 Math",
+      "classroom": "Room 108",
+      "teacher_ids": [
+        "stf_0008",
+        "stf_0013"
+      ],
+      "domain_id": "dom-mathematics",
+      "student_ids": [
+        "stu_0079",
+        "stu_0080",
+        "stu_0081",
+        "stu_0082",
+        "stu_0083",
+        "stu_0084",
+        "stu_0085",
+        "stu_0086",
+        "stu_0087"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "10:35",
+          "minutes": 70,
+          "period": "Math Block"
+        }
+      ],
+      "grades": "KG,01,02,03,04,05",
+      "subject": "Math",
+      "sis_id": "cls-rm108-mth",
+      "label": "Fictional sample data"
+    },
+    {
+      "id": "cls-rm108-soc",
+      "name": "Room 108 Social Skills",
+      "classroom": "Room 108",
+      "teacher_ids": [
+        "stf_0008",
+        "stf_0013"
+      ],
+      "domain_id": "dom-social-emotional-self-regulation",
+      "student_ids": [
+        "stu_0079",
+        "stu_0080",
+        "stu_0081",
+        "stu_0082",
+        "stu_0083",
+        "stu_0084",
+        "stu_0085",
+        "stu_0086",
+        "stu_0087"
+      ],
+      "schedule": [
+        {
+          "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+          ],
+          "start": "12:30",
+          "minutes": 45,
+          "period": "Social Skills / Science"
+        }
+      ],
+      "grades": "KG,01,02,03,04,05",
+      "subject": "Social Skills",
+      "sis_id": "cls-rm108-soc",
+      "label": "Fictional sample data"
+    }
+  ]
+}

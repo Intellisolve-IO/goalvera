@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "site": "goalvera-app",
+    "public": "site",
+    "cleanUrls": true,
+    "headers": [
+      {"source": "**", "headers": [
+        {"key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'self'; style-src 'self'; script-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"},
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "Referrer-Policy", "value": "no-referrer"},
+        {"key": "Cache-Control", "value": "public, max-age=3600"}
+      ]}
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+name: firmware-idf
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: idf.py build (esp32s3, Hosyond 3.5")
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build firmware/recorder-idf (default board, Hosyond 3.5")
+        run: |
+          docker run --rm --entrypoint bash \
+            -v "${{ github.workspace }}:/workspace" \
+            -w /workspace/firmware/recorder-idf \
+            espressif/idf:v5.4.2 \
+            -c 'openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:3072 2>/dev/null | openssl pkey -pubout -out /tmp/ci_pubkey.pem && . /opt/esp/idf/export.sh && idf.py -D RECORDING_PUBKEY_PEM=/tmp/ci_pubkey.pem build'
+
+  build-crowpanel43:
+    name: idf.py build (esp32s3, CrowPanel 4.3", unsupported)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the unsupported CrowPanel board (informational only)
+        run: |
+          docker run --rm --entrypoint bash \
+            -v "${{ github.workspace }}:/workspace" \
+            -w /workspace/firmware/recorder-idf \
+            espressif/idf:v5.4.2 \
+            -c '. /opt/esp/idf/export.sh && idf.py -B build-crowpanel43 -D SDKCONFIG=build-crowpanel43/sdkconfig -D RECORDER_BOARD=crowpanel43 build'
+
+  host-tests:
+    name: firmware host unit tests (cc)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run test/host
+        working-directory: firmware/recorder-idf
+        run: |
+          set -e
+          cc -Wall -Wextra -Werror -Imain test/host/test_battery.c -o /tmp/tb && /tmp/tb
+          cc -Wall -Imain test/host/test_meter.c -lm -o /tmp/tm && /tmp/tm
+          cc -Wall -Imain test/host/test_upload.c main/upload_name.c main/crc32c.c -o /tmp/tu && /tmp/tu
+          cc -Wall -Imain test/host/test_wifi_list.c -o /tmp/tw && /tmp/tw
+          cc -Wall -Wextra -Werror -Imain test/host/test_pilot_guard.c main/pilot_guard.c -o /tmp/tpg && /tmp/tpg
+          cc -c -O2 -Imain -Wno-sign-compare -Wno-unused-function main/tweetnacl.c -o /tmp/tweetnacl.o
+          cc -Wall -Wextra -Werror -Imain test/host/test_ota_policy.c main/ota_policy.c main/ota_sign.c /tmp/tweetnacl.o -o /tmp/to && /tmp/to
+          python3 -m pip install -q cryptography
+          python3 tools/test_publish_ota.py
+
+  rec-crypt:
+    name: SD encryption (C encoder -> Python decrypter)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build host mbedTLS 3.6 (same major as ESP-IDF 5.4)
+        run: |
+          git clone -q --depth 1 -b v3.6.3 https://github.com/Mbed-TLS/mbedtls /tmp/mbedtls
+          cd /tmp/mbedtls && python3 -m pip install -q jsonschema jinja2 && make -s lib -j4
+      - name: Encode vectors in C, decrypt in Python
+        run: |
+          set -e
+          pip install -q cryptography
+          mkdir -p /tmp/rcv
+          python3 -c "from cryptography.hazmat.primitives.asymmetric import rsa;from cryptography.hazmat.primitives import serialization as s;k=rsa.generate_private_key(65537,3072);open('/tmp/rcv/priv.pem','wb').write(k.private_bytes(s.Encoding.PEM,s.PrivateFormat.PKCS8,s.NoEncryption()));open('/tmp/rcv/pub.pem','wb').write(k.public_key().public_bytes(s.Encoding.PEM,s.PublicFormat.SubjectPublicKeyInfo))"
+          cd firmware/recorder-idf
+          cc -Wall -Wextra -Werror -Imain -I/tmp/mbedtls/include test/host/test_rec_crypt.c main/rec_crypt.c /tmp/mbedtls/library/libmbedcrypto.a -o /tmp/trc
+          /tmp/trc /tmp/rcv/pub.pem /tmp/rcv
+          cd ../../app/backend-pipeline && REC_CRYPT_VECTORS=/tmp/rcv python3 -m unittest tests.test_recording_crypto -v

@@ -1,0 +1,407 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0007-v2",
+  "studentSourcedId": "u-stu-0007",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0007-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-09-17",
+  "startDate": "2026-09-18",
+  "endDate": "2027-09-16",
+  "annualReviewDue": "2027-09-16",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-09-08",
+  "reevaluationDue": "2028-09-07",
+  "eligibilityDate": "2022-09-29",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-VI",
+      "federalCode": "VI",
+      "label": "Visual Impairment",
+      "determinedDate": "2022-09-29"
+    }
+  ],
+  "evaluationSummary": "Reevaluation 2025-09 (fictional results): eye report on file with the school (no details recorded here). Functional vision assessment: reads 24-point print at 8-10 inches. Learning media assessment (May 2026): print is the primary reading medium; braille not indicated at this time; reviewed annually. Academic skills within the average range with enlarged materials.",
+  "strengths": "Dopey has strong listening comprehension, a large oral vocabulary and good number sense, and he enjoys music and storytelling.",
+  "needs": "Using his video magnifier independently, reading fluency with large print, getting around new school areas, asking for enlarged materials.",
+  "parentConcerns": "His family wants him to be as independent as possible with his tools and to move around school confidently.",
+  "disabilityImpact": "Reduced visual access to standard print, board work and new environments slows reading and limits independence without materials in an accessible format, assistive technology and orientation and mobility instruction.",
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Reads 40 words correct per minute on grade 2 passages in 24-point print; decoding accuracy 95%."
+    },
+    {
+      "area": "math",
+      "text": "Grade-level skills with enlarged, high-contrast materials."
+    },
+    {
+      "area": "assistive_technology",
+      "text": "Sets up the video magnifier with adult help; reads board work only from a printed copy."
+    },
+    {
+      "area": "orientation_mobility",
+      "text": "Travels familiar routes independently; needs adult guidance in new areas (0 of 3 new routes)."
+    },
+    {
+      "area": "self_advocacy",
+      "text": "Asks for enlarged materials in 1 of 5 opportunities."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": false,
+    "bipDeveloped": false,
+    "lep": false,
+    "visual": true,
+    "communication": false,
+    "deafHoh": false,
+    "assistiveTech": true,
+    "altFormat": [
+      "large_type",
+      "electronic_text"
+    ],
+    "notes": "Braille: learning media assessment (May 2026) shows print as the primary medium; braille instruction not indicated now, reviewed annually. Assistive technology: video magnifier, large-print materials, tablet with zoom."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0007-v2-g1",
+      "number": 1,
+      "area": "assistive_technology",
+      "category": "Functional",
+      "baseline": "Sets up the video magnifier with adult help.",
+      "statement": "Dopey will set up and use his video magnifier independently to read classroom text and board copies within 2 minutes in 4 of 5 opportunities.",
+      "criteriaForMastery": "Within 2 minutes, 4 of 5",
+      "measurementMethod": "TVI observation",
+      "targetDate": "2027-09-16",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0007-v2-g1-o1",
+          "number": 1,
+          "statement": "Dopey will adjust magnification and contrast independently in 4 of 5 opportunities.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-g2",
+      "number": 2,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "40 wcpm on grade 2 passages in 24-point print.",
+      "statement": "Dopey will read grade 2 passages in large print at 60 words correct per minute on 3 consecutive weekly probes.",
+      "criteriaForMastery": "60 wcpm, 3 probes",
+      "measurementMethod": "Oral reading fluency probes",
+      "targetDate": "2027-09-16",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0007-v2-g2-o1",
+          "number": 1,
+          "statement": "Dopey will read at 50 wcpm.",
+          "criteria": "3 probes"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-g3",
+      "number": 3,
+      "area": "orientation_mobility",
+      "category": "Functional",
+      "baseline": "0 of 3 new routes independently.",
+      "statement": "Dopey will travel 3 new school routes independently using landmarks in 4 of 5 trials per route.",
+      "criteriaForMastery": "3 routes, 4 of 5 trials each",
+      "measurementMethod": "O&M data",
+      "targetDate": "2027-09-16",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0007-v2-g3-o1",
+          "number": 1,
+          "statement": "Dopey will name 3 landmarks on each route.",
+          "criteria": "4 of 5"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-g4",
+      "number": 4,
+      "area": "self_advocacy",
+      "category": "Functional",
+      "baseline": "Asks for enlarged materials in 1 of 5 opportunities.",
+      "statement": "Dopey will ask for enlarged or accessible materials when needed in 4 of 5 opportunities across 4 weeks.",
+      "criteriaForMastery": "4 of 5, 4 weeks",
+      "measurementMethod": "Teacher/TVI data",
+      "targetDate": "2027-09-16",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0007-v2-g4-o1",
+          "number": 1,
+          "statement": "Dopey will use a taught phrase to ask for materials in 3 of 5 opportunities.",
+          "criteria": "3 of 5"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0007-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-09-18",
+      "endDate": "2027-09-16",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0007-v2-s2",
+      "type": "vision",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 60,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "tvi",
+      "providerSourcedId": "u-stf-0019",
+      "location": "Small-group room",
+      "startDate": "2026-09-18",
+      "endDate": "2027-09-16",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0007-v2-s3",
+      "type": "vision",
+      "delivery": "consultative",
+      "setting": "separate_school",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "month",
+      "groupSize": "individual",
+      "providerRole": "tvi",
+      "providerSourcedId": "u-stf-0019",
+      "location": "Room 104",
+      "startDate": "2026-09-18",
+      "endDate": "2027-09-16",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0007-v2-s4",
+      "type": "orientation_mobility",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "coms",
+      "providerSourcedId": "u-stf-0019",
+      "location": "School campus",
+      "startDate": "2026-09-18",
+      "endDate": "2027-09-16",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0007-v2-a1",
+      "category": "instructional",
+      "description": "Large print (24-point) or enlarged copies of all materials",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-a2",
+      "category": "instructional",
+      "description": "Video magnifier and tablet with zoom",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-a3",
+      "category": "instructional",
+      "description": "Printed copy of board work; high-contrast markers",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-a4",
+      "category": "instructional",
+      "description": "Seating near instruction with glare control",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-a5",
+      "category": "classroom_testing",
+      "description": "Large print; extended time (1.5x); video magnifier",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0007-v2-a6",
+      "category": "personnel_support",
+      "description": "TVI consultation on preparing accessible materials",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": "Grade 2: no statewide assessment. District benchmarks in large print with extended time.",
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Dopey attends a separate special education school by family choice with a scholarship. Vision and O&M services are provided on site.",
+  "esy": {
+    "needed": false,
+    "notes": "Considered; not needed."
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0007-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 3 of 5. Baseline: Sets up the video magnifier with adult help.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0007-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 47 wcpm. Baseline: 40 wcpm on grade 2 passages in 24-point print.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0007-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 1 of 3 routes. Baseline: 0 of 3 new routes independently.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0007-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 3 of 5. Baseline: Asks for enlarged materials in 1 of 5 opportunities.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": null,
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0017",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    },
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0016",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0019",
+      "attended": true,
+      "signature": "Signed electronically 2026-09-17 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-09-03",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-09-14",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-09-17",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0017",
+      "dateGiven": "2022-08-15"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0017",
+      "dateGiven": "2022-10-06"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0017",
+      "dateGiven": "2025-07-30"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Audio-only build (Option B): audio only, no Teacher Notes photo/video QR.
+# Build: idf.py -B build-pilot -D SDKCONFIG=build-pilot/sdkconfig -D RECORDER_BOARD=hosyond35 -D RECORDER_EXTRA_DEFAULTS=$PWD/sdkconfig.defaults.pilot build
+CONFIG_RECORDER_PILOT_NO_MEDIA=y

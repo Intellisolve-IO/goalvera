@@ -1,0 +1,220 @@
+studentSourcedId,contactSourcedId,relationship,legalGuardian,educationalRightsHolder,livesWith,receivesMail,emergencyPriority,pickup,receivesWeeklyDraft,metadata.fictional
+u-stu-0001,u-con-0001,mother,true,true,true,true,1,allowed,true,true
+u-stu-0001,u-con-0002,father,true,true,true,true,2,allowed,true,true
+u-stu-0001,u-con-0003,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0002,u-con-0004,grandmother,true,true,true,true,1,allowed,true,true
+u-stu-0002,u-con-0005,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0003,u-con-0006,mother,true,true,true,true,1,allowed,true,true
+u-stu-0003,u-con-0007,stepfather,true,true,true,true,2,allowed,true,true
+u-stu-0003,u-con-0008,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0004,u-con-0009,father,true,true,true,true,1,allowed,true,true
+u-stu-0004,u-con-0010,mother,true,true,true,true,2,allowed,true,true
+u-stu-0004,u-con-0011,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0005,u-con-0012,mother,true,true,true,true,1,allowed,true,true
+u-stu-0005,u-con-0013,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0006,u-con-0014,foster parent,true,true,true,true,1,allowed,true,true
+u-stu-0006,u-con-0015,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0007,u-con-0016,father,true,true,true,true,1,allowed,true,true
+u-stu-0007,u-con-0017,mother,true,true,true,true,2,allowed,true,true
+u-stu-0007,u-con-0018,uncle,false,false,false,false,3,allowed,false,true
+u-stu-0008,u-con-0019,father,true,true,true,true,1,allowed,true,true
+u-stu-0008,u-con-0020,mother,true,true,true,true,2,allowed,true,true
+u-stu-0008,u-con-0021,uncle,false,false,false,false,3,allowed,false,true
+u-stu-0009,u-con-0022,mother,true,true,true,true,1,allowed,true,true
+u-stu-0009,u-con-0023,father,true,true,true,true,2,allowed,true,true
+u-stu-0009,u-con-0024,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0010,u-con-0025,mother,true,true,true,true,1,allowed,true,true
+u-stu-0010,u-con-0026,father,true,true,true,true,2,allowed,true,true
+u-stu-0010,u-con-0027,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0011,u-con-0028,father,true,true,true,true,1,allowed,true,true
+u-stu-0011,u-con-0029,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0012,u-con-0030,mother,true,true,true,true,1,allowed,true,true
+u-stu-0012,u-con-0031,uncle,false,false,false,false,2,allowed,false,true
+u-stu-0013,u-con-0032,mother,true,true,true,true,1,allowed,true,true
+u-stu-0013,u-con-0033,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0014,u-con-0034,foster parent,true,true,true,true,1,allowed,true,true
+u-stu-0014,u-con-0035,grandfather,false,false,false,false,2,allowed,false,true
+u-stu-0015,u-con-0036,mother,true,true,true,true,1,allowed,true,true
+u-stu-0015,u-con-0037,father,true,true,true,true,2,allowed,true,true
+u-stu-0015,u-con-0038,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0016,u-con-0039,mother,true,true,true,true,1,allowed,true,true
+u-stu-0016,u-con-0040,father,true,true,true,true,2,allowed,true,true
+u-stu-0016,u-con-0041,neighbor,false,false,false,false,3,allowed,false,true
+u-stu-0017,u-con-0042,mother,true,true,true,true,1,allowed,true,true
+u-stu-0017,u-con-0043,father,true,true,true,true,2,allowed,true,true
+u-stu-0017,u-con-0044,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0018,u-con-0045,mother,true,true,true,true,1,allowed,true,true
+u-stu-0018,u-con-0046,father,true,true,true,true,2,allowed,true,true
+u-stu-0018,u-con-0047,neighbor,false,false,false,false,3,allowed,false,true
+u-stu-0019,u-con-0048,mother,true,true,true,true,1,allowed,true,true
+u-stu-0019,u-con-0049,grandfather,false,false,false,false,2,allowed,false,true
+u-stu-0020,u-con-0050,mother,true,true,true,true,1,allowed,true,true
+u-stu-0020,u-con-0051,father,true,true,true,true,2,allowed,true,true
+u-stu-0020,u-con-0052,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0021,u-con-0053,mother,true,true,true,true,1,allowed,true,true
+u-stu-0021,u-con-0054,uncle,false,false,false,false,2,allowed,false,true
+u-stu-0022,u-con-0055,father,true,true,true,true,1,allowed,true,true
+u-stu-0022,u-con-0056,mother,true,true,true,true,2,allowed,true,true
+u-stu-0022,u-con-0057,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0023,u-con-0058,mother,true,true,true,true,1,allowed,true,true
+u-stu-0023,u-con-0059,father,true,true,true,true,2,allowed,true,true
+u-stu-0023,u-con-0060,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0024,u-con-0061,grandmother,true,true,true,true,1,allowed,true,true
+u-stu-0024,u-con-0062,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0025,u-con-0063,mother,true,true,true,true,1,allowed,true,true
+u-stu-0025,u-con-0064,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0026,u-con-0065,father,true,true,true,true,1,allowed,true,true
+u-stu-0026,u-con-0066,mother,true,true,true,true,2,allowed,true,true
+u-stu-0026,u-con-0067,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0027,u-con-0068,mother,true,true,true,true,1,allowed,true,true
+u-stu-0027,u-con-0069,grandfather,false,false,false,false,2,allowed,false,true
+u-stu-0028,u-con-0070,father,true,true,true,true,1,allowed,true,true
+u-stu-0028,u-con-0071,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0029,u-con-0072,foster parent,true,true,true,true,1,allowed,true,true
+u-stu-0029,u-con-0073,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0030,u-con-0074,mother,true,true,true,true,1,allowed,true,true
+u-stu-0030,u-con-0075,father,true,true,true,true,2,allowed,true,true
+u-stu-0030,u-con-0076,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0031,u-con-0077,mother,true,true,true,true,1,allowed,true,true
+u-stu-0031,u-con-0078,father,true,true,true,true,2,allowed,true,true
+u-stu-0031,u-con-0079,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0032,u-con-0080,mother,true,true,true,true,1,allowed,true,true
+u-stu-0032,u-con-0081,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0033,u-con-0082,father,true,true,true,true,1,allowed,true,true
+u-stu-0033,u-con-0083,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0034,u-con-0084,mother,true,true,true,true,1,allowed,true,true
+u-stu-0034,u-con-0085,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0035,u-con-0086,father,true,true,true,true,1,allowed,true,true
+u-stu-0035,u-con-0087,mother,true,true,true,true,2,allowed,true,true
+u-stu-0035,u-con-0088,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0036,u-con-0089,mother,true,true,true,true,1,allowed,true,true
+u-stu-0036,u-con-0090,father,true,true,true,true,2,allowed,true,true
+u-stu-0036,u-con-0091,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0037,u-con-0092,father,true,true,true,true,1,allowed,true,true
+u-stu-0037,u-con-0093,mother,true,true,true,true,2,allowed,true,true
+u-stu-0037,u-con-0094,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0038,u-con-0095,mother,true,true,true,true,1,allowed,true,true
+u-stu-0038,u-con-0096,grandfather,false,false,false,false,2,allowed,false,true
+u-stu-0039,u-con-0097,mother,true,true,true,true,1,allowed,true,true
+u-stu-0039,u-con-0098,uncle,false,false,false,false,2,allowed,false,true
+u-stu-0040,u-con-0099,mother,true,true,true,true,1,allowed,true,true
+u-stu-0040,u-con-0100,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0041,u-con-0101,aunt,true,true,true,true,1,allowed,true,true
+u-stu-0041,u-con-0102,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0042,u-con-0103,father,true,true,true,true,1,allowed,true,true
+u-stu-0042,u-con-0104,mother,true,true,true,true,2,allowed,true,true
+u-stu-0042,u-con-0105,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0043,u-con-0106,father,true,true,true,true,1,allowed,true,true
+u-stu-0043,u-con-0107,mother,true,true,true,true,2,allowed,true,true
+u-stu-0043,u-con-0108,neighbor,false,false,false,false,3,allowed,false,true
+u-stu-0044,u-con-0109,father,true,true,true,true,1,allowed,true,true
+u-stu-0044,u-con-0110,mother,true,true,true,true,2,allowed,true,true
+u-stu-0044,u-con-0111,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0045,u-con-0112,father,true,true,true,true,1,allowed,true,true
+u-stu-0045,u-con-0113,mother,true,true,true,true,2,allowed,true,true
+u-stu-0045,u-con-0114,uncle,false,false,false,false,3,allowed,false,true
+u-stu-0046,u-con-0115,father,true,true,true,true,1,allowed,true,true
+u-stu-0046,u-con-0116,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0047,u-con-0117,father,true,true,true,true,1,allowed,true,true
+u-stu-0047,u-con-0118,mother,true,true,true,true,2,allowed,true,true
+u-stu-0047,u-con-0119,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0048,u-con-0120,father,true,true,true,true,1,allowed,true,true
+u-stu-0048,u-con-0121,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0049,u-con-0122,father,true,true,true,true,1,allowed,true,true
+u-stu-0049,u-con-0123,mother,true,true,true,true,2,allowed,true,true
+u-stu-0049,u-con-0124,uncle,false,false,false,false,3,allowed,false,true
+u-stu-0050,u-con-0125,grandmother,true,true,true,true,1,allowed,true,true
+u-stu-0050,u-con-0126,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0051,u-con-0127,mother,true,true,true,true,1,allowed,true,true
+u-stu-0051,u-con-0128,father,true,true,true,true,2,allowed,true,true
+u-stu-0051,u-con-0129,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0052,u-con-0130,mother,true,true,true,true,1,allowed,true,true
+u-stu-0052,u-con-0131,father,true,true,true,true,2,allowed,true,true
+u-stu-0052,u-con-0132,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0053,u-con-0133,mother,true,true,true,true,1,allowed,true,true
+u-stu-0053,u-con-0134,father,true,true,true,true,2,allowed,true,true
+u-stu-0053,u-con-0135,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0054,u-con-0136,mother,true,true,true,true,1,allowed,true,true
+u-stu-0054,u-con-0137,father,true,true,true,true,2,allowed,true,true
+u-stu-0054,u-con-0138,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0055,u-con-0139,father,true,true,true,true,1,allowed,true,true
+u-stu-0055,u-con-0140,mother,true,true,true,true,2,allowed,true,true
+u-stu-0055,u-con-0141,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0056,u-con-0142,father,true,true,true,true,1,allowed,true,true
+u-stu-0056,u-con-0143,mother,true,true,true,true,2,allowed,true,true
+u-stu-0056,u-con-0144,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0057,u-con-0145,father,true,true,true,true,1,allowed,true,true
+u-stu-0057,u-con-0146,grandfather,false,false,false,false,2,allowed,false,true
+u-stu-0058,u-con-0147,father,true,true,true,true,1,allowed,true,true
+u-stu-0058,u-con-0148,mother,true,true,true,true,2,allowed,true,true
+u-stu-0058,u-con-0149,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0059,u-con-0150,father,true,true,true,true,1,allowed,true,true
+u-stu-0059,u-con-0151,mother,true,true,true,true,2,allowed,true,true
+u-stu-0059,u-con-0152,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0060,u-con-0153,mother,true,true,true,true,1,allowed,true,true
+u-stu-0060,u-con-0154,father,true,true,true,true,2,allowed,true,true
+u-stu-0060,u-con-0155,neighbor,false,false,false,false,3,allowed,false,true
+u-stu-0061,u-con-0156,aunt,true,true,true,true,1,allowed,true,true
+u-stu-0061,u-con-0157,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0062,u-con-0158,foster parent,true,true,true,true,1,allowed,true,true
+u-stu-0062,u-con-0159,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0063,u-con-0160,mother,true,true,true,true,1,allowed,true,true
+u-stu-0063,u-con-0161,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0064,u-con-0162,mother,true,true,true,true,1,allowed,true,true
+u-stu-0064,u-con-0163,father,true,true,true,true,2,allowed,true,true
+u-stu-0064,u-con-0164,uncle,false,false,false,false,3,allowed,false,true
+u-stu-0065,u-con-0165,guardian,true,true,true,true,1,allowed,true,true
+u-stu-0065,u-con-0166,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0066,u-con-0167,father,true,true,true,true,1,allowed,true,true
+u-stu-0066,u-con-0168,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0067,u-con-0169,guardian,true,true,true,true,1,allowed,true,true
+u-stu-0067,u-con-0170,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0068,u-con-0171,mother,true,true,true,true,1,allowed,true,true
+u-stu-0068,u-con-0172,father,true,true,true,true,2,allowed,true,true
+u-stu-0068,u-con-0173,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0069,u-con-0174,father,true,true,true,true,1,allowed,true,true
+u-stu-0069,u-con-0175,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0070,u-con-0176,father,true,true,true,true,1,allowed,true,true
+u-stu-0070,u-con-0177,mother,true,true,true,true,2,allowed,true,true
+u-stu-0070,u-con-0178,family friend,false,false,false,false,3,allowed,false,true
+u-stu-0071,u-con-0179,mother,true,true,true,true,1,allowed,true,true
+u-stu-0071,u-con-0180,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0072,u-con-0181,grandmother,true,true,true,true,1,allowed,true,true
+u-stu-0072,u-con-0182,neighbor,false,false,false,false,2,allowed,false,true
+u-stu-0073,u-con-0183,father,true,true,true,true,1,allowed,true,true
+u-stu-0073,u-con-0184,mother,true,true,true,true,2,allowed,true,true
+u-stu-0073,u-con-0185,neighbor,false,false,false,false,3,allowed,false,true
+u-stu-0074,u-con-0186,father,true,true,true,true,1,allowed,true,true
+u-stu-0074,u-con-0187,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0075,u-con-0188,mother,true,true,true,true,1,allowed,true,true
+u-stu-0075,u-con-0189,uncle,false,false,false,false,2,allowed,false,true
+u-stu-0076,u-con-0190,mother,true,true,true,true,1,allowed,true,true
+u-stu-0076,u-con-0191,grandfather,false,false,false,false,2,allowed,false,true
+u-stu-0077,u-con-0192,father,true,true,true,true,1,allowed,true,true
+u-stu-0077,u-con-0193,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0078,u-con-0194,mother,true,true,true,true,1,allowed,true,true
+u-stu-0078,u-con-0195,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0079,u-con-0196,mother,true,true,true,true,1,allowed,true,true
+u-stu-0079,u-con-0197,father,true,true,true,true,2,allowed,true,true
+u-stu-0079,u-con-0198,aunt,false,false,false,false,3,allowed,false,true
+u-stu-0080,u-con-0199,grandmother,true,true,true,true,1,allowed,true,true
+u-stu-0080,u-con-0200,family friend,false,false,false,false,2,allowed,false,true
+u-stu-0081,u-con-0201,mother,true,true,true,true,1,allowed,true,true
+u-stu-0081,u-con-0202,father,true,true,true,true,2,allowed,true,true
+u-stu-0081,u-con-0203,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0082,u-con-0204,mother,true,true,true,true,1,allowed,true,true
+u-stu-0082,u-con-0205,father,true,true,true,true,2,allowed,true,true
+u-stu-0082,u-con-0206,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0083,u-con-0207,foster parent,true,true,true,true,1,allowed,true,true
+u-stu-0083,u-con-0208,uncle,false,false,false,false,2,allowed,false,true
+u-stu-0084,u-con-0209,father,true,true,true,true,1,allowed,true,true
+u-stu-0084,u-con-0210,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0085,u-con-0211,aunt,true,true,true,true,1,allowed,true,true
+u-stu-0085,u-con-0212,uncle,false,false,false,false,2,allowed,false,true
+u-stu-0086,u-con-0213,father,true,true,true,true,1,allowed,true,true
+u-stu-0086,u-con-0214,aunt,false,false,false,false,2,allowed,false,true
+u-stu-0087,u-con-0215,father,true,true,true,true,1,allowed,true,true
+u-stu-0087,u-con-0216,mother,true,true,true,true,2,allowed,true,true
+u-stu-0087,u-con-0217,grandfather,false,false,false,false,3,allowed,false,true
+u-stu-0006,u-con-0218,non-custodial parent,false,false,false,false,,not_allowed,false,true
+u-stu-0003,u-con-0219,non-custodial parent,false,false,false,false,,not_allowed,false,true

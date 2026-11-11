@@ -1,0 +1,8 @@
+sourcedId,status,dateLastModified,title,type,startDate,endDate,parentSourcedId,schoolYear,metadata.fictional
+as-sy-2026-27,,,School Year 2026-2027,schoolYear,2026-08-03,2027-05-21,,2027,true
+as-sem-2026-1,,,Semester 1,semester,2026-08-03,2026-12-18,as-sy-2026-27,2027,true
+as-sem-2027-2,,,Semester 2,semester,2027-01-05,2027-05-21,as-sy-2026-27,2027,true
+as-gp-2026-q1,,,Reporting Period 1,gradingPeriod,2026-08-03,2026-10-09,as-sem-2026-1,2027,true
+as-gp-2026-q2,,,Reporting Period 2,gradingPeriod,2026-10-13,2026-12-18,as-sem-2026-1,2027,true
+as-gp-2027-q3,,,Reporting Period 3,gradingPeriod,2027-01-05,2027-03-12,as-sem-2027-2,2027,true
+as-gp-2027-q4,,,Reporting Period 4,gradingPeriod,2027-03-15,2027-05-21,as-sem-2027-2,2027,true

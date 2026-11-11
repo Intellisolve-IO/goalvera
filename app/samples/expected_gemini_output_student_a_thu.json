@@ -1,0 +1,32 @@
+{
+  "goal_evaluations": [
+    {
+      "goal_id": "g1",
+      "status": "Demonstrated",
+      "evidence_quote": "It's too noisy. I need my headphones. / I'm ready. Back to the worksheet.",
+      "analysis": "Marcus independently requested noise-canceling headphones during a noisy period (~7:20 into session) and returned to the math task in under three minutes. After a peer conflict at the first incident flag, he again chose headphones and resumed work rather than exiting the room."
+    },
+    {
+      "goal_id": "g2",
+      "status": "Demonstrated",
+      "evidence_quote": "You got seven of eight correct on the regrouping set — that's about eighty-seven percent.",
+      "analysis": "On a double-digit addition-with-regrouping probe, Marcus scored 7/8 (87%), meeting the 80% accuracy criterion for this session. He identified the carry error on item five during review."
+    }
+  ],
+  "incident_analysis": [
+    {
+      "timestamp_seconds": 1240,
+      "antecedent": "Peer demanded Marcus's eraser and escalated verbally while Marcus was reviewing a math error with the teacher.",
+      "behavior": "Marcus raised his voice, refused to give the eraser, and told the peer to leave him alone.",
+      "consequence_intervention": "Teacher coached a breath, redirected the peer to return the eraser and give space, offered break corner or headphones; Marcus chose headphones and returned to finish math."
+    },
+    {
+      "timestamp_seconds": 2100,
+      "antecedent": "Teacher directed transition from math worksheet to reading centers; Marcus reported buzzing lights and stomach discomfort.",
+      "behavior": "Marcus refused to move initially and voiced sensory/somatic distress.",
+      "consequence_intervention": "Teacher validated the sensory report, offered the soft-lamp seat at table two plus a three-minute calm-down timer; Marcus accepted and transitioned."
+    }
+  ],
+  "general_session_summary": "45-minute morning block focused on double-digit addition with regrouping. Marcus met his academic accuracy target (87% on probe) and demonstrated independent use of headphones as a calming strategy twice, returning to task within the five-minute goal window. Two flagged incidents (peer property conflict; transition/sensory load) were de-escalated with teacher-supported choice-making; no full room exit required.",
+  "draft_parent_email": "Hi there,\n\nHoping your week is going well. I wanted to share a quick note from Thursday morning with Marcus.\n\nHe worked hard on double-digit addition with regrouping and scored about 87% on his probe — above his IEP target. When the room got noisy, he asked for his noise-canceling headphones on his own and got back to work in just a few minutes, which is exactly the kind of self-advocacy we're practicing.\n\nThere were two brief rough patches (a peer disagreement over an eraser, and a tricky transition when the lights felt too bright). Marcus used his strategies with a little coaching and finished the block strong.\n\nPlease let me know if you have any questions. Have a great weekend!\n\nWarmly,\nMs. Jenkins"
+}

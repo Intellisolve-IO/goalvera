@@ -1,0 +1,111 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0003-v1",
+  "studentSourcedId": "u-stu-0003",
+  "version": 1,
+  "status": "superseded",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2025-09-03",
+  "startDate": "2025-09-04",
+  "endDate": "2026-09-02",
+  "annualReviewDue": "2026-09-02",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2024-09-16",
+  "reevaluationDue": "2027-09-15",
+  "eligibilityDate": "2024-09-30",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-OHI",
+      "federalCode": "OHI",
+      "label": "Other Health Impairment",
+      "determinedDate": "2024-09-30"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "summary",
+      "text": "Prior-year IEP (superseded). See the current version for present levels."
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0003-v1-g1",
+      "number": 1,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "During 15-minute independent work periods, Happy will use a self-monitoring checklist to stay on task in 80% of intervals across 5 consecutive sessions.",
+      "criteriaForMastery": "80% of intervals, 5 consecutive sessions",
+      "measurementMethod": "Momentary time sampling",
+      "targetDate": "2026-09-02",
+      "status": "carried_forward",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0003-v1-g2",
+      "number": 2,
+      "area": "executive_functioning",
+      "category": "Behavioral",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Happy will complete 85% of assigned independent work within the allotted time across 4 consecutive weeks.",
+      "criteriaForMastery": "85% completion, 4 consecutive weeks",
+      "measurementMethod": "Work completion log",
+      "targetDate": "2026-09-02",
+      "status": "carried_forward",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0003-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2025-09-04",
+      "endDate": "2026-09-02",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0003-v1-a1",
+      "category": "instructional",
+      "description": "Assignments broken into chunks with check-ins",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

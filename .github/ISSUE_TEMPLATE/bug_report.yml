@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in the recorder, the pipeline or the review app does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never include real student data.** No recordings, transcripts, names, rosters, screenshots of real sessions, Wi-Fi names, device IDs or tokens. Security problems go to private vulnerability reporting (Security tab), not here.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Recorder firmware (Hosyond 3.5")
+        - Upload API
+        - Pipeline (transcription / AI draft)
+        - Review web app
+        - iPhone web recorder
+        - Infra / deploy scripts
+        - Docs
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use the fictional sample school in app/samples/ if you can.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Firmware version (home screen) or the commit you ran.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Remove names, emails, tokens and URLs with secrets before pasting.
+      render: text

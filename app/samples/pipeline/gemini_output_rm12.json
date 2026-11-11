@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Recorded Vertex AI gemini-3.8-flash output from the Sep 28, 2026 cloud run of the synthetic TTS sample (rec_laptop_demo_20260928_164500_RM12). Replayed by the local demo seeder; fictional people only."
+  },
+  "prompt_version": "ocr-gemini-v1-2026-09",
+  "source": "vertex_gemini_live",
+  "model": "gemini-3.8-flash",
+  "analysis": {
+    "goal_evaluations": [
+      {
+        "goal_id": "g1",
+        "status": "Demonstrated",
+        "evidence_quote": "Can I have my headphones, please?",
+        "analysis": "Marcus identified sensory discomfort caused by the fire drill announcement and requested headphones following a brief prompt. He transitioned to the calm table and returned to his seat within approximately three minutes, successfully meeting the criteria of returning to task under five minutes."
+      },
+      {
+        "goal_id": "g2",
+        "status": "Demonstrated",
+        "evidence_quote": "You got six out of seven right on this probe. That's really strong work.",
+        "analysis": "Marcus practiced double-digit addition with regrouping during the session, correctly demonstrating carrying procedures on multiple problems and completing the probe with 6 out of 7 correct (approximately 86% accuracy)."
+      }
+    ],
+    "incident_analysis": [],
+    "general_session_summary": "During today's math session, Marcus worked on double-digit addition with regrouping, finishing a set of problems with 86% accuracy. When an alert about an upcoming fire drill tone was given, Marcus communicated his sensitivity to the sound, requested noise-canceling headphones, and took a brief 3-minute break at the calm table before returning independently to complete his math assignment.",
+    "draft_parent_email": "Dear Marcus's Family, Marcus had a wonderful math session today! He worked on double-digit addition with regrouping and did a fantastic job, getting 6 out of 7 problems correct. When our classroom received notice of a loud fire drill test tone, Marcus communicated that the noise would be difficult for him, politely asked for his headphones, took a brief 3-minute break to reset, and then returned to his desk ready to finish his assignment. We are so proud of his hard work and his great self-advocacy skills. Please let us know if you have any questions!"
+  }
+}

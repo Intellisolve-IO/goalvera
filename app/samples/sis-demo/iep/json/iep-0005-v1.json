@@ -1,0 +1,111 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0005-v1",
+  "studentSourcedId": "u-stu-0005",
+  "version": 1,
+  "status": "superseded",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2025-08-25",
+  "startDate": "2025-08-26",
+  "endDate": "2026-08-24",
+  "annualReviewDue": "2026-08-24",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2026-02-03",
+  "reevaluationDue": "2029-02-02",
+  "eligibilityDate": "2021-02-18",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-DHH",
+      "federalCode": "HI",
+      "label": "Deaf/Hard of Hearing",
+      "determinedDate": "2021-02-18"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "summary",
+      "text": "Prior-year IEP (superseded). See the current version for present levels."
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0005-v1-g1",
+      "number": 1,
+      "area": "self_advocacy",
+      "category": "Functional",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Bashful will tell an adult when his equipment isn't working, or ask for repetition or clarification, in 4 of 5 opportunities across 4 weeks.",
+      "criteriaForMastery": "4 of 5 opportunities, 4 weeks",
+      "measurementMethod": "DHH teacher observation / data sheet",
+      "targetDate": "2026-08-24",
+      "status": "carried_forward",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0005-v1-g2",
+      "number": 2,
+      "area": "communication",
+      "category": "Academic",
+      "baseline": "Prior-year baseline (see archived IEP)",
+      "statement": "Bashful will define and use grade 3 content vocabulary in sentences with 80% accuracy on weekly probes for 3 consecutive weeks.",
+      "criteriaForMastery": "80% accuracy, 3 consecutive weeks",
+      "measurementMethod": "Vocabulary probes",
+      "targetDate": "2026-08-24",
+      "status": "carried_forward",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0005-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2025-08-26",
+      "endDate": "2026-08-24",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0005-v1-a1",
+      "category": "instructional",
+      "description": "Remote microphone system used by all speakers, including peers during discussion",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

@@ -1,0 +1,15 @@
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults.local
+build/
+managed_components/
+dependencies.lock.tmp
+build-wifi/
+local/
+build-hosyond35/
+build-wifi-hosyond35/
+build-h35/
+build-pilot/
+main/recording_pubkey.pem
+build-h35-dry/
+build-h35-secure/

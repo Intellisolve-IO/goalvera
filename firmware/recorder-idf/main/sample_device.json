@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "note": "SAMPLE DATA for development. Fictional rooms and staff only. Do not add student names or any code-to-student mapping.",
+  "school_name": "Classroom Recorder",
+  "badge_text": "CR",
+  "classrooms": [
+    {"code": "room-104", "label": "Room 104"},
+    {"code": "room-b", "label": "Room B"},
+    {"code": "hall", "label": "Hall"}
+  ],
+  "teachers": ["J. Rivera", "S. Okonkwo", "Demo Teacher"],
+  "classes": ["Reading 3A", "Math 2B", "Circle Time"]
+}

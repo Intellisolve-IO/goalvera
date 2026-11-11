@@ -1,0 +1,264 @@
+iepSourcedId,sourcedId,category,description,subjects,stateTestSetting,stateTestTiming,stateTestPresentation,stateTestResponse,standardOrConditional,metadata.fictional
+iep-0001-v1,iep-0001-v1-a1,instructional,Visual schedule reviewed at the start of each day and before changes,all,,,,,,true
+iep-0001-v2,iep-0001-v2-a1,instructional,Visual schedule reviewed at the start of each day and before changes,all,,,,,,true
+iep-0001-v2,iep-0001-v2-a2,instructional,2-minute warning before transitions; visual timer,all,,,,,,true
+iep-0001-v2,iep-0001-v2-a3,instructional,"Noise-reducing headphones available in cafeteria, gym and assemblies",all,,,,,,true
+iep-0001-v2,iep-0001-v2-a4,instructional,Break card with a designated break area,all,,,,,,true
+iep-0001-v2,iep-0001-v2-a5,instructional,Graphic organizers for reading and writing,"reading,writing",,,,,,true
+iep-0001-v2,iep-0001-v2-a6,classroom_testing,Small group setting,all,,,,,,true
+iep-0001-v2,iep-0001-v2-a7,classroom_testing,Extended time (1.5x),all,,,,,,true
+iep-0001-v2,iep-0001-v2-a8,supplemental_aid,Peer buddy for hallway transitions,all,,,,,,true
+iep-0001-v2,iep-0001-v2-a9,personnel_support,BCBA consultation with classroom staff on BIP implementation (60 min/month),all,,,,,,true
+iep-0001-v2,iep-0001-v2-t1,state_testing,"Georgia Milestones Grade 5 ELA, Mathematics, Science",,Small group,Frequent breaks; extended time,,,standard,true
+iep-0002-v1,iep-0002-v1-a1,instructional,Text-to-speech or audiobooks for content-area reading,"science,social_studies",,,,,,true
+iep-0002-v2,iep-0002-v2-a1,instructional,Text-to-speech or audiobooks for content-area reading,"science,social_studies",,,,,,true
+iep-0002-v2,iep-0002-v2-a2,instructional,Decodable text for independent reading practice,reading,,,,,,true
+iep-0002-v2,iep-0002-v2-a3,instructional,Spelling not graded in content-area writing,"writing,science,social_studies",,,,,,true
+iep-0002-v2,iep-0002-v2-a4,instructional,Word problems read aloud,math,,,,,,true
+iep-0002-v2,iep-0002-v2-a5,classroom_testing,Read aloud of test items (except decoding and fluency measures),all,,,,,,true
+iep-0002-v2,iep-0002-v2-a6,classroom_testing,Extended time (1.5x); small group,all,,,,,,true
+iep-0002-v2,iep-0002-v2-t1,state_testing,Georgia Milestones Grade 3 ELA,,Small group,Extended time,Read-aloud per GaDOE conditional accommodation rules,,conditional,true
+iep-0002-v2,iep-0002-v2-t2,state_testing,Georgia Milestones Grade 3 Mathematics,,Small group,Extended time,Read-aloud,,standard,true
+iep-0003-v1,iep-0003-v1-a1,instructional,Assignments broken into chunks with check-ins,all,,,,,,true
+iep-0003-v2,iep-0003-v2-a1,instructional,Assignments broken into chunks with check-ins,all,,,,,,true
+iep-0003-v2,iep-0003-v2-a2,instructional,Movement breaks every 20 minutes,all,,,,,,true
+iep-0003-v2,iep-0003-v2-a3,instructional,Preferential seating away from distractions,all,,,,,,true
+iep-0003-v2,iep-0003-v2-a4,instructional,Visual timer and self-monitoring checklist,all,,,,,,true
+iep-0003-v2,iep-0003-v2-a5,classroom_testing,Separate setting; frequent breaks; extended time (1.5x),all,,,,,,true
+iep-0003-v2,iep-0003-v2-t1,state_testing,Georgia Milestones Grade 4 ELA and Mathematics,,Separate setting,Frequent breaks; extended time,,,standard,true
+iep-0004-v1,iep-0004-v1-a1,instructional,Leaves class 3 minutes early for transitions; elevator access,all,,,,,,true
+iep-0004-v2,iep-0004-v2-a1,instructional,Leaves class 3 minutes early for transitions; elevator access,all,,,,,,true
+iep-0004-v2,iep-0004-v2-a2,instructional,"Slant board, pencil grips and adapted paper",writing,,,,,,true
+iep-0004-v2,iep-0004-v2-a3,instructional,Keyboard with word prediction for written work longer than 2 sentences,writing,,,,,,true
+iep-0004-v2,iep-0004-v2-a4,instructional,Reduced copying: printed notes provided,all,,,,,,true
+iep-0004-v2,iep-0004-v2-a5,classroom_testing,Scribe or keyboard for written responses; extended time,all,,,,,,true
+iep-0004-v2,iep-0004-v2-a6,supplemental_aid,Adult supervision during hallway transitions and on stairs or ramps,all,,,,,,true
+iep-0005-v1,iep-0005-v1-a1,instructional,"Remote microphone system used by all speakers, including peers during discussion",all,,,,,,true
+iep-0005-v2,iep-0005-v2-a1,instructional,"Remote microphone system used by all speakers, including peers during discussion",all,,,,,,true
+iep-0005-v2,iep-0005-v2-a2,instructional,Captions on all video and media,all,,,,,,true
+iep-0005-v2,iep-0005-v2-a3,instructional,Seating with a clear view of the speaker's face; reduced background noise,all,,,,,,true
+iep-0005-v2,iep-0005-v2-a4,instructional,Written and visual copies of directions; vocabulary pre-taught,all,,,,,,true
+iep-0005-v2,iep-0005-v2-a5,classroom_testing,Directions repeated or clarified; small group; remote microphone,all,,,,,,true
+iep-0005-v2,iep-0005-v2-a6,personnel_support,Training for classroom staff on the remote microphone and daily checks (DHH teacher),all,,,,,,true
+iep-0005-v2,iep-0005-v2-t1,state_testing,Georgia Milestones Grade 3 ELA and Mathematics,,Small group,,Directions clarified; remote microphone,,standard,true
+iep-0006-v1,iep-0006-v1-a1,instructional,First/then board and choice of task order,all,,,,,,true
+iep-0006-v2,iep-0006-v2-a1,instructional,First/then board and choice of task order,all,,,,,,true
+iep-0006-v2,iep-0006-v2-a2,instructional,Written tasks chunked; scheduled breaks,all,,,,,,true
+iep-0006-v2,iep-0006-v2-a3,instructional,Access to a cool-down area with a timer,all,,,,,,true
+iep-0006-v2,iep-0006-v2-a4,instructional,Daily check-in/check-out with a trusted adult,all,,,,,,true
+iep-0006-v2,iep-0006-v2-a5,classroom_testing,Separate setting; breaks as needed,all,,,,,,true
+iep-0006-v2,iep-0006-v2-a6,personnel_support,BCBA consultation and BIP training for classroom staff,all,,,,,,true
+iep-0006-v2,iep-0006-v2-t1,state_testing,Georgia Milestones Grade 4 ELA and Mathematics,,Separate setting,Frequent breaks,,,standard,true
+iep-0007-v1,iep-0007-v1-a1,instructional,Large print (24-point) or enlarged copies of all materials,all,,,,,,true
+iep-0007-v2,iep-0007-v2-a1,instructional,Large print (24-point) or enlarged copies of all materials,all,,,,,,true
+iep-0007-v2,iep-0007-v2-a2,instructional,Video magnifier and tablet with zoom,all,,,,,,true
+iep-0007-v2,iep-0007-v2-a3,instructional,Printed copy of board work; high-contrast markers,all,,,,,,true
+iep-0007-v2,iep-0007-v2-a4,instructional,Seating near instruction with glare control,all,,,,,,true
+iep-0007-v2,iep-0007-v2-a5,classroom_testing,Large print; extended time (1.5x); video magnifier,all,,,,,,true
+iep-0007-v2,iep-0007-v2-a6,personnel_support,TVI consultation on preparing accessible materials,all,,,,,,true
+iep-0008-v1,iep-0008-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0008-v1,iep-0008-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0008-v1,iep-0008-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0009-v1,iep-0009-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0009-v1,iep-0009-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0009-v1,iep-0009-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0010-v1,iep-0010-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0010-v1,iep-0010-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0010-v1,iep-0010-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0011-v1,iep-0011-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0011-v1,iep-0011-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0012-v1,iep-0012-v1-a1,instructional,Visual supports,all,,,,,,true
+iep-0012-v1,iep-0012-v1-a2,instructional,Short tasks with frequent breaks,all,,,,,,true
+iep-0012-v1,iep-0012-v1-a3,instructional,Small group setting,all,,,,,,true
+iep-0013-v1,iep-0013-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0013-v1,iep-0013-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0013-v1,iep-0013-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0014-v1,iep-0014-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0014-v1,iep-0014-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0015-v1,iep-0015-v1-a1,instructional,Visual supports,all,,,,,,true
+iep-0015-v1,iep-0015-v1-a2,instructional,Short tasks with frequent breaks,all,,,,,,true
+iep-0015-v1,iep-0015-v1-a3,instructional,Small group setting,all,,,,,,true
+iep-0016-v1,iep-0016-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0016-v1,iep-0016-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0017-v1,iep-0017-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0017-v1,iep-0017-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0017-v1,iep-0017-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0018-v1,iep-0018-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0018-v1,iep-0018-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0018-v1,iep-0018-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0019-v1,iep-0019-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0019-v1,iep-0019-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0020-v1,iep-0020-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0020-v1,iep-0020-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0020-v1,iep-0020-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0021-v1,iep-0021-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0021-v1,iep-0021-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0021-v1,iep-0021-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0022-v1,iep-0022-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0022-v1,iep-0022-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0023-v1,iep-0023-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0023-v1,iep-0023-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0023-v1,iep-0023-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0024-v1,iep-0024-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0024-v1,iep-0024-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0024-v1,iep-0024-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0025-v1,iep-0025-v1-a1,instructional,Visual supports,all,,,,,,true
+iep-0025-v1,iep-0025-v1-a2,instructional,Short tasks with frequent breaks,all,,,,,,true
+iep-0025-v1,iep-0025-v1-a3,instructional,Small group setting,all,,,,,,true
+iep-0026-v1,iep-0026-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0026-v1,iep-0026-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0026-v1,iep-0026-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0027-v1,iep-0027-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0027-v1,iep-0027-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0027-v1,iep-0027-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0028-v1,iep-0028-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0028-v1,iep-0028-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0028-v1,iep-0028-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0029-v1,iep-0029-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0029-v1,iep-0029-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0029-v1,iep-0029-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0030-v1,iep-0030-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0030-v1,iep-0030-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0030-v1,iep-0030-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0031-v1,iep-0031-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0031-v1,iep-0031-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0032-v1,iep-0032-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0032-v1,iep-0032-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0032-v1,iep-0032-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0033-v1,iep-0033-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0033-v1,iep-0033-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0033-v1,iep-0033-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0034-v1,iep-0034-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0034-v1,iep-0034-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0034-v1,iep-0034-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0035-v1,iep-0035-v1-a1,instructional,Extra wait time for verbal responses,all,,,,,,true
+iep-0035-v1,iep-0035-v1-a2,instructional,Visual supports for directions,all,,,,,,true
+iep-0036-v1,iep-0036-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0036-v1,iep-0036-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0036-v1,iep-0036-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0037-v1,iep-0037-v1-a1,instructional,Chunked assignments with check-ins,all,,,,,,true
+iep-0037-v1,iep-0037-v1-a2,instructional,Movement breaks,all,,,,,,true
+iep-0037-v1,iep-0037-v1-a3,classroom_testing,Separate setting for tests,all,,,,,,true
+iep-0038-v1,iep-0038-v1-a1,instructional,Chunked assignments with check-ins,all,,,,,,true
+iep-0038-v1,iep-0038-v1-a2,instructional,Movement breaks,all,,,,,,true
+iep-0038-v1,iep-0038-v1-a3,classroom_testing,Separate setting for tests,all,,,,,,true
+iep-0039-v1,iep-0039-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0039-v1,iep-0039-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0039-v1,iep-0039-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0040-v1,iep-0040-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0040-v1,iep-0040-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0040-v1,iep-0040-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0041-v1,iep-0041-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0041-v1,iep-0041-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0041-v1,iep-0041-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0042-v1,iep-0042-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0042-v1,iep-0042-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0042-v1,iep-0042-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0043-v1,iep-0043-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0043-v1,iep-0043-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0043-v1,iep-0043-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0044-v1,iep-0044-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0044-v1,iep-0044-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0044-v1,iep-0044-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0045-v1,iep-0045-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0045-v1,iep-0045-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0045-v1,iep-0045-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0046-v1,iep-0046-v1-a1,instructional,Chunked assignments with check-ins,all,,,,,,true
+iep-0046-v1,iep-0046-v1-a2,instructional,Movement breaks,all,,,,,,true
+iep-0046-v1,iep-0046-v1-a3,classroom_testing,Separate setting for tests,all,,,,,,true
+iep-0047-v1,iep-0047-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0047-v1,iep-0047-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0047-v1,iep-0047-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0048-v1,iep-0048-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0048-v1,iep-0048-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0048-v1,iep-0048-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0049-v1,iep-0049-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0049-v1,iep-0049-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0049-v1,iep-0049-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0050-v1,iep-0050-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0050-v1,iep-0050-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0050-v1,iep-0050-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0051-v1,iep-0051-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0051-v1,iep-0051-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0051-v1,iep-0051-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0052-v1,iep-0052-v1-a1,instructional,Chunked assignments with check-ins,all,,,,,,true
+iep-0052-v1,iep-0052-v1-a2,instructional,Movement breaks,all,,,,,,true
+iep-0052-v1,iep-0052-v1-a3,classroom_testing,Separate setting for tests,all,,,,,,true
+iep-0053-v1,iep-0053-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0053-v1,iep-0053-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0053-v1,iep-0053-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0054-v1,iep-0054-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0054-v1,iep-0054-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0054-v1,iep-0054-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0055-v1,iep-0055-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0055-v1,iep-0055-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0055-v1,iep-0055-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0056-v1,iep-0056-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0056-v1,iep-0056-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0056-v1,iep-0056-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0057-v1,iep-0057-v1-a1,instructional,Chunked assignments with check-ins,all,,,,,,true
+iep-0057-v1,iep-0057-v1-a2,instructional,Movement breaks,all,,,,,,true
+iep-0057-v1,iep-0057-v1-a3,classroom_testing,Separate setting for tests,all,,,,,,true
+iep-0058-v1,iep-0058-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0058-v1,iep-0058-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0058-v1,iep-0058-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0059-v1,iep-0059-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0059-v1,iep-0059-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0059-v1,iep-0059-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0060-v1,iep-0060-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0060-v1,iep-0060-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0060-v1,iep-0060-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0061-v1,iep-0061-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0061-v1,iep-0061-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0061-v1,iep-0061-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0062-v1,iep-0062-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0062-v1,iep-0062-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0062-v1,iep-0062-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0063-v1,iep-0063-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0063-v1,iep-0063-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0063-v1,iep-0063-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0064-v1,iep-0064-v1-a1,instructional,Daily check-in/check-out,all,,,,,,true
+iep-0064-v1,iep-0064-v1-a2,instructional,Access to a cool-down area,all,,,,,,true
+iep-0064-v1,iep-0064-v1-a3,instructional,Choice of task order,all,,,,,,true
+iep-0065-v1,iep-0065-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0065-v1,iep-0065-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0065-v1,iep-0065-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0066-v1,iep-0066-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0066-v1,iep-0066-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0066-v1,iep-0066-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0067-v1,iep-0067-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0067-v1,iep-0067-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0067-v1,iep-0067-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0068-v1,iep-0068-v1-a1,modification,Modified assignments (reduced length),all,,,,,,true
+iep-0068-v1,iep-0068-v1-a2,instructional,Picture supports,all,,,,,,true
+iep-0068-v1,iep-0068-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0069-v1,iep-0069-v1-a1,instructional,Read aloud of directions and items (except reading measures),all,,,,,,true
+iep-0069-v1,iep-0069-v1-a2,instructional,Graphic organizers,all,,,,,,true
+iep-0069-v1,iep-0069-v1-a3,instructional,Extended time (1.5x),all,,,,,,true
+iep-0070-v1,iep-0070-v1-a1,modification,Picture supports and modified materials,all,,,,,,true
+iep-0070-v1,iep-0070-v1-a2,modification,Instruction on alternate achievement standards (modification),all,,,,,,true
+iep-0070-v1,iep-0070-v1-a3,instructional,Frequent breaks,all,,,,,,true
+iep-0071-v1,iep-0071-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0071-v1,iep-0071-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0071-v1,iep-0071-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0072-v1,iep-0072-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0072-v1,iep-0072-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0072-v1,iep-0072-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0073-v1,iep-0073-v1-a1,modification,Picture supports and modified materials,all,,,,,,true
+iep-0073-v1,iep-0073-v1-a2,modification,Instruction on alternate achievement standards (modification),all,,,,,,true
+iep-0073-v1,iep-0073-v1-a3,instructional,Frequent breaks,all,,,,,,true
+iep-0074-v1,iep-0074-v1-a1,modification,Picture supports and modified materials,all,,,,,,true
+iep-0074-v1,iep-0074-v1-a2,modification,Instruction on alternate achievement standards (modification),all,,,,,,true
+iep-0074-v1,iep-0074-v1-a3,instructional,Frequent breaks,all,,,,,,true
+iep-0075-v1,iep-0075-v1-a1,modification,Picture supports and modified materials,all,,,,,,true
+iep-0075-v1,iep-0075-v1-a2,modification,Instruction on alternate achievement standards (modification),all,,,,,,true
+iep-0075-v1,iep-0075-v1-a3,instructional,Frequent breaks,all,,,,,,true
+iep-0076-v1,iep-0076-v1-a1,instructional,Visual schedule and transition warnings,all,,,,,,true
+iep-0076-v1,iep-0076-v1-a2,instructional,Break card and quiet area,all,,,,,,true
+iep-0076-v1,iep-0076-v1-a3,classroom_testing,Small group testing,all,,,,,,true
+iep-0077-v1,iep-0077-v1-a1,modification,Picture supports and modified materials,all,,,,,,true
+iep-0077-v1,iep-0077-v1-a2,modification,Instruction on alternate achievement standards (modification),all,,,,,,true
+iep-0077-v1,iep-0077-v1-a3,instructional,Frequent breaks,all,,,,,,true
+iep-0078-v1,iep-0078-v1-a1,modification,Picture supports and modified materials,all,,,,,,true
+iep-0078-v1,iep-0078-v1-a2,modification,Instruction on alternate achievement standards (modification),all,,,,,,true
+iep-0078-v1,iep-0078-v1-a3,instructional,Frequent breaks,all,,,,,,true

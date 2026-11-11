@@ -1,0 +1,7 @@
+{
+  "_note": "Who may use the hosted review screen. Copy to infra/review_allowlist.json (gitignored) before ./infra/setup_review.sh, or manage it later with ./infra/review_allowlist.py. Email must also be verified. role admin = may approve any session; reviewer or teacher = only their own classrooms and students; rbt = read-only. Entries starting with TODO are ignored.",
+  "users": [
+    {"email": "admin@staff.example", "role": "admin"},
+    {"email": "TODO-teacher-email-pending", "role": "reviewer"}
+  ]
+}

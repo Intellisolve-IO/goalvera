@@ -1,0 +1,30 @@
+propertyName,value
+manifest.version,1.0
+oneroster.version,1.2
+file.academicSessions,bulk
+file.categories,absent
+file.classes,bulk
+file.classResources,absent
+file.courses,bulk
+file.courseResources,absent
+file.demographics,bulk
+file.enrollments,bulk
+file.lineItemLearningObjectiveIds,absent
+file.lineItems,absent
+file.lineItemScoreScales,absent
+file.orgs,bulk
+file.resources,absent
+file.resultLearningObjectiveIds,absent
+file.results,absent
+file.resultScoreScales,absent
+file.roles,bulk
+file.scoreScales,absent
+file.userProfiles,absent
+file.userResources,absent
+file.users,bulk
+source.systemName,Goalvera fictional sample generator
+source.systemCode,fict-demo
+ext.synthetic,true
+ext.label,Fictional sample data
+ext.schemaVersion,1
+ext.files,"ext_attendance.csv,ext_attendance_codes.csv,ext_caseloads.csv,ext_contacts.csv,ext_periods.csv,ext_staff.csv,ext_staff_credentials.csv,ext_student_contacts.csv,ext_student_programs.csv,ext_students.csv,iep/csv/behavior_plans.csv,iep/csv/behavior_targets.csv,iep/csv/iep_accommodations.csv,iep/csv/iep_consents.csv,iep/csv/iep_eligibility.csv,iep/csv/iep_goal_progress.csv,iep/csv/iep_goals.csv,iep/csv/iep_notices.csv,iep/csv/iep_objectives.csv,iep/csv/iep_present_levels.csv,iep/csv/iep_services.csv,iep/csv/iep_team.csv,iep/csv/ieps.csv,iep/csv/section504_plans.csv,iep/json/*.json"

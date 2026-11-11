@@ -1,0 +1,5 @@
+sourcedId,status,dateLastModified,schoolYearSourcedId,title,courseCode,grades,orgSourcedId,subjects,metadata.fictional
+crs-hr,,,as-sy-2026-27,Homeroom (K-5 alternative),HR-ALT,"KG,01,02,03,04,05",org-school-0001,Homeroom,true
+crs-rdg,,,as-sy-2026-27,Reading (K-5 alternative),RDG-ALT,"KG,01,02,03,04,05",org-school-0001,Reading,true
+crs-mth,,,as-sy-2026-27,Math (K-5 alternative),MTH-ALT,"KG,01,02,03,04,05",org-school-0001,Math,true
+crs-soc,,,as-sy-2026-27,Social Skills (K-5 alternative),SOC-ALT,"KG,01,02,03,04,05",org-school-0001,Social Skills,true

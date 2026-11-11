@@ -1,0 +1,144 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0015-v1",
+  "studentSourcedId": "u-stu-0016",
+  "version": 1,
+  "status": "active",
+  "supersedes": null,
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-04-15",
+  "startDate": "2026-04-16",
+  "endDate": "2027-04-14",
+  "annualReviewDue": "2027-04-14",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-05-23",
+  "reevaluationDue": "2028-04-15",
+  "eligibilityDate": "2026-03-06",
+  "caseManagerSourcedId": "u-stf-0002",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-SDD",
+      "federalCode": "DD",
+      "label": "Significant Developmental Delay",
+      "determinedDate": "2025-02-13"
+    }
+  ],
+  "presentLevels": [
+    {
+      "area": "motor_fine",
+      "text": "Summary: Holds a pencil with a fisted grasp. (fictional)"
+    }
+  ],
+  "goals": [
+    {
+      "sourcedId": "iep-0015-v1-g1",
+      "number": 1,
+      "area": "motor_fine",
+      "category": "Functional",
+      "baseline": "Holds a pencil with a fisted grasp.",
+      "statement": "Joy will use a tripod grasp to trace and copy simple shapes in 4 of 5 trials.",
+      "criteriaForMastery": "4 of 5 trials",
+      "measurementMethod": "OT data",
+      "targetDate": "2027-04-14",
+      "status": "active",
+      "objectives": []
+    },
+    {
+      "sourcedId": "iep-0015-v1-g2",
+      "number": 2,
+      "area": "communication",
+      "category": "Communication",
+      "baseline": "Follows 1-step directions in 50% of trials.",
+      "statement": "Joy will follow 2-step classroom directions in 80% of trials across 3 sessions.",
+      "criteriaForMastery": "80%, 3 sessions",
+      "measurementMethod": "Teacher data",
+      "targetDate": "2027-04-14",
+      "status": "active",
+      "objectives": []
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0015-v1-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0002",
+      "location": "Room 101",
+      "startDate": "2026-04-16",
+      "endDate": "2027-04-14",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0015-v1-s2",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Therapy room",
+      "startDate": "2026-04-16",
+      "endDate": "2027-04-14",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0015-v1-a1",
+      "category": "instructional",
+      "description": "Visual supports",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0015-v1-a2",
+      "category": "instructional",
+      "description": "Short tasks with frequent breaks",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0015-v1-a3",
+      "category": "instructional",
+      "description": "Small group setting",
+      "subjects": [
+        "all"
+      ]
+    }
+  ],
+  "assessmentParticipation": "not_applicable_grade",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "esy": {
+    "needed": false
+  },
+  "goalProgress": [],
+  "behaviorPlan": null,
+  "team": [],
+  "notices": [],
+  "consents": []
+}

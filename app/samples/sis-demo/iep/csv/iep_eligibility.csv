@@ -1,0 +1,90 @@
+iepSourcedId,order,stateCode,federalCode,label,determinedDate,metadata.fictional
+iep-0001-v1,1,GA-AUT,AUT,Autism,2023-03-14,true
+iep-0001-v1,2,GA-SLI,SLI,Speech-Language Impairment,2023-03-14,true
+iep-0001-v2,1,GA-AUT,AUT,Autism,2023-03-14,true
+iep-0001-v2,2,GA-SLI,SLI,Speech-Language Impairment,2023-03-14,true
+iep-0002-v1,1,GA-SLD,SLD,"Specific Learning Disability (basic reading skills, reading fluency)",2025-11-06,true
+iep-0002-v1,2,GA-SLI,SLI,Speech-Language Impairment (articulation),2024-04-18,true
+iep-0002-v2,1,GA-SLD,SLD,"Specific Learning Disability (basic reading skills, reading fluency)",2025-11-06,true
+iep-0002-v2,2,GA-SLI,SLI,Speech-Language Impairment (articulation),2024-04-18,true
+iep-0003-v1,1,GA-OHI,OHI,Other Health Impairment,2024-09-30,true
+iep-0003-v2,1,GA-OHI,OHI,Other Health Impairment,2024-09-30,true
+iep-0004-v1,1,GA-OI,OI,Orthopedic Impairment,2024-05-02,true
+iep-0004-v2,1,GA-OI,OI,Orthopedic Impairment,2024-05-02,true
+iep-0005-v1,1,GA-DHH,HI,Deaf/Hard of Hearing,2021-02-18,true
+iep-0005-v2,1,GA-DHH,HI,Deaf/Hard of Hearing,2021-02-18,true
+iep-0006-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-06-03,true
+iep-0006-v2,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-06-03,true
+iep-0007-v1,1,GA-VI,VI,Visual Impairment,2022-09-29,true
+iep-0007-v2,1,GA-VI,VI,Visual Impairment,2022-09-29,true
+iep-0008-v1,1,GA-AUT,AUT,Autism,2025-01-21,true
+iep-0009-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-09-20,true
+iep-0010-v1,1,GA-AUT,AUT,Autism,2024-09-05,true
+iep-0011-v1,1,GA-SLI,SLI,Speech-Language Impairment,2024-07-23,true
+iep-0012-v1,1,GA-SDD,DD,Significant Developmental Delay,2025-06-27,true
+iep-0013-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-09-24,true
+iep-0014-v1,1,GA-SLI,SLI,Speech-Language Impairment,2024-03-13,true
+iep-0015-v1,1,GA-SDD,DD,Significant Developmental Delay,2025-02-13,true
+iep-0016-v1,1,GA-SLI,SLI,Speech-Language Impairment,2024-10-30,true
+iep-0017-v1,1,GA-AUT,AUT,Autism,2025-09-15,true
+iep-0018-v1,1,GA-AUT,AUT,Autism,2023-06-29,true
+iep-0019-v1,1,GA-SLI,SLI,Speech-Language Impairment,2026-02-01,true
+iep-0020-v1,1,GA-AUT,AUT,Autism,2024-01-31,true
+iep-0021-v1,1,GA-AUT,AUT,Autism,2025-01-05,true
+iep-0022-v1,1,GA-SLI,SLI,Speech-Language Impairment,2025-06-13,true
+iep-0023-v1,1,GA-AUT,AUT,Autism,2024-10-21,true
+iep-0024-v1,1,GA-AUT,AUT,Autism,2025-02-26,true
+iep-0025-v1,1,GA-SDD,DD,Significant Developmental Delay,2025-01-08,true
+iep-0026-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-09-30,true
+iep-0027-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-07-13,true
+iep-0028-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2024-09-23,true
+iep-0029-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2023-12-13,true
+iep-0030-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2024-01-01,true
+iep-0031-v1,1,GA-SLI,SLI,Speech-Language Impairment,2023-06-26,true
+iep-0032-v1,1,GA-SLD,SLD,Specific Learning Disability,2024-01-08,true
+iep-0033-v1,1,GA-AUT,AUT,Autism,2024-09-01,true
+iep-0034-v1,1,GA-AUT,AUT,Autism,2023-10-17,true
+iep-0035-v1,1,GA-SLI,SLI,Speech-Language Impairment,2024-06-07,true
+iep-0036-v1,1,GA-AUT,AUT,Autism,2025-11-15,true
+iep-0037-v1,1,GA-OHI,OHI,Other Health Impairment,2024-07-10,true
+iep-0038-v1,1,GA-OHI,OHI,Other Health Impairment,2023-07-11,true
+iep-0039-v1,1,GA-SLD,SLD,Specific Learning Disability,2023-12-26,true
+iep-0040-v1,1,GA-AUT,AUT,Autism,2024-01-31,true
+iep-0041-v1,1,GA-SLD,SLD,Specific Learning Disability,2024-12-04,true
+iep-0042-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-01-07,true
+iep-0043-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-04-18,true
+iep-0044-v1,1,GA-AUT,AUT,Autism,2025-12-12,true
+iep-0045-v1,1,GA-AUT,AUT,Autism,2025-02-20,true
+iep-0046-v1,1,GA-OHI,OHI,Other Health Impairment,2025-01-02,true
+iep-0047-v1,1,GA-SLD,SLD,Specific Learning Disability,2025-09-06,true
+iep-0048-v1,1,GA-SLD,SLD,Specific Learning Disability,2024-08-19,true
+iep-0049-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-01-17,true
+iep-0050-v1,1,GA-AUT,AUT,Autism,2024-09-10,true
+iep-0051-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-02-28,true
+iep-0052-v1,1,GA-OHI,OHI,Other Health Impairment,2025-11-14,true
+iep-0053-v1,1,GA-SLD,SLD,Specific Learning Disability,2025-07-04,true
+iep-0054-v1,1,GA-AUT,AUT,Autism,2025-02-23,true
+iep-0055-v1,1,GA-AUT,AUT,Autism,2024-09-06,true
+iep-0056-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-02-28,true
+iep-0057-v1,1,GA-OHI,OHI,Other Health Impairment,2025-11-26,true
+iep-0058-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-06-14,true
+iep-0059-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2025-10-26,true
+iep-0060-v1,1,GA-SLD,SLD,Specific Learning Disability,2024-10-30,true
+iep-0061-v1,1,GA-AUT,AUT,Autism,2026-02-27,true
+iep-0062-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2024-01-16,true
+iep-0063-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2025-09-14,true
+iep-0064-v1,1,GA-EBD,EMN,Emotional and Behavioral Disorder,2024-10-16,true
+iep-0065-v1,1,GA-AUT,AUT,Autism,2024-06-14,true
+iep-0066-v1,1,GA-SLD,SLD,Specific Learning Disability,2024-06-30,true
+iep-0067-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2024-05-11,true
+iep-0068-v1,1,GA-ID-MILD,ID,Intellectual Disability (mild),2023-11-05,true
+iep-0069-v1,1,GA-SLD,SLD,Specific Learning Disability,2025-07-30,true
+iep-0070-v1,1,GA-ID-MOD,ID,Intellectual Disability (moderate),2023-10-17,true
+iep-0071-v1,1,GA-AUT,AUT,Autism,2023-10-23,true
+iep-0072-v1,1,GA-AUT,AUT,Autism,2026-05-14,true
+iep-0073-v1,1,GA-ID-MOD,ID,Intellectual Disability (moderate),2025-06-23,true
+iep-0074-v1,1,GA-ID-MOD,ID,Intellectual Disability (moderate),2025-09-26,true
+iep-0075-v1,1,GA-ID-MOD,ID,Intellectual Disability (moderate),2024-12-31,true
+iep-0076-v1,1,GA-AUT,AUT,Autism,2023-10-27,true
+iep-0077-v1,1,GA-ID-MOD,ID,Intellectual Disability (moderate),2023-07-27,true
+iep-0078-v1,1,GA-ID-MOD,ID,Intellectual Disability (moderate),2025-03-12,true

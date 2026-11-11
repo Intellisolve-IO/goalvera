@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Teacher Notes upload</title>
+<style>
+body{font-family:-apple-system,system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:#f5f7fb;color:#1b2430}
+main{max-width:480px;margin:0 auto;padding:20px}
+h1{font-size:22px;margin:4px 0 6px}.sub{color:#5a6573;margin:0 0 18px;font-size:15px}
+.btn{display:block;width:100%;box-sizing:border-box;padding:16px;margin:10px 0;border:0;border-radius:12px;font-size:18px;font-weight:600;text-align:center;cursor:pointer}
+.primary{background:#2F6FE0;color:#fff}.ghost{background:#fff;color:#2F6FE0;border:2px solid #2F6FE0}
+.btn[disabled]{opacity:.5}
+input[type=file]{display:none}
+#preview img,#preview video{width:100%;border-radius:12px;background:#000;max-height:60vh;object-fit:contain}
+.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.msg{padding:12px;border-radius:10px;margin:12px 0;font-size:15px}.err{background:#fde8e8;color:#9b1c1c}.ok{background:#e6f6ec;color:#185c37}
+progress{width:100%;height:14px}.small{font-size:13px;color:#5a6573}
+.hidden{display:none}
+</style></head><body><main>
+<h1>Teacher Notes</h1>
+<p class="sub">Add one photo or a short video (up to 30 seconds) to this recording. <span id="left"></span></p>
+<div id="msg"></div>
+<section id="pick">
+  <label class="btn primary" for="photo">Take a photo</label>
+  <input id="photo" type="file" accept="image/*" capture="environment">
+  <label class="btn ghost" for="video">Record a video (30 s max)</label>
+  <input id="video" type="file" accept="video/*" capture="environment">
+</section>
+<section id="confirm" class="hidden card">
+  <div id="preview"></div>
+  <p id="question" style="font-size:18px;font-weight:600;margin:14px 0 4px"></p>
+  <button id="upload" class="btn primary">Upload</button>
+  <button id="retake" class="btn ghost">Retake</button>
+</section>
+<section id="sending" class="hidden card"><p>Uploading&hellip;</p><progress id="bar" max="100" value="0"></progress></section>
+<p class="small">Demo only: consenting adults, no student work with real names. Uploads are deleted after the demo.</p>
+</main>
+<script>
+(function(){
+var token=location.pathname.split('/').pop(), api='/v1/media/'+encodeURIComponent(token);
+var $=function(id){return document.getElementById(id)}, file=null, kind=null, dur=null, maxSec=30, timer=null;
+function show(id){['pick','confirm','sending'].forEach(function(s){$(s).classList.toggle('hidden',s!==id)})}
+function msg(t,cls){$('msg').innerHTML=t?'<div class="msg '+(cls||'err')+'"></div>':'';if(t)$('msg').firstChild.textContent=t}
+function hideAll(){['pick','confirm','sending'].forEach(function(s){$(s).classList.add('hidden')});$('left').textContent=''}
+var REASONS={TOKEN_EXPIRED:'This QR code has expired. Tap Teacher Notes on the recorder for a new one.',
+  TOKEN_USED:'This QR code was already used. Tap Teacher Notes on the recorder for a new one.',
+  TOKEN_UNKNOWN:'This link is not valid. Tap Teacher Notes on the recorder for a new QR code.',
+  TOO_LONG:'That video is longer than 30 seconds. Please retake a shorter one.',
+  TOO_LARGE:'That file is too large. Please retake it.',BAD_TYPE:'That file type is not supported.'};
+function fail(code,end){msg(REASONS[code]||('Upload failed ('+code+'). Please try again.'));if(end)hideAll()}
+function tick(left){clearInterval(timer);var t=left;timer=setInterval(function(){t--;if(t<=0){clearInterval(timer);
+  if(!$('sending').classList.contains('hidden'))return;fail('TOKEN_EXPIRED',true);return}
+  $('left').textContent='Link expires in '+Math.floor(t/60)+':'+('0'+t%60).slice(-2)+'.'},1000)}
+fetch(api).then(function(r){return r.json()}).then(function(s){
+  if(s.state!=='open')return fail({expired:'TOKEN_EXPIRED',used:'TOKEN_USED'}[s.state]||'TOKEN_UNKNOWN',true);
+  maxSec=s.max_video_seconds||30;tick(s.expires_in)}).catch(function(){fail('NETWORK')});
+function picked(k){return function(e){var f=e.target.files&&e.target.files[0];e.target.value='';if(!f)return;
+  msg('');file=f;kind=k;dur=null;var url=URL.createObjectURL(f),p=$('preview');p.innerHTML='';
+  if(k==='photo'){var i=new Image();i.src=url;p.appendChild(i);$('question').textContent='Upload this photo?';show('confirm')}
+  else{var v=document.createElement('video');v.src=url;v.controls=true;v.playsInline=true;v.muted=true;v.preload='metadata';
+    v.onloadedmetadata=function(){dur=v.duration;if(!isFinite(dur)||dur>maxSec+0.5){fail('TOO_LONG');show('pick');return}
+      $('question').textContent='Upload this video ('+Math.round(dur)+' s)?';show('confirm')};
+    v.onerror=function(){fail('BAD_TYPE');show('pick')};p.appendChild(v)}}}
+$('photo').onchange=picked('photo');$('video').onchange=picked('video');
+$('retake').onclick=function(){file=null;$('preview').innerHTML='';msg('');show('pick')};
+function ctypeOf(f){var t=(f.type||'').toLowerCase();if(t)return t;var n=f.name.toLowerCase();
+  return /\.mov$/.test(n)?'video/quicktime':/\.mp4$/.test(n)?'video/mp4':/\.png$/.test(n)?'image/png':/\.hei[cf]$/.test(n)?'image/heic':'image/jpeg'}
+$('upload').onclick=function(){if(!file)return;show('sending');msg('');var ct=ctypeOf(file);
+  fetch(api+'/start',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({kind:kind,content_type:ct,size:file.size,duration_s:dur})})
+  .then(function(r){return r.json().then(function(j){if(!r.ok)throw j.error||('HTTP_'+r.status);return j})})
+  .then(function(s){return new Promise(function(ok,bad){var x=new XMLHttpRequest();x.open('PUT',s.upload_url);
+    Object.keys(s.headers).forEach(function(h){x.setRequestHeader(h,s.headers[h])});
+    x.upload.onprogress=function(e){if(e.lengthComputable)$('bar').value=Math.round(e.loaded*100/e.total)};
+    x.onload=function(){x.status<300?ok():bad('STORAGE_'+x.status)};x.onerror=function(){bad('NETWORK')};x.send(file)})})
+  .then(function(){return fetch(api+'/done',{method:'POST'}).then(function(r){return r.json().then(function(j){if(!r.ok)throw j.error;return j})})})
+  .then(function(){clearInterval(timer);hideAll();msg((kind==='photo'?'Photo':'Video')+' uploaded. It is attached to this recording for the teacher to review. You can close this page.','ok')})
+  .catch(function(code){var end=/TOKEN_/.test(code);fail(code,end);if(!end)show('confirm')})};
+})();
+</script></body></html>

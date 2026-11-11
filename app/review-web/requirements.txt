@@ -1,0 +1,11 @@
+# Hosted review service (review_api) - no Speech client; Gemini only for planner AI drafts
+google-cloud-storage>=2.18
+google-auth>=2.30
+google-cloud-bigquery>=3.25       # admin activity journal
+cryptography>=42
+reportlab>=4.0
+pillow>=10.4                  # school logo: decode + re-encode, strips metadata (branding.py)
+resvg-py==0.5.0               # school logo: SVG rendered to PNG server-side, SVG discarded
+jsonschema>=4.20.0
+tzdata
+google-genai>=1.40.0          # planner AI drafts, PLANNER_AI=live

@@ -1,0 +1,5 @@
+# Core analyzer runs offline with stdlib only.
+# Optional — schema validation (falls back to lightweight check if missing):
+jsonschema>=4.20.0
+# Optional — live Gemini calls (mode=live|auto; Vertex AI with VERTEX_AI=1):
+google-genai>=1.40.0

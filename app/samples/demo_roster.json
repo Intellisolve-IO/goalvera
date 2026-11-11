@@ -1,0 +1,5480 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "label": "Fictional sample data",
+    "school_name": "Everyday Heroes Academy",
+    "school_profile": "everyday-heroes",
+    "source": "app/samples/sis-demo (built by app/tools/build_demo_roster.py; do not edit by hand)",
+    "note": "DEMO ONLY - fictional sample school. Every person here is invented. Classrooms are the homerooms; recorder class codes match a classroom or one of its aliases (common/classcodes.py). Older demo codes are aliases of Room 104. The placeholder roster is kept in app/samples/profiles/demo-school/demo_roster.json."
+  },
+  "class_codes": {
+    "Room 101": {
+      "teacher_id": "stf_0002",
+      "teacher_name": "Belle Beaumont",
+      "grades": "KG, 01",
+      "aliases": [
+        "RM101"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 102": {
+      "teacher_id": "stf_0003",
+      "teacher_name": "Tiana Rogers",
+      "grades": "KG, 01, 02",
+      "aliases": [
+        "RM102"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 103": {
+      "teacher_id": "stf_0004",
+      "teacher_name": "Mulan Fa",
+      "grades": "01, 02, 03",
+      "aliases": [
+        "RM103"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 104": {
+      "teacher_id": "stf_0001",
+      "teacher_name": "Alex Morgan",
+      "grades": "02, 03, 04, 05",
+      "aliases": [
+        "RM104",
+        "RM12",
+        "Reading 3A",
+        "Math 2B",
+        "Circle Time",
+        "Room B",
+        "Hall"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 105": {
+      "teacher_id": "stf_0005",
+      "teacher_name": "Rapunzel Hart",
+      "grades": "03, 04",
+      "aliases": [
+        "RM105"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 106": {
+      "teacher_id": "stf_0006",
+      "teacher_name": "Hercules Stone",
+      "grades": "03, 04, 05",
+      "aliases": [
+        "RM106"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 107": {
+      "teacher_id": "stf_0007",
+      "teacher_name": "Moana Kealoha",
+      "grades": "04, 05",
+      "aliases": [
+        "RM107"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    },
+    "Room 108": {
+      "teacher_id": "stf_0008",
+      "teacher_name": "Ariel Marin",
+      "grades": "KG, 01, 02, 03, 04, 05",
+      "aliases": [
+        "RM108"
+      ],
+      "iep_goals": [],
+      "label": "Fictional sample data"
+    }
+  },
+  "teachers": {
+    "stf_0001": {
+      "teacher_name": "Alex Morgan",
+      "title": "Lead Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Alex Morgan",
+        "Demo Teacher",
+        "J. Rivera",
+        "S. Okonkwo"
+      ],
+      "default_class_code": "Room 104",
+      "emails": [
+        "snowwhite@staff.example"
+      ],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0002": {
+      "teacher_name": "Belle Beaumont",
+      "title": "Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Belle Beaumont"
+      ],
+      "default_class_code": "Room 101",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0003": {
+      "teacher_name": "Tiana Rogers",
+      "title": "Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Tiana Rogers"
+      ],
+      "default_class_code": "Room 102",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0004": {
+      "teacher_name": "Mulan Fa",
+      "title": "Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Mulan Fa"
+      ],
+      "default_class_code": "Room 103",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0005": {
+      "teacher_name": "Rapunzel Hart",
+      "title": "Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Rapunzel Hart"
+      ],
+      "default_class_code": "Room 105",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0006": {
+      "teacher_name": "Hercules Stone",
+      "title": "Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Hercules Stone"
+      ],
+      "default_class_code": "Room 106",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0007": {
+      "teacher_name": "Moana Kealoha",
+      "title": "Special Education Teacher",
+      "role": "teacher",
+      "device_labels": [
+        "Moana Kealoha"
+      ],
+      "default_class_code": "Room 107",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0008": {
+      "teacher_name": "Ariel Marin",
+      "title": "Special Education Teacher (intensive supports)",
+      "role": "teacher",
+      "device_labels": [
+        "Ariel Marin"
+      ],
+      "default_class_code": "Room 108",
+      "emails": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    }
+  },
+  "staff": {
+    "stf_0009": {
+      "name": "Mary Poppins",
+      "title": "BCBA",
+      "role": "bcba",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0010": {
+      "name": "Flynn Rider",
+      "title": "Registered Behavior Technician",
+      "role": "rbt",
+      "class_codes": [
+        "Room 104"
+      ],
+      "emails": [
+        "demo-rbt@staff.example"
+      ],
+      "device_labels": [],
+      "supervisor_id": "stf_0009",
+      "label": "Fictional sample data"
+    },
+    "stf_0011": {
+      "name": "Kristoff Bjorgman",
+      "title": "Registered Behavior Technician",
+      "role": "rbt",
+      "class_codes": [
+        "Room 106"
+      ],
+      "emails": [],
+      "device_labels": [],
+      "supervisor_id": "stf_0009",
+      "label": "Fictional sample data"
+    },
+    "stf_0012": {
+      "name": "Shang Li",
+      "title": "Registered Behavior Technician",
+      "role": "rbt",
+      "class_codes": [
+        "Room 107"
+      ],
+      "emails": [],
+      "device_labels": [],
+      "supervisor_id": "stf_0009",
+      "label": "Fictional sample data"
+    },
+    "stf_0013": {
+      "name": "Tadashi Hamada",
+      "title": "Registered Behavior Technician",
+      "role": "rbt",
+      "class_codes": [
+        "Room 108"
+      ],
+      "emails": [],
+      "device_labels": [],
+      "supervisor_id": "stf_0009",
+      "label": "Fictional sample data"
+    },
+    "stf_0014": {
+      "name": "Naveen Lambert",
+      "title": "Registered Behavior Technician",
+      "role": "rbt",
+      "class_codes": [
+        "Room 101",
+        "Room 102"
+      ],
+      "emails": [],
+      "device_labels": [],
+      "supervisor_id": "stf_0009",
+      "label": "Fictional sample data"
+    },
+    "stf_0015": {
+      "name": "Jasmine Nadir",
+      "title": "Speech-language pathologist",
+      "role": "slp",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0016": {
+      "name": "Esmeralda Rossi",
+      "title": "Occupational therapist",
+      "role": "ot",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0017": {
+      "name": "Fauna Greenleaf",
+      "title": "Physical therapist",
+      "role": "pt",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0018": {
+      "name": "Flora Rose",
+      "title": "Teacher of the Deaf/Hard of Hearing",
+      "role": "dhh_teacher",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0019": {
+      "name": "Merryweather Blue",
+      "title": "Vision teacher / O&M",
+      "role": "tvi",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0020": {
+      "name": "Eudora Ellis",
+      "title": "School counselor",
+      "role": "counselor",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0021": {
+      "name": "Elsa Winters",
+      "title": "Case manager",
+      "role": "case_manager",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    },
+    "stf_0022": {
+      "name": "Cinderella Ashby",
+      "title": "Principal",
+      "role": "principal",
+      "class_codes": [],
+      "supervisor_id": null,
+      "label": "Fictional sample data"
+    },
+    "stf_0023": {
+      "name": "Agatha Potts",
+      "title": "Office Administrator",
+      "role": "office",
+      "class_codes": [],
+      "supervisor_id": "stf_0022",
+      "label": "Fictional sample data"
+    }
+  },
+  "students": {
+    "stu_0001": {
+      "first_name": "Doc",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "5",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Given a grade 4 passage and a graphic organizer for text clues, Doc will answer inferential questions with 80% accuracy across 3 consecutive weekly probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Given two-step word problems at grade 4-5 level, Doc will identify the operation(s) and solve with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Communication",
+          "description": "During structured peer activities, Doc will start a conversation and keep it going for at least 3 turns in 4 of 5 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Behavioral",
+          "description": "Using his visual schedule and break card, Doc will stay in his assigned area or travel with the group during transitions, reducing leaving without permission to 1 or fewer times per day for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g5",
+          "category": "Behavioral",
+          "description": "When showing early signs of frustration (covering ears, pacing), Doc will request a break with his break card or words in 80% of observed opportunities for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism",
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Reading: Decodes grade 4 text accurately (98% word accuracy). Answers literal questions 85% and inferential questions 40% on grade 4 passages (3 probes, Aug 2026).",
+          "Math: Multi-digit computation 85% accuracy. Two-step word problems 50% accuracy; tends to compute with every number in the problem.",
+          "Written expression: Writes a 3-sentence paragraph with a visual organizer; without one, writes one sentence on topic.",
+          "Communication: Initiates a conversation with a peer in 1 of 5 structured opportunities; keeps a topic for 1-2 turns. Speech is intelligible; prosody is flat and loud in noisy settings.",
+          "Behavior social emotional: ABC data (2 weeks, Aug 2026): leaves his assigned area without permission an average of 6 times a day, mostly during transitions and in noisy settings; returns with one verbal prompt in most cases.",
+          "Adaptive: Independent with arrival and unpacking routines. Covers his ears in the cafeteria and gym and uses headphones when offered."
+        ],
+        "accommodations": [
+          "Visual schedule reviewed at the start of each day and before changes",
+          "2-minute warning before transitions; visual timer",
+          "Noise-reducing headphones available in cafeteria, gym and assemblies",
+          "Break card with a designated break area",
+          "Graphic organizers for reading and writing",
+          "Small group setting",
+          "Extended time (1.5x)",
+          "Peer buddy for hallway transitions",
+          "BCBA consultation with classroom staff on BIP implementation (60 min/month)",
+          "Georgia Milestones Grade 5 ELA, Mathematics, Science"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Speech-language therapy: 30 min x 2/week (Speech room)",
+          "Speech-language therapy: 15 min x 1/week (Room 104)",
+          "Behavior aba: 30 min x 5/week (Room 104)",
+          "Behavior aba: 60 min x 1/month (Room 104)",
+          "Ot: 30 min x 1/month (Room 104)"
+        ],
+        "iep_start_date": "2026-08-21",
+        "iep_review_date": "2027-08-19",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "behavior_plan": "Behavior plan targets: Leaving assigned area",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 0,
+        "absent_unexcused": 2,
+        "tardy": 3,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0002": {
+      "first_name": "Grumpy",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "3",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Given lists and decodable text, Grumpy will read CVCe and vowel-team words with 90% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Grumpy will read grade 2 passages at 75 words correct per minute with 3 or fewer errors on 3 consecutive weekly probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Grumpy will spell closed-syllable and silent-e words in dictated sentences with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Communication",
+          "description": "Grumpy will produce /r/ in all word positions in sentences with 80% accuracy across 3 consecutive sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability (basic reading skills, reading fluency)",
+          "Speech-Language Impairment (articulation)"
+        ],
+        "present_levels": [
+          "Reading: Reads 48 words correct per minute on grade 2 passages (fictional DIBELS-style probe, Aug 2026; grade 3 fall benchmark about 70). Decodes CVC words 90%, CVCe and vowel-team words 55%. Listening comprehension is at grade level.",
+          "Written expression: Spells closed-syllable and silent-e words 40% correctly in dictation; ideas are strong when he dictates.",
+          "Math: Grade-level computation and reasoning; needs word problems read aloud.",
+          "Communication: Produces /r/ correctly in 30% of words and /s/-blends in 50% of words; intelligible to familiar listeners."
+        ],
+        "accommodations": [
+          "Text-to-speech or audiobooks for content-area reading",
+          "Decodable text for independent reading practice",
+          "Spelling not graded in content-area writing",
+          "Word problems read aloud",
+          "Read aloud of test items (except decoding and fluency measures)",
+          "Extended time (1.5x); small group",
+          "Georgia Milestones Grade 3 ELA",
+          "Georgia Milestones Grade 3 Mathematics"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Specialized instruction: 45 min x 5/week (Room 104 (structured literacy group, part of the school day above))",
+          "Speech-language therapy: 30 min x 2/week (Speech room)"
+        ],
+        "iep_start_date": "2026-08-28",
+        "iep_review_date": "2027-08-26",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0003": {
+      "first_name": "Happy",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "4",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "During 15-minute independent work periods, Happy will use a self-monitoring checklist to stay on task in 80% of intervals across 5 consecutive sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Happy will complete 85% of assigned independent work within the allotted time across 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Happy will answer multiplication facts 0-10 at 40 digits correct in 2 minutes on 3 consecutive probes."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Academic",
+          "description": "Using a paragraph organizer, Happy will write a 5-sentence paragraph with a topic sentence, three details and a conclusion, scoring 4 of 5 on the class rubric in 4 of 5 samples."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Other Health Impairment"
+        ],
+        "present_levels": [
+          "Reading: Reads grade 4 text at benchmark; comprehension is strong when passages are chunked.",
+          "Math: Multiplication facts: 20 digits correct in 2 minutes (grade 4 target about 40). Multi-digit procedures are accurate when he slows down.",
+          "Written expression: Writes 2-3 related sentences; paragraphs lack a topic sentence and conclusion (rubric 2/5).",
+          "Executive functioning: On task in 45% of 10-second momentary time samples during 15-minute independent work blocks. Completes about 50% of independent work in the time given."
+        ],
+        "accommodations": [
+          "Assignments broken into chunks with check-ins",
+          "Movement breaks every 20 minutes",
+          "Preferential seating away from distractions",
+          "Visual timer and self-monitoring checklist",
+          "Separate setting; frequent breaks; extended time (1.5x)",
+          "Georgia Milestones Grade 4 ELA and Mathematics"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Specialized instruction: 30 min x 3/week (Room 104 (executive functioning group, part of the school day above))"
+        ],
+        "iep_start_date": "2026-09-04",
+        "iep_review_date": "2027-09-02",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0004": {
+      "first_name": "Sleepy",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "2",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Using his walker, Sleepy will travel between the classroom, cafeteria and bus loop within 4 minutes with supervision only in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Functional",
+          "description": "Using a slant board and adapted paper, Sleepy will copy a sentence with 80% legible letters in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Functional",
+          "description": "Sleepy will type 8 words per minute with 90% accuracy using word prediction across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Functional",
+          "description": "Sleepy will unpack and pack his backpack and materials independently on 4 of 5 days for 3 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Orthopedic Impairment"
+        ],
+        "present_levels": [
+          "Reading: Reads 52 words correct per minute on grade 2 passages (near the fall benchmark); comprehension at grade level.",
+          "Math: Grade-level number sense; written computation is slow because of handwriting.",
+          "Motor gross: Walks school distances with a posterior walker. Classroom to cafeteria takes about 7 minutes with minimal assistance on the ramp.",
+          "Motor fine: Copies a sentence with 50% legible letters; types 3 words per minute with hunt-and-peck.",
+          "Adaptive: Unpacks and packs his backpack with adult help on 2 of 5 days."
+        ],
+        "accommodations": [
+          "Leaves class 3 minutes early for transitions; elevator access",
+          "Slant board, pencil grips and adapted paper",
+          "Keyboard with word prediction for written work longer than 2 sentences",
+          "Reduced copying: printed notes provided",
+          "Scribe or keyboard for written responses; extended time",
+          "Adult supervision during hallway transitions and on stairs or ramps"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Pt: 30 min x 1/week (Hallways, ramp, therapy room)",
+          "Ot: 30 min x 2/week (Therapy room)",
+          "Transportation: 0 min x 1/day (Lift-equipped bus (provided by the resident district))"
+        ],
+        "iep_start_date": "2026-09-11",
+        "iep_review_date": "2027-09-09",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0005": {
+      "first_name": "Bashful",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "3",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Bashful will tell an adult when his equipment isn't working, or ask for repetition or clarification, in 4 of 5 opportunities across 4 weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Bashful will define and use grade 3 content vocabulary in sentences with 80% accuracy on weekly probes for 3 consecutive weeks."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Bashful will answer literal and inferential questions about grade 3 passages with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Functional",
+          "description": "With the remote microphone in use, Bashful will follow 3-step oral directions in a noisy setting in 80% of trials across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Deaf/Hard of Hearing"
+        ],
+        "present_levels": [
+          "Reading: Decodes grade 3 text accurately; answers comprehension questions with 55% accuracy on grade 3 passages.",
+          "Communication: Defines grade-level content vocabulary with 50% accuracy. Follows 3-step oral directions in a noisy room in 50% of trials with the remote microphone.",
+          "Self advocacy: Tells an adult when a device isn't working or asks for repetition in 1 of 5 opportunities.",
+          "Math: Grade-level skills; needs vocabulary pre-taught for word problems."
+        ],
+        "accommodations": [
+          "Remote microphone system used by all speakers, including peers during discussion",
+          "Captions on all video and media",
+          "Seating with a clear view of the speaker's face; reduced background noise",
+          "Written and visual copies of directions; vocabulary pre-taught",
+          "Directions repeated or clarified; small group; remote microphone",
+          "Training for classroom staff on the remote microphone and daily checks (DHH teacher)",
+          "Georgia Milestones Grade 3 ELA and Mathematics"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Deaf/HH services: 60 min x 1/week (Small-group room)",
+          "Deaf/HH services: 30 min x 1/month (Room 104)",
+          "Speech-language therapy: 30 min x 1/week (Speech room)",
+          "Assistive tech: 30 min x 1/reporting_period (Room 104 (remote microphone checks))"
+        ],
+        "iep_start_date": "2026-08-26",
+        "iep_review_date": "2027-08-24",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 3,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0006": {
+      "first_name": "Sneezy",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "4",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When frustrated, Sneezy will use a taught coping strategy (break request, breathing, cool-down area) in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Sneezy will reduce verbal outbursts to 1 or fewer per day for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Given a first/then board and a choice of task order, Sneezy will start non-preferred tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Behavioral",
+          "description": "Sneezy will use the 4-step conflict-resolution routine with a peer, with no more than one adult prompt, in 4 of 5 observed conflicts."
+        },
+        {
+          "goal_id": "g5",
+          "category": "Academic",
+          "description": "Sneezy will solve 2-digit by 2-digit multiplication problems with 80% accuracy across 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior social emotional: ABC data (2 weeks, Aug-Sep 2026): verbal outbursts (yelling, pushing materials off the desk) average 4 a day, mostly within 3 minutes of being given a non-preferred written task. Uses a coping strategy independently in 1 of 5 opportunities.",
+          "Executive functioning: Starts non-preferred tasks within 2 minutes of directions on 35% of occasions.",
+          "Social: Uses a conflict-resolution step with peers in 1 of 5 observed conflicts.",
+          "Reading: Reads grade 3 text at benchmark; written responses are short.",
+          "Math: Multi-digit multiplication 40% accuracy; facts are fluent."
+        ],
+        "accommodations": [
+          "First/then board and choice of task order",
+          "Written tasks chunked; scheduled breaks",
+          "Access to a cool-down area with a timer",
+          "Daily check-in/check-out with a trusted adult",
+          "Separate setting; breaks as needed",
+          "BCBA consultation and BIP training for classroom staff",
+          "Georgia Milestones Grade 4 ELA and Mathematics"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Behavior aba: 60 min x 5/week (Room 104 (embedded))",
+          "Behavior aba: 60 min x 1/month (Room 104)",
+          "Counseling: 30 min x 1/week (Counseling office)",
+          "Behavior aba: 120 min x 2/week (Summer program room)"
+        ],
+        "iep_start_date": "2026-09-16",
+        "iep_review_date": "2027-09-14",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "behavior_plan": "Behavior plan targets: Verbal outburst",
+        "esy": "Extended school year: yes"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 1,
+        "absent_unexcused": 1,
+        "tardy": 5,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0007": {
+      "first_name": "Dopey",
+      "last_initial": "D.",
+      "last_name": "Dwarf",
+      "grade": "2",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Dopey will set up and use his video magnifier independently to read classroom text and board copies within 2 minutes in 4 of 5 opportunities."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Dopey will read grade 2 passages in large print at 60 words correct per minute on 3 consecutive weekly probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Functional",
+          "description": "Dopey will travel 3 new school routes independently using landmarks in 4 of 5 trials per route."
+        },
+        {
+          "goal_id": "g4",
+          "category": "Functional",
+          "description": "Dopey will ask for enlarged or accessible materials when needed in 4 of 5 opportunities across 4 weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Visual Impairment"
+        ],
+        "present_levels": [
+          "Reading: Reads 40 words correct per minute on grade 2 passages in 24-point print; decoding accuracy 95%.",
+          "Math: Grade-level skills with enlarged, high-contrast materials.",
+          "Assistive technology: Sets up the video magnifier with adult help; reads board work only from a printed copy.",
+          "Orientation mobility: Travels familiar routes independently; needs adult guidance in new areas (0 of 3 new routes).",
+          "Self advocacy: Asks for enlarged materials in 1 of 5 opportunities."
+        ],
+        "accommodations": [
+          "Large print (24-point) or enlarged copies of all materials",
+          "Video magnifier and tablet with zoom",
+          "Printed copy of board work; high-contrast markers",
+          "Seating near instruction with glare control",
+          "Large print; extended time (1.5x); video magnifier",
+          "TVI consultation on preparing accessible materials"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104 (special education classroom))",
+          "Vision services: 60 min x 1/week (Small-group room)",
+          "Vision services: 30 min x 1/month (Room 104)",
+          "Orientation & mobility: 30 min x 1/week (School campus)"
+        ],
+        "iep_start_date": "2026-09-18",
+        "iep_review_date": "2027-09-16",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 2,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0008": {
+      "first_name": "Miguel",
+      "last_initial": "T.",
+      "last_name": "Torres",
+      "grade": "K",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Miguel will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Miguel will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Communication",
+          "description": "Miguel will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 101)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-04-23",
+        "iep_review_date": "2027-04-21",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 44,
+        "absent_excused": 4,
+        "absent_unexcused": 1,
+        "tardy": 3,
+        "rate": 89.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0009": {
+      "first_name": "Peter",
+      "last_initial": "J.",
+      "last_name": "Jackson",
+      "grade": "K",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Peter will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "When upset, Peter will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Social: Summary: Resolves peer conflict without adult help in 1 of 5 conflicts. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Behavior aba: 30 min x 5/week (Room 101)",
+          "Counseling: 30 min x 1/week (Room 101)"
+        ],
+        "iep_start_date": "2026-08-10",
+        "iep_review_date": "2027-08-06",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0010": {
+      "first_name": "Hiro",
+      "last_initial": "C.",
+      "last_name": "Clark",
+      "grade": "1",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Hiro will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Hiro will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 101)"
+        ],
+        "iep_start_date": "2026-04-21",
+        "iep_review_date": "2027-04-19",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0011": {
+      "first_name": "Nia",
+      "last_initial": "R.",
+      "last_name": "Roberts",
+      "grade": "K",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Nia will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Nia will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Uses 3-word phrases in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-08-25",
+        "iep_review_date": "2027-08-23",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0012": {
+      "first_name": "Kuzco",
+      "last_initial": "H.",
+      "last_name": "Hughes",
+      "grade": "1",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Kuzco will name all uppercase and lowercase letters with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Functional",
+          "description": "Kuzco will use a tripod grasp to trace and copy simple shapes in 4 of 5 trials."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Significant Developmental Delay"
+        ],
+        "present_levels": [
+          "Pre academic: Summary: Names 8 uppercase letters. (fictional)"
+        ],
+        "accommodations": [
+          "Visual supports",
+          "Short tasks with frequent breaks",
+          "Small group setting"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-05-12",
+        "iep_review_date": "2027-05-10",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 3,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0013": {
+      "first_name": "Isabela",
+      "last_initial": "R.",
+      "last_name": "Ramirez",
+      "grade": "K",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [],
+      "iep": {},
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 44,
+        "absent_excused": 2,
+        "absent_unexcused": 3,
+        "tardy": 0,
+        "rate": 89.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0014": {
+      "first_name": "Elias",
+      "last_initial": "W.",
+      "last_name": "Washington",
+      "grade": "1",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When upset, Elias will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Elias will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Behavior aba: 30 min x 5/week (Room 101)",
+          "Counseling: 30 min x 1/week (Room 101)"
+        ],
+        "iep_start_date": "2026-08-04",
+        "iep_review_date": "2027-08-02",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0015": {
+      "first_name": "Ava",
+      "last_initial": "C.",
+      "last_name": "Coleman",
+      "grade": "1",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Ava will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Ava will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Uses 3-word phrases in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-08-26",
+        "iep_review_date": "2027-08-24",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 4,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0016": {
+      "first_name": "Joy",
+      "last_initial": "C.",
+      "last_name": "Chen",
+      "grade": "1",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Joy will use a tripod grasp to trace and copy simple shapes in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Joy will follow 2-step classroom directions in 80% of trials across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Significant Developmental Delay"
+        ],
+        "present_levels": [
+          "Motor fine: Summary: Holds a pencil with a fisted grasp. (fictional)"
+        ],
+        "accommodations": [
+          "Visual supports",
+          "Short tasks with frequent breaks",
+          "Small group setting"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-04-16",
+        "iep_review_date": "2027-04-14",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 4,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0017": {
+      "first_name": "Grace",
+      "last_initial": "S.",
+      "last_name": "Shah",
+      "grade": "1",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Grace will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Grace will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Uses 3-word phrases in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-28",
+        "iep_review_date": "2027-07-26",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 3,
+        "absent_unexcused": 1,
+        "tardy": 2,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0018": {
+      "first_name": "Milo",
+      "last_initial": "B.",
+      "last_name": "Brooks",
+      "grade": "K",
+      "class_codes": [
+        "Room 101"
+      ],
+      "teacher_ids": [
+        "stf_0002"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Milo will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Milo will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Milo will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 101)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 101)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-11-18",
+        "iep_review_date": "2026-11-16",
+        "case_manager": "Belle Beaumont",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 43,
+        "absent_excused": 3,
+        "absent_unexcused": 3,
+        "tardy": 1,
+        "rate": 87.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0019": {
+      "first_name": "Lucas",
+      "last_initial": "B.",
+      "last_name": "Bennett",
+      "grade": "2",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Lucas will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Lucas will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Lucas will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 102)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-12",
+        "iep_review_date": "2027-03-10",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0020": {
+      "first_name": "Olivia",
+      "last_initial": "B.",
+      "last_name": "Bailey",
+      "grade": "2",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [],
+      "iep": {
+        "plan_type": "Section 504 plan",
+        "accommodations": [
+          "Preferential seating",
+          "extended time (1.5x)",
+          "breaks as needed"
+        ],
+        "iep_start_date": "2026-03-10",
+        "iep_review_date": "2027-03-08",
+        "case_manager": "Elsa Winters"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 2,
+        "absent_unexcused": 1,
+        "tardy": 4,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0021": {
+      "first_name": "Mateo",
+      "last_initial": "M.",
+      "last_name": "Moore",
+      "grade": "1",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Mateo will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Mateo will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Uses 3-word phrases in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-06",
+        "iep_review_date": "2027-03-04",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 1,
+        "absent_unexcused": 3,
+        "tardy": 5,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0022": {
+      "first_name": "Jayden",
+      "last_initial": "J.",
+      "last_name": "Jackson",
+      "grade": "2",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Jayden will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Jayden will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Jayden will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 102)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-12-23",
+        "iep_review_date": "2026-12-21",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 43,
+        "absent_excused": 4,
+        "absent_unexcused": 2,
+        "tardy": 4,
+        "rate": 87.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0023": {
+      "first_name": "Xavier",
+      "last_initial": "W.",
+      "last_name": "Wilson",
+      "grade": "1",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Xavier will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Xavier will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 102)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-24",
+        "iep_review_date": "2027-03-22",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0024": {
+      "first_name": "Kida",
+      "last_initial": "C.",
+      "last_name": "Clark",
+      "grade": "2",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Kida will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Kida will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Produces target sounds correctly in 40% of words. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-10-23",
+        "iep_review_date": "2026-10-21",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 0,
+        "absent_unexcused": 2,
+        "tardy": 2,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0025": {
+      "first_name": "Malik",
+      "last_initial": "B.",
+      "last_name": "Brown",
+      "grade": "K",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [],
+      "iep": {
+        "plan_type": "Section 504 plan",
+        "accommodations": [
+          "Preferential seating",
+          "extended time (1.5x)",
+          "breaks as needed"
+        ],
+        "iep_start_date": "2026-04-14",
+        "iep_review_date": "2027-04-12",
+        "case_manager": "Elsa Winters"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 5,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0026": {
+      "first_name": "Leah",
+      "last_initial": "A.",
+      "last_name": "Anderson",
+      "grade": "2",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Leah will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Leah will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Communication",
+          "description": "Leah will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 102)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-12-29",
+        "iep_review_date": "2026-12-25",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 0,
+        "absent_unexcused": 2,
+        "tardy": 1,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0027": {
+      "first_name": "Penny",
+      "last_initial": "R.",
+      "last_name": "Ramirez",
+      "grade": "2",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Penny will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Penny will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 102)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-03",
+        "iep_review_date": "2027-07-01",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 3,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0028": {
+      "first_name": "Violet",
+      "last_initial": "H.",
+      "last_name": "Hall",
+      "grade": "K",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Violet will use a tripod grasp to trace and copy simple shapes in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Violet will name all uppercase and lowercase letters with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Communication",
+          "description": "Violet will follow 2-step classroom directions in 80% of trials across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Significant Developmental Delay"
+        ],
+        "present_levels": [
+          "Motor fine: Summary: Holds a pencil with a fisted grasp. (fictional)"
+        ],
+        "accommodations": [
+          "Visual supports",
+          "Short tasks with frequent breaks",
+          "Small group setting"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-30",
+        "iep_review_date": "2027-03-26",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 3,
+        "absent_unexcused": 1,
+        "tardy": 3,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0029": {
+      "first_name": "Lilo",
+      "last_initial": "B.",
+      "last_name": "Bailey",
+      "grade": "1",
+      "class_codes": [
+        "Room 102"
+      ],
+      "teacher_ids": [
+        "stf_0003"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Lilo will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Lilo will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "When upset, Lilo will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: Starts tasks within 2 minutes on 40% of occasions. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 102)",
+          "Behavior aba: 30 min x 5/week (Room 102)",
+          "Counseling: 30 min x 1/week (Room 102)"
+        ],
+        "iep_start_date": "2026-07-13",
+        "iep_review_date": "2027-07-09",
+        "case_manager": "Tiana Rogers",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 4,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0030": {
+      "first_name": "Wendy",
+      "last_initial": "M.",
+      "last_name": "Martin",
+      "grade": "1",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When upset, Wendy will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Wendy will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Behavior aba: 30 min x 5/week (Room 103)",
+          "Counseling: 30 min x 1/week (Room 103)"
+        ],
+        "iep_start_date": "2026-06-11",
+        "iep_review_date": "2027-06-09",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 1,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0031": {
+      "first_name": "Carter",
+      "last_initial": "M.",
+      "last_name": "Murphy",
+      "grade": "3",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Carter will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Carter will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Adaptive: Summary: Completes a 4-step arrival routine with physical prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Speech-language therapy: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-02-02",
+        "iep_review_date": "2027-01-29",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 2,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0032": {
+      "first_name": "Ethan",
+      "last_initial": "C.",
+      "last_name": "Campbell",
+      "grade": "2",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Ethan will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Ethan will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Adaptive: Summary: Completes a 4-step arrival routine with physical prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Speech-language therapy: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-02-02",
+        "iep_review_date": "2027-01-29",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 1,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0033": {
+      "first_name": "Remy",
+      "last_initial": "T.",
+      "last_name": "Thompson",
+      "grade": "2",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Remy will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Remy will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Remy will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Adaptive: Summary: Completes a 4-step arrival routine with physical prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)"
+        ],
+        "iep_start_date": "2026-07-31",
+        "iep_review_date": "2027-07-29",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 3,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0034": {
+      "first_name": "Emma",
+      "last_initial": "P.",
+      "last_name": "Patel",
+      "grade": "1",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Emma will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Emma will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Uses 3-word phrases in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)"
+        ],
+        "iep_start_date": "2025-10-28",
+        "iep_review_date": "2026-10-26",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 41,
+        "absent_excused": 6,
+        "absent_unexcused": 2,
+        "tardy": 4,
+        "rate": 83.7,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0035": {
+      "first_name": "Diego",
+      "last_initial": "G.",
+      "last_name": "Green",
+      "grade": "3",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Diego will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Diego will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Diego will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Written expression: Summary: Writes 2 related sentences with an organizer. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)"
+        ],
+        "iep_start_date": "2026-06-01",
+        "iep_review_date": "2027-05-28",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 4,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0036": {
+      "first_name": "Caleb",
+      "last_initial": "S.",
+      "last_name": "Scott",
+      "grade": "1",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Caleb will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Caleb will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 103)"
+        ],
+        "iep_start_date": "2026-02-03",
+        "iep_review_date": "2027-02-01",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0037": {
+      "first_name": "Ian",
+      "last_initial": "R.",
+      "last_name": "Reyes",
+      "grade": "3",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Ian will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Ian will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Ian will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Behavior aba: 30 min x 5/week (Room 103)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-12-04",
+        "iep_review_date": "2026-12-02",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0038": {
+      "first_name": "Isaiah",
+      "last_initial": "C.",
+      "last_name": "Chen",
+      "grade": "2",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Isaiah will produce target sounds in sentences with 80% accuracy across 3 consecutive sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Isaiah will use 4-word phrases to comment or request in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Speech-Language Impairment"
+        ],
+        "present_levels": [
+          "Communication: Summary: Produces target sounds correctly in 40% of words. (fictional)"
+        ],
+        "accommodations": [
+          "Extra wait time for verbal responses",
+          "Visual supports for directions"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-01-14",
+        "iep_review_date": "2027-01-12",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 6,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0039": {
+      "first_name": "Zoe",
+      "last_initial": "F.",
+      "last_name": "Freeman",
+      "grade": "1",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Zoe will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Zoe will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Social: Summary: Takes turns in a structured game with 3 adult prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 103)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 103)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-23",
+        "iep_review_date": "2027-07-21",
+        "case_manager": "Mulan Fa",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 40,
+        "absent_excused": 7,
+        "absent_unexcused": 2,
+        "tardy": 4,
+        "rate": 81.6,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0040": {
+      "first_name": "Mason",
+      "last_initial": "L.",
+      "last_name": "Lee",
+      "grade": "2",
+      "class_codes": [
+        "Room 103"
+      ],
+      "teacher_ids": [
+        "stf_0004"
+      ],
+      "iep_goals": [],
+      "iep": {},
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 38,
+        "absent_excused": 7,
+        "absent_unexcused": 4,
+        "tardy": 7,
+        "rate": 77.6,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0041": {
+      "first_name": "Giulia",
+      "last_initial": "F.",
+      "last_name": "Freeman",
+      "grade": "4",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Giulia will stay on task during independent work in 80% of intervals across 5 sessions using a self-monitoring checklist."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Giulia will complete 85% of independent work within the time given for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Other Health Impairment"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: On task in 50% of intervals. (fictional)"
+        ],
+        "accommodations": [
+          "Chunked assignments with check-ins",
+          "Movement breaks",
+          "Separate setting for tests"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104)"
+        ],
+        "iep_start_date": "2026-05-27",
+        "iep_review_date": "2027-05-25",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 0,
+        "absent_unexcused": 2,
+        "tardy": 1,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0042": {
+      "first_name": "Alberto",
+      "last_initial": "D.",
+      "last_name": "Diaz",
+      "grade": "5",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [],
+      "iep": {
+        "plan_type": "Section 504 plan",
+        "accommodations": [
+          "Preferential seating",
+          "extended time (1.5x)",
+          "breaks as needed"
+        ],
+        "iep_start_date": "2026-06-01",
+        "iep_review_date": "2027-05-28",
+        "case_manager": "Elsa Winters"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0043": {
+      "first_name": "Russell",
+      "last_initial": "S.",
+      "last_name": "Sanchez",
+      "grade": "5",
+      "class_codes": [
+        "Room 104"
+      ],
+      "teacher_ids": [
+        "stf_0001"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Russell will stay on task during independent work in 80% of intervals across 5 sessions using a self-monitoring checklist."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Russell will complete 85% of independent work within the time given for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Other Health Impairment"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: On task in 50% of intervals. (fictional)"
+        ],
+        "accommodations": [
+          "Chunked assignments with check-ins",
+          "Movement breaks",
+          "Separate setting for tests"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 104)"
+        ],
+        "iep_start_date": "2026-01-08",
+        "iep_review_date": "2027-01-06",
+        "case_manager": "Alex Morgan",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0044": {
+      "first_name": "Vanellope",
+      "last_initial": "B.",
+      "last_name": "Bailey",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Vanellope will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Vanellope will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Written expression: Summary: Writes 2 related sentences with an organizer. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-05-28",
+        "iep_review_date": "2027-05-26",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0045": {
+      "first_name": "Owen",
+      "last_initial": "D.",
+      "last_name": "Diaz",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Owen will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Owen will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Social: Summary: Takes turns in a structured game with 3 adult prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 105)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-10",
+        "iep_review_date": "2027-07-08",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 2,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0046": {
+      "first_name": "Jada",
+      "last_initial": "M.",
+      "last_name": "Murphy",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Jada will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Jada will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Jada will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Math: Summary: 45% accuracy on grade-level computation. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-02-27",
+        "iep_review_date": "2027-02-25",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 3,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0047": {
+      "first_name": "Dash",
+      "last_initial": "M.",
+      "last_name": "Martin",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Dash will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "When upset, Dash will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: Starts tasks within 2 minutes on 40% of occasions. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)",
+          "Behavior aba: 30 min x 5/week (Room 105)",
+          "Counseling: 30 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-04-07",
+        "iep_review_date": "2027-04-05",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 40,
+        "absent_excused": 4,
+        "absent_unexcused": 5,
+        "tardy": 0,
+        "rate": 81.6,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0048": {
+      "first_name": "Layla",
+      "last_initial": "W.",
+      "last_name": "Williams",
+      "grade": "4",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [],
+      "iep": {},
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0049": {
+      "first_name": "Ellie",
+      "last_initial": "T.",
+      "last_name": "Thomas",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Ellie will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Ellie will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "When upset, Ellie will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: Starts tasks within 2 minutes on 40% of occasions. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)",
+          "Behavior aba: 30 min x 5/week (Room 105)",
+          "Counseling: 30 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-06-10",
+        "iep_review_date": "2027-06-08",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 1,
+        "absent_unexcused": 1,
+        "tardy": 4,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0050": {
+      "first_name": "Pacha",
+      "last_initial": "P.",
+      "last_name": "Price",
+      "grade": "4",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Pacha will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Pacha will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Communication",
+          "description": "Pacha will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 105)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-19",
+        "iep_review_date": "2027-03-17",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 42,
+        "absent_excused": 4,
+        "absent_unexcused": 3,
+        "tardy": 3,
+        "rate": 85.7,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0051": {
+      "first_name": "Kai",
+      "last_initial": "D.",
+      "last_name": "Diaz",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Kai will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Kai will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)",
+          "Behavior aba: 30 min x 5/week (Room 105)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-05-22",
+        "iep_review_date": "2027-05-20",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 2,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0052": {
+      "first_name": "Imani",
+      "last_initial": "M.",
+      "last_name": "Martinez",
+      "grade": "4",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Imani will complete 85% of independent work within the time given for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Imani will stay on task during independent work in 80% of intervals across 5 sessions using a self-monitoring checklist."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Other Health Impairment"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: Completes 55% of independent work. (fictional)"
+        ],
+        "accommodations": [
+          "Chunked assignments with check-ins",
+          "Movement breaks",
+          "Separate setting for tests"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-08-11",
+        "iep_review_date": "2027-08-09",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 3,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0053": {
+      "first_name": "Theo",
+      "last_initial": "W.",
+      "last_name": "Williams",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Theo will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Theo will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Written expression: Summary: Writes 2 related sentences with an organizer. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-07-21",
+        "iep_review_date": "2027-07-19",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 1,
+        "absent_unexcused": 2,
+        "tardy": 1,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0054": {
+      "first_name": "Merida",
+      "last_initial": "B.",
+      "last_name": "Bennett",
+      "grade": "3",
+      "class_codes": [
+        "Room 105"
+      ],
+      "teacher_ids": [
+        "stf_0005"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Merida will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Merida will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Merida will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Reading: Summary: Reads 35 words correct per minute on instructional-level passages. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 105)"
+        ],
+        "iep_start_date": "2026-08-12",
+        "iep_review_date": "2027-08-10",
+        "case_manager": "Rapunzel Hart",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0055": {
+      "first_name": "Riley",
+      "last_initial": "N.",
+      "last_name": "Nelson",
+      "grade": "3",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Riley will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Riley will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: Starts tasks within 2 minutes on 40% of occasions. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Behavior aba: 30 min x 5/week (Room 106)",
+          "Counseling: 30 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2026-02-03",
+        "iep_review_date": "2027-02-01",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0056": {
+      "first_name": "Noah",
+      "last_initial": "R.",
+      "last_name": "Ramirez",
+      "grade": "5",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Noah will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Noah will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 106)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-17",
+        "iep_review_date": "2027-03-15",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0057": {
+      "first_name": "Anna",
+      "last_initial": "T.",
+      "last_name": "Thomas",
+      "grade": "5",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When upset, Anna will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Anna will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Anna will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Behavior aba: 30 min x 5/week (Room 106)"
+        ],
+        "iep_start_date": "2026-09-11",
+        "iep_review_date": "2027-09-09",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 2,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0058": {
+      "first_name": "Nani",
+      "last_initial": "W.",
+      "last_name": "Wilson",
+      "grade": "3",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Nani will stay on task during independent work in 80% of intervals across 5 sessions using a self-monitoring checklist."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Nani will complete 85% of independent work within the time given for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Other Health Impairment"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: On task in 50% of intervals. (fictional)"
+        ],
+        "accommodations": [
+          "Chunked assignments with check-ins",
+          "Movement breaks",
+          "Separate setting for tests"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2026-07-29",
+        "iep_review_date": "2027-07-27",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 4,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0059": {
+      "first_name": "Mei",
+      "last_initial": "W.",
+      "last_name": "Williams",
+      "grade": "4",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Mei will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Mei will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Reading: Summary: Reads 35 words correct per minute on instructional-level passages. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2026-09-01",
+        "iep_review_date": "2027-08-30",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 1,
+        "absent_unexcused": 1,
+        "tardy": 1,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0060": {
+      "first_name": "Liam",
+      "last_initial": "M.",
+      "last_name": "Murphy",
+      "grade": "3",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [],
+      "iep": {
+        "plan_type": "Section 504 plan",
+        "accommodations": [
+          "Preferential seating",
+          "extended time (1.5x)",
+          "breaks as needed"
+        ],
+        "iep_start_date": "2026-06-15",
+        "iep_review_date": "2027-06-12",
+        "case_manager": "Elsa Winters"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 2,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0061": {
+      "first_name": "Maya",
+      "last_initial": "P.",
+      "last_name": "Patel",
+      "grade": "5",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Maya will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Maya will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 106)"
+        ],
+        "iep_start_date": "2026-05-19",
+        "iep_review_date": "2027-05-17",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 0,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0062": {
+      "first_name": "Ruby",
+      "last_initial": "C.",
+      "last_name": "Chen",
+      "grade": "5",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Ruby will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Ruby will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Social: Summary: Takes turns in a structured game with 3 adult prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 106)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-02-23",
+        "iep_review_date": "2027-02-19",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 1,
+        "absent_unexcused": 2,
+        "tardy": 4,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0063": {
+      "first_name": "Sara",
+      "last_initial": "A.",
+      "last_name": "Adams",
+      "grade": "5",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When upset, Sara will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Sara will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Sara will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Behavior aba: 30 min x 5/week (Room 106)",
+          "Counseling: 30 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2026-07-16",
+        "iep_review_date": "2027-07-14",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0064": {
+      "first_name": "Luisa",
+      "last_initial": "C.",
+      "last_name": "Clark",
+      "grade": "5",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Luisa will complete 85% of independent work within the time given for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Luisa will stay on task during independent work in 80% of intervals across 5 sessions using a self-monitoring checklist."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Other Health Impairment"
+        ],
+        "present_levels": [
+          "Executive functioning: Summary: Completes 55% of independent work. (fictional)"
+        ],
+        "accommodations": [
+          "Chunked assignments with check-ins",
+          "Movement breaks",
+          "Separate setting for tests"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2026-08-25",
+        "iep_review_date": "2027-08-23",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 1,
+        "absent_unexcused": 1,
+        "tardy": 1,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0065": {
+      "first_name": "Elijah",
+      "last_initial": "T.",
+      "last_name": "Thompson",
+      "grade": "3",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When upset, Elijah will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Elijah will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Counseling: 30 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2026-02-26",
+        "iep_review_date": "2027-02-24",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0066": {
+      "first_name": "Amara",
+      "last_initial": "P.",
+      "last_name": "Perez",
+      "grade": "4",
+      "class_codes": [
+        "Room 106"
+      ],
+      "teacher_ids": [
+        "stf_0006"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "When upset, Amara will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Amara will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Amara will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Uses a coping strategy independently in 1 of 5 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 106)",
+          "Counseling: 30 min x 1/week (Room 106)"
+        ],
+        "iep_start_date": "2025-12-03",
+        "iep_review_date": "2026-12-01",
+        "case_manager": "Hercules Stone",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0067": {
+      "first_name": "Mirabel",
+      "last_initial": "P.",
+      "last_name": "Patel",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [],
+      "iep": {
+        "plan_type": "Section 504 plan",
+        "accommodations": [
+          "Preferential seating",
+          "extended time (1.5x)",
+          "breaks as needed"
+        ],
+        "iep_start_date": "2025-11-11",
+        "iep_review_date": "2026-11-09",
+        "case_manager": "Elsa Winters"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 4,
+        "absent_unexcused": 0,
+        "tardy": 2,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0068": {
+      "first_name": "Andre",
+      "last_initial": "Y.",
+      "last_name": "Young",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Andre will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Andre will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Andre will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Reading: Summary: Reads 35 words correct per minute on instructional-level passages. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)"
+        ],
+        "iep_start_date": "2026-01-27",
+        "iep_review_date": "2027-01-25",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 45,
+        "absent_excused": 1,
+        "absent_unexcused": 3,
+        "tardy": 1,
+        "rate": 91.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0069": {
+      "first_name": "Ralph",
+      "last_initial": "M.",
+      "last_name": "Martin",
+      "grade": "5",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Ralph will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Ralph will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-08-07",
+        "iep_review_date": "2027-08-05",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0070": {
+      "first_name": "Aladdin",
+      "last_initial": "N.",
+      "last_name": "Nguyen",
+      "grade": "5",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Aladdin will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Functional",
+          "description": "Aladdin will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Aladdin will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Math: Summary: Counts objects to 5 with 1:1 correspondence. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Speech-language therapy: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-01-26",
+        "iep_review_date": "2027-01-22",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 43,
+        "absent_excused": 4,
+        "absent_unexcused": 2,
+        "tardy": 2,
+        "rate": 87.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0071": {
+      "first_name": "Asha",
+      "last_initial": "T.",
+      "last_name": "Taylor",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Asha will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Functional",
+          "description": "Asha will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Asha will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Reading: Summary: Identifies 5 functional sight words. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Speech-language therapy: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-07",
+        "iep_review_date": "2027-07-05",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 44,
+        "absent_excused": 0,
+        "absent_unexcused": 5,
+        "tardy": 3,
+        "rate": 89.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0072": {
+      "first_name": "Hana",
+      "last_initial": "R.",
+      "last_name": "Ramirez",
+      "grade": "5",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Hana will use a 4-step problem-solving routine with peers with 1 or fewer prompts in 4 of 5 conflicts."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Hana will start assigned tasks within 2 minutes of directions on 80% of occasions across 3 weeks."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "When upset, Hana will use a taught coping strategy in 4 of 5 observed opportunities for 4 consecutive weeks."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Emotional and Behavioral Disorder"
+        ],
+        "present_levels": [
+          "Social: Summary: Resolves peer conflict without adult help in 1 of 5 conflicts. (fictional)"
+        ],
+        "accommodations": [
+          "Daily check-in/check-out",
+          "Access to a cool-down area",
+          "Choice of task order"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Behavior aba: 30 min x 5/week (Room 107)",
+          "Counseling: 30 min x 1/week (Room 107)"
+        ],
+        "iep_start_date": "2026-02-10",
+        "iep_review_date": "2027-02-08",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 0,
+        "absent_unexcused": 1,
+        "tardy": 4,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0073": {
+      "first_name": "Omar",
+      "last_initial": "W.",
+      "last_name": "Wright",
+      "grade": "5",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Omar will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Omar will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Omar will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Behavior aba: 30 min x 5/week (Room 107)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-12-01",
+        "iep_review_date": "2026-11-27",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0074": {
+      "first_name": "Aurora",
+      "last_initial": "J.",
+      "last_name": "Jackson",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Aurora will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Aurora will write a 5-sentence paragraph with a topic sentence and conclusion, scoring 4 of 5 on the rubric in 4 of 5 samples."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Aurora will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Math: Summary: 45% accuracy on grade-level computation. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)"
+        ],
+        "iep_start_date": "2026-03-04",
+        "iep_review_date": "2027-03-02",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 43,
+        "absent_excused": 3,
+        "absent_unexcused": 3,
+        "tardy": 0,
+        "rate": 87.8,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0075": {
+      "first_name": "Priya",
+      "last_initial": "O.",
+      "last_name": "Ortiz",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Priya will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Priya will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Reading: Summary: Identifies 5 functional sight words. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Speech-language therapy: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-12-05",
+        "iep_review_date": "2026-12-03",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0076": {
+      "first_name": "Judy",
+      "last_initial": "R.",
+      "last_name": "Reyes",
+      "grade": "5",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Judy will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Judy will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Judy will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (mild)"
+        ],
+        "present_levels": [
+          "Adaptive: Summary: Completes a 4-step arrival routine with physical prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Modified assignments (reduced length)",
+          "Picture supports",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)",
+          "Speech-language therapy: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-05-11",
+        "iep_review_date": "2027-05-07",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0077": {
+      "first_name": "Raya",
+      "last_initial": "B.",
+      "last_name": "Brown",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [],
+      "iep": {},
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0078": {
+      "first_name": "Nick",
+      "last_initial": "M.",
+      "last_name": "Mitchell",
+      "grade": "4",
+      "class_codes": [
+        "Room 107"
+      ],
+      "teacher_ids": [
+        "stf_0007"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Nick will read instructional-level passages at 70 words correct per minute with 95% accuracy on 3 consecutive probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Nick will solve grade-level computation problems with 80% accuracy across 3 consecutive probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Specific Learning Disability"
+        ],
+        "present_levels": [
+          "Reading: Summary: Reads 35 words correct per minute on instructional-level passages. (fictional)"
+        ],
+        "accommodations": [
+          "Read aloud of directions and items (except reading measures)",
+          "Graphic organizers",
+          "Extended time (1.5x)"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 107)"
+        ],
+        "iep_start_date": "2026-04-27",
+        "iep_review_date": "2027-04-23",
+        "case_manager": "Moana Kealoha",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 3,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0079": {
+      "first_name": "Lily",
+      "last_initial": "M.",
+      "last_name": "Martinez",
+      "grade": "2",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Lily will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Lily will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (moderate)"
+        ],
+        "present_levels": [
+          "Math: Summary: Counts objects to 5 with 1:1 correspondence. (fictional)"
+        ],
+        "accommodations": [
+          "Picture supports and modified materials",
+          "Instruction on alternate achievement standards (modification)",
+          "Frequent breaks"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-01-19",
+        "iep_review_date": "2027-01-15",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0080": {
+      "first_name": "Bruno",
+      "last_initial": "J.",
+      "last_name": "Johnson",
+      "grade": "2",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Bruno will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Bruno will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Bruno will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 108)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-11-25",
+        "iep_review_date": "2026-11-23",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0081": {
+      "first_name": "Sofia",
+      "last_initial": "T.",
+      "last_name": "Taylor",
+      "grade": "4",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Communication",
+          "description": "Sofia will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Sofia will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Communication: Summary: Requests help or a break with words or AAC in 2 of 10 opportunities. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-29",
+        "iep_review_date": "2027-07-27",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0082": {
+      "first_name": "Luca",
+      "last_initial": "R.",
+      "last_name": "Robinson",
+      "grade": "3",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Luca will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Luca will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (moderate)"
+        ],
+        "present_levels": [
+          "Math: Summary: Counts objects to 5 with 1:1 correspondence. (fictional)"
+        ],
+        "accommodations": [
+          "Picture supports and modified materials",
+          "Instruction on alternate achievement standards (modification)",
+          "Frequent breaks"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-06-18",
+        "iep_review_date": "2027-06-16",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 46,
+        "absent_excused": 1,
+        "absent_unexcused": 2,
+        "tardy": 5,
+        "rate": 93.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0083": {
+      "first_name": "Alice",
+      "last_initial": "L.",
+      "last_name": "Lopez",
+      "grade": "4",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Alice will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Functional",
+          "description": "Alice will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Alice will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (moderate)"
+        ],
+        "present_levels": [
+          "Reading: Summary: Identifies 5 functional sight words. (fictional)"
+        ],
+        "accommodations": [
+          "Picture supports and modified materials",
+          "Instruction on alternate achievement standards (modification)",
+          "Frequent breaks"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-07-29",
+        "iep_review_date": "2027-07-27",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 48,
+        "absent_excused": 1,
+        "absent_unexcused": 0,
+        "tardy": 1,
+        "rate": 98.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0084": {
+      "first_name": "Aaliyah",
+      "last_initial": "W.",
+      "last_name": "Walker",
+      "grade": "3",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Aaliyah will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Functional",
+          "description": "Aaliyah will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (moderate)"
+        ],
+        "present_levels": [
+          "Math: Summary: Counts objects to 5 with 1:1 correspondence. (fictional)"
+        ],
+        "accommodations": [
+          "Picture supports and modified materials",
+          "Instruction on alternate achievement standards (modification)",
+          "Frequent breaks"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-12-16",
+        "iep_review_date": "2026-12-14",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0085": {
+      "first_name": "Taran",
+      "last_initial": "G.",
+      "last_name": "Green",
+      "grade": "1",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Behavioral",
+          "description": "Using a visual schedule, Taran will move to the next activity within 2 minutes with 1 or fewer verbal prompts in 80% of transitions."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Communication",
+          "description": "Taran will request help or a break using words, signs or AAC in 8 of 10 opportunities across 3 sessions."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Behavioral",
+          "description": "Taran will take turns with a peer in a structured activity for 5 exchanges with 1 or fewer prompts in 4 of 5 sessions."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Autism"
+        ],
+        "present_levels": [
+          "Behavior: Summary: Transitions between activities with physical guidance in 50% of transitions. (fictional)"
+        ],
+        "accommodations": [
+          "Visual schedule and transition warnings",
+          "Break card and quiet area",
+          "Small group testing"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Behavior aba: 30 min x 5/week (Room 108)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-12",
+        "iep_review_date": "2027-03-10",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0086": {
+      "first_name": "Barley",
+      "last_initial": "M.",
+      "last_name": "Martinez",
+      "grade": "3",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Academic",
+          "description": "Barley will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Barley will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Functional",
+          "description": "Barley will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (moderate)"
+        ],
+        "present_levels": [
+          "Reading: Summary: Identifies 5 functional sight words. (fictional)"
+        ],
+        "accommodations": [
+          "Picture supports and modified materials",
+          "Instruction on alternate achievement standards (modification)",
+          "Frequent breaks"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2025-11-04",
+        "iep_review_date": "2026-11-02",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 47,
+        "absent_excused": 2,
+        "absent_unexcused": 0,
+        "tardy": 0,
+        "rate": 95.9,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    },
+    "stu_0087": {
+      "first_name": "Chloe",
+      "last_initial": "W.",
+      "last_name": "Williams",
+      "grade": "4",
+      "class_codes": [
+        "Room 108"
+      ],
+      "teacher_ids": [
+        "stf_0008"
+      ],
+      "iep_goals": [
+        {
+          "goal_id": "g1",
+          "category": "Functional",
+          "description": "Chloe will complete a 4-step arrival routine using a picture schedule with gestural prompts only in 4 of 5 days."
+        },
+        {
+          "goal_id": "g2",
+          "category": "Academic",
+          "description": "Chloe will read 20 functional sight words (signs, schedule words) with 90% accuracy across 3 probes."
+        },
+        {
+          "goal_id": "g3",
+          "category": "Academic",
+          "description": "Chloe will count up to 20 objects with 1:1 correspondence in 4 of 5 trials."
+        }
+      ],
+      "iep": {
+        "plan_type": "IEP",
+        "eligibility": [
+          "Intellectual Disability (moderate)"
+        ],
+        "present_levels": [
+          "Adaptive: Summary: Completes a 4-step arrival routine with physical prompts. (fictional)"
+        ],
+        "accommodations": [
+          "Picture supports and modified materials",
+          "Instruction on alternate achievement standards (modification)",
+          "Frequent breaks"
+        ],
+        "services": [
+          "Specialized instruction: 1500 min x 1/week (Room 108)",
+          "Speech-language therapy: 30 min x 2/week (Therapy room)",
+          "Ot: 30 min x 1/week (Therapy room)"
+        ],
+        "iep_start_date": "2026-03-30",
+        "iep_review_date": "2027-03-26",
+        "case_manager": "Elsa Winters",
+        "placement": "Separate school, full day",
+        "esy": "Extended school year: no"
+      },
+      "label": "Fictional sample data",
+      "attendance": {
+        "school_days": 49,
+        "present": 49,
+        "absent_excused": 0,
+        "absent_unexcused": 0,
+        "tardy": 3,
+        "rate": 100.0,
+        "from": "2026-08-03",
+        "through": "2026-10-09"
+      }
+    }
+  },
+  "settings": {
+    "iep_access": {
+      "rbt": "read",
+      "_note": "The school's IEP access setting for RBTs: read (default) or none."
+    }
+  }
+}

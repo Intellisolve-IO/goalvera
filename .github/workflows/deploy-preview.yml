@@ -1,0 +1,46 @@
+# Every push to main builds one image per service and deploys those digests to
+# the preview project only. The project, Workload Identity provider and deployer
+# service account come from repository Actions variables (docs/PREVIEW.md).
+# If GCP_PROJECT_ID is not set (for example on a fork), the job is skipped.
+# Only the pushed main commit is deployed: there is no manual commit input.
+name: Deploy to preview
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: preview
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  preview:
+    if: ${{ vars.GCP_PROJECT_ID != '' }}
+    runs-on: ubuntu-latest
+    environment: preview
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOYER_SA }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - name: Build and deploy to preview
+        env:
+          PREVIEW_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+          PREVIEW_PROJECT_NUMBER: ${{ vars.GCP_PROJECT_NUMBER }}
+          CLOUDSDK_CORE_PROJECT: ${{ vars.GCP_PROJECT_ID }}
+          CLOUDSDK_BILLING_QUOTA_PROJECT: ${{ vars.GCP_PROJECT_ID }}
+        run: ./deploy/preview/deploy-preview.sh --sha "${GITHUB_SHA}"
+      - name: Summary
+        run: |
+          {
+            echo "### Preview updated"
+            echo "Commit \`${GITHUB_SHA}\` was deployed to the preview project only."
+          } >> "${GITHUB_STEP_SUMMARY}"

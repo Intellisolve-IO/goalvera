@@ -1,0 +1,8 @@
+# Elecrow CrowPanel Advance 4.3 V1.1. UNSUPPORTED (community only).
+# The supported board is the Hosyond ESP32-S3 3.5" (sdkconfig.defaults.hosyond35).
+# Applied on top of sdkconfig.defaults when building with
+#   -D RECORDER_BOARD=crowpanel43
+# No update channel is published for this board: the OTA manifest URL is a
+# placeholder that is never served.
+CONFIG_RECORDER_BOARD_CROWPANEL_43=y
+CONFIG_RECORDER_OTA_MANIFEST_URL="https://storage.googleapis.com/example-project-firmware/firmware/unsupported/manifest.json"

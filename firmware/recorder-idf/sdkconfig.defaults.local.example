@@ -1,0 +1,10 @@
+# Copy this file to sdkconfig.defaults.local (that name is gitignored).
+# Uncomment and fill in the school SSID. Do not commit the copy.
+# The password is compiled into the firmware image. Flash/NVS encryption
+# is not on yet, so do not share the built binary either.
+#
+# CONFIG_RECORDER_WIFI_SSID="school-ssid"
+# CONFIG_RECORDER_WIFI_PASSWORD="school-password"
+# Optional fallback network (tried after the first fails 3 times in a row):
+# CONFIG_RECORDER_WIFI_SSID2="second-ssid"
+# CONFIG_RECORDER_WIFI_PASSWORD2="second-password"

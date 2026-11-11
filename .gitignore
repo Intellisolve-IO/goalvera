@@ -1,0 +1,69 @@
+# --- Audio / recordings: NEVER commit ---
+*.wav
+*.pcm
+*.raw
+*.mp3
+*.m4a
+*.flac
+*.ogg
+recordings/
+sd-dump*/
+audio/
+**/samples/real/
+*.enc
+
+# --- Build output ---
+build/
+**/sdkconfig
+**/sdkconfig.old
+**/sdkconfig.defaults.local
+**/managed_components/
+dist/
+.pio/
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.vite/
+*.bin
+*.elf
+*.map
+firmware-backup/
+.terraform/
+*.tfstate*
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+**/secrets/
+*service-account*.json
+*-sa-key*.json
+*credentials*.json
+client_secret*.json
+*.pem
+*.key
+*.p12
+api-keys*
+*apikey*
+
+# --- OS / editor / logs ---
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# --- firmware build trees besides build/ ---
+firmware/recorder-idf/build-h35-dry/
+firmware/recorder-idf/build-h35-secure/
+
+# --- device tokens ---
+*.token
+infra/deploy.env
+*.pem
+!**/test*/**/*.pem
+box-secrets.json
+.env
+infra/review_allowlist.json

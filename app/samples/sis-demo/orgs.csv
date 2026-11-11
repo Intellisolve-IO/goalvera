@@ -1,0 +1,3 @@
+sourcedId,status,dateLastModified,name,type,identifier,parentSourcedId,metadata.fictional
+org-district-0001,,,Fictional County School District (sample),district,FICT-LEA-000,,true
+org-school-0001,,,Everyday Heroes Academy,school,FICT-0001,org-district-0001,true

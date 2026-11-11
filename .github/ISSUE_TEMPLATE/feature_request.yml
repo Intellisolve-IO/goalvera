@@ -1,0 +1,26 @@
+name: Feature request
+description: Suggest an improvement or a new feature.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never include real student data** (names, recordings, transcripts, IEP text) in an issue.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: Who is it for (teacher, admin, operator, developer), and what is hard today?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would like
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Student data impact
+      description: Would this collect, show, send to the AI, or keep any student data differently?

@@ -1,0 +1,10 @@
+sourcedId,name,startTime,endTime,days,rotation,metadata.fictional
+per-arrival,Arrival,07:45,08:00,"Mon,Tue,Wed,Thu,Fri",,true
+per-meeting,Morning Meeting,08:00,08:20,"Mon,Tue,Wed,Thu,Fri",,true
+per-reading,Reading Block,08:20,09:50,"Mon,Tue,Wed,Thu,Fri",,true
+per-services,Related Services / Specials,09:50,10:35,"Mon,Tue,Wed,Thu,Fri",,true
+per-math,Math Block,10:35,11:45,"Mon,Tue,Wed,Thu,Fri",,true
+per-lunch,Lunch and Recess,11:45,12:30,"Mon,Tue,Wed,Thu,Fri",,true
+per-social,Social Skills / Science,12:30,13:15,"Mon,Tue,Wed,Thu,Fri",,true
+per-centers,Life Skills / Centers,13:15,14:15,"Mon,Tue,Wed,Thu,Fri",,true
+per-dismissal,Dismissal,14:15,14:30,"Mon,Tue,Wed,Thu,Fri",,true

@@ -1,0 +1,214 @@
+iepSourcedId,sourcedId,type,delivery,setting,minutes,frequencyCount,frequencyPeriod,groupSize,providerRole,providerSourcedId,location,startDate,endDate,esy,metadata.fictional
+iep-0001-v1,iep-0001-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-08-21,2026-08-19,false,true
+iep-0001-v2,iep-0001-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-08-21,2027-08-19,false,true
+iep-0001-v2,iep-0001-v2-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Speech room,2026-08-21,2027-08-19,false,true
+iep-0001-v2,iep-0001-v2-s3,speech_language,consultative,separate_school,15,1,week,individual,slp,u-stf-0015,Room 104,2026-08-21,2027-08-19,false,true
+iep-0001-v2,iep-0001-v2-s4,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0010,Room 104,2026-08-21,2027-08-19,false,true
+iep-0001-v2,iep-0001-v2-s5,behavior_aba,consultative,separate_school,60,1,month,individual,bcba,u-stf-0009,Room 104,2026-08-21,2027-08-19,false,true
+iep-0001-v2,iep-0001-v2-s6,ot,consultative,separate_school,30,1,month,individual,ot,u-stf-0016,Room 104,2026-08-21,2027-08-19,false,true
+iep-0002-v1,iep-0002-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-08-28,2026-08-26,false,true
+iep-0002-v2,iep-0002-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-08-28,2027-08-26,false,true
+iep-0002-v2,iep-0002-v2-s2,specialized_instruction,direct,separate_school,45,5,week,small_group,sped_teacher,u-stf-0001,"Room 104 (structured literacy group, part of the school day above)",2026-08-28,2027-08-26,false,true
+iep-0002-v2,iep-0002-v2-s3,speech_language,direct,outside_gen_ed,30,2,week,individual,slp,u-stf-0015,Speech room,2026-08-28,2027-08-26,false,true
+iep-0003-v1,iep-0003-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-09-04,2026-09-02,false,true
+iep-0003-v2,iep-0003-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-09-04,2027-09-02,false,true
+iep-0003-v2,iep-0003-v2-s2,specialized_instruction,direct,separate_school,30,3,week,small_group,sped_teacher,u-stf-0001,"Room 104 (executive functioning group, part of the school day above)",2026-09-04,2027-09-02,false,true
+iep-0004-v1,iep-0004-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-09-11,2026-09-09,false,true
+iep-0004-v2,iep-0004-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-09-11,2027-09-09,false,true
+iep-0004-v2,iep-0004-v2-s2,pt,direct,outside_gen_ed,30,1,week,individual,pt,u-stf-0017,"Hallways, ramp, therapy room",2026-09-11,2027-09-09,false,true
+iep-0004-v2,iep-0004-v2-s3,ot,direct,outside_gen_ed,30,2,week,individual,ot,u-stf-0016,Therapy room,2026-09-11,2027-09-09,false,true
+iep-0004-v2,iep-0004-v2-s4,transportation,direct,separate_school,0,1,day,individual,transportation,,Lift-equipped bus (provided by the resident district),2026-09-11,2027-09-09,false,true
+iep-0005-v1,iep-0005-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-08-26,2026-08-24,false,true
+iep-0005-v2,iep-0005-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-08-26,2027-08-24,false,true
+iep-0005-v2,iep-0005-v2-s2,deaf_hoh,direct,outside_gen_ed,60,1,week,individual,dhh_teacher,u-stf-0018,Small-group room,2026-08-26,2027-08-24,false,true
+iep-0005-v2,iep-0005-v2-s3,deaf_hoh,consultative,separate_school,30,1,month,individual,dhh_teacher,u-stf-0018,Room 104,2026-08-26,2027-08-24,false,true
+iep-0005-v2,iep-0005-v2-s4,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Speech room,2026-08-26,2027-08-24,false,true
+iep-0005-v2,iep-0005-v2-s5,assistive_tech,consultative,separate_school,30,1,reporting_period,individual,dhh_teacher,u-stf-0018,Room 104 (remote microphone checks),2026-08-26,2027-08-24,false,true
+iep-0006-v1,iep-0006-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-09-16,2026-09-14,false,true
+iep-0006-v2,iep-0006-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-09-16,2027-09-14,false,true
+iep-0006-v2,iep-0006-v2-s2,behavior_aba,direct,separate_school,60,5,week,individual,rbt,u-stf-0010,Room 104 (embedded),2026-09-16,2027-09-14,false,true
+iep-0006-v2,iep-0006-v2-s3,behavior_aba,consultative,separate_school,60,1,month,individual,bcba,u-stf-0009,Room 104,2026-09-16,2027-09-14,false,true
+iep-0006-v2,iep-0006-v2-s4,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Counseling office,2026-09-16,2027-09-14,false,true
+iep-0006-v2,iep-0006-v2-s5,behavior_aba,direct,separate_school,120,2,week,small_group,rbt,u-stf-0010,Summer program room,2027-06-07,2027-07-02,true,true
+iep-0007-v1,iep-0007-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2025-09-18,2026-09-16,false,true
+iep-0007-v2,iep-0007-v2-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104 (special education classroom),2026-09-18,2027-09-16,false,true
+iep-0007-v2,iep-0007-v2-s2,vision,direct,outside_gen_ed,60,1,week,individual,tvi,u-stf-0019,Small-group room,2026-09-18,2027-09-16,false,true
+iep-0007-v2,iep-0007-v2-s3,vision,consultative,separate_school,30,1,month,individual,tvi,u-stf-0019,Room 104,2026-09-18,2027-09-16,false,true
+iep-0007-v2,iep-0007-v2-s4,orientation_mobility,direct,outside_gen_ed,30,1,week,individual,coms,u-stf-0019,School campus,2026-09-18,2027-09-16,false,true
+iep-0008-v1,iep-0008-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-04-23,2027-04-21,false,true
+iep-0008-v1,iep-0008-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-04-23,2027-04-21,false,true
+iep-0008-v1,iep-0008-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 101,2026-04-23,2027-04-21,false,true
+iep-0008-v1,iep-0008-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-04-23,2027-04-21,false,true
+iep-0009-v1,iep-0009-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-08-10,2027-08-06,false,true
+iep-0009-v1,iep-0009-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 101,2026-08-10,2027-08-06,false,true
+iep-0009-v1,iep-0009-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 101,2026-08-10,2027-08-06,false,true
+iep-0010-v1,iep-0010-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-04-21,2027-04-19,false,true
+iep-0010-v1,iep-0010-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-04-21,2027-04-19,false,true
+iep-0010-v1,iep-0010-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 101,2026-04-21,2027-04-19,false,true
+iep-0011-v1,iep-0011-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-08-25,2027-08-23,false,true
+iep-0011-v1,iep-0011-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-08-25,2027-08-23,false,true
+iep-0012-v1,iep-0012-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-05-12,2027-05-10,false,true
+iep-0012-v1,iep-0012-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-05-12,2027-05-10,false,true
+iep-0012-v1,iep-0012-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-05-12,2027-05-10,false,true
+iep-0013-v1,iep-0013-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-08-04,2027-08-02,false,true
+iep-0013-v1,iep-0013-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 101,2026-08-04,2027-08-02,false,true
+iep-0013-v1,iep-0013-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 101,2026-08-04,2027-08-02,false,true
+iep-0014-v1,iep-0014-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-08-26,2027-08-24,false,true
+iep-0014-v1,iep-0014-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-08-26,2027-08-24,false,true
+iep-0015-v1,iep-0015-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-04-16,2027-04-14,false,true
+iep-0015-v1,iep-0015-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-04-16,2027-04-14,false,true
+iep-0016-v1,iep-0016-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2026-07-28,2027-07-26,false,true
+iep-0016-v1,iep-0016-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-07-28,2027-07-26,false,true
+iep-0017-v1,iep-0017-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0002,Room 101,2025-11-18,2026-11-16,false,true
+iep-0017-v1,iep-0017-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-11-18,2026-11-16,false,true
+iep-0017-v1,iep-0017-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 101,2025-11-18,2026-11-16,false,true
+iep-0017-v1,iep-0017-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-11-18,2026-11-16,false,true
+iep-0018-v1,iep-0018-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2026-03-12,2027-03-10,false,true
+iep-0018-v1,iep-0018-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-12,2027-03-10,false,true
+iep-0018-v1,iep-0018-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 102,2026-03-12,2027-03-10,false,true
+iep-0018-v1,iep-0018-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-12,2027-03-10,false,true
+iep-0019-v1,iep-0019-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2026-03-06,2027-03-04,false,true
+iep-0019-v1,iep-0019-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-06,2027-03-04,false,true
+iep-0020-v1,iep-0020-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2025-12-23,2026-12-21,false,true
+iep-0020-v1,iep-0020-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-12-23,2026-12-21,false,true
+iep-0020-v1,iep-0020-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 102,2025-12-23,2026-12-21,false,true
+iep-0020-v1,iep-0020-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-12-23,2026-12-21,false,true
+iep-0021-v1,iep-0021-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2026-03-24,2027-03-22,false,true
+iep-0021-v1,iep-0021-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-24,2027-03-22,false,true
+iep-0021-v1,iep-0021-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 102,2026-03-24,2027-03-22,false,true
+iep-0021-v1,iep-0021-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-24,2027-03-22,false,true
+iep-0022-v1,iep-0022-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2025-10-23,2026-10-21,false,true
+iep-0022-v1,iep-0022-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-10-23,2026-10-21,false,true
+iep-0023-v1,iep-0023-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2025-12-29,2026-12-25,false,true
+iep-0023-v1,iep-0023-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-12-29,2026-12-25,false,true
+iep-0023-v1,iep-0023-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 102,2025-12-29,2026-12-25,false,true
+iep-0023-v1,iep-0023-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-12-29,2026-12-25,false,true
+iep-0024-v1,iep-0024-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2026-07-03,2027-07-01,false,true
+iep-0024-v1,iep-0024-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-07-03,2027-07-01,false,true
+iep-0024-v1,iep-0024-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 102,2026-07-03,2027-07-01,false,true
+iep-0024-v1,iep-0024-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-07-03,2027-07-01,false,true
+iep-0025-v1,iep-0025-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2026-03-30,2027-03-26,false,true
+iep-0025-v1,iep-0025-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-30,2027-03-26,false,true
+iep-0025-v1,iep-0025-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-30,2027-03-26,false,true
+iep-0026-v1,iep-0026-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0003,Room 102,2026-07-13,2027-07-09,false,true
+iep-0026-v1,iep-0026-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0014,Room 102,2026-07-13,2027-07-09,false,true
+iep-0026-v1,iep-0026-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 102,2026-07-13,2027-07-09,false,true
+iep-0027-v1,iep-0027-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-06-11,2027-06-09,false,true
+iep-0027-v1,iep-0027-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 103,2026-06-11,2027-06-09,false,true
+iep-0027-v1,iep-0027-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 103,2026-06-11,2027-06-09,false,true
+iep-0028-v1,iep-0028-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-02-02,2027-01-29,false,true
+iep-0028-v1,iep-0028-v1-s2,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Therapy room,2026-02-02,2027-01-29,false,true
+iep-0029-v1,iep-0029-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-02-02,2027-01-29,false,true
+iep-0029-v1,iep-0029-v1-s2,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Therapy room,2026-02-02,2027-01-29,false,true
+iep-0030-v1,iep-0030-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-07-31,2027-07-29,false,true
+iep-0031-v1,iep-0031-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2025-10-28,2026-10-26,false,true
+iep-0032-v1,iep-0032-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-06-01,2027-05-28,false,true
+iep-0033-v1,iep-0033-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-02-03,2027-02-01,false,true
+iep-0033-v1,iep-0033-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-02-03,2027-02-01,false,true
+iep-0033-v1,iep-0033-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 103,2026-02-03,2027-02-01,false,true
+iep-0034-v1,iep-0034-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2025-12-04,2026-12-02,false,true
+iep-0034-v1,iep-0034-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 103,2025-12-04,2026-12-02,false,true
+iep-0034-v1,iep-0034-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-12-04,2026-12-02,false,true
+iep-0035-v1,iep-0035-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-01-14,2027-01-12,false,true
+iep-0035-v1,iep-0035-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-01-14,2027-01-12,false,true
+iep-0036-v1,iep-0036-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0004,Room 103,2026-07-23,2027-07-21,false,true
+iep-0036-v1,iep-0036-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-07-23,2027-07-21,false,true
+iep-0036-v1,iep-0036-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 103,2026-07-23,2027-07-21,false,true
+iep-0036-v1,iep-0036-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-07-23,2027-07-21,false,true
+iep-0037-v1,iep-0037-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104,2026-05-27,2027-05-25,false,true
+iep-0038-v1,iep-0038-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0001,Room 104,2026-01-08,2027-01-06,false,true
+iep-0039-v1,iep-0039-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-05-28,2027-05-26,false,true
+iep-0040-v1,iep-0040-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-07-10,2027-07-08,false,true
+iep-0040-v1,iep-0040-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-07-10,2027-07-08,false,true
+iep-0040-v1,iep-0040-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 105,2026-07-10,2027-07-08,false,true
+iep-0040-v1,iep-0040-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-07-10,2027-07-08,false,true
+iep-0041-v1,iep-0041-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-02-27,2027-02-25,false,true
+iep-0042-v1,iep-0042-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-04-07,2027-04-05,false,true
+iep-0042-v1,iep-0042-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 105,2026-04-07,2027-04-05,false,true
+iep-0042-v1,iep-0042-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 105,2026-04-07,2027-04-05,false,true
+iep-0043-v1,iep-0043-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-06-10,2027-06-08,false,true
+iep-0043-v1,iep-0043-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 105,2026-06-10,2027-06-08,false,true
+iep-0043-v1,iep-0043-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 105,2026-06-10,2027-06-08,false,true
+iep-0044-v1,iep-0044-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-03-19,2027-03-17,false,true
+iep-0044-v1,iep-0044-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-19,2027-03-17,false,true
+iep-0044-v1,iep-0044-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 105,2026-03-19,2027-03-17,false,true
+iep-0044-v1,iep-0044-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-19,2027-03-17,false,true
+iep-0045-v1,iep-0045-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-05-22,2027-05-20,false,true
+iep-0045-v1,iep-0045-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 105,2026-05-22,2027-05-20,false,true
+iep-0045-v1,iep-0045-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-05-22,2027-05-20,false,true
+iep-0046-v1,iep-0046-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-08-11,2027-08-09,false,true
+iep-0047-v1,iep-0047-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-07-21,2027-07-19,false,true
+iep-0048-v1,iep-0048-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0005,Room 105,2026-08-12,2027-08-10,false,true
+iep-0049-v1,iep-0049-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-02-03,2027-02-01,false,true
+iep-0049-v1,iep-0049-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 106,2026-02-03,2027-02-01,false,true
+iep-0049-v1,iep-0049-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 106,2026-02-03,2027-02-01,false,true
+iep-0050-v1,iep-0050-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-03-17,2027-03-15,false,true
+iep-0050-v1,iep-0050-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-17,2027-03-15,false,true
+iep-0050-v1,iep-0050-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 106,2026-03-17,2027-03-15,false,true
+iep-0050-v1,iep-0050-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-17,2027-03-15,false,true
+iep-0051-v1,iep-0051-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-09-11,2027-09-09,false,true
+iep-0051-v1,iep-0051-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 106,2026-09-11,2027-09-09,false,true
+iep-0052-v1,iep-0052-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-07-29,2027-07-27,false,true
+iep-0053-v1,iep-0053-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-09-01,2027-08-30,false,true
+iep-0054-v1,iep-0054-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-05-19,2027-05-17,false,true
+iep-0054-v1,iep-0054-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-05-19,2027-05-17,false,true
+iep-0054-v1,iep-0054-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 106,2026-05-19,2027-05-17,false,true
+iep-0055-v1,iep-0055-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-02-23,2027-02-19,false,true
+iep-0055-v1,iep-0055-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-02-23,2027-02-19,false,true
+iep-0055-v1,iep-0055-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 106,2026-02-23,2027-02-19,false,true
+iep-0055-v1,iep-0055-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-02-23,2027-02-19,false,true
+iep-0056-v1,iep-0056-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-07-16,2027-07-14,false,true
+iep-0056-v1,iep-0056-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0011,Room 106,2026-07-16,2027-07-14,false,true
+iep-0056-v1,iep-0056-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 106,2026-07-16,2027-07-14,false,true
+iep-0057-v1,iep-0057-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-08-25,2027-08-23,false,true
+iep-0058-v1,iep-0058-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2026-02-26,2027-02-24,false,true
+iep-0058-v1,iep-0058-v1-s2,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 106,2026-02-26,2027-02-24,false,true
+iep-0059-v1,iep-0059-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0006,Room 106,2025-12-03,2026-12-01,false,true
+iep-0059-v1,iep-0059-v1-s2,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 106,2025-12-03,2026-12-01,false,true
+iep-0060-v1,iep-0060-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-01-27,2027-01-25,false,true
+iep-0061-v1,iep-0061-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-08-07,2027-08-05,false,true
+iep-0061-v1,iep-0061-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-08-07,2027-08-05,false,true
+iep-0061-v1,iep-0061-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-08-07,2027-08-05,false,true
+iep-0062-v1,iep-0062-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-01-26,2027-01-22,false,true
+iep-0062-v1,iep-0062-v1-s2,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Therapy room,2026-01-26,2027-01-22,false,true
+iep-0063-v1,iep-0063-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-07-07,2027-07-05,false,true
+iep-0063-v1,iep-0063-v1-s2,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Therapy room,2026-07-07,2027-07-05,false,true
+iep-0064-v1,iep-0064-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-02-10,2027-02-08,false,true
+iep-0064-v1,iep-0064-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0012,Room 107,2026-02-10,2027-02-08,false,true
+iep-0064-v1,iep-0064-v1-s3,counseling,direct,outside_gen_ed,30,1,week,small_group,counselor,u-stf-0020,Room 107,2026-02-10,2027-02-08,false,true
+iep-0065-v1,iep-0065-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2025-12-01,2026-11-27,false,true
+iep-0065-v1,iep-0065-v1-s2,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0012,Room 107,2025-12-01,2026-11-27,false,true
+iep-0065-v1,iep-0065-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-12-01,2026-11-27,false,true
+iep-0066-v1,iep-0066-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-03-04,2027-03-02,false,true
+iep-0067-v1,iep-0067-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2025-12-05,2026-12-03,false,true
+iep-0067-v1,iep-0067-v1-s2,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Therapy room,2025-12-05,2026-12-03,false,true
+iep-0068-v1,iep-0068-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-05-11,2027-05-07,false,true
+iep-0068-v1,iep-0068-v1-s2,speech_language,direct,outside_gen_ed,30,1,week,small_group,slp,u-stf-0015,Therapy room,2026-05-11,2027-05-07,false,true
+iep-0069-v1,iep-0069-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0007,Room 107,2026-04-27,2027-04-23,false,true
+iep-0070-v1,iep-0070-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2026-01-19,2027-01-15,false,true
+iep-0070-v1,iep-0070-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-01-19,2027-01-15,false,true
+iep-0070-v1,iep-0070-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-01-19,2027-01-15,false,true
+iep-0071-v1,iep-0071-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2025-11-25,2026-11-23,false,true
+iep-0071-v1,iep-0071-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-11-25,2026-11-23,false,true
+iep-0071-v1,iep-0071-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0013,Room 108,2025-11-25,2026-11-23,false,true
+iep-0071-v1,iep-0071-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-11-25,2026-11-23,false,true
+iep-0072-v1,iep-0072-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2026-07-29,2027-07-27,false,true
+iep-0072-v1,iep-0072-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-07-29,2027-07-27,false,true
+iep-0073-v1,iep-0073-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2026-06-18,2027-06-16,false,true
+iep-0073-v1,iep-0073-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-06-18,2027-06-16,false,true
+iep-0074-v1,iep-0074-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2026-07-29,2027-07-27,false,true
+iep-0074-v1,iep-0074-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-07-29,2027-07-27,false,true
+iep-0074-v1,iep-0074-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-07-29,2027-07-27,false,true
+iep-0075-v1,iep-0075-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2025-12-16,2026-12-14,false,true
+iep-0075-v1,iep-0075-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-12-16,2026-12-14,false,true
+iep-0075-v1,iep-0075-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-12-16,2026-12-14,false,true
+iep-0076-v1,iep-0076-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2026-03-12,2027-03-10,false,true
+iep-0076-v1,iep-0076-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-12,2027-03-10,false,true
+iep-0076-v1,iep-0076-v1-s3,behavior_aba,direct,separate_school,30,5,week,individual,rbt,u-stf-0013,Room 108,2026-03-12,2027-03-10,false,true
+iep-0076-v1,iep-0076-v1-s4,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-12,2027-03-10,false,true
+iep-0077-v1,iep-0077-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2025-11-04,2026-11-02,false,true
+iep-0077-v1,iep-0077-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2025-11-04,2026-11-02,false,true
+iep-0077-v1,iep-0077-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2025-11-04,2026-11-02,false,true
+iep-0078-v1,iep-0078-v1-s1,specialized_instruction,direct,separate_school,1500,1,week,small_group,sped_teacher,u-stf-0008,Room 108,2026-03-30,2027-03-26,false,true
+iep-0078-v1,iep-0078-v1-s2,speech_language,direct,outside_gen_ed,30,2,week,small_group,slp,u-stf-0015,Therapy room,2026-03-30,2027-03-26,false,true
+iep-0078-v1,iep-0078-v1-s3,ot,direct,outside_gen_ed,30,1,week,individual,ot,u-stf-0016,Therapy room,2026-03-30,2027-03-26,false,true

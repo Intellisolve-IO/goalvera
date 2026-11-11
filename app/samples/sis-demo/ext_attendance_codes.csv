@@ -1,0 +1,5 @@
+code,description,countsAsAbsent,countsAsTardy,metadata.fictional
+P,Present,false,false,true
+AE,"Absent, excused",true,false,true
+AU,"Absent, unexcused",true,false,true
+T,"Tardy (present, arrived late)",false,true,true

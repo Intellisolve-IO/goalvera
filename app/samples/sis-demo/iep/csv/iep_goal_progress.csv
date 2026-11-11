@@ -1,0 +1,31 @@
+iepSourcedId,goalSourcedId,reportingPeriodSourcedId,progressCode,narrative,enteredBySourcedId,enteredAt,metadata.fictional
+iep-0001-v2,iep-0001-v2-g1,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 60% (Sep 30 probe). Baseline: 40% of inferential questions correct on grade 4 passages (Aug 2026).",u-stf-0001,2026-10-09,true
+iep-0001-v2,iep-0001-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 65% (Oct 2 probe). Baseline: 50% accuracy on two-step word problems (Aug 2026).",u-stf-0001,2026-10-09,true
+iep-0001-v2,iep-0001-v2-g3,as-gp-2026-q1,insufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5 (3-turn exchanges, Sep data). Baseline: Initiates in 1 of 5 opportunities; keeps a topic for 1-2 turns.",u-stf-0001,2026-10-09,true
+iep-0001-v2,iep-0001-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): Average 3 per day (Sep). Baseline: Leaves assigned area an average of 6 times a day (ABC data, Aug 2026).",u-stf-0001,2026-10-09,true
+iep-0001-v2,iep-0001-v2-g5,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 45% independent (Sep). Baseline: Requests a break before leaving the area in 1 of 10 observed precursors.",u-stf-0001,2026-10-09,true
+iep-0002-v2,iep-0002-v2-g1,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 70%. Baseline: 55% accuracy reading CVCe and vowel-team words (Aug 2026).",u-stf-0001,2026-10-09,true
+iep-0002-v2,iep-0002-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 56 wcpm. Baseline: 48 words correct per minute on grade 2 passages (Aug 2026).",u-stf-0001,2026-10-09,true
+iep-0002-v2,iep-0002-v2-g3,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 55%. Baseline: 40% of closed-syllable and silent-e words spelled correctly in dictation.",u-stf-0001,2026-10-09,true
+iep-0002-v2,iep-0002-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 50% (words). Baseline: /r/ correct in 30% of words.",u-stf-0001,2026-10-09,true
+iep-0003-v2,iep-0003-v2-g1,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 62%. Baseline: On task in 45% of intervals (Aug 2026).",u-stf-0001,2026-10-09,true
+iep-0003-v2,iep-0003-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 64%. Baseline: Completes 50% of independent work in the time given.",u-stf-0001,2026-10-09,true
+iep-0003-v2,iep-0003-v2-g3,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 27 digits. Baseline: 20 digits correct in 2 minutes on multiplication facts.",u-stf-0001,2026-10-09,true
+iep-0003-v2,iep-0003-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 3/5. Baseline: Rubric score 2/5 for paragraph organization.",u-stf-0001,2026-10-09,true
+iep-0004-v2,iep-0004-v2-g1,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 5.5 minutes. Baseline: Classroom to cafeteria in about 7 minutes with minimal assistance on the ramp.",u-stf-0001,2026-10-09,true
+iep-0004-v2,iep-0004-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 60%. Baseline: 50% legible letters when copying a sentence.",u-stf-0001,2026-10-09,true
+iep-0004-v2,iep-0004-v2-g3,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 5 wpm. Baseline: 3 words per minute.",u-stf-0001,2026-10-09,true
+iep-0004-v2,iep-0004-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 3 of 5 days. Baseline: Manages backpack with adult help on 2 of 5 days.",u-stf-0001,2026-10-09,true
+iep-0005-v2,iep-0005-v2-g1,as-gp-2026-q1,insufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5. Baseline: Reports problems or asks for repetition in 1 of 5 opportunities.",u-stf-0001,2026-10-09,true
+iep-0005-v2,iep-0005-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 62%. Baseline: Defines content vocabulary with 50% accuracy.",u-stf-0001,2026-10-09,true
+iep-0005-v2,iep-0005-v2-g3,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 65%. Baseline: 55% accuracy on grade 3 comprehension questions.",u-stf-0001,2026-10-09,true
+iep-0005-v2,iep-0005-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 60%. Baseline: Follows 3-step directions in noise in 50% of trials.",u-stf-0001,2026-10-09,true
+iep-0006-v2,iep-0006-v2-g1,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5. Baseline: Uses a coping strategy independently in 1 of 5 opportunities.",u-stf-0001,2026-10-09,true
+iep-0006-v2,iep-0006-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): Average 2.5 a day. Baseline: Average 4 outbursts a day (ABC data).",u-stf-0001,2026-10-09,true
+iep-0006-v2,iep-0006-v2-g3,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 55%. Baseline: Starts non-preferred tasks within 2 minutes on 35% of occasions.",u-stf-0001,2026-10-09,true
+iep-0006-v2,iep-0006-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 2 of 5. Baseline: Uses a conflict-resolution step in 1 of 5 conflicts.",u-stf-0001,2026-10-09,true
+iep-0006-v2,iep-0006-v2-g5,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 60%. Baseline: 40% accuracy on multi-digit multiplication.",u-stf-0001,2026-10-09,true
+iep-0007-v2,iep-0007-v2-g1,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 3 of 5. Baseline: Sets up the video magnifier with adult help.",u-stf-0001,2026-10-09,true
+iep-0007-v2,iep-0007-v2-g2,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 47 wcpm. Baseline: 40 wcpm on grade 2 passages in 24-point print.",u-stf-0001,2026-10-09,true
+iep-0007-v2,iep-0007-v2-g3,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 1 of 3 routes. Baseline: 0 of 3 new routes independently.",u-stf-0001,2026-10-09,true
+iep-0007-v2,iep-0007-v2-g4,as-gp-2026-q1,sufficient,"Reporting period 1 (Aug 3-Oct 9, 2026): 3 of 5. Baseline: Asks for enlarged materials in 1 of 5 opportunities.",u-stf-0001,2026-10-09,true

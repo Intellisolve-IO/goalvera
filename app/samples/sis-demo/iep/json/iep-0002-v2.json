@@ -1,0 +1,425 @@
+{
+  "fictional": true,
+  "label": "Fictional sample data",
+  "sourcedId": "iep-0002-v2",
+  "studentSourcedId": "u-stu-0002",
+  "version": 2,
+  "status": "active",
+  "supersedes": "iep-0002-v1",
+  "source": "sis_import",
+  "meetingType": "annual",
+  "meetingDate": "2026-08-27",
+  "startDate": "2026-08-28",
+  "endDate": "2027-08-26",
+  "annualReviewDue": "2027-08-26",
+  "responsibleLea": "org-district-0001",
+  "schoolSourcedId": "org-school-0001",
+  "schoolYearSourcedId": "as-sy-2026-27",
+  "progressReportFrequency": "each_reporting_period",
+  "progressReportingPeriods": [
+    "as-gp-2026-q1",
+    "as-gp-2026-q2",
+    "as-gp-2027-q3",
+    "as-gp-2027-q4"
+  ],
+  "lastEvaluationDate": "2025-10-20",
+  "reevaluationDue": "2028-10-19",
+  "eligibilityDate": "2025-11-06",
+  "caseManagerSourcedId": "u-stf-0001",
+  "eligibility": [
+    {
+      "order": 1,
+      "stateCode": "GA-SLD",
+      "federalCode": "SLD",
+      "label": "Specific Learning Disability (basic reading skills, reading fluency)",
+      "determinedDate": "2025-11-06"
+    },
+    {
+      "order": 2,
+      "stateCode": "GA-SLI",
+      "federalCode": "SLI",
+      "label": "Speech-Language Impairment (articulation)",
+      "determinedDate": "2024-04-18"
+    }
+  ],
+  "evaluationSummary": "Evaluation 2025-10 (fictional results): WISC-V Full Scale IQ 101. WIAT-4 Basic Reading 74, Reading Fluency 72, Reading Comprehension 85, Math Problem Solving 98, Numerical Operations 96. CTOPP-2 Phonological Awareness 78. GFTA-3 standard score 77.",
+  "strengths": "Grumpy has age-appropriate math reasoning, a strong oral vocabulary, and builds detailed models; he explains his thinking clearly out loud.",
+  "needs": "Decoding multisyllable and vowel-team words; reading fluency; spelling; producing /r/ and /s/-blends in conversation.",
+  "parentConcerns": "His family wants him reading chapter books independently and to feel confident reading aloud.",
+  "disabilityImpact": "Weak phonological processing and decoding limit Grumpy's access to grade-level text in every subject. Articulation errors affect intelligibility to unfamiliar listeners.",
+  "presentLevels": [
+    {
+      "area": "reading",
+      "text": "Reads 48 words correct per minute on grade 2 passages (fictional DIBELS-style probe, Aug 2026; grade 3 fall benchmark about 70). Decodes CVC words 90%, CVCe and vowel-team words 55%. Listening comprehension is at grade level."
+    },
+    {
+      "area": "written_expression",
+      "text": "Spells closed-syllable and silent-e words 40% correctly in dictation; ideas are strong when he dictates."
+    },
+    {
+      "area": "math",
+      "text": "Grade-level computation and reasoning; needs word problems read aloud."
+    },
+    {
+      "area": "communication",
+      "text": "Produces /r/ correctly in 30% of words and /s/-blends in 50% of words; intelligible to familiar listeners."
+    }
+  ],
+  "specialFactors": {
+    "behaviorImpedes": false,
+    "bipDeveloped": false,
+    "lep": false,
+    "visual": false,
+    "communication": true,
+    "deafHoh": false,
+    "assistiveTech": true,
+    "altFormat": [
+      "auditory",
+      "electronic_text"
+    ],
+    "notes": "Text-to-speech and audiobooks for content-area reading."
+  },
+  "transition": {
+    "required": false,
+    "note": "Not required: the student is in elementary school (Georgia requires a transition plan by 9th grade entry or age 16)."
+  },
+  "goals": [
+    {
+      "sourcedId": "iep-0002-v2-g1",
+      "number": 1,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "55% accuracy reading CVCe and vowel-team words (Aug 2026).",
+      "statement": "Given lists and decodable text, Grumpy will read CVCe and vowel-team words with 90% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "90% accuracy, 3 consecutive probes",
+      "measurementMethod": "Decoding probes (curriculum-based)",
+      "targetDate": "2027-08-26",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0002-v2-g1-o1",
+          "number": 1,
+          "statement": "Grumpy will read CVCe words with 90% accuracy.",
+          "criteria": "90%, 3 probes"
+        },
+        {
+          "sourcedId": "iep-0002-v2-g1-o2",
+          "number": 2,
+          "statement": "Grumpy will read ai/ay, ee/ea, oa/ow words with 85% accuracy.",
+          "criteria": "85%, 3 probes"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-g2",
+      "number": 2,
+      "area": "reading",
+      "category": "Academic",
+      "baseline": "48 words correct per minute on grade 2 passages (Aug 2026).",
+      "statement": "Grumpy will read grade 2 passages at 75 words correct per minute with 3 or fewer errors on 3 consecutive weekly probes.",
+      "criteriaForMastery": "75 wcpm, 3 or fewer errors, 3 consecutive probes",
+      "measurementMethod": "Oral reading fluency probes",
+      "targetDate": "2027-08-26",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0002-v2-g2-o1",
+          "number": 1,
+          "statement": "Grumpy will read grade 2 passages at 60 wcpm.",
+          "criteria": "60 wcpm, 3 probes"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-g3",
+      "number": 3,
+      "area": "written_expression",
+      "category": "Academic",
+      "baseline": "40% of closed-syllable and silent-e words spelled correctly in dictation.",
+      "statement": "Grumpy will spell closed-syllable and silent-e words in dictated sentences with 80% accuracy across 3 consecutive probes.",
+      "criteriaForMastery": "80% accuracy, 3 consecutive probes",
+      "measurementMethod": "Dictation probes",
+      "targetDate": "2027-08-26",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0002-v2-g3-o1",
+          "number": 1,
+          "statement": "Grumpy will spell closed-syllable words with 80% accuracy.",
+          "criteria": "80%"
+        }
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-g4",
+      "number": 4,
+      "area": "communication",
+      "category": "Communication",
+      "baseline": "/r/ correct in 30% of words.",
+      "statement": "Grumpy will produce /r/ in all word positions in sentences with 80% accuracy across 3 consecutive sessions.",
+      "criteriaForMastery": "80% accuracy, 3 consecutive sessions",
+      "measurementMethod": "SLP data sheet",
+      "targetDate": "2027-08-26",
+      "status": "active",
+      "objectives": [
+        {
+          "sourcedId": "iep-0002-v2-g4-o1",
+          "number": 1,
+          "statement": "Grumpy will produce /r/ in words with 80% accuracy.",
+          "criteria": "80%"
+        },
+        {
+          "sourcedId": "iep-0002-v2-g4-o2",
+          "number": 2,
+          "statement": "Grumpy will produce /s/-blends in sentences with 80% accuracy.",
+          "criteria": "80%"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "sourcedId": "iep-0002-v2-s1",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 1500,
+      "frequencyCount": 1,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (special education classroom)",
+      "startDate": "2026-08-28",
+      "endDate": "2027-08-26",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0002-v2-s2",
+      "type": "specialized_instruction",
+      "delivery": "direct",
+      "setting": "separate_school",
+      "minutes": 45,
+      "frequencyCount": 5,
+      "frequencyPeriod": "week",
+      "groupSize": "small_group",
+      "providerRole": "sped_teacher",
+      "providerSourcedId": "u-stf-0001",
+      "location": "Room 104 (structured literacy group, part of the school day above)",
+      "startDate": "2026-08-28",
+      "endDate": "2027-08-26",
+      "esy": false
+    },
+    {
+      "sourcedId": "iep-0002-v2-s3",
+      "type": "speech_language",
+      "delivery": "direct",
+      "setting": "outside_gen_ed",
+      "minutes": 30,
+      "frequencyCount": 2,
+      "frequencyPeriod": "week",
+      "groupSize": "individual",
+      "providerRole": "slp",
+      "providerSourcedId": "u-stf-0015",
+      "location": "Speech room",
+      "startDate": "2026-08-28",
+      "endDate": "2027-08-26",
+      "esy": false
+    }
+  ],
+  "accommodations": [
+    {
+      "sourcedId": "iep-0002-v2-a1",
+      "category": "instructional",
+      "description": "Text-to-speech or audiobooks for content-area reading",
+      "subjects": [
+        "science",
+        "social_studies"
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-a2",
+      "category": "instructional",
+      "description": "Decodable text for independent reading practice",
+      "subjects": [
+        "reading"
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-a3",
+      "category": "instructional",
+      "description": "Spelling not graded in content-area writing",
+      "subjects": [
+        "writing",
+        "science",
+        "social_studies"
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-a4",
+      "category": "instructional",
+      "description": "Word problems read aloud",
+      "subjects": [
+        "math"
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-a5",
+      "category": "classroom_testing",
+      "description": "Read aloud of test items (except decoding and fluency measures)",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-a6",
+      "category": "classroom_testing",
+      "description": "Extended time (1.5x); small group",
+      "subjects": [
+        "all"
+      ]
+    },
+    {
+      "sourcedId": "iep-0002-v2-t1",
+      "category": "state_testing",
+      "description": "Georgia Milestones Grade 3 ELA",
+      "subjects": [],
+      "stateTestSetting": "Small group",
+      "stateTestTiming": "Extended time",
+      "stateTestPresentation": "Read-aloud per GaDOE conditional accommodation rules",
+      "stateTestResponse": "",
+      "standardOrConditional": "conditional"
+    },
+    {
+      "sourcedId": "iep-0002-v2-t2",
+      "category": "state_testing",
+      "description": "Georgia Milestones Grade 3 Mathematics",
+      "subjects": [],
+      "stateTestSetting": "Small group",
+      "stateTestTiming": "Extended time",
+      "stateTestPresentation": "Read-aloud",
+      "stateTestResponse": "",
+      "standardOrConditional": "standard"
+    }
+  ],
+  "assessmentParticipation": "regular_with_accommodations",
+  "alternateAssessmentReason": null,
+  "environmentCode": "SS",
+  "percentTimeGenEd": 0,
+  "lreExplanation": "Grumpy attends a separate special education school by family choice through a scholarship placement. The team discussed less restrictive options; his intensive, daily structured literacy instruction is delivered here.",
+  "esy": {
+    "needed": false,
+    "notes": "Considered; not needed. Summer reading program recommended to the family."
+  },
+  "goalProgress": [
+    {
+      "goalSourcedId": "iep-0002-v2-g1",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 70%. Baseline: 55% accuracy reading CVCe and vowel-team words (Aug 2026).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0002-v2-g2",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 56 wcpm. Baseline: 48 words correct per minute on grade 2 passages (Aug 2026).",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0002-v2-g3",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 55%. Baseline: 40% of closed-syllable and silent-e words spelled correctly in dictation.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    },
+    {
+      "goalSourcedId": "iep-0002-v2-g4",
+      "reportingPeriodSourcedId": "as-gp-2026-q1",
+      "progressCode": "sufficient",
+      "narrative": "Reporting period 1 (Aug 3-Oct 9, 2026): 50% (words). Baseline: /r/ correct in 30% of words.",
+      "enteredBySourcedId": "u-stf-0001",
+      "enteredAt": "2026-10-09"
+    }
+  ],
+  "behaviorPlan": null,
+  "team": [
+    {
+      "role": "parent",
+      "contactSourcedId": "u-con-0004",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-27 (fictional)"
+    },
+    {
+      "role": "lea_rep",
+      "staffSourcedId": "u-stf-0022",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-27 (fictional)"
+    },
+    {
+      "role": "sped_teacher",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-27 (fictional)"
+    },
+    {
+      "role": "gen_ed_teacher",
+      "staffSourcedId": "u-stf-0002",
+      "attended": true,
+      "note": "General curriculum representative (the school has no general education classrooms)",
+      "signature": "Signed electronically 2026-08-27 (fictional)"
+    },
+    {
+      "role": "case_manager",
+      "staffSourcedId": "u-stf-0001",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-27 (fictional)"
+    },
+    {
+      "role": "related_service",
+      "staffSourcedId": "u-stf-0015",
+      "attended": true,
+      "signature": "Signed electronically 2026-08-27 (fictional)"
+    }
+  ],
+  "notices": [
+    {
+      "n": 1,
+      "date": "2026-08-13",
+      "method": "invitation",
+      "bySourcedId": "u-stf-0001"
+    },
+    {
+      "n": 2,
+      "date": "2026-08-24",
+      "method": "reminder_notice",
+      "bySourcedId": "u-stf-0023"
+    }
+  ],
+  "documentsProvided": [
+    "parental_rights",
+    "iep",
+    "eligibility_report"
+  ],
+  "priorWrittenNoticeDate": "2026-08-27",
+  "consents": [
+    {
+      "type": "initial_evaluation",
+      "givenBySourcedId": "u-con-0004",
+      "dateGiven": "2024-02-27"
+    },
+    {
+      "type": "initial_services",
+      "givenBySourcedId": "u-con-0004",
+      "dateGiven": "2024-04-25"
+    },
+    {
+      "type": "reevaluation",
+      "givenBySourcedId": "u-con-0004",
+      "dateGiven": "2025-09-10"
+    }
+  ]
+}

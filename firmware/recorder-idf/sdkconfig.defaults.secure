@@ -1,0 +1,22 @@
+# flash encryption (DEVELOPMENT mode) + NVS encryption, Hosyond 3.5" only.
+# Build: idf.py -B build-h35-secure -D SDKCONFIG=build-h35-secure/sdkconfig \
+#          -D RECORDER_BOARD=hosyond35 -D RECORDER_EXTRA_DEFAULTS=$PWD/sdkconfig.defaults.secure build
+# Development mode, no secure boot. The bootloader generates the XTS-AES-128
+# key on the chip at first boot. Only the minimum eFuses are burned (key block,
+# key purpose, SPI_BOOT_CRYPT_CNT=1, DIS_DIRECT_BOOT): UART encrypted flashing,
+# download cache and JTAG stay allowed and the cache write-protect is skipped,
+# so a later move to release mode is still possible.
+# Reflash afterwards ONLY with encrypted writes: idf.py encrypted-app-flash
+# (or esptool write-flash --encrypt). A plain app write will not boot.
+CONFIG_SECURE_FLASH_ENC_ENABLED=y
+CONFIG_SECURE_FLASH_ENCRYPTION_MODE_DEVELOPMENT=y
+CONFIG_SECURE_FLASH_ENCRYPTION_AES128=y
+CONFIG_SECURE_FLASH_UART_BOOTLOADER_ALLOW_ENC=y
+CONFIG_SECURE_FLASH_UART_BOOTLOADER_ALLOW_CACHE=y
+CONFIG_SECURE_BOOT_ALLOW_JTAG=y
+CONFIG_SECURE_FLASH_SKIP_WRITE_PROTECTION_CACHE=y
+CONFIG_SECURE_FLASH_CHECK_ENC_EN_IN_APP=y
+# NVS encryption, keys in the flash-encrypted nvs_keys partition (no HMAC eFuse).
+CONFIG_NVS_ENCRYPTION=y
+CONFIG_NVS_SEC_KEY_PROTECT_USING_FLASH_ENC=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions_secure.csv"

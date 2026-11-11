@@ -1,0 +1,15 @@
+iepSourcedId,n,date,method,bySourcedId,metadata.fictional
+iep-0001-v2,1,2026-08-06,invitation,u-stf-0001,true
+iep-0001-v2,2,2026-08-17,reminder_notice,u-stf-0023,true
+iep-0002-v2,1,2026-08-13,invitation,u-stf-0001,true
+iep-0002-v2,2,2026-08-24,reminder_notice,u-stf-0023,true
+iep-0003-v2,1,2026-08-20,invitation,u-stf-0001,true
+iep-0003-v2,2,2026-08-31,reminder_notice,u-stf-0023,true
+iep-0004-v2,1,2026-08-27,invitation,u-stf-0001,true
+iep-0004-v2,2,2026-09-07,reminder_notice,u-stf-0023,true
+iep-0005-v2,1,2026-08-11,invitation,u-stf-0001,true
+iep-0005-v2,2,2026-08-22,reminder_notice,u-stf-0023,true
+iep-0006-v2,1,2026-09-01,invitation,u-stf-0001,true
+iep-0006-v2,2,2026-09-12,reminder_notice,u-stf-0023,true
+iep-0007-v2,1,2026-09-03,invitation,u-stf-0001,true
+iep-0007-v2,2,2026-09-14,reminder_notice,u-stf-0023,true
