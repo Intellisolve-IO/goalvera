@@ -142,7 +142,7 @@ Type commands on the USB serial port (the same port as the log; any baud rate wo
 | `uploads hold` / `uploads resume` | stop / allow uploads (separate from auto sleep) |
 | `screenshot` | dump the current screen (LVGL snapshot, RGB565, base64 lines with a CRC-32C) |
 
-`tools/screenshot.py /dev/cu.usbmodem101 out.png` sends `screenshot` and writes the PNG (needs `pyserial`; close any other serial monitor first). `--from-log saved.txt` decodes a dump from a saved log instead.
+`tools/recorder_cmd.py /dev/cu.usbmodem101 queue` sends one command and prints the reply. `tools/screenshot.py /dev/cu.usbmodem101 out.png` sends `screenshot` and writes the PNG (needs `pyserial`; close any other serial monitor first). `--from-log saved.txt` decodes a dump from a saved log instead.
 
 A local one-off image can start with uploads held (`RECORDER_UPLOADS_START_HELD=1 tools/build-with-wifi.sh`, Kconfig `RECORDER_UPLOADS_START_HELD`), so files already on the card do not go to that build's upload service until someone checks `queue` and types `uploads resume`.
 
