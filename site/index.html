@@ -1,110 +1,1882 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Goalvera: Your students' goals, a little closer every day.</title>
-<meta name="description" content="Goalvera is a teaching assistant for special education teachers. It reads each student's education plan and your classroom sessions, then gives you daily coaching ideas, drafts your weekly parent notes, and fills in the first draft of your paperwork. You review everything. You decide what goes out.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
-<link rel="preload" href="/fonts/lexend-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goalvera.app — The AI Coach for Special Education Teachers</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Lexend (matching goalvera.app), Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Lexend:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded for Google Material 3 Graphic -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,1,0" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    if (typeof tailwind !== 'undefined') {
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Lexend', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              brand: {
+                50: '#f2f7f5',
+                100: '#e1ede8',
+                500: '#2d6a4f',
+                600: '#1f523b',
+                700: '#163d2b',
+                900: '#0f291e',
+              },
+              md3: {
+                surface: '#FBF9F5',
+                surfaceContainer: '#F2EFE9',
+                primaryContainer: '#D8ECE2',
+                onPrimaryContainer: '#0F2E22',
+                secondaryContainer: '#E2E8F0',
+                onSecondaryContainer: '#1E293B',
+                tertiaryContainer: '#FDE6C4',
+                onTertiaryContainer: '#3B2506',
+                errorContainer: '#F9DEDC',
+                onErrorContainer: '#410E0B'
+              }
+            }
+          }
+        }
+      };
+    }
+  </script>
+
+  <style>
+    /* Custom animations for waveforms, Material 3 ripples, and SVG data packets */
+    @keyframes pulse-bar {
+      0%, 100% { transform: scaleY(0.32); }
+      50% { transform: scaleY(1); }
+    }
+    .wave-bar {
+      animation: pulse-bar 1.1s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+    .wave-paused .wave-bar {
+      animation-play-state: paused;
+      transform: scaleY(0.25);
+    }
+    @keyframes flow-dash {
+      to {
+        stroke-dashoffset: -36;
+      }
+    }
+    .animate-flow {
+      animation: flow-dash 1.1s linear infinite;
+    }
+    @keyframes ripple-ring {
+      0% { transform: scale(0.85); opacity: 0.75; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+    .md3-ripple {
+      animation: ripple-ring 2.4s cubic-bezier(0.2, 0, 0, 1) infinite;
+    }
+    @keyframes float-card {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    .md3-float {
+      animation: float-card 3.2s ease-in-out infinite;
+    }
+    .md3-transition {
+      transition: all 0.45s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      user-select: none;
+    }
+    .glass-card {
+      background: rgba(251, 249, 245, 0.92);
+      backdrop-filter: blur(12px);
+    }
+  </style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="hero">
-  <div class="wrap">
-    <p class="brand"><img src="/img/goalvera-B2-large-oneword-light.svg" alt="Goalvera" width="200" height="50"></p>
-    <h1>Your students' goals, a little closer every day.</h1>
-    <p class="lead">Goalvera is a teaching assistant for special education teachers. It reads each student's education plan and your classroom sessions, then gives you daily coaching ideas, drafts your weekly parent notes, and fills in the first draft of your paperwork. You review everything. You decide what goes out.</p>
-    <p class="cta"><a class="btn" href="mailto:sales@intellisolve.io">Email us about a demo</a> <a class="link" href="https://github.com/Intellisolve-IO/goalvera">See the code on GitHub</a></p>
+<body class="bg-[#FBF9F5] text-stone-900 font-sans antialiased selection:bg-[#2d6a4f] selection:text-white">
+
+  <!-- STICKY NAVIGATION BAR (Light Theme matching goalvera.app) -->
+  <header class="sticky top-0 z-40 glass-card border-b border-stone-200/90 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between gap-4">
+      <!-- Official Goalvera Logo directly inserted in top left -->
+      <a href="#" class="flex items-center focus:outline-none">
+        <img
+          src="/img/goalvera-B2-large-oneword-light.svg"
+          alt="Goalvera"
+          width="200"
+          height="50"
+          class="h-10 sm:h-11 w-auto object-contain"
+        />
+      </a>
+
+      <!-- Only "Try Now" in the top menu bar -->
+      <div class="flex items-center">
+        <button onclick="openDemoModal('Try Goalvera Now')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#2d6a4f] hover:bg-[#1f523b] shadow-sm transition cursor-pointer">
+          <span>Try Now</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden pt-10 pb-10 lg:pt-14 lg:pb-12 bg-gradient-to-b from-[#F4F1EA] to-[#FBF9F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <!-- Top Centered Copy -->
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-[#e1ede8] border border-[#2d6a4f]/25 text-[#163d2b] text-xs font-bold tracking-wide uppercase shadow-sm mb-5">
+          <span>the AI coach for special education teachers</span>
+        </div>
+
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-stone-900 leading-[1.12]">
+          Your students' goals, a little closer <span class="text-[#2d6a4f]">every single phoneme.</span>
+        </h1>
+
+        <p class="mt-6 text-lg sm:text-xl text-stone-700 leading-relaxed max-w-3xl mx-auto">
+          Goalvera is a free, open-source application using a distraction-free, low-cost, <strong class="text-stone-900 font-semibold">dedicated classroom recorder</strong> with <strong class="text-stone-900 font-semibold">transcript-level phonetic AI</strong>. By uniting live session audio, multimodal evidence, lesson plans, and student behavior profiles, Goalvera automates daily coaching packets, weekly parent updates, and school-wide intervention insights.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DYNAMIC 5-STAGE MATERIAL DESIGN 3 WORKFLOW GRID -->
+  <section id="md3-workflow" class="pb-16 lg:pb-24 bg-[#FBF9F5] border-b border-stone-200/90 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- MATERIAL 3 ELEVATED SURFACE CONTAINER -->
+      <div class="rounded-[32px] bg-[#F2EFE9] p-4 sm:p-6 lg:p-8 border border-stone-200 shadow-lg">
+
+        <!-- TOP 5-NODE STEPPER BAR WITH ANIMATED SVG DATA STREAM -->
+        <div class="relative">
+          <!-- Animated SVG Connector Line (Desktop) -->
+          <svg class="hidden lg:block absolute top-11 left-12 right-12 w-[calc(100%-6rem)] h-6 pointer-events-none z-0" viewBox="0 0 1000 24" fill="none" preserveAspectRatio="none">
+            <line x1="0" y1="12" x2="1000" y2="12" stroke="#D6D3CD" stroke-width="4" stroke-linecap="round" />
+            <line x1="0" y1="12" x2="1000" y2="12" stroke="#2d6a4f" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 14" class="animate-flow" />
+          </svg>
+
+          <!-- 5 Interactive Material 3 Tonal Pills (Centered & Reformatted without Stage Labels) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 relative z-10">
+            <!-- Step 1 Pill -->
+            <button onclick="selectMd3Stage(0, true)" id="md3Node0" class="md3-transition text-center px-4 py-5 rounded-3xl bg-white border-2 border-[#2d6a4f] shadow-md flex flex-col items-center justify-center gap-2.5 cursor-pointer group">
+              <div id="md3IconWrap0" class="w-12 h-12 rounded-2xl bg-[#D8ECE2] text-[#0F2E22] flex items-center justify-center shadow-sm">
+                <span class="material-symbols-rounded text-2xl">graphic_eq</span>
+              </div>
+              <div class="max-w-[200px]">
+                <div class="font-display font-bold text-sm sm:text-base text-stone-900 leading-snug">Classroom Assistant</div>
+                <div class="text-xs text-stone-600 mt-1 leading-relaxed">Dedicated recorder capturing speech & phonetics</div>
+              </div>
+            </button>
+
+            <!-- Step 2 Pill -->
+            <button onclick="selectMd3Stage(1, true)" id="md3Node1" class="md3-transition text-center px-4 py-5 rounded-3xl bg-white/80 hover:bg-white border-2 border-transparent shadow-sm flex flex-col items-center justify-center gap-2.5 cursor-pointer group">
+              <div id="md3IconWrap1" class="w-12 h-12 rounded-2xl bg-[#FDE6C4] text-[#3B2506] flex items-center justify-center shadow-sm">
+                <span class="material-symbols-rounded text-2xl">perm_media</span>
+              </div>
+              <div class="max-w-[200px]">
+                <div class="font-display font-bold text-sm sm:text-base text-stone-900 leading-snug">Multimodal Evidence</div>
+                <div class="text-xs text-stone-600 mt-1 leading-relaxed">Photo/video, auto-incident reports & teacher notes</div>
+              </div>
+            </button>
+
+            <!-- Step 3 Pill -->
+            <button onclick="selectMd3Stage(2, true)" id="md3Node2" class="md3-transition text-center px-4 py-5 rounded-3xl bg-white/80 hover:bg-white border-2 border-transparent shadow-sm flex flex-col items-center justify-center gap-2.5 cursor-pointer group">
+              <div id="md3IconWrap2" class="w-12 h-12 rounded-2xl bg-[#D8ECE2] text-[#0F2E22] flex items-center justify-center shadow-sm">
+                <span class="material-symbols-rounded text-2xl">cloud_upload</span>
+              </div>
+              <div class="max-w-[200px]">
+                <div class="font-display font-bold text-sm sm:text-base text-stone-900 leading-snug">Background Cloud Sync</div>
+                <div class="text-xs text-stone-600 mt-1 leading-relaxed">Zero-friction encrypted upload & 7-day purge</div>
+              </div>
+            </button>
+
+            <!-- Step 4 Pill -->
+            <button onclick="selectMd3Stage(3, true)" id="md3Node3" class="md3-transition text-center px-4 py-5 rounded-3xl bg-white/80 hover:bg-white border-2 border-transparent shadow-sm flex flex-col items-center justify-center gap-2.5 cursor-pointer group">
+              <div id="md3IconWrap3" class="w-12 h-12 rounded-2xl bg-[#FDE6C4] text-[#3B2506] flex items-center justify-center shadow-sm">
+                <span class="material-symbols-rounded text-2xl">forward_to_inbox</span>
+              </div>
+              <div class="max-w-[200px]">
+                <div class="font-display font-bold text-sm sm:text-base text-stone-900 leading-snug">End-of-Day Email Packet</div>
+                <div class="text-xs text-stone-600 mt-1 leading-relaxed">Per-student coaching + worksheets & incident drafts</div>
+              </div>
+            </button>
+
+            <!-- Step 5 Pill -->
+            <button onclick="selectMd3Stage(4, true)" id="md3Node4" class="md3-transition text-center px-4 py-5 rounded-3xl bg-white/80 hover:bg-white border-2 border-transparent shadow-sm flex flex-col items-center justify-center gap-2.5 cursor-pointer group">
+              <div id="md3IconWrap4" class="w-12 h-12 rounded-2xl bg-[#D8ECE2] text-[#0F2E22] flex items-center justify-center shadow-sm">
+                <span class="material-symbols-rounded text-2xl">psychology</span>
+              </div>
+              <div class="max-w-[200px]">
+                <div class="font-display font-bold text-sm sm:text-base text-stone-900 leading-snug">Weekly Progress Agent</div>
+                <div class="text-xs text-stone-600 mt-1 leading-relaxed">Parent update draft + next week's lesson & goals</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- ANIMATED MATERIAL 3 STAGE CANVAS -->
+        <div class="mt-6 bg-white rounded-[28px] p-6 sm:p-8 border border-stone-200/90 shadow-md min-h-[380px] flex flex-col justify-between relative overflow-hidden">
+
+          <!-- PANEL 1 VISUAL: THE RECORDER AS THE CLASSROOM ASSISTANT -->
+          <div id="md3StagePanel0" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D8ECE2] text-[#0F2E22] text-xs font-bold">
+                <span class="material-symbols-rounded text-base">mic</span>
+                <span>Always-Ready Classroom Assistant</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900 leading-tight">
+                Dedicated Classroom Recorder Capturing Every Phoneme
+              </h3>
+              <p class="text-sm sm:text-base text-stone-600 leading-relaxed">
+                Sitting unobtrusively on the classroom table, the <strong class="text-stone-900">Dedicated Classroom Recorder</strong> acts as the teacher’s hands-free assistant—listening for exact phoneme substitutions, language transfer patterns, and turn-taking dynamics while the educator stays 100% focused on the child.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <span class="px-3 py-1.5 rounded-2xl bg-[#F2EFE9] text-stone-800 text-xs font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-rounded text-[#2d6a4f] text-base">check_circle</span> Distraction-Free Desk Unit
+                </span>
+                <span class="px-3 py-1.5 rounded-2xl bg-[#F2EFE9] text-stone-800 text-xs font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-rounded text-[#2d6a4f] text-base">record_voice_over</span> Live IPA Phonetic Tagging
+                </span>
+              </div>
+            </div>
+
+            <!-- Right 7 Cols: Exact Static Goalvera Classroom Recorder Graphic As-Is -->
+            <div class="lg:col-span-7 flex items-center justify-center">
+              <svg viewBox="0 0 480 320" class="w-full max-w-[480px] h-auto rounded-[14px] shadow-xl select-none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Goalvera Classroom session recorder screen">
+                <!-- Outer Dark Background -->
+                <rect width="480" height="320" rx="10" fill="#0B1320" />
+
+                <!-- Top Header: Goalvera Logo + "Classroom session" -->
+                <!-- 'G' -->
+                <text x="10" y="33" fill="#FFFFFF" font-family="Lexend, Inter, sans-serif" font-weight="800" font-size="31">G</text>
+                <!-- Target 'o' -->
+                <circle cx="46" cy="22" r="10.5" stroke="#FFFFFF" stroke-width="4" fill="none" />
+                <circle cx="46" cy="22" r="4.2" fill="#FFFFFF" />
+                <!-- 'alvera' -->
+                <text x="60" y="33" fill="#FFFFFF" font-family="Lexend, Inter, sans-serif" font-weight="800" font-size="31" letter-spacing="-0.5">alvera</text>
+                <!-- 'Classroom session' -->
+                <text x="174" y="29" fill="#93A3B8" font-family="Inter, sans-serif" font-weight="400" font-size="13.5">Classroom session</text>
+
+                <!-- Signal Box -->
+                <rect x="322" y="7" width="56" height="28" rx="6" fill="#0F1726" stroke="#2D3A4F" stroke-width="1.2" />
+                <rect x="335" y="23" width="4.5" height="7" rx="1.5" fill="#32D768" />
+                <rect x="343" y="19" width="4.5" height="11" rx="1.5" fill="#32D768" />
+                <rect x="351" y="14" width="4.5" height="16" rx="1.5" fill="#32D768" />
+                <rect x="359" y="10" width="4.5" height="20" rx="1.5" fill="#2A3546" />
+
+                <!-- Battery Box -->
+                <rect x="385" y="7" width="88" height="28" rx="6" fill="#0F1726" stroke="#2D3A4F" stroke-width="1.2" />
+                <rect x="396" y="12.5" width="60" height="17" rx="3.5" fill="none" stroke="#CBD5E1" stroke-width="2" />
+                <rect x="399" y="15" width="45" height="12" rx="2" fill="#32D768" />
+                <rect x="458" y="17" width="4" height="8" rx="1" fill="#CBD5E1" />
+
+                <!-- Main Red Bordered Frame -->
+                <rect x="8" y="42" width="464" height="214" rx="11" fill="#0D1524" stroke="#E02424" stroke-width="2" />
+
+                <!-- Recording Pill -->
+                <rect x="19" y="55" width="112" height="26" rx="13" fill="#DC2626" />
+                <!-- Music Note Icon -->
+                <path d="M32 73.5V63.5L40 62V71.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="30.5" cy="74" r="2.5" fill="#FFFFFF" />
+                <circle cx="38.5" cy="72.5" r="2.5" fill="#FFFFFF" />
+                <text x="48" y="73" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="500" font-size="14">Recording</text>
+
+                <!-- Recording started timestamp -->
+                <text x="19" y="102" fill="#8E9BAE" font-family="Inter, sans-serif" font-size="12.5">Recording started at 2:32:34 PM</text>
+
+                <!-- Big Timer -->
+                <text x="19" y="146" fill="#FFFFFF" font-family="Lexend, Inter, sans-serif" font-weight="500" font-size="31">00:12:34</text>
+
+                <!-- Mic level & Picking up sound -->
+                <text x="19" y="171" fill="#8E9BAE" font-family="Inter, sans-serif" font-size="13">Mic level</text>
+                <text x="147" y="171" fill="#32D768" font-family="Inter, sans-serif" font-size="13">Picking up sound</text>
+
+                <!-- 22 Static Mic Level Bars (16 Green, 6 Amber) -->
+                <g transform="translate(19, 179)">
+                  <rect x="0" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="11" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="22" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="33" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="44" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="55" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="66" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="77" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="88" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="99" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="110" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="121" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="132" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="143" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="154" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="165" y="0" width="7" height="20" rx="2.5" fill="#32D768" />
+                  <rect x="176" y="0" width="7" height="20" rx="2.5" fill="#F5A623" />
+                  <rect x="187" y="0" width="7" height="20" rx="2.5" fill="#F5A623" />
+                  <rect x="198" y="0" width="7" height="20" rx="2.5" fill="#F5A623" />
+                  <rect x="209" y="0" width="7" height="20" rx="2.5" fill="#F5A623" />
+                  <rect x="220" y="0" width="7" height="20" rx="2.5" fill="#F5A623" />
+                  <rect x="231" y="0" width="7" height="20" rx="2.5" fill="#F5A623" />
+                </g>
+
+                <!-- Classroom Room 104 -->
+                <text x="19" y="220" fill="#8E9BAE" font-family="Inter, sans-serif" font-size="13">Classroom</text>
+                <text x="19" y="241" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="500" font-size="17">Room 104</text>
+
+                <!-- Right Stack Buttons: Incident, Teacher Notes, Bug -->
+                <!-- Incident Button -->
+                <rect x="266" y="51" width="194" height="60" rx="9" fill="#C4490E" stroke="#DF7A4E" stroke-width="1.5" />
+                <path d="M315 71L326 90H304L315 71Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" />
+                <rect x="314" y="77" width="2" height="6" fill="#C4490E" />
+                <circle cx="315" cy="86.5" r="1.2" fill="#C4490E" />
+                <text x="337" y="88" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="500" font-size="21">Incident</text>
+
+                <!-- Teacher Notes Button -->
+                <rect x="266" y="119" width="194" height="60" rx="9" fill="#2E74E6" stroke="#6FA3F7" stroke-width="1.5" />
+                <path d="M279 154L283 154L293 144L289 140L279 150V154Z" fill="#FFFFFF" />
+                <path d="M291 138L295 142L297 140L293 136L291 138Z" fill="#FFFFFF" />
+                <text x="305" y="156" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="500" font-size="20">Teacher Notes</text>
+
+                <!-- Bug Button -->
+                <rect x="266" y="187" width="194" height="60" rx="9" fill="#7340C6" stroke="#A37CE0" stroke-width="1.5" />
+                <circle cx="337" cy="217" r="5" fill="none" stroke="#FFFFFF" stroke-width="3.5" />
+                <path d="M337 207V210M337 224V227M327 217H330M344 217H347M330 210L332 212M342 222L344 224M344 210L342 212M332 222L330 224" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+                <text x="357" y="224" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="500" font-size="21">Bug</text>
+
+                <!-- Bottom Row Buttons: Pause & End -->
+                <!-- Pause Button -->
+                <rect x="8" y="264" width="227" height="48" rx="9" fill="#F0B000" stroke="#F6CA45" stroke-width="1.5" />
+                <rect x="76" y="279" width="6" height="18" rx="1.5" fill="#0B1320" />
+                <rect x="87" y="279" width="6" height="18" rx="1.5" fill="#0B1320" />
+                <text x="105" y="295" fill="#0B1320" font-family="Inter, sans-serif" font-weight="500" font-size="21">Pause</text>
+
+                <!-- End Button -->
+                <rect x="245" y="264" width="227" height="48" rx="9" fill="#8B2626" stroke="#C55959" stroke-width="1.5" />
+                <rect x="325" y="279" width="17" height="17" rx="3" fill="#FFFFFF" />
+                <text x="353" y="295" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="500" font-size="21">End</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- PANEL 2 VISUAL: SUPPORTING PHOTO/VIDEO, AUTO INCIDENT REPORT & TEACHER NOTES -->
+          <div id="md3StagePanel1" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE6C4] text-[#3B2506] text-xs font-bold">
+                <span class="material-symbols-rounded text-base">perm_media</span>
+                <span>Rich Multimodal Classroom Context</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900 leading-tight">
+                Photo/Video Evidence, Auto-Incident Reports & Teacher Notes
+              </h3>
+              <p class="text-sm sm:text-base text-stone-600 leading-relaxed">
+                When a key breakthrough or behavioral trigger happens, Goalvera links <strong class="text-stone-900">supporting photo/video evidence</strong>, drafts <strong class="text-stone-900">automatic incident reports</strong> with exact transcript citations, and logs quick <strong class="text-stone-900">teacher notes</strong> directly onto the session timeline.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <span class="px-3 py-1.5 rounded-2xl bg-[#FDE6C4]/60 text-[#3B2506] text-xs font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-rounded text-base">photo_camera</span> Work Sample & Video Snippets
+                </span>
+                <span class="px-3 py-1.5 rounded-2xl bg-[#F9DEDC] text-[#410E0B] text-xs font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-rounded text-base">assignment_late</span> Auto-Drafted Incident Forms
+                </span>
+              </div>
+            </div>
+
+            <!-- Right 7 Cols: Exact Uploaded Classroom Photograph -->
+            <div class="lg:col-span-7 flex flex-col items-center justify-center">
+              <div class="relative w-full rounded-2xl overflow-hidden shadow-md border border-stone-200 bg-stone-100">
+                <img
+                  id="multimodalEvidencePhoto"
+                  src="img/goalvera-classroom.jpg"
+                  alt="Teacher photographing a student's coloring worksheet at a classroom table, with the Goalvera recorder on the desk"
+                  class="w-full h-auto object-cover block"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 3 VISUAL: SEAMLESS BACKGROUND CLOUD UPLOAD -->
+          <div id="md3StagePanel2" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D8ECE2] text-[#0F2E22] text-xs font-bold">
+                <span class="material-symbols-rounded text-base">cloud_sync</span>
+                <span>Zero-Touch Background Upload</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900 leading-tight">
+                Encrypted Background Cloud Sync While You Keep Teaching
+              </h3>
+              <p class="text-sm sm:text-base text-stone-600 leading-relaxed">
+                No SD cards, no cables, and no manual file transfers. Audio, tagged teacher notes, and media evidence stream in the background over <strong class="text-stone-900">encrypted HTTPS</strong> to the Goalvera Cloud AI—with raw audio automatically purged after 7 days.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-1">
+                <span class="px-3 py-1.5 rounded-2xl bg-[#D8ECE2] text-[#0F2E22] text-xs font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-rounded text-base">enhanced_encryption</span> TLS 1.3 Encrypted Tunnel
+                </span>
+                <span class="px-3 py-1.5 rounded-2xl bg-[#F2EFE9] text-stone-800 text-xs font-semibold flex items-center gap-1.5">
+                  <span class="material-symbols-rounded text-amber-700 text-base">auto_delete</span> 7-Day Raw Audio Auto-Purge
+                </span>
+              </div>
+            </div>
+
+            <!-- Material 3 Animated Graphic (Right 7 Cols) -->
+            <div class="lg:col-span-7 bg-[#FBF9F5] rounded-3xl p-6 border border-stone-200">
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <!-- Left Node: Classroom Recorder -->
+                <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm text-center w-full sm:w-44 shrink-0">
+                  <div class="w-12 h-12 mx-auto rounded-2xl bg-[#D8ECE2] text-[#0F2E22] flex items-center justify-center">
+                    <span class="material-symbols-rounded text-2xl">settings_voice</span>
+                  </div>
+                  <div class="font-display font-bold text-xs text-stone-900 mt-2">Dedicated Recorder</div>
+                  <div class="text-[11px] text-[#1f523b] font-semibold mt-0.5">Background Queue: 0s lag</div>
+                </div>
+
+                <!-- Center Animated Tunnel -->
+                <div class="flex-1 w-full flex flex-col items-center">
+                  <span class="text-[11px] font-mono font-bold text-[#0F2E22] bg-[#D8ECE2] px-3 py-1 rounded-full mb-2">
+                    HTTPS ENCRYPTED STREAM
+                  </span>
+                  <svg class="w-full h-10" viewBox="0 0 260 40" fill="none">
+                    <line x1="10" y1="20" x2="250" y2="20" stroke="#D6D3CD" stroke-width="6" stroke-linecap="round"/>
+                    <line x1="10" y1="20" x2="250" y2="20" stroke="#2d6a4f" stroke-width="6" stroke-dasharray="12 10" class="animate-flow" stroke-linecap="round"/>
+                  </svg>
+                  <div class="text-[11px] text-stone-500 text-center">Audio + Photo/Video + Notes + Lesson Plan</div>
+                </div>
+
+                <!-- Right Node: Goalvera Cloud AI -->
+                <div class="bg-[#e1ede8] text-[#0f291e] p-4 rounded-2xl border border-[#2d6a4f]/30 shadow-sm text-center w-full sm:w-48 shrink-0">
+                  <div class="w-12 h-12 mx-auto rounded-2xl bg-white text-[#2d6a4f] flex items-center justify-center border border-[#2d6a4f]/20">
+                    <span class="material-symbols-rounded text-2xl">cloud_done</span>
+                  </div>
+                  <div class="font-display font-bold text-xs mt-2">Goalvera Cloud AI</div>
+                  <div class="text-[10px] font-mono text-amber-900 bg-amber-100/80 px-2 py-0.5 rounded mt-1 inline-block">Auto-Delete: 7d 00h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 4 VISUAL: END-OF-DAY CLASSROOM COACHING REPORT BY STUDENT + SUPPLEMENTAL PACKET -->
+          <div id="md3StagePanel3" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDE6C4] text-[#3B2506] text-xs font-bold">
+                <span class="material-symbols-rounded text-base">mark_email_read</span>
+                <span>3:45 PM Daily Email by Student</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900 leading-tight">
+                End-of-Day Student Coaching Report & Supplemental Attachments
+              </h3>
+              <p class="text-sm sm:text-base text-stone-600 leading-relaxed">
+                At the end of every school day, teachers receive an organized email report <strong class="text-stone-900">broken down by student</strong>—complete with phonetic evaluations, coaching tips, and every <strong class="text-stone-900">supplemental item requested during class</strong>.
+              </p>
+              <div class="space-y-2 text-xs text-stone-700">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#2d6a4f] text-base">check_circle</span>
+                  <span><strong>Per-Student Coaching Summary</strong> tied to today’s lesson plan</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-rounded text-rose-600 text-base">description</span>
+                  <span><strong>Draft Incident Reports</strong> pre-filled with transcript citations</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#2d6a4f] text-base">print</span>
+                  <span><strong>Requested Custom Worksheets</strong> & <strong>Lesson Plan Reminders</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Realistic Email Client Window (Right 7 Cols) -->
+            <div class="lg:col-span-7">
+              <div class="bg-white rounded-2xl border border-stone-300 shadow-lg overflow-hidden text-stone-800">
+                <!-- Email Client Top Chrome & Action Toolbar -->
+                <div class="bg-[#F2EFE9] px-4 py-2.5 border-b border-stone-200 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <span class="ml-2 text-[11px] font-semibold text-stone-500">Inbox — sjenkins@oakridge.edu</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-stone-500">
+                    <span class="material-symbols-rounded text-base" title="Reply">reply</span>
+                    <span class="material-symbols-rounded text-base" title="Forward">forward</span>
+                    <span class="material-symbols-rounded text-base" title="Print">print</span>
+                    <span class="material-symbols-rounded text-base" title="Delete">delete</span>
+                  </div>
+                </div>
+
+                <!-- Email Subject & Sender Metadata Header -->
+                <div class="px-5 pt-4 pb-3 border-b border-stone-200 bg-white">
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                    <h4 class="font-display font-bold text-sm sm:text-base text-stone-900">
+                      [Goalvera Daily Summary] Room 104 Coaching & Student Packet — Thu, Oct 22
+                    </h4>
+                    <span class="px-2 py-0.5 rounded bg-[#e1ede8] text-[#163d2b] text-[10px] font-bold uppercase tracking-wide">
+                      Inbox
+                    </span>
+                  </div>
+
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-9 h-9 rounded-full bg-[#2d6a4f] text-white font-display font-bold text-xs flex items-center justify-center shrink-0">
+                        GV
+                      </div>
+                      <div class="text-xs leading-tight">
+                        <div class="font-bold text-stone-900">
+                          Goalvera AI Coach <span class="font-normal text-stone-500">&lt;daily-coach@goalvera.app&gt;</span>
+                        </div>
+                        <div class="text-[11px] text-stone-500 mt-0.5">
+                          To: <span class="text-stone-700 font-medium">Sarah Jenkins &lt;sjenkins@oakridge.edu&gt;</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-[11px] text-stone-500 font-mono shrink-0">
+                      3:45 PM (2 mins ago)
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email Attachments Strip -->
+                <div class="px-5 py-2.5 bg-[#FBF9F5] border-b border-stone-200 flex flex-wrap items-center gap-2">
+                  <span class="text-[11px] font-semibold text-stone-500 flex items-center gap-1 mr-1">
+                    <span class="material-symbols-rounded text-sm">attach_file</span> 2 Attachments:
+                  </span>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-stone-200 shadow-2xs text-[11px] font-medium text-stone-800">
+                    <span class="material-symbols-rounded text-rose-600 text-sm">description</span>
+                    <span>Draft_Incident_Report_Mateo_18m04s.docx</span>
+                    <span class="text-[10px] text-stone-400">(42 KB)</span>
+                  </div>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-stone-200 shadow-2xs text-[11px] font-medium text-stone-800">
+                    <span class="material-symbols-rounded text-[#2d6a4f] text-sm">picture_as_pdf</span>
+                    <span>Mateo_ST_Blend_Snake_Worksheet.pdf</span>
+                    <span class="text-[10px] text-stone-400">(118 KB)</span>
+                  </div>
+                </div>
+
+                <!-- Email Message Body -->
+                <div class="px-5 py-4 text-xs sm:text-[13px] text-stone-700 space-y-3 leading-relaxed bg-white">
+                  <p>Hi Sarah,</p>
+                  <p>Here is your end-of-day coaching summary and requested classroom materials from today’s recorded sessions in <strong>Room 104</strong>:</p>
+
+                  <!-- Student 1 Block inside Email Body -->
+                  <div class="pl-3.5 border-l-2 border-[#2d6a4f] space-y-1.5 bg-[#FBF9F5] p-3 rounded-r-xl">
+                    <div class="flex flex-wrap items-center justify-between gap-1">
+                      <strong class="text-stone-900 font-display">1. Mateo R. — Speech &amp; Language Plan (2:32 PM Session)</strong>
+                      <span class="font-mono text-[11px] text-[#1f523b] font-semibold">/st/ 60% • /θ/ 30%</span>
+                    </div>
+                    <p class="text-xs text-stone-700">
+                      • <strong>Session Wins &amp; Phonetics:</strong> Mateo articulated 6/10 initial <code class="font-mono font-bold">/st/</code> words accurately. Switching to picture cards at <span class="font-mono">11:20</span> prevented task avoidance.
+                    </p>
+                    <p class="text-xs text-stone-700">
+                      • <strong>Tomorrow’s Lesson Reminder:</strong> Split <code class="font-mono font-bold">/st/</code> and <code class="font-mono font-bold">/θ/</code> into separate 8-minute blocks and keep his 90-second sensory stretch break at minute 10.
+                    </p>
+                    <p class="text-xs text-stone-700">
+                      • <strong>Requested Items Attached:</strong> Your custom <em>/st/ Snake Blend Worksheet</em> and the pre-filled <em>Draft Incident Report</em> (citing timestamp <span class="font-mono">18:04</span>) are attached above for your review.
+                    </p>
+                  </div>
+
+                  <!-- Student 2 Compact Summary Line -->
+                  <div class="pl-3.5 border-l-2 border-stone-300 py-1 text-xs text-stone-600">
+                    <strong class="text-stone-900">2. Sofia V. — Speech Plan:</strong> Achieved 88% mastery on multisyllabic pacing; ready to advance to 2-sentence story cards tomorrow.
+                  </div>
+
+                  <p class="text-stone-500 text-[11px] pt-1">
+                    — Goalvera Classroom Assistant • <em>All drafts and forms require your review before filing.</em>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 5 VISUAL: WEEKLY PROGRESS ASSESSMENT AGENT -->
+          <div id="md3StagePanel4" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D8ECE2] text-[#0F2E22] text-xs font-bold">
+                <span class="material-symbols-rounded text-base">psychology</span>
+                <span>Friday Autonomous Assessment Agent</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900 leading-tight">
+                Weekly Progress Agent: Parent Update + Next Week’s Lesson Plan & Goals
+              </h3>
+              <p class="text-sm sm:text-base text-stone-600 leading-relaxed">
+                Every Friday afternoon, Goalvera’s <strong class="text-stone-900">Weekly Progress Assessment Agent</strong> reviews every session across Monday–Friday to deliver two high-impact outputs for teacher sign-off:
+              </p>
+              <div class="space-y-2 text-xs text-stone-700">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#2d6a4f] text-base">family_restroom</span>
+                  <span><strong>1. Warm Weekly Parent Update Draft</strong> (ready in plain, accessible family language)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-rounded text-[#2d6a4f] text-base">auto_stories</span>
+                  <span><strong>2. Next Week’s Suggested Lesson Plan & Adjusted Student Goals</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Material 3 Animated Graphic (Right 7 Cols) -->
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#FBF9F5] rounded-3xl p-5 border border-stone-200">
+              <!-- Agent Output 1: Parent Update Draft -->
+              <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm flex flex-col justify-between md3-float">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-[#D8ECE2] text-[#0F2E22] text-[11px] font-bold">Agent Output A</span>
+                    <span class="material-symbols-rounded text-[#2d6a4f]">mark_chat_read</span>
+                  </div>
+                  <h4 class="font-display font-bold text-base text-stone-900">Weekly Parent Summary Draft</h4>
+                  <p class="text-xs text-stone-600 mt-1.5 leading-relaxed">
+                    <em>"Mateo jumped from 50% to 80% accuracy on 'st' words this week and independently requested his sensory break!"</em>
+                  </p>
+                </div>
+                <div class="mt-4 pt-2.5 border-t border-stone-100 flex items-center justify-between text-[11px]">
+                  <span class="font-semibold text-[#1f523b]">Human-Reviewed Draft</span>
+                  <span class="font-mono text-stone-500">EN • ES • 中文</span>
+                </div>
+              </div>
+
+              <!-- Agent Output 2: Next Week Lesson Plan & Goals -->
+              <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm flex flex-col justify-between md3-float" style="animation-delay: 0.5s">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-[#FDE6C4] text-[#3B2506] text-[11px] font-bold">Agent Output B</span>
+                    <span class="material-symbols-rounded text-amber-700">event_repeat</span>
+                  </div>
+                  <h4 class="font-display font-bold text-base text-stone-900">Next Week’s Lesson Plan & Goals</h4>
+                  <ul class="text-xs text-stone-600 mt-1.5 space-y-1.5">
+                    <li>• <strong>Promote Goal 2.1:</strong> Graduate <code class="font-mono font-bold">/st/</code> blends to 2-sentence story reading.</li>
+                    <li>• <strong>Target Goal 2.2:</strong> Dedicate Mon/Wed to tactile <code class="font-mono font-bold">/θ/</code> mirror cues.</li>
+                  </ul>
+                </div>
+                <div class="mt-4 pt-2.5 border-t border-stone-100 flex items-center justify-between text-[11px]">
+                  <span class="font-semibold text-amber-800">1-Click Load into Next Week</span>
+                  <span class="font-mono text-stone-500">5 Sessions Analyzed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Progress & Playback Controls Bar -->
+          <div class="mt-6 pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3 text-xs text-stone-500">
+            <span id="md3FooterCaption" class="font-medium text-stone-700">
+              Dedicated Classroom Recorder acting as the teacher's assistant
+            </span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="text-[11px] hidden sm:inline text-stone-400">Click any card above to explore at your own pace</span>
+              <button id="md3PlayToggle" onclick="toggleMd3AutoPlay()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#D8ECE2] hover:bg-[#c5e2d4] text-[#0F2E22] font-bold text-xs shadow-sm transition cursor-pointer">
+                <span id="md3PlayIcon" class="material-symbols-rounded text-base">pause_circle</span>
+                <span id="md3PlayLabel">Auto-Stepping Active</span>
+              </button>
+              <button onclick="nextMd3Stage(true)" class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-[#FBF9F5] hover:bg-stone-100 text-stone-700 border border-stone-300 font-semibold text-xs shadow-sm transition cursor-pointer">
+                <span>Next Step</span>
+                <span class="material-symbols-rounded text-base">skip_next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE OVERVIEW: TRANSCRIPT-LEVEL PHONETIC & LANGUAGE INTELLIGENCE -->
+  <section id="phonetic-ai" class="py-20 lg:py-24 bg-white border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-amber-100 text-amber-900 text-sm sm:text-base font-bold uppercase tracking-wider shadow-xs">
+          <i data-lucide="audio-waveform" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span>Feature Overview • Transcript-Level Phonetic AI</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Left 5 Cols: Copy & Value Explanation -->
+        <div class="lg:col-span-5">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight leading-tight">
+            AI That Listens Like a Specialist—Down to the Exact Phoneme.
+          </h2>
+          <p class="mt-4 text-stone-600 text-base leading-relaxed">
+            Standard voice-to-text tools are built for boardrooms—they <strong class="text-stone-900">auto-correct or gloss over</strong> the exact moments a special needs child learning English struggles.
+          </p>
+          <p class="mt-3 text-stone-600 text-base leading-relaxed">
+            Goalvera’s AI does the opposite. Built specifically for Special Education and language acquisition, it analyzes classroom audio at the <strong class="text-[#1f523b]">raw transcript and phonetic level</strong> so every articulation hurdle, pronunciation pattern, and behavioral cue is captured as actionable evidence.
+          </p>
+
+          <!-- 2 Bullet Cards -->
+          <div class="mt-6 space-y-3.5">
+            <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#FBF9F5] border border-stone-200">
+              <div class="p-2 rounded-lg bg-[#2d6a4f] text-white shrink-0 mt-0.5">
+                <i data-lucide="ear" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-stone-900">Pinpoint Phonetic Breakdown</h3>
+                <p class="text-xs text-stone-600 mt-0.5 leading-relaxed">Detects phoneme substitutions, vowel distortions, stuttering blocks, and language transfer patterns without erasing them.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#FBF9F5] border border-stone-200">
+              <div class="p-2 rounded-lg bg-[#2d6a4f] text-white shrink-0 mt-0.5">
+                <i data-lucide="quote" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-stone-900">Evidence-Linked Forms & Evaluations</h3>
+                <p class="text-xs text-stone-600 mt-0.5 leading-relaxed">Pre-fills evaluations, worksheets, and incident forms with exact classroom transcript timestamps—no more reconstructing a breakthrough at 4:00 PM.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Interactive Transcript Analyzer Widget (Light Editorial Surface) -->
+        <div class="lg:col-span-7 bg-[#FBF9F5] rounded-2xl p-5 sm:p-7 text-stone-900 shadow-lg border border-stone-200">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-stone-200">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#1f523b]">Interactive Transcript Inspector</span>
+              <h3 class="text-lg font-display font-bold text-stone-900">Click a Classroom Moment to Inspect Transcript-Level AI</h3>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-mono bg-[#e1ede8] text-[#163d2b] border border-[#2d6a4f]/20 font-semibold">
+              IPA Phonetic Engine v2.4
+            </span>
+          </div>
+
+          <!-- Scenario Selector Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 my-4">
+            <button onclick="selectPhoneticScenario(0)" id="scenBtn0" class="scen-btn text-left p-3 rounded-xl border-2 transition cursor-pointer bg-[#e1ede8] border-[#2d6a4f] text-stone-900">
+              <div class="text-xs font-bold text-[#1f523b]">Moment 1 • Speech</div>
+              <div class="text-xs font-semibold mt-0.5">/st/ & /th/ Articulation</div>
+            </button>
+            <button onclick="selectPhoneticScenario(1)" id="scenBtn1" class="scen-btn text-left p-3 rounded-xl border transition cursor-pointer bg-white border-stone-200 text-stone-700 hover:bg-stone-50">
+              <div class="text-xs font-bold text-amber-800">Moment 2 • Language</div>
+              <div class="text-xs font-semibold mt-0.5">Vowel Shift & Self-Correction</div>
+            </button>
+            <button onclick="selectPhoneticScenario(2)" id="scenBtn2" class="scen-btn text-left p-3 rounded-xl border transition cursor-pointer bg-white border-stone-200 text-stone-700 hover:bg-stone-50">
+              <div class="text-xs font-bold text-rose-800">Moment 3 • Behavior</div>
+              <div class="text-xs font-semibold mt-0.5">Frustration Pre-Trigger</div>
+            </button>
+          </div>
+
+          <!-- Comparison: Generic ASR vs Goalvera Transcript AI (Light Mode) -->
+          <div class="space-y-3 mt-4">
+            <div class="p-3.5 rounded-xl bg-white border border-stone-200">
+              <div class="flex items-center justify-between text-xs text-stone-500 mb-1">
+                <span class="font-semibold flex items-center gap-1.5">
+                  <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i>
+                  What Generic Speech-to-Text Outputs (Loses Clinical Value):
+                </span>
+                <span class="font-mono text-[11px]">Auto-Corrected</span>
+              </div>
+              <p id="scenGenericText" class="font-mono text-xs text-stone-600">
+                "The three stars shine brightly in the sky." (Masks that the student struggled on 2 target phonemes)
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#f2f7f5] border border-[#2d6a4f]/30">
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-[#163d2b] mb-2">
+                <span class="font-bold flex items-center gap-1.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-[#2d6a4f]"></i>
+                  What Goalvera Transcript-Level Phonetic AI Captures:
+                </span>
+                <span id="scenTimestamp" class="font-mono text-[11px] bg-white px-2 py-0.5 rounded border border-stone-200 text-stone-700">Session 08:42.10</span>
+              </div>
+              <div id="scenPhoneticTranscript" class="font-mono text-xs sm:text-sm text-stone-900 leading-relaxed bg-white p-3.5 rounded-lg border border-stone-200">
+                "De <span class="text-amber-800 font-bold underline decoration-wavy">/t-r-iː/</span> [1.4s pause] <span class="text-rose-800 font-bold underline decoration-wavy">/e-s-tɑːrz/</span> shine... Miss Sarah, my mouth is tired."
+              </div>
+
+              <!-- Detailed Breakdown Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3.5">
+                <div class="bg-white p-3 rounded-lg border border-stone-200">
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-[#1f523b]">Phonetic & Language Analysis</div>
+                  <p id="scenAnalysis" class="text-xs text-stone-700 mt-1 leading-relaxed">
+                    Unvoiced dental fricative /θ/ ("three") substituted with alveolar stop /t/. Epenthetic /e/ inserted before /st/ cluster ("estars"), typical of first-language phonological transfer.
+                  </p>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-stone-200">
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-amber-800">Auto-Drafted Evaluation Citation</div>
+                  <p id="scenCitation" class="text-xs text-stone-700 mt-1 leading-relaxed">
+                    Goal 2.1 Log: Mateo achieved 6/10 accuracy on isolated /st/ words; requires visual tongue-placement cue for /θ/ prior to full sentence reading (Cited @ 08:42).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE OVERVIEW: THE 3-INPUT SYNTHESIS ENGINE -->
+  <section id="three-inputs" class="py-20 lg:py-24 bg-[#FBF9F5] border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#e1ede8] text-[#163d2b] text-sm sm:text-base font-bold uppercase tracking-wider shadow-xs">
+          <i data-lucide="layers" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span>Feature Overview • Context-Aware Coaching Engine</span>
+        </div>
+      </div>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight">
+          Three Classroom Inputs. One Actionable Roadmap for Tomorrow.
+        </h2>
+        <p class="mt-4 text-stone-600 text-base sm:text-lg">
+          A transcript alone doesn’t know what you planned to teach or what sensory triggers a child navigates. Goalvera triangulates <strong class="text-stone-900">all three classroom dimensions</strong> to generate your daily coaching summary, current evaluations, and tomorrow's lesson adjustments.
+        </p>
+      </div>
+
+      <!-- 3 Inputs Visual Architecture Diagram -->
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <!-- Input Card 1 -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-[#2d6a4f]/30 shadow-sm relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-lg bg-[#e1ede8] text-[#163d2b] font-bold text-xs">INPUT 01</span>
+            <div class="w-10 h-10 rounded-xl bg-[#2d6a4f] text-white flex items-center justify-center shadow-sm">
+              <i data-lucide="mic" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-display font-bold text-lg text-stone-900">The Live Session Recording</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Captures real-time speech, exact phonetic struggles, pacing pauses, and teacher-student verbal interactions from the dedicated classroom recorder.
+          </p>
+          <div class="mt-4 pt-3 border-t border-stone-100 text-xs font-mono text-[#1f523b] flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Phonemes + Timestamps + Turn-taking</span>
+          </div>
+        </div>
+
+        <!-- Input Card 2 -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-[#2d6a4f]/30 shadow-sm relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-lg bg-[#e1ede8] text-[#163d2b] font-bold text-xs">INPUT 02</span>
+            <div class="w-10 h-10 rounded-xl bg-[#2d6a4f] text-white flex items-center justify-center shadow-sm">
+              <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-display font-bold text-lg text-stone-900">Your Daily Lesson Plan</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Measures what was <em>intended</em> to be taught against what was actually covered in class—identifying where a student needed extra scaffolding.
+          </p>
+          <div class="mt-4 pt-3 border-t border-stone-100 text-xs font-mono text-[#1f523b] flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Curriculum Pacing + Unfinished Items</span>
+          </div>
+        </div>
+
+        <!-- Input Card 3 -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-amber-300 shadow-sm relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold text-xs">INPUT 03</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shadow-sm">
+              <i data-lucide="user-cog" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-display font-bold text-lg text-stone-900">Behavior & Assessment Profile</h3>
+          <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+            Factors in the student's education plan accommodations, sensory triggers, behavioral baselines, and prior phonetic assessment scores.
+          </p>
+          <div class="mt-4 pt-3 border-t border-stone-100 text-xs font-mono text-amber-800 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Plan Baselines + De-escalation Rules</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Triangulation Summary Banner -->
+      <div class="mt-8 bg-white rounded-2xl p-5 border border-stone-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-[#2d6a4f] text-white flex items-center justify-center shrink-0 shadow-sm">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="font-display font-bold text-base text-stone-900">Goalvera Triangulation Engine</h4>
+            <p class="text-xs sm:text-sm text-stone-600">All three classroom inputs feed directly into Goalvera’s Automated Daily &amp; Weekly Agents below.</p>
+          </div>
+        </div>
+        <span class="px-3.5 py-1.5 rounded-full bg-[#e1ede8] text-[#163d2b] text-xs font-bold shrink-0">
+          100% Evidence-Linked Synthesis
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE OVERVIEW: AUTOMATED DAILY & WEEKLY AGENTS -->
+  <section id="automated-agents" class="py-20 lg:py-24 bg-white border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#e1ede8] text-[#163d2b] text-sm sm:text-base font-bold uppercase tracking-wider shadow-xs">
+          <i data-lucide="bot" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span>Feature Overview • Automated Daily &amp; Weekly Agents</span>
+        </div>
+      </div>
+
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight">
+          Two Autonomous Classroom Agents Working Behind the Scenes.
+        </h2>
+        <p class="mt-4 text-stone-600 text-base sm:text-lg leading-relaxed">
+          Goalvera’s background agents turn your daily recordings, lesson plans, and behavior profiles into <strong class="text-stone-900">end-of-day student coaching packets</strong> and <strong class="text-stone-900">end-of-week progress assessments</strong>—equally organized so nothing falls through the cracks.
+        </p>
+      </div>
+
+      <!-- Equally Distributed 2-Column Agent Grid (Daily Agent vs. Weekly Agent) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+
+        <!-- LEFT CARD: AUTOMATED DAILY AGENT (3:45 PM BY STUDENT) -->
+        <div class="bg-[#FBF9F5] rounded-3xl border border-stone-200 shadow-md overflow-hidden flex flex-col justify-between">
+          <div>
+            <!-- Agent Header -->
+            <div class="bg-[#e1ede8] px-6 py-5 border-b border-[#2d6a4f]/20 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-white text-[#2d6a4f] border border-[#2d6a4f]/20 flex items-center justify-center shadow-xs shrink-0">
+                  <i data-lucide="mail-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-[#1f523b] uppercase tracking-wider">Daily Classroom Agent • 3:45 PM by Student</div>
+                  <h3 class="font-display font-bold text-lg text-stone-900">End-of-Day Coaching &amp; Supplemental Packet</h3>
+                </div>
+              </div>
+              <span class="text-xs bg-white text-stone-700 font-semibold px-3 py-1 rounded-full border border-stone-200">
+                Runs Every School Day
+              </span>
+            </div>
+
+            <!-- 3 Equally Distributed Daily Outputs -->
+            <div class="p-6 space-y-4">
+              <div class="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#1f523b]">1. Current Evaluations &amp; Rubric Scores</span>
+                  <span class="text-[11px] font-semibold text-[#163d2b] bg-[#e1ede8] px-2.5 py-0.5 rounded-full">Auto-Scored</span>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Logs daily phonetic accuracy (<code class="font-mono font-bold">/st/</code> blends at 60%, voiceless <code class="font-mono font-bold">/θ/</code> at 30%) and behavioral regulation (0 escalations) directly against each student’s plan.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#1f523b]">2. Per-Student Coaching &amp; Tomorrow’s Next Steps</span>
+                  <span class="text-[11px] font-semibold text-[#163d2b] bg-[#e1ede8] px-2.5 py-0.5 rounded-full">3-Input Insight</span>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Highlights what worked in class (switching to picture cards at <span class="font-mono font-semibold">11:20</span>) and recommends splitting <code class="font-mono font-bold">/st/</code> and <code class="font-mono font-bold">/θ/</code> into separate 8-minute blocks tomorrow.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-900">3. Requested Worksheets &amp; Draft Incident Reports</span>
+                  <span class="text-[11px] font-semibold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full">Attached to Email</span>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Automatically attaches custom printable practice sheets and pre-filled incident or evaluation forms citing exact classroom timestamps.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 py-3.5 bg-white border-t border-stone-200 flex items-center justify-between text-xs text-stone-500">
+            <span class="flex items-center gap-1.5 font-medium text-stone-700">
+              <i data-lucide="inbox" class="w-4 h-4 text-[#2d6a4f]"></i> Delivered to Teacher Inbox by Student
+            </span>
+            <span class="font-mono text-[11px] text-[#1f523b] font-semibold">100% Teacher Reviewed</span>
+          </div>
+        </div>
+
+        <!-- RIGHT CARD: AUTOMATED WEEKLY AGENT (FRIDAY PROGRESS & LESSON PLANNER) -->
+        <div class="bg-[#FBF9F5] rounded-3xl border border-stone-200 shadow-md overflow-hidden flex flex-col justify-between">
+          <div>
+            <!-- Agent Header -->
+            <div class="bg-[#FDE6C4] px-6 py-5 border-b border-amber-300/60 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-white text-amber-800 border border-amber-300 flex items-center justify-center shadow-xs shrink-0">
+                  <i data-lucide="calendar-check-2" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-amber-900 uppercase tracking-wider">Weekly Progress Agent • Friday Afternoon</div>
+                  <h3 class="font-display font-bold text-lg text-stone-900">Multi-Session Assessment, Parent &amp; Goal Planner</h3>
+                </div>
+              </div>
+              <span class="text-xs bg-white text-amber-900 font-semibold px-3 py-1 rounded-full border border-amber-200">
+                Synthesizes Mon–Fri
+              </span>
+            </div>
+
+            <!-- 3 Equally Distributed Weekly Outputs -->
+            <div class="p-6 space-y-4">
+              <div class="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-900">1. Weekly Trajectory &amp; Goal Mastery Rollup</span>
+                  <span class="text-[11px] font-semibold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full">5-Day Synthesis</span>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Tracks multi-session phonetic and behavioral growth across the entire week (e.g., Mateo’s <code class="font-mono font-bold">/st/</code> blend accuracy climbing from 50% on Monday to 80% by Friday).
+                </p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#1f523b]">2. Warm Weekly Parent Summary Draft</span>
+                  <span class="text-[11px] font-semibold text-[#163d2b] bg-[#e1ede8] px-2.5 py-0.5 rounded-full">EN • ES • 中文</span>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Drafts a compassionate, jargon-free 1-minute family note celebrating the week’s wins with optional 2-minute home practice ideas—ready for your edits and approval.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#1f523b]">3. Next Week’s Lesson Plan &amp; Goal Adjustments</span>
+                  <span class="text-[11px] font-semibold text-[#163d2b] bg-[#e1ede8] px-2.5 py-0.5 rounded-full">1-Click Schedule</span>
+                </div>
+                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Proposes next week’s lesson plan and updated student goals—graduating mastered phonemes to 2-sentence story reading while scheduling targeted tactile practice for remaining bottlenecks.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 py-3.5 bg-white border-t border-stone-200 flex items-center justify-between text-xs text-stone-500">
+            <span class="flex items-center gap-1.5 font-medium text-stone-700">
+              <i data-lucide="Sparkles" class="w-4 h-4 text-amber-700"></i> Ready Every Friday Before Dismissal
+            </span>
+            <span class="font-mono text-[11px] text-amber-900 font-semibold">Nothing Sent Without You</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE OVERVIEW: DEDICATED LOW-COST CLASSROOM RECORDER HARDWARE -->
+  <section id="hardware" class="py-20 lg:py-24 bg-white border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#e1ede8] text-[#163d2b] text-sm sm:text-base font-bold uppercase tracking-wider shadow-xs">
+          <i data-lucide="mic" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span>Feature Overview • Dedicated Low-Cost Classroom Recorder</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left 6 Cols: Interactive Dedicated Classroom Recorder Simulator (Light Mode Enclosure) -->
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="bg-[#F2EFE9] p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-inner relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-stone-600">Interactive Classroom Assistant Preview</span>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white text-stone-700 border border-stone-200 shadow-sm">
+                ESP32 CYD • Free 3D-Print Case • Under $50
+              </span>
+            </div>
+
+            <!-- Dedicated Classroom Recorder Case Mockup (Warm Light 3D-Printed Case Look) -->
+            <div class="bg-[#E6E2D8] rounded-[28px] p-5 sm:p-6 shadow-lg border-4 border-stone-300 max-w-md mx-auto relative">
+              <!-- Top Hardware Bezel Details -->
+              <div class="flex items-center justify-between mb-3 px-2">
+                <div class="flex items-center gap-2">
+                  <span id="hwLed" class="w-2.5 h-2.5 rounded-full bg-[#2d6a4f]"></span>
+                  <span class="font-mono text-[10px] text-stone-600 font-semibold uppercase tracking-widest">DEDICATED RECORDER #04 • ASSISTANT ACTIVE</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
+                </div>
+              </div>
+
+              <!-- 3.5" Touchscreen Display Area (Light UI) -->
+              <div class="bg-white rounded-2xl p-5 border border-stone-300 text-stone-900 shadow-inner">
+                <div class="flex items-center justify-between text-xs text-stone-500 pb-3 border-b border-stone-200">
+                  <span class="font-mono text-[#1f523b] font-semibold flex items-center gap-1">
+                    <i data-lucide="wifi" class="w-3.5 h-3.5 text-[#2d6a4f]"></i> Background Cloud Sync
+                  </span>
+                  <span id="hwStatusBadge" class="px-2 py-0.5 rounded bg-[#e1ede8] text-[#163d2b] font-mono text-[11px] font-semibold">
+                    RECORDING & ENCRYPTING
+                  </span>
+                </div>
+
+                <!-- Selected Student & Lesson on Screen -->
+                <div class="mt-3 flex items-center justify-between">
+                  <div>
+                    <div class="text-[11px] text-stone-500">Active Classroom Profile:</div>
+                    <div class="text-sm font-bold text-stone-900">Mateo R. — Phonetics Block B</div>
+                  </div>
+                  <div id="hwTimer" class="font-mono text-lg font-bold text-[#1f523b]">08:42</div>
+                </div>
+
+                <!-- Animated Audio Waveform Bars -->
+                <div id="hwWaveform" class="mt-4 h-14 bg-[#FBF9F5] rounded-xl px-4 py-2 flex items-end justify-between gap-1 border border-stone-200">
+                  <div class="wave-bar w-1.5 h-full bg-[#2d6a4f] rounded-full" style="animation-delay: 0.0s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-[#40916c] rounded-full" style="animation-delay: 0.2s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-teal-600 rounded-full" style="animation-delay: 0.4s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-emerald-600 rounded-full" style="animation-delay: 0.1s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-amber-500 rounded-full" style="animation-delay: 0.3s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-[#2d6a4f] rounded-full" style="animation-delay: 0.5s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-teal-600 rounded-full" style="animation-delay: 0.2s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-emerald-600 rounded-full" style="animation-delay: 0.4s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-[#40916c] rounded-full" style="animation-delay: 0.1s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-amber-500 rounded-full" style="animation-delay: 0.3s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-teal-600 rounded-full" style="animation-delay: 0.5s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-[#2d6a4f] rounded-full" style="animation-delay: 0.2s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-emerald-600 rounded-full" style="animation-delay: 0.1s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-[#40916c] rounded-full" style="animation-delay: 0.4s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-teal-600 rounded-full" style="animation-delay: 0.2s"></div>
+                  <div class="wave-bar w-1.5 h-full bg-amber-500 rounded-full" style="animation-delay: 0.3s"></div>
+                </div>
+
+                <!-- Interactive Tap Buttons inside Screen -->
+                <div class="mt-4 grid grid-cols-2 gap-2">
+                  <button onclick="tagClassroomMoment()" class="py-2.5 px-3 rounded-xl font-bold text-xs bg-[#F2EFE9] hover:bg-stone-200 text-stone-800 border border-stone-300 transition flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i data-lucide="bookmark-plus" class="w-3.5 h-3.5 text-[#2d6a4f]"></i>
+                    <span>Tag Note / Incident</span>
+                  </button>
+                  <button id="hwToggleBtn" onclick="toggleHardwareRecorder()" class="py-2.5 px-3 rounded-xl font-bold text-xs bg-[#2d6a4f] hover:bg-[#1f523b] text-white transition flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                    <i data-lucide="square" class="w-3.5 h-3.5"></i>
+                    <span>Finish & Sync</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Engraved Case Label -->
+              <div class="mt-3 text-center font-mono text-[10px] text-stone-600 font-semibold tracking-widest">
+                DEDICATED CLASSROOM RECORDER • ZERO STUDENT DISTRACTION
+              </div>
+            </div>
+
+            <!-- Lifecycle Status Pill Bar below Hardware -->
+            <div id="hwLifecycleNote" class="mt-4 p-3 rounded-xl bg-white border border-stone-200 text-xs text-stone-700 flex items-center justify-between">
+              <span class="flex items-center gap-2">
+                <i data-lucide="shield" class="w-4 h-4 text-[#2d6a4f]"></i>
+                <span><strong class="text-stone-900">Privacy Lifecycle:</strong> Stream encrypted in background → Transcript synthesized → Raw audio purged in 7 days.</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 6 Cols: Hardware & Security Copy -->
+        <div class="lg:col-span-6 order-1 lg:order-2">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight leading-tight">
+            A dedicated durable touchscreen computer for less than $50 from Amazon.com and assembly in under 5 minutes
+          </h2>
+          <p class="mt-4 text-stone-600 text-base leading-relaxed">
+            Teachers shouldn't have to drain their personal phone battery, juggle Bluetooth microphones, or manually upload large audio files after school. And special needs students shouldn't have a distracting smartphone sitting on the desk.
+          </p>
+          <p class="mt-3 text-stone-600 text-base leading-relaxed">
+            Goalvera’s Dedicated Classroom Recorder uses an <strong class="text-stone-900">ESP32—also known as a CYD ("Cheap Yellow Device")</strong>—that can be purchased right on Amazon along with a battery and switch. The enclosure is a <strong class="text-stone-900">free 3D print download</strong>, and the entire unit can be <strong class="text-stone-900">assembled in under 5 minutes by anyone with a screwdriver, for a total cost of under $50</strong>.
+          </p>
+
+          <div class="mt-6 space-y-4">
+            <div class="flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-[#e1ede8] text-[#163d2b] flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">1</div>
+              <div>
+                <h3 class="text-sm font-bold text-stone-900">5-Minute DIY Assembly Under $50</h3>
+                <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Order the off-the-shelf ESP32 (CYD), battery, and switch on Amazon, download our free 3D-printable case file, and put it together with a standard screwdriver in under 5 minutes.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-[#e1ede8] text-[#163d2b] flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">2</div>
+              <div>
+                <h3 class="text-sm font-bold text-stone-900">Background HTTPS Upload & 7-Day Auto-Purge</h3>
+                <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Audio and session bookmarks are encrypted and uploaded in the background to the cloud for AI phonetic processing—then permanently deleted after 7 days.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">3</div>
+              <div>
+                <h3 class="text-sm font-bold text-stone-900">Instant Browser & Mobile Demo Mode</h3>
+                <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Want to test Goalvera before building your classroom recorder? Use our browser-based demo mode with pre-loaded student plans and sample scripts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE OVERVIEW: AUTOMATED WEEKLY PARENT SUMMARIES -->
+  <section id="parent-updates" class="py-20 lg:py-24 bg-[#FBF9F5] border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#e1ede8] text-[#163d2b] text-sm sm:text-base font-bold uppercase tracking-wider shadow-xs">
+          <i data-lucide="heart" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span>Feature Overview • Weekly Parent Summary Drafts</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left 5 Cols: Copy -->
+        <div class="lg:col-span-5">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight leading-tight">
+            A Full Week of Classroom Sessions, Distilled Into a Warm 1-Minute Parent Note.
+          </h2>
+          <p class="mt-4 text-stone-600 text-base leading-relaxed">
+            Families of special needs students crave meaningful updates—not clinical jargon or rushed Friday afternoon bullet points.
+          </p>
+          <p class="mt-3 text-stone-600 text-base leading-relaxed">
+            Every Friday, Goalvera compiles the entire week’s classroom sessions, phonetic wins, and behavioral milestones into a compassionate, plain-language <strong class="text-stone-900">Weekly Parent Summary Draft</strong>.
+          </p>
+
+          <!-- Highlight Guarantee Box -->
+          <div class="mt-6 p-4 rounded-2xl bg-white border-2 border-[#2d6a4f]/30 shadow-sm">
+            <div class="flex items-center gap-2.5 text-[#163d2b] font-bold text-sm">
+              <i data-lucide="shield-alert" class="w-5 h-5 text-[#2d6a4f]"></i>
+              <span>Our Ironclad Rule: "Nothing goes to a parent without you."</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-1.5 leading-relaxed">
+              Goalvera never emails families automatically. Every Friday summary arrives as an editable draft in your teacher inbox—translate it into the family’s home language with one click, add a personal note, and send when ready.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Interactive Multilingual Parent Draft Preview -->
+        <div class="lg:col-span-7">
+          <div class="bg-white rounded-2xl border border-stone-200 shadow-lg overflow-hidden">
+            <!-- Draft Header Bar -->
+            <div class="bg-[#F2EFE9] px-5 py-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2.5">
+                <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-900 font-bold text-xs flex items-center gap-1">
+                  <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> DRAFT — AWAITING TEACHER APPROVAL
+                </span>
+                <span class="text-xs text-stone-600">Synthesized from 4 sessions (Mon–Thu)</span>
+              </div>
+
+              <!-- Language Switcher for Families -->
+              <div class="flex items-center gap-1 bg-stone-200/80 p-1 rounded-xl text-xs font-semibold">
+                <button onclick="setParentLang('en')" id="langBtnEn" class="px-2.5 py-1 rounded-lg bg-white text-[#1f523b] shadow-sm transition cursor-pointer">English</button>
+                <button onclick="setParentLang('es')" id="langBtnEs" class="px-2.5 py-1 rounded-lg text-stone-600 hover:text-stone-900 transition cursor-pointer">Español</button>
+                <button onclick="setParentLang('zh')" id="langBtnZh" class="px-2.5 py-1 rounded-lg text-stone-600 hover:text-stone-900 transition cursor-pointer">中文</button>
+              </div>
+            </div>
+
+            <!-- Email Body Preview -->
+            <div class="p-6">
+              <div class="text-xs text-stone-500 space-y-1 pb-4 border-b border-stone-100">
+                <div><strong class="text-stone-700">To:</strong> Elena & Carlos R. (Mateo's Family)</div>
+                <div><strong class="text-stone-700">Subject:</strong> <span id="parentSubject" class="text-stone-900 font-semibold">Mateo’s Weekly Classroom Wins & Speech Milestones (Oct 19 – Oct 23)</span></div>
+              </div>
+
+              <div id="parentBodyText" class="mt-4 text-sm text-stone-700 space-y-3 leading-relaxed">
+                <p>Dear Elena and Carlos,</p>
+                <p>Mateo had a wonderful, focused week in our small-group language and speech sessions! Across four recorded lessons this week, we practiced reading words that start with <strong>"st"</strong> (like <em>star</em> and <em>stop</em>) and <strong>"th"</strong> (like <em>three</em>).</p>
+                <p><strong>🌟 This Week’s Big Win:</strong> By Thursday’s session, Mateo read 8 out of 10 "st" words clearly on his very first try—up from 5 last week! Using our playful "snake hiss" warm-up helped him feel confident and relaxed, and he asked for his sensory stretch break all by himself instead of getting frustrated.</p>
+                <p><strong>🏡 Optional 2-Minute Home Practice:</strong> While cooking or driving this weekend, point out 3 things that start with a long <em>"ssss-t"</em> sound (like <em>stairs</em>, <em>spoon</em>, or <em>star</em>).</p>
+                <p>Warmly,<br/><strong>Ms. Sarah Jenkins</strong> • Grade 2 Special Education</p>
+              </div>
+
+              <!-- Teacher Action Bar -->
+              <div class="mt-6 pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2 text-xs text-stone-500">
+                  <i data-lucide="check-square" class="w-4 h-4 text-[#2d6a4f]"></i>
+                  <span>Linked to 4 session transcripts & Goal #2</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button onclick="approveParentDraft()" id="approveDraftBtn" class="px-4 py-2 rounded-xl text-xs font-bold bg-[#2d6a4f] hover:bg-[#1f523b] text-white shadow-sm transition flex items-center gap-1.5 cursor-pointer">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                    <span>Approve & Copy for Parent Portal</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE OVERVIEW: SCHOOL-WIDE STUDENT & TEACHER SUPPORT OVERVIEW (Warm Light Mode) -->
+  <section id="admin-radar" class="py-20 lg:py-24 bg-[#F2EFE9] text-stone-900 border-b border-stone-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#e1ede8] text-[#163d2b] border border-[#2d6a4f]/20 text-sm sm:text-base font-bold uppercase tracking-wider shadow-xs">
+          <i data-lucide="building-2" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span>Feature Overview • School-Wide Support Visibility</span>
+        </div>
+      </div>
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        <div class="max-w-3xl">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-stone-900">
+            See Every Student Across the School. Know Exactly What Help Each Teacher Needs.
+          </h2>
+          <p class="mt-4 text-stone-600 text-base sm:text-lg leading-relaxed">
+            School leaders shouldn’t have to wait for end-of-quarter testing or teacher burnout to spot a bottleneck. Goalvera aggregates classroom session trends across your school to identify <strong class="text-stone-900">which students need help</strong> and <strong class="text-[#1f523b]">what exact type of coaching or specialist support</strong> will unlock progress.
+          </p>
+        </div>
+
+        <!-- Interactive Filter Pills (Light Mode) -->
+        <div class="flex flex-wrap items-center gap-2 bg-white p-1.5 rounded-2xl border border-stone-300 shadow-sm self-start">
+          <button onclick="filterAdminTable('all')" id="admFilter-all" class="adm-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-[#2d6a4f] text-white transition cursor-pointer">
+            All Students (6)
+          </button>
+          <button onclick="filterAdminTable('slp')" id="admFilter-slp" class="adm-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-stone-600 hover:text-stone-900 transition cursor-pointer">
+            Needs Speech / Phonetic Help (2)
+          </button>
+          <button onclick="filterAdminTable('behavior')" id="admFilter-behavior" class="adm-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-stone-600 hover:text-stone-900 transition cursor-pointer">
+            Behavioral Support (2)
+          </button>
+          <button onclick="filterAdminTable('ontrack')" id="admFilter-ontrack" class="adm-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-stone-600 hover:text-stone-900 transition cursor-pointer">
+            Accelerating (2)
+          </button>
+        </div>
+      </div>
+
+      <!-- Top 4 KPI Summary Cards (Light Mode) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-white border border-stone-200 rounded-2xl p-4 shadow-sm">
+          <div class="text-xs text-stone-500 font-medium">Active Students Across School</div>
+          <div class="text-2xl font-display font-extrabold text-stone-900 mt-1">142 Students</div>
+          <div class="text-xs text-[#1f523b] font-semibold mt-1 flex items-center gap-1">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> 94% weekly session capture rate
+          </div>
+        </div>
+        <div class="bg-white border border-stone-200 rounded-2xl p-4 shadow-sm">
+          <div class="text-xs text-stone-500 font-medium">Students Flagged for Early Help</div>
+          <div class="text-2xl font-display font-extrabold text-amber-700 mt-1">11 Students</div>
+          <div class="text-xs text-stone-600 mt-1">Identified 5 weeks before quarter end</div>
+        </div>
+        <div class="bg-white border border-stone-200 rounded-2xl p-4 shadow-sm">
+          <div class="text-xs text-stone-500 font-medium">Recommended Teacher Support</div>
+          <div class="text-2xl font-display font-extrabold text-[#1f523b] mt-1">3 Co-Teach Blocks</div>
+          <div class="text-xs text-stone-600 mt-1">SLP + Paraprofessional matching</div>
+        </div>
+        <div class="bg-white border border-stone-200 rounded-2xl p-4 shadow-sm">
+          <div class="text-xs text-stone-500 font-medium">Teacher Paperwork Saved</div>
+          <div class="text-2xl font-display font-extrabold text-[#1f523b] mt-1">6.4 hrs / wk</div>
+          <div class="text-xs text-stone-600 mt-1">Per educator on plan logs & parent notes</div>
+        </div>
+      </div>
+
+      <!-- Interactive School-Wide Diagnostic Table (Light Mode) -->
+      <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-md">
+        <div class="px-6 py-4 bg-[#FBF9F5] border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#2d6a4f]"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-stone-700">Live School-Wide Student & Teacher Support Matrix</span>
+          </div>
+          <span class="text-xs text-stone-500">Aggregated from transcript-level phonetic & behavioral session logs</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-stone-200 text-[11px] font-bold uppercase tracking-wider text-stone-500 bg-stone-50">
+                <th class="py-3.5 px-5">Student & Classroom</th>
+                <th class="py-3.5 px-4">Phonetic & Language Trajectory</th>
+                <th class="py-3.5 px-4">Behavior & Pacing Status</th>
+                <th class="py-3.5 px-5">AI Recommended Help (Student + Teacher)</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody" class="divide-y divide-stone-200 text-xs sm:text-sm">
+              <!-- Populated dynamically via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FAQ & OPEN SOURCE TRUST -->
+  <section id="faq" class="py-20 lg:py-24 bg-white border-b border-stone-200/90">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="px-3 py-1 rounded-full bg-[#e1ede8] text-[#163d2b] text-xs font-bold uppercase tracking-wider">
+          District IT, Privacy & Educator FAQ
+        </span>
+        <h2 class="mt-3 font-display font-bold text-3xl sm:text-4xl text-stone-900">
+          Built for Classroom Trust & Open-Source Transparency
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ Item 1 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#FBF9F5]">
+          <button onclick="toggleFaq(0)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-stone-900 hover:bg-stone-100/70 transition cursor-pointer">
+            <span>1. Why is transcript-level phonetic AI so valuable compared to standard session summaries?</span>
+            <i id="faqIcon0" data-lucide="chevron-down" class="w-5 h-5 text-stone-500 transition-transform"></i>
+          </button>
+          <div id="faqContent0" class="px-6 pb-5 text-sm text-stone-600 leading-relaxed">
+            Standard speech-to-text tools are trained to "clean up" broken sentences, which erases the exact pronunciation hurdles a special needs child learning English is working through. Goalvera analyzes speech at the raw phoneme and transcript level—capturing consonant blend substitutions, language transfer patterns, and hesitation pauses—and links those exact timestamps directly to progress forms.
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#FBF9F5]">
+          <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-stone-900 hover:bg-stone-100/70 transition cursor-pointer">
+            <span>2. How does the recorder protect privacy?</span>
+            <i id="faqIcon1" data-lucide="chevron-down" class="w-5 h-5 text-stone-500 transition-transform"></i>
+          </button>
+          <div id="faqContent1" class="hidden px-6 pb-5 text-sm text-stone-600 leading-relaxed">
+            Our Dedicated Classroom Recorder uploads audio over an encrypted HTTPS connection automatically in the background. Once the phonetic transcript, daily coaching report, and weekly progress assessments are generated, raw audio files are automatically and permanently deleted from cloud storage after 7 days. Furthermore, because Goalvera is licensed under Apache 2.0, district IT teams can audit the entire codebase or self-host on district infrastructure.
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#FBF9F5]">
+          <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-stone-900 hover:bg-stone-100/70 transition cursor-pointer">
+            <span>3. Does Goalvera ever email parents or finalize evaluations without the teacher?</span>
+            <i id="faqIcon2" data-lucide="chevron-down" class="w-5 h-5 text-stone-500 transition-transform"></i>
+          </button>
+          <div id="faqContent2" class="hidden px-6 pb-5 text-sm text-stone-600 leading-relaxed">
+            Never. Every weekly parent summary, evaluation rubric, and incident report is created strictly as a draft for the teacher. You have full editorial control over the tone, language translation, and content before anything is shared with a parent or logged into an official record.
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#FBF9F5]">
+          <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-stone-900 hover:bg-stone-100/70 transition cursor-pointer">
+            <span>4. How do the 3 inputs (Recording + Lesson Plan + Behavior Profile) work together?</span>
+            <i id="faqIcon3" data-lucide="chevron-down" class="w-5 h-5 text-stone-500 transition-transform"></i>
+          </button>
+          <div id="faqContent3" class="hidden px-6 pb-5 text-sm text-stone-600 leading-relaxed">
+            Before a session, Goalvera references the teacher's daily lesson plan and the student's behavior & assessment profile. When the recording is uploaded, the AI compares intended instruction against actual phonetic performance and behavioral cues—delivering a tailored daily coaching summary alongside pre-adjusted lesson steps for tomorrow.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA BANNER (Warm Light Theme matching goalvera.app) -->
+  <section class="py-16 bg-[#e1ede8] text-stone-900 border-b border-stone-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-[#0f291e]">
+        Want to see it with your own lessons?
+      </h2>
+      <p class="mt-4 text-stone-700 text-base sm:text-lg max-w-2xl mx-auto">
+        Try Goalvera with our low-cost Dedicated Classroom Recorder kit or start immediately in our interactive demo account.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <button onclick="openDemoModal('Try Goalvera Now')" class="px-6 py-3.5 rounded-xl font-bold text-white bg-[#2d6a4f] hover:bg-[#1f523b] shadow-md transition cursor-pointer flex items-center gap-2">
+          <i data-lucide="play" class="w-5 h-5"></i>
+          <span>Try Now</span>
+        </button>
+        <a href="https://github.com/Intellisolve-IO/goalvera" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-bold text-stone-800 bg-white hover:bg-stone-50 border border-stone-300 shadow-sm transition flex items-center gap-2">
+          <i data-lucide="github" class="w-5 h-5 text-[#2d6a4f]"></i>
+          <span>See the code on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Light Mode matching goalvera.app) -->
+  <footer class="bg-[#FBF9F5] text-stone-600 py-12 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img
+          src="/img/goalvera-B2-large-oneword-dark.svg"
+          onerror="this.onerror=null; this.src='/img/goalvera-B2-large-oneword-light.svg';"
+          alt="Goalvera"
+          width="128"
+          height="32"
+          class="h-7 w-auto object-contain"
+        />
+        <span class="text-stone-500">An Intellisolve project • Apache 2.0 Open Source</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-6">
+        <a href="mailto:sales@intellisolve.io" class="hover:text-[#1f523b] font-medium transition">Email sales@intellisolve.io</a>
+        <a href="https://github.com/Intellisolve-IO/goalvera" target="_blank" rel="noopener noreferrer" class="hover:text-[#1f523b] font-medium transition">GitHub Repository</a>
+        <button onclick="openDemoModal('Try Goalvera Now')" class="hover:text-[#1f523b] font-medium transition cursor-pointer">Try Now</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE DEMO REQUEST MODAL -->
+  <div id="demoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-stone-900/40 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-stone-200 relative">
+      <button onclick="closeDemoModal()" class="absolute top-4 right-4 p-2 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition cursor-pointer">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e1ede8] text-[#163d2b] text-xs font-bold mb-3">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        <span id="modalContextBadge">Try Goalvera Now</span>
+      </div>
+      <h3 class="font-display font-bold text-2xl text-stone-900">Try Goalvera With Sample Lessons</h3>
+      <p class="text-xs sm:text-sm text-stone-600 mt-1">
+        Experience our transcript-level phonetic AI, the Dedicated Classroom Recorder workflow, and daily coaching summaries.
+      </p>
+
+      <a href="mailto:sales@intellisolve.io" class="mt-5 inline-flex w-full items-center justify-center py-3 rounded-xl font-bold text-sm text-white bg-[#2d6a4f] hover:bg-[#1f523b] shadow-md transition">
+        Email sales@intellisolve.io
+      </a>
+      <button type="button" onclick="copySalesEmail(this)" class="mt-2 inline-flex w-full items-center justify-center py-2.5 rounded-xl font-semibold text-sm text-[#2d6a4f] border-2 border-[#2d6a4f] hover:bg-[#2d6a4f]/5 transition cursor-pointer">
+        Copy email address
+      </button>
+      <p class="text-xs text-stone-500 mt-2 text-center">No mail app opened? Write to <span class="font-semibold text-stone-700 select-all">sales@intellisolve.io</span></p>
+    </div>
   </div>
-</header>
-<main id="main" class="wrap">
-  <section aria-labelledby="how">
-    <h2 id="how">How it works</h2>
-    <ol class="steps">
-      <li><strong>Add each student's education plan.</strong> Goalvera uses the goals in the plan as the starting point for everything it suggests.</li>
-      <li><strong>Record your sessions.</strong> A small classroom recorder captures the session so Goalvera has a transcript to work from. (An iPhone demo is coming soon.)</li>
-      <li><strong>Get your daily email.</strong> At the end of each day you get coaching suggestions tied to each student's goals, plus tools to start tomorrow's lesson plan.</li>
-      <li><strong>Review the weekly drafts.</strong> Parent summaries and forms show up as drafts. You read them, change what you want, and send or file them yourself.</li>
-    </ol>
-  </section>
-  <section aria-labelledby="daily" class="card">
-    <h2 id="daily">The daily email</h2>
-    <p>At the end of every day, you get one email that is written for you and your students.</p>
-    <ul>
-      <li><strong>What happened today:</strong> a short read on each student's day, tied back to the goals in their plan.</li>
-      <li><strong>Coaching suggestions:</strong> practical ideas for tomorrow, based on the student's plan and what actually happened in the session.</li>
-      <li><strong>Lesson plan tools:</strong> a starting point for tomorrow's lesson plan that you can adjust in a few minutes.</li>
-    </ul>
-    <p>It is a suggestion, not a script. You know your students; Goalvera just helps you see the day clearly.</p>
-  </section>
-  <section aria-labelledby="weekly">
-    <h2 id="weekly">The weekly parent summary</h2>
-    <p>At the end of the week, Goalvera drafts a summary for each student's family. You review it, edit it, and send it yourself. Nothing goes to a parent without you.</p>
-    <ul>
-      <li>Written in plain language a family can read in a minute.</li>
-      <li>Tied to the goals in the student's plan.</li>
-      <li>Your words have the final say: change the tone, add a note, or leave something out.</li>
-    </ul>
-  </section>
-  <section aria-labelledby="forms">
-    <h2 id="forms">Forms, drafted for your review</h2>
-    <p>Evaluations, worksheets and incident forms come pre-filled with suggestions from your classroom transcripts, so you're not rebuilding the day from memory.</p>
-    <ul>
-      <li>Each suggestion shows what was said in class, so you can check it at a glance.</li>
-      <li>You check it, correct it and approve it before it is used anywhere.</li>
-      <li>You spend your time on judgment, not retyping.</li>
-    </ul>
-  </section>
-  <section aria-labelledby="recorder">
-    <h2 id="recorder">The recorder and the demo</h2>
-    <p><strong>The classroom recorder (DIY kit).</strong> Goalvera runs on one device: the Hosyond ESP32-S3 3.5" board, in a 3D-printed case. It is low-cost and built from a parts list. We help you set it up.</p>
-    <ul>
-      <li>Records classroom sessions and uploads them over an encrypted (HTTPS) connection.</li>
-      <li>Audio recordings are deleted from cloud storage after 7 days.</li>
-      <li>Open source, so you can run it yourself if your district prefers.</li>
-    </ul>
-    <p><strong>Try the demo.</strong></p>
-    <ul>
-      <li><strong>With the DIY kit:</strong> build the recorder and try it in a demo account.</li>
-      <li><strong>With an iPhone (coming soon):</strong> record from Safari on your iPhone, no app to install. The iPhone recorder is for the demo only; the Hosyond board is the supported classroom device.</li>
-    </ul>
-    <p>The demo uses made-up sample data and a sample lesson script. Please don't record real students in the demo.</p>
-  </section>
-  <section aria-labelledby="oss" class="card">
-    <h2 id="oss">Open source</h2>
-    <p>Goalvera is open source under the Apache 2.0 license. You can read the code, see how student information is handled, and run it yourself if your district prefers. Intellisolve builds and maintains it, and can help you set it up.</p>
-    <ul>
-      <li>License: Apache 2.0</li>
-      <li>Code: <a href="https://github.com/Intellisolve-IO/goalvera">github.com/Intellisolve-IO/goalvera</a></li>
-    </ul>
-  </section>
-  <section aria-labelledby="faq">
-    <h2 id="faq">FAQ</h2>
-    <h3>Who is Goalvera for?</h3>
-    <p>Special education teachers who want more time with students and less time on paperwork.</p>
-    <h3>Does Goalvera send anything to parents on its own?</h3>
-    <p>No. Weekly summaries are drafts. You review them, edit them and send them yourself.</p>
-    <h3>Are the forms filled in for me?</h3>
-    <p>They are drafted for you. Evaluations, worksheets and incident forms are suggested from your classroom transcripts, and you review and approve every one before it's used.</p>
-    <h3>What do I need to record sessions?</h3>
-    <p>The Hosyond ESP32-S3 3.5" board, which is the only supported classroom device. An iPhone demo is coming soon.</p>
-    <h3>What happens to recordings and student information?</h3>
-    <p>Goalvera is open source, so you can read the code and run it yourself if your district prefers. Audio is uploaded over an encrypted (HTTPS) connection. Audio recordings are deleted from cloud storage after 7 days.</p>
-    <h3>What does it cost?</h3>
-    <p>The code is free under Apache 2.0. Email us about setup and support for your school.</p>
-  </section>
-</main>
-<section class="final" aria-labelledby="cta">
-  <div class="wrap">
-    <h2 id="cta">Want to see it with your own lessons?</h2>
-    <p>Email us and we will set you up with a demo using the DIY kit, or your iPhone (coming soon).</p>
-    <p><a class="btn light" href="mailto:sales@intellisolve.io">Email sales@intellisolve.io</a></p>
+
+  <!-- TOAST NOTIFICATION FOR INTERACTIVE ACTIONS (Light Theme) -->
+  <div id="toastNotice" class="fixed bottom-5 right-5 z-50 hidden bg-white text-stone-900 px-4 py-3 rounded-xl shadow-xl border-2 border-[#2d6a4f] text-xs font-semibold items-center gap-2.5">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-[#2d6a4f]"></i>
+    <span id="toastText">Action completed</span>
   </div>
-</section>
-<footer><div class="wrap"><img src="/img/goalvera-B2-large-oneword-dark.svg" alt="Goalvera" width="128" height="32"> An Intellisolve project</div></footer>
+
+  <!-- INTERACTIVE JAVASCRIPT -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // 0. GOOGLE MATERIAL DESIGN 3 ANIMATED 5-STAGE WORKFLOW ENGINE
+    let currentMd3Stage = 0;
+    let md3AutoPlay = true;
+    const md3Captions = [
+      'Dedicated Classroom Recorder acting as the teacher\'s assistant',
+      'Supporting photo/video evidence, auto-drafted incident reports & teacher notes',
+      'Seamless encrypted background upload to Goalvera Cloud (7-day auto-purge)',
+      'End-of-day student coaching email with draft incident reports, worksheets & reminders',
+      'Weekly Progress Assessment Agent drafting parent updates & next week’s lesson goals'
+    ];
+
+    function updateMd3AutoPlayUI() {
+      const icon = document.getElementById('md3PlayIcon');
+      const label = document.getElementById('md3PlayLabel');
+      const btn = document.getElementById('md3PlayToggle');
+      if (!icon || !label || !btn) return;
+
+      if (md3AutoPlay) {
+        icon.textContent = 'pause_circle';
+        label.textContent = 'Auto-Stepping Active';
+        btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#D8ECE2] hover:bg-[#c5e2d4] text-[#0F2E22] font-bold text-xs shadow-sm transition cursor-pointer';
+      } else {
+        icon.textContent = 'play_circle';
+        label.textContent = 'Auto-Stepping Off';
+        btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs shadow-sm transition cursor-pointer';
+      }
+    }
+
+    function selectMd3Stage(idx, userInitiated = false) {
+      if (userInitiated && md3AutoPlay) {
+        md3AutoPlay = false;
+        updateMd3AutoPlayUI();
+      }
+      currentMd3Stage = idx;
+      for (let i = 0; i < 5; i++) {
+        const node = document.getElementById('md3Node' + i);
+        const panel = document.getElementById('md3StagePanel' + i);
+        if (i === idx) {
+          node.className = 'md3-transition text-center px-4 py-5 rounded-3xl bg-white border-2 border-[#2d6a4f] shadow-md flex flex-col items-center justify-center gap-2.5 cursor-pointer group';
+          panel.classList.remove('hidden');
+          panel.classList.add('grid');
+        } else {
+          node.className = 'md3-transition text-center px-4 py-5 rounded-3xl bg-white/80 hover:bg-white border-2 border-transparent shadow-sm flex flex-col items-center justify-center gap-2.5 cursor-pointer group';
+          panel.classList.add('hidden');
+          panel.classList.remove('grid');
+        }
+      }
+      document.getElementById('md3FooterCaption').textContent = md3Captions[idx];
+    }
+
+    function nextMd3Stage(userInitiated = false) {
+      const next = (currentMd3Stage + 1) % 5;
+      selectMd3Stage(next, userInitiated);
+    }
+
+    let md3Interval = setInterval(() => {
+      if (md3AutoPlay) {
+        nextMd3Stage(false);
+      }
+    }, 5200);
+
+    function toggleMd3AutoPlay() {
+      md3AutoPlay = !md3AutoPlay;
+      updateMd3AutoPlayUI();
+    }
+
+    function tagClassroomMoment() {
+      showToast('Teacher note & incident timestamp tagged to live classroom timeline');
+    }
+
+
+    // 1. Hero Role Switcher (Teacher vs School Overview)
+    function switchHeroView(role) {
+      const teacherPanel = document.getElementById('heroTeacherPanel');
+      const adminPanel = document.getElementById('heroAdminPanel');
+      const tabTeacher = document.getElementById('heroTabTeacher');
+      const tabAdmin = document.getElementById('heroTabAdmin');
+
+      if (role === 'teacher') {
+        teacherPanel.classList.remove('hidden');
+        adminPanel.classList.add('hidden');
+        tabTeacher.className = 'flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#1f523b] shadow-sm transition cursor-pointer';
+        tabAdmin.className = 'flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-stone-600 hover:text-stone-900 transition cursor-pointer';
+      } else {
+        teacherPanel.classList.add('hidden');
+        adminPanel.classList.remove('hidden');
+        tabAdmin.className = 'flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#1f523b] shadow-sm transition cursor-pointer';
+        tabTeacher.className = 'flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-stone-600 hover:text-stone-900 transition cursor-pointer';
+      }
+    }
+
+    // 2. Interactive Phonetic Transcript Scenarios (Pillar 1 - Light Mode)
+    const phoneticScenarios = [
+      {
+        generic: '"The three stars shine brightly in the sky." (Masks that the student struggled on 2 target phonemes)',
+        timestamp: 'Session 08:42.10',
+        transcript: '"De <span class="text-amber-800 font-bold underline decoration-wavy">/t-r-iː/</span> [1.4s pause] <span class="text-rose-800 font-bold underline decoration-wavy">/e-s-tɑːrz/</span> shine... Miss Sarah, my mouth is tired."',
+        analysis: 'Unvoiced dental fricative /θ/ ("three") substituted with alveolar stop /t/. Epenthetic /e/ inserted before /st/ cluster ("estars"), typical of first-language phonological transfer.',
+        citation: 'Goal 2.1 Log: Mateo achieved 6/10 accuracy on isolated /st/ words; requires visual tongue-placement cue for /θ/ prior to full sentence reading (Cited @ 08:42).'
+      },
+      {
+        generic: '"The ship is big and carries food." (Erases short-vowel substitution & self-correction)',
+        timestamp: 'Session 14:19.05',
+        transcript: '"The <span class="text-amber-800 font-bold underline decoration-wavy">/ʃiːp/ (sheep)</span> is big and lleva... carries <span class="text-[#1f523b] font-bold underline decoration-wavy">/fʊd/</span>."',
+        analysis: 'Tense high front vowel /iː/ ("sheep") substituted for lax vowel /ɪ/ ("ship"). Brief verb transfer ("lleva") self-corrected within 0.8s into English "carries" (positive metalinguistic awareness).',
+        citation: 'Language Rubric Log: Self-corrected verb transfer independently; add minimal-pair picture sort (/ɪ/ vs /iː/: ship/sheep, bit/beet) to tomorrow’s warm-up (Cited @ 14:19).'
+      },
+      {
+        generic: '"No, I do not want to read this page." (Misses rising vocal pitch, stutter block & sensory overload cue)',
+        timestamp: 'Session 18:04.40',
+        transcript: '"N-n-no, I don\'t <span class="text-rose-800 font-bold underline decoration-wavy">[pitch +45Hz, desk tap]</span> w-want this page... too loud in here."',
+        analysis: 'Part-word repetition block on initial alveolar nasal /n/ accompanied by vocal fundamental frequency spike (+45Hz) following hallway bell noise—matches sensory profile trigger.',
+        citation: 'Behavior & Incident Draft: Proactive de-escalation initiated at 18:05 after auditory bell trigger; student regulated within 90s using noise-dampening headphones.'
+      }
+    ];
+
+    function selectPhoneticScenario(idx) {
+      const s = phoneticScenarios[idx];
+      document.getElementById('scenGenericText').innerHTML = s.generic;
+      document.getElementById('scenTimestamp').textContent = s.timestamp;
+      document.getElementById('scenPhoneticTranscript').innerHTML = s.transcript;
+      document.getElementById('scenAnalysis').textContent = s.analysis;
+      document.getElementById('scenCitation').textContent = s.citation;
+
+      for (let i = 0; i < 3; i++) {
+        const btn = document.getElementById('scenBtn' + i);
+        if (i === idx) {
+          btn.className = 'scen-btn text-left p-3 rounded-xl border-2 transition cursor-pointer bg-[#e1ede8] border-[#2d6a4f] text-stone-900';
+        } else {
+          btn.className = 'scen-btn text-left p-3 rounded-xl border transition cursor-pointer bg-white border-stone-200 text-stone-700 hover:bg-stone-50';
+        }
+      }
+    }
+
+    // 3. Interactive Dedicated Classroom Recorder Simulation (Pillar 2)
+    let isRecording = true;
+    function toggleHardwareRecorder() {
+      const waveform = document.getElementById('hwWaveform');
+      const badge = document.getElementById('hwStatusBadge');
+      const btn = document.getElementById('hwToggleBtn');
+      const led = document.getElementById('hwLed');
+      const note = document.getElementById('hwLifecycleNote');
+
+      isRecording = !isRecording;
+      if (!isRecording) {
+        waveform.classList.add('wave-paused');
+        badge.textContent = 'HTTPS UPLOAD COMPLETE ✓';
+        badge.className = 'px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-mono text-[11px] font-semibold';
+        led.className = 'w-2.5 h-2.5 rounded-full bg-amber-500';
+        btn.innerHTML = '<span>Start New Session</span>';
+        btn.className = 'py-2.5 px-3 rounded-xl font-bold text-xs bg-[#2d6a4f] hover:bg-[#1f523b] text-white transition flex items-center justify-center gap-1.5 shadow-sm cursor-pointer';
+        note.innerHTML = '<span class="flex items-center gap-2 text-[#163d2b] font-medium">✓ Audio encrypted & uploaded to Goalvera Cloud. 3-Input synthesis running. Raw audio scheduled for auto-deletion in 7 days.</span>';
+        showToast('Session encrypted & uploaded to cloud for phonetic synthesis');
+      } else {
+        waveform.classList.remove('wave-paused');
+        badge.textContent = 'RECORDING & ENCRYPTING';
+        badge.className = 'px-2 py-0.5 rounded bg-[#e1ede8] text-[#163d2b] font-mono text-[11px] font-semibold';
+        led.className = 'w-2.5 h-2.5 rounded-full bg-[#2d6a4f]';
+        btn.innerHTML = '<span>Finish & Sync</span>';
+        btn.className = 'py-2.5 px-3 rounded-xl font-bold text-xs bg-[#2d6a4f] hover:bg-[#1f523b] text-white transition flex items-center justify-center gap-1.5 shadow-sm cursor-pointer';
+      }
+    }
+
+    // 4. Multilingual Parent Summary Switcher (Pillar 4)
+    const parentTranslations = {
+      en: {
+        subject: 'Mateo’s Weekly Classroom Wins & Speech Milestones (Oct 19 – Oct 23)',
+        body: `<p>Dear Elena and Carlos,</p>
+               <p>Mateo had a wonderful, focused week in our small-group language and speech sessions! Across four recorded lessons this week, we practiced reading words that start with <strong>"st"</strong> (like <em>star</em> and <em>stop</em>) and <strong>"th"</strong> (like <em>three</em>).</p>
+               <p><strong>🌟 This Week’s Big Win:</strong> By Thursday’s session, Mateo read 8 out of 10 "st" words clearly on his very first try—up from 5 last week! Using our playful "snake hiss" warm-up helped him feel confident and relaxed, and he asked for his sensory stretch break all by himself instead of getting frustrated.</p>
+               <p><strong>🏡 Optional 2-Minute Home Practice:</strong> While cooking or driving this weekend, point out 3 things that start with a long <em>"ssss-t"</em> sound (like <em>stairs</em>, <em>spoon</em>, or <em>star</em>).</p>
+               <p>Warmly,<br/><strong>Ms. Sarah Jenkins</strong> • Grade 2 Special Education</p>`
+      },
+      es: {
+        subject: 'Logros semanales de Mateo en clase y avances del habla (19 al 23 de oct.)',
+        body: `<p>Estimados Elena y Carlos:</p>
+               <p>¡Mateo tuvo una semana maravillosa y muy concentrada en nuestras sesiones de lenguaje y habla! Durante cuatro sesiones esta semana, practicamos la lectura de palabras que comienzan con <strong>"st"</strong> (como <em>star</em> y <em>stop</em>) y <strong>"th"</strong> (como <em>three</em>).</p>
+               <p><strong>🌟 El gran logro de esta semana:</strong> ¡En la sesión del jueves, Mateo leyó claramente 8 de 10 palabras con "st" en su primer intento (frente a 5 la semana pasada)! Nuestro calentamiento del "sonido de la serpiente" le ayudó a sentirse seguro, y pidió su descanso sensorial por sí mismo sin frustrarse.</p>
+               <p><strong>🏡 Práctica opcional de 2 minutos en casa:</strong> Este fin de semana, señalen juntos 3 objetos que comiencen con el sonido <em>"ssss-t"</em> (como <em>star</em> o <em>stairs</em>).</p>
+               <p>Con cariño,<br/><strong>Ms. Sarah Jenkins</strong> • Educación Especial (2.º grado)</p>`
+      },
+      zh: {
+        subject: 'Mateo 本周课堂进步与语音里程碑总结（10月19日 – 10月23日）',
+        body: `<p>亲爱的 Elena 和 Carlos：</p>
+               <p>Mateo 本周在我们的语言和语音小组课上表现得非常专注！在本周的四次课程中，我们重点练习了以 <strong>"st"</strong>（如 <em>star</em>、<em>stop</em>）和 <strong>"th"</strong>（如 <em>three</em>）开头的单词发音。</p>
+               <p><strong>🌟 本周最大进步：</strong> 到周四上课时，Mateo 在第一次尝试时就能清晰读出 10 个 "st" 单词中的 8 个（上周为 5 个）！通过有趣的“小蛇嘶嘶声”热身练习，他感到非常自信放松，并且能够主动请求感官休息，没有出现急躁情绪。</p>
+               <p><strong>🏡 周末 2 分钟家庭小练习：</strong> 周末在家里或外出时，可以和孩子一起找出 3 个以 <em>"ssss-t"</em> 发音开头的物品（例如 <em>star</em> 或 <em>stairs</em>）。</p>
+               <p>祝好，<br/><strong>Sarah Jenkins 老师</strong> • 二年级特殊教育</p>`
+      }
+    };
+
+    function setParentLang(lang) {
+      document.getElementById('parentSubject').textContent = parentTranslations[lang].subject;
+      document.getElementById('parentBodyText').innerHTML = parentTranslations[lang].body;
+
+      ['en', 'es', 'zh'].forEach(code => {
+        const btn = document.getElementById('langBtn' + code.charAt(0).toUpperCase() + code.slice(1));
+        if (code === lang) {
+          btn.className = 'px-2.5 py-1 rounded-lg bg-white text-[#1f523b] shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-lg text-stone-600 hover:text-stone-900 transition cursor-pointer';
+        }
+      });
+    }
+
+    function approveParentDraft() {
+      const btn = document.getElementById('approveDraftBtn');
+      btn.innerHTML = '<span>✓ Approved by Teacher & Copied</span>';
+      btn.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-[#1f523b] text-white shadow-sm transition flex items-center gap-1.5 cursor-pointer';
+      showToast('Parent summary approved by teacher & copied to clipboard');
+    }
+
+    // 5. School-Wide Support Table Filtering (Pillar 5 - Light Mode)
+    const adminStudents = [
+      {
+        category: 'slp',
+        student: 'Mateo R. (Grade 2 • Speech & Language Plan)',
+        teacher: 'Ms. Sarah Jenkins • Room 204',
+        phonetic: '60% on /st/ blends; 30% on voiceless /θ/ ("th")',
+        phoneticBadge: 'Phonetic Bottleneck',
+        phoneticColor: 'bg-amber-100 text-amber-900 border-amber-300',
+        behavior: '0 escalations this week (Sensory break working)',
+        supportMatch: 'Deploy SLP for 20-min Tuesday co-teaching block on dental fricatives (/θ/) + share phonetic bridge cards with Ms. Jenkins.'
+      },
+      {
+        category: 'behavior',
+        student: 'Liam K. (Grade 1 • Autism Plan)',
+        teacher: 'Mr. David Okafor • Room 108',
+        phonetic: '78% sight-word articulation accuracy',
+        phoneticBadge: 'Auditory Sensitivity',
+        phoneticColor: 'bg-rose-100 text-rose-900 border-rose-300',
+        behavior: '3 vocal pitch spikes logged after 1:15 PM bell',
+        supportMatch: 'Assign afternoon Paraprofessional check-in at 1:10 PM for sensory decompression before phonics instruction begins.'
+      },
+      {
+        category: 'slp',
+        student: 'Amina H. (Grade 3 • Language Acquisition)',
+        teacher: 'Ms. Priya Patel • Room 210',
+        phonetic: 'Struggling with final consonant clusters (/nd/, /lt/)',
+        phoneticBadge: 'Needs Phonetic Scaffolding',
+        phoneticColor: 'bg-amber-100 text-amber-900 border-amber-300',
+        behavior: 'High engagement; hesitates during choral reading',
+        supportMatch: 'Provide Ms. Patel with visual word-ending elkonin boxes & schedule Instructional Coach modeling session.'
+      },
+      {
+        category: 'behavior',
+        student: 'Noah T. (Kindergarten • Speech + Behavior)',
+        teacher: 'Mr. David Okafor • Room 108',
+        phonetic: '45% accuracy on initial /r/ and /l/ liquids',
+        phoneticBadge: 'Pacing Fatigue',
+        phoneticColor: 'bg-rose-100 text-rose-900 border-rose-300',
+        behavior: 'Task refusal after 12 minutes of continuous drills',
+        supportMatch: 'Coach teacher to split 20-min lesson into two 8-min micro-blocks; pair with SLP pull-out group.'
+      },
+      {
+        category: 'ontrack',
+        student: 'Mei-Ling C. (Grade 4 • Language Goal #3)',
+        teacher: 'Ms. Grace Lin • Room 312',
+        phonetic: '+38% improvement on Diphthongs & /ɪ/ vs /iː/',
+        phoneticBadge: 'Accelerating (+38%)',
+        phoneticColor: 'bg-[#e1ede8] text-[#163d2b] border-[#2d6a4f]/30',
+        behavior: '100% lesson plan completion across 5 sessions',
+        supportMatch: 'Ready for exit assessment review next month; share Ms. Lin’s minimal-pair warm-up routine across Grade 4 team.'
+      },
+      {
+        category: 'ontrack',
+        student: 'Sofia V. (Grade 2 • Speech Plan)',
+        teacher: 'Ms. Sarah Jenkins • Room 204',
+        phonetic: '88% mastery on multisyllabic pacing',
+        phoneticBadge: 'Meeting Plan Goal',
+        phoneticColor: 'bg-[#e1ede8] text-[#163d2b] border-[#2d6a4f]/30',
+        behavior: 'Consistent self-monitoring & calm turn-taking',
+        supportMatch: 'On track to graduate from Tier 3 to Tier 2 consultation at semester review.'
+      }
+    ];
+
+    function filterAdminTable(filter) {
+      const tbody = document.getElementById('adminTableBody');
+      tbody.innerHTML = '';
+
+      const filtered = filter === 'all' ? adminStudents : adminStudents.filter(s => s.category === filter);
+
+      filtered.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-stone-50 transition';
+        tr.innerHTML = `
+          <td class="py-4 px-5 align-top">
+            <div class="font-bold text-stone-900">${row.student}</div>
+            <div class="text-xs text-stone-500 mt-0.5">${row.teacher}</div>
+          </td>
+          <td class="py-4 px-4 align-top">
+            <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold border ${row.phoneticColor} mb-1">
+              ${row.phoneticBadge}
+            </span>
+            <div class="text-xs text-stone-700">${row.phonetic}</div>
+          </td>
+          <td class="py-4 px-4 align-top text-xs text-stone-700">
+            ${row.behavior}
+          </td>
+          <td class="py-4 px-5 align-top">
+            <div class="p-2.5 rounded-xl bg-[#f2f7f5] border border-[#2d6a4f]/25 text-xs text-stone-800 leading-relaxed">
+              <strong class="text-[#1f523b] block mb-0.5">Recommended Action:</strong>
+              ${row.supportMatch}
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      ['all', 'slp', 'behavior', 'ontrack'].forEach(key => {
+        const btn = document.getElementById('admFilter-' + key);
+        if (key === filter) {
+          btn.className = 'adm-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-[#2d6a4f] text-white transition cursor-pointer';
+        } else {
+          btn.className = 'adm-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold text-stone-600 hover:text-stone-900 transition cursor-pointer';
+        }
+      });
+    }
+
+    // Initialize Table on Load
+    filterAdminTable('all');
+
+    // 6. FAQ Accordion Toggle
+    function toggleFaq(idx) {
+      const content = document.getElementById('faqContent' + idx);
+      const icon = document.getElementById('faqIcon' + idx);
+      const isHidden = content.classList.contains('hidden');
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // 7. Modal & Toast Helpers
+    function openDemoModal(context) {
+      document.getElementById('modalContextBadge').textContent = context;
+      const modal = document.getElementById('demoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function copySalesEmail(btn) {
+      const addr = 'sales@intellisolve.io';
+      const done = () => { btn.textContent = 'Copied sales@intellisolve.io'; setTimeout(() => { btn.textContent = 'Copy email address'; }, 2500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(done).catch(() => { window.prompt('Copy this address:', addr); });
+      } else {
+        window.prompt('Copy this address:', addr);
+      }
+    }
+
+    function closeDemoModal() {
+      const modal = document.getElementById('demoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotice');
+      document.getElementById('toastText').textContent = msg;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 3600);
+    }
+  </script>
 </body>
-</html>
