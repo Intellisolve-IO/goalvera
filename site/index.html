@@ -1490,6 +1490,10 @@
       <a href="mailto:sales@intellisolve.io" class="mt-5 inline-flex w-full items-center justify-center py-3 rounded-xl font-bold text-sm text-white bg-[#2d6a4f] hover:bg-[#1f523b] shadow-md transition">
         Email sales@intellisolve.io
       </a>
+      <button type="button" onclick="copySalesEmail(this)" class="mt-2 inline-flex w-full items-center justify-center py-2.5 rounded-xl font-semibold text-sm text-[#2d6a4f] border-2 border-[#2d6a4f] hover:bg-[#2d6a4f]/5 transition cursor-pointer">
+        Copy email address
+      </button>
+      <p class="text-xs text-stone-500 mt-2 text-center">No mail app opened? Write to <span class="font-semibold text-stone-700 select-all">sales@intellisolve.io</span></p>
     </div>
   </div>
 
@@ -1846,6 +1850,16 @@
       const modal = document.getElementById('demoModal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+    }
+
+    function copySalesEmail(btn) {
+      const addr = 'sales@intellisolve.io';
+      const done = () => { btn.textContent = 'Copied sales@intellisolve.io'; setTimeout(() => { btn.textContent = 'Copy email address'; }, 2500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(done).catch(() => { window.prompt('Copy this address:', addr); });
+      } else {
+        window.prompt('Copy this address:', addr);
+      }
     }
 
     function closeDemoModal() {
