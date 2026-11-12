@@ -5,12 +5,11 @@ Sends the "screenshot" console command, reads the base64 RGB565 dump that
 serial_cmd.c prints between ===SNAPSHOT BEGIN ...=== and ===SNAPSHOT END ...===,
 checks the CRC-32C and writes a PNG. No third-party image library needed.
 
-    python3 -m pip install pyserial
     python3 tools/screenshot.py /dev/cu.usbmodem101 recording.png
     python3 tools/screenshot.py --from-log serial.txt out.png   # parse a saved log
 
 Close any other serial monitor on the port first (only one program can own it).
-Opening the port does not reset the board.
+Opening the port does not reset the board (see recorder_serial.py).
 """
 import argparse
 import base64
@@ -94,29 +93,24 @@ def to_png(w, h, stride, data, path):
 
 
 def from_port(port, timeout):
-    import serial  # pyserial
-    # Set RTS/DTR low BEFORE opening: the ESP32-S3 USB-Serial/JTAG resets the
-    # chip on RTS-high/DTR-low, which a default open + later change can hit.
-    s = serial.Serial()
-    s.port, s.baudrate, s.timeout = port, 115200, 0.5
-    s.rts = False
-    s.dtr = False
-    s.open()
-    with s:
-        s.reset_input_buffer()
-        s.write(b"\nscreenshot\n")
-        s.flush()
-        lines, t0 = [], time.time()
-        buf = b""
-        while time.time() - t0 < timeout:
-            buf += s.read(65536)
-            *done, buf = buf.split(b"\n")
-            for d in done:
-                txt = d.decode("ascii", "replace")
-                lines.append(txt)
-                if END.search(txt):
-                    return lines
+    import os
+    from recorder_serial import open_port, read_for, write
+    fd = open_port(port)
+    lines, buf = [], [b""]
+
+    def on_data(d):
+        buf[0] += d
+        *done, buf[0] = buf[0].split(b"\n")
+        lines.extend(x.decode("ascii", "replace") for x in done)
+
+    try:
+        write(fd, b"\nscreenshot\n")
+        ok = read_for(fd, timeout, on_data, stop=lambda d: any(END.search(x) for x in lines[-3:]))
+    finally:
+        os.close(fd)
+    if not ok:
         raise SystemExit("timed out waiting for the snapshot (is the firmware 0.8.2+?)")
+    return lines
 
 
 def main():

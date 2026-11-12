@@ -42,7 +42,7 @@ idf.py build
 
 `set-target` is only needed once. It writes `sdkconfig` from `sdkconfig.defaults` (and from `sdkconfig.defaults.local` when that file exists).
 
-The image is large because of LVGL, Wi-Fi, and the fonts. The partition table has two 6 MB OTA slots (`ota_0`, `ota_1`) plus `otadata`; the sizes are the same as 0.7.x. The OTA client checks a signed manifest when the recorder is idle (`docs/ota.md`). The home screen shows the version (`v0.8.2`) at the right end of Recent activity. A blank `otadata` partition boots `ota_0`. Wi-Fi passwords stay out of git.
+The image is large because of LVGL, Wi-Fi, and the fonts. The partition table has two 6 MB OTA slots (`ota_0`, `ota_1`) plus `otadata`; the sizes are the same as 0.7.x. The OTA client checks a signed manifest when the recorder is idle (`docs/ota.md`). The home screen shows the version (`v0.8.3`) at the right end of Recent activity. A blank `otadata` partition boots `ota_0`. Wi-Fi passwords stay out of git.
 
 ## Board selection
 
@@ -142,7 +142,7 @@ Type commands on the USB serial port (the same port as the log; any baud rate wo
 | `uploads hold` / `uploads resume` | stop / allow uploads (separate from auto sleep) |
 | `screenshot` | dump the current screen (LVGL snapshot, RGB565, base64 lines with a CRC-32C) |
 
-`tools/recorder_cmd.py /dev/cu.usbmodem101 queue` sends one command and prints the reply. `tools/screenshot.py /dev/cu.usbmodem101 out.png` sends `screenshot` and writes the PNG (needs `pyserial`; close any other serial monitor first). `--from-log saved.txt` decodes a dump from a saved log instead.
+`tools/recorder_cmd.py /dev/cu.usbmodem101 queue` sends one command and prints the reply. `tools/screenshot.py /dev/cu.usbmodem101 out.png` sends `screenshot` and writes the PNG (Python 3 standard library only; close any other serial monitor first). Since 0.8.3 both tools open the port through `tools/recorder_serial.py`, which never toggles DTR/RTS and clears HUPCL, so opening or closing the port no longer resets the board (pyserial's open cleared DTR before RTS, a transient RTS-high/DTR-low that the ESP32-S3 USB-Serial/JTAG treats as a chip reset). `--from-log saved.txt` decodes a dump from a saved log instead.
 
 A local one-off image can start with uploads held (`RECORDER_UPLOADS_START_HELD=1 tools/build-with-wifi.sh`, Kconfig `RECORDER_UPLOADS_START_HELD`), so files already on the card do not go to that build's upload service until someone checks `queue` and types `uploads resume`.
 
