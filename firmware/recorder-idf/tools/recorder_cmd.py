@@ -22,9 +22,14 @@ def main():
     ap.add_argument("command")
     ap.add_argument("--seconds", type=float, default=6)
     a = ap.parse_args()
-    with serial.Serial(a.port, 115200, timeout=0.2) as s:
-        s.dtr = False
-        s.rts = False
+    # Set RTS/DTR low BEFORE opening: the ESP32-S3 USB-Serial/JTAG resets the
+    # chip on RTS-high/DTR-low, which a default open + later change can hit.
+    s = serial.Serial()
+    s.port, s.baudrate, s.timeout = a.port, 115200, 0.2
+    s.rts = False
+    s.dtr = False
+    s.open()
+    with s:
         s.reset_input_buffer()
         s.write(b"\n" + a.command.encode() + b"\n")
         s.flush()

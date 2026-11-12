@@ -95,9 +95,14 @@ def to_png(w, h, stride, data, path):
 
 def from_port(port, timeout):
     import serial  # pyserial
-    with serial.Serial(port, 115200, timeout=0.5) as s:
-        s.dtr = False  # don't touch the reset/boot lines
-        s.rts = False
+    # Set RTS/DTR low BEFORE opening: the ESP32-S3 USB-Serial/JTAG resets the
+    # chip on RTS-high/DTR-low, which a default open + later change can hit.
+    s = serial.Serial()
+    s.port, s.baudrate, s.timeout = port, 115200, 0.5
+    s.rts = False
+    s.dtr = False
+    s.open()
+    with s:
         s.reset_input_buffer()
         s.write(b"\nscreenshot\n")
         s.flush()
