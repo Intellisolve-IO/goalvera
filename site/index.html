@@ -392,34 +392,10 @@
               <div class="relative w-full rounded-2xl overflow-hidden shadow-md border border-stone-200 bg-stone-100">
                 <img
                   id="multimodalEvidencePhoto"
-                  src="Gemini_Generated_Image_rxb521rxb521rxb5 (1).jpeg"
-                  alt="Special education teacher capturing a photo of a student's coloring worksheet while the Dedicated Classroom Recorder runs on the desk"
+                  src="img/goalvera-classroom.jpg"
+                  alt="Teacher photographing a student's coloring worksheet at a classroom table, with the Goalvera recorder on the desk"
                   class="w-full h-auto object-cover block"
-                  onerror="handleMultimodalImgError(this)"
                 />
-
-                <!-- Shown only when the browser preview iframe cannot access chat attachments directly -->
-                <label
-                  id="multimodalDropzone"
-                  ondragover="event.preventDefault()"
-                  ondrop="handleMultimodalDrop(event)"
-                  class="hidden w-full min-h-[300px] p-8 flex flex-col items-center justify-center text-center cursor-pointer bg-[#FBF9F5] hover:bg-[#F2EFE9] transition"
-                >
-                  <div class="w-14 h-14 rounded-2xl bg-[#D8ECE2] text-[#0F2E22] flex items-center justify-center mb-3 shadow-sm">
-                    <span class="material-symbols-rounded text-3xl">add_photo_alternate</span>
-                  </div>
-                  <div class="font-display font-bold text-base text-stone-900">
-                    Click or Drag & Drop <code class="font-mono text-xs bg-stone-200 px-2 py-0.5 rounded">Gemini_Generated_Image_rxb521rxb521rxb5 (1).jpeg</code> Here
-                  </div>
-                  <p class="text-xs text-stone-600 mt-1.5 max-w-md leading-relaxed">
-                    The sandboxed preview window cannot directly read files attached in the chat sidebar. Select or drop your image file once to render the exact photograph as-is.
-                  </p>
-                  <span class="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#2d6a4f] text-white text-xs font-bold shadow-sm">
-                    <span class="material-symbols-rounded text-base">upload</span>
-                    <span>Select Classroom Photo</span>
-                  </span>
-                  <input type="file" accept="image/*" class="hidden" onchange="loadUserMultimodalPhoto(event)" />
-                </label>
               </div>
             </div>
           </div>
@@ -1598,49 +1574,6 @@
       showToast('Teacher note & incident timestamp tagged to live classroom timeline');
     }
 
-    // Fallback & Local File Loader for Multimodal Evidence Photo in Sandboxed Preview
-    const multimodalCandidatePaths = [
-      'Gemini_Generated_Image_rxb521rxb521rxb5.jpeg',
-      './Gemini_Generated_Image_rxb521rxb521rxb5 (1).jpeg',
-      './Gemini_Generated_Image_rxb521rxb521rxb5.jpeg'
-    ];
-    let multimodalPathIndex = 0;
-
-    function handleMultimodalImgError(imgEl) {
-      if (multimodalPathIndex < multimodalCandidatePaths.length) {
-        imgEl.src = multimodalCandidatePaths[multimodalPathIndex++];
-      } else {
-        imgEl.classList.add('hidden');
-        const dropzone = document.getElementById('multimodalDropzone');
-        if (dropzone) dropzone.classList.remove('hidden');
-      }
-    }
-
-    function applyMultimodalFile(file) {
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const imgEl = document.getElementById('multimodalEvidencePhoto');
-        const dropzone = document.getElementById('multimodalDropzone');
-        if (imgEl) {
-          imgEl.src = e.target.result;
-          imgEl.classList.remove('hidden');
-        }
-        if (dropzone) dropzone.classList.add('hidden');
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function loadUserMultimodalPhoto(event) {
-      const file = event.target.files && event.target.files[0];
-      applyMultimodalFile(file);
-    }
-
-    function handleMultimodalDrop(event) {
-      event.preventDefault();
-      const file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
-      applyMultimodalFile(file);
-    }
 
     // 1. Hero Role Switcher (Teacher vs School Overview)
     function switchHeroView(role) {
