@@ -42,7 +42,7 @@ idf.py build
 
 `set-target` is only needed once. It writes `sdkconfig` from `sdkconfig.defaults` (and from `sdkconfig.defaults.local` when that file exists).
 
-The image is large because of LVGL, Wi-Fi, and the fonts. The partition table has two 6 MB OTA slots (`ota_0`, `ota_1`) plus `otadata`; the sizes are the same as 0.7.x. The OTA client checks a signed manifest when the recorder is idle (`docs/ota.md`). The home screen shows the version (`v0.8.1`) at the right end of Recent activity. A blank `otadata` partition boots `ota_0`. Wi-Fi passwords stay out of git.
+The image is large because of LVGL, Wi-Fi, and the fonts. The partition table has two 6 MB OTA slots (`ota_0`, `ota_1`) plus `otadata`; the sizes are the same as 0.7.x. The OTA client checks a signed manifest when the recorder is idle (`docs/ota.md`). The home screen shows the version (`v0.8.2`) at the right end of Recent activity. A blank `otadata` partition boots `ota_0`. Wi-Fi passwords stay out of git.
 
 ## Board selection
 
@@ -128,6 +128,24 @@ Option B, menuconfig: `idf.py menuconfig` → Classroom recorder. Do not run `id
 
 The password is in the `.bin` you flash. Flash encryption is not on. Do not share that binary, and do not commit `sdkconfig`. The firmware does not log the password.
 
+## Serial console (0.8.2)
+
+Type commands on the USB serial port (the same port as the log; any baud rate works). Nothing runs unless typed.
+
+| Command | What it does |
+|---|---|
+| `help` | list the commands |
+| `version` | firmware version and device id |
+| `status` | upload URL host, device id, token source, waiting files / minutes, holds, last upload error |
+| `queue` | list every file in `/sd/rec` with size, approx. minutes, and the date range |
+| `queue wipe YES` | delete every file in `/sd/rec` (bytes zeroed, then unlinked). Refused while recording or while an upload runs. Leaves uploads on hold. |
+| `uploads hold` / `uploads resume` | stop / allow uploads (separate from auto sleep) |
+| `screenshot` | dump the current screen (LVGL snapshot, RGB565, base64 lines with a CRC-32C) |
+
+`tools/screenshot.py /dev/cu.usbmodem101 out.png` sends `screenshot` and writes the PNG (needs `pyserial`; close any other serial monitor first). `--from-log saved.txt` decodes a dump from a saved log instead.
+
+A local one-off image can start with uploads held (`RECORDER_UPLOADS_START_HELD=1 tools/build-with-wifi.sh`, Kconfig `RECORDER_UPLOADS_START_HELD`), so files already on the card do not go to that build's upload service until someone checks `queue` and types `uploads resume`.
+
 ## Config JSON
 
 Path on the card: `/sd/config/device.json`. If it is missing, larger than 16 KB, or has no classrooms, the firmware uses `main/sample_device.json` and the status line says `sample lists`.
@@ -135,8 +153,6 @@ Path on the card: `/sd/config/device.json`. If it is missing, larger than 16 KB,
 ```json
 {
   "schema": 1,
-  "school_name": "Classroom Recorder",
-  "badge_text": "CR",
   "classrooms": [
     {"code": "room-104", "label": "Room 104"}
   ],
@@ -145,7 +161,7 @@ Path on the card: `/sd/config/device.json`. If it is missing, larger than 16 KB,
 }
 ```
 
-- `school_name` and `badge_text` (1-3 printable ASCII characters) set the header branding. Without them the header shows the neutral defaults `Classroom Recorder` / `CR`, or a local build override (see `tools/build-with-wifi.sh` and the gitignored `local/branding.json`). The built-in sample's values never override a local build. Keep real school names out of the repo.
+- Since 0.8.2 the header is always the goalvera logo (G mark + `goalvera` wordmark from the www.goalvera.app homepage, `main/goalvera_logo.c`, regenerated with `tools/make_logo.py`). `school_name` and `badge_text` in this file are ignored, the admin-settings school name is no longer fetched, and the old `CONFIG_RECORDER_BRAND_*` / `local/branding.json` overrides are gone. No school name is shown on the device.
 - `classrooms[].code` is the filename token. Anything other than letters, digits, `-`, and `_` is dropped; spaces become `-`.
 - `classes` are neutral codes such as `Reading 3A`. They are not student names.
 - The RBT field was removed in 0.6.0. An `rbts` list in an older `device.json` is ignored, and the sidecar has no `rbt` key.

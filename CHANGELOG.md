@@ -3,6 +3,10 @@
 What changed on `main`, newest first. One line per change, with the PR and card. Deploys are
 made only from `main`; the deployed commit is shown on the review site's Settings tab.
 
+## 2026-11-12
+
+- **Recorder 0.8.2** (Hosyond 3.5"): the header is always the goalvera logo (from the www.goalvera.app homepage) on home and session screens; no school name is shown or fetched (`school_name` / `badge_text` / admin setting / `CONFIG_RECORDER_BRAND_*` ignored or removed). New USB serial console: `status`, `queue`, `queue wipe YES`, `uploads hold|resume`, `screenshot` (`tools/screenshot.py` turns the dump into a PNG). A token compiled into a local build now wins over an older NVS token. `tools/build-with-wifi.sh` takes the upload URL, device id, token file, an optional start-with-uploads-held flag and an SD-encryption switch from env (never committed). The battery log prints the USB charging estimate instead of `-1%`.
+
 ## 2026-11-02
 
 - **iPhone web recorder**: a Record page in the review site for teachers and admins only (reviewers, RBTs, and unknown roles are read-only). Discard deletes that session's `web/` pieces. A real school sets `WEB_DEMO_RECORDER=off`. Safari records AAC in about 60-second pieces, holds them in IndexedDB only until the server confirms each one, then deletes them. Uploads are HTTPS only (no encryption on the phone). A lock, app switch, or call pauses the same session and marks the gap. The upload service adds `/v1/web/uploads` and `/v1/web/confirm`. ffmpeg joins the pieces into a 16 kHz mono 16-bit WAV under `rec/web-<user>/`, and the existing transcript path runs. The Hosyond 3.5" board stays the only supported recorder hardware. The demo shows a sample lesson and a reminder not to record real students. Setup is `infra/setup_web_recorder.sh`; nothing here is deployed. Test plan: `docs/iphone-web-recorder.md`.

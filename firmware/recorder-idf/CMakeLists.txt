@@ -32,7 +32,7 @@ endif()
 # Firmware version: the ONE place to change it. It goes into the app
 # descriptor (esptool image_info, OTA) and FW_VERSION (boot log + sidecar).
 # v4 = 0.4.0, v5 = 0.5.0, ...
-set(PROJECT_VER "0.8.1")
+set(PROJECT_VER "0.8.2")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(recorder)

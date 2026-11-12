@@ -51,9 +51,20 @@ bool uploader_idle(void);
 int uploader_media_token(const char *local_wav, const char *class_code, char *url, size_t url_cap,
                          int *ttl_s, char *err, size_t err_cap);
 
-/* School display name from the review site's admin settings (POST /v1/device/school,
- * this recorder's upload key). 0: out holds the name. -1: no key, offline or error. */
-int uploader_school_name(char *out, size_t cap);
+/* Serial admin (0.8.2, serial_cmd.c). An admin hold is separate from the
+ * auto-sleep hold: while set, no upload starts. CONFIG_RECORDER_UPLOADS_START_HELD
+ * sets it at boot (local one-off builds only); "uploads resume" clears it. */
+void uploader_admin_hold(bool hold);
+bool uploader_admin_held(void);
+/* Print every file in /sd/rec (name, size, approx. minutes) and the totals to
+ * the console. Returns the number of recordings (.wav). */
+int uploader_queue_print(void);
+/* Delete everything in /sd/rec (bytes zeroed, then unlinked), but only when
+ * no session is active and no upload is running. Leaves the admin hold set.
+ * Returns the number of files removed, or -1 if refused (reason printed). */
+int uploader_queue_wipe(void);
+/* One-line upload status for the console: url, device id, token source, state. */
+void uploader_print_status(void);
 
 /* POST JSON to the upload API with the device token. Returns the HTTP status,
  * or -1 if there is no token or the server was not reached. Takes the TLS lock. */

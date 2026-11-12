@@ -81,6 +81,8 @@ CONFIG_RECORDER_UPLOAD_TOKEN=""
 
 # Teacher Notes QR code for the phone upload link (0.7.2)
 CONFIG_LV_USE_QRCODE=y
+# 0.8.2: serial "screenshot" command (serial_cmd.c) renders the screen with lv_snapshot.
+CONFIG_LV_USE_SNAPSHOT=y
 
 # 0.7.7: allow EXT_RAM_BSS_ATTR so big static buffers that only the CPU
 # touches (LVGL heap, I2S read buffers, dropdown option strings) live in PSRAM.

@@ -45,19 +45,14 @@ static int s_qr_ttl;
  * and refreshes it before its ~5 min expiry, so tapping Teacher Notes shows the
  * QR at once. A link is single-use, so one taken by a tap is dropped and the
  * task fetches the next. With no valid prefetched link the tap fetches on demand
- * as before. The same task fetches the school name for the banner on Wi-Fi
- * connect (config_school_offer saves it to NVS for offline boots). */
+ * as before. (0.8.2: the school-name fetch for the banner is gone; the header
+ * is always the goalvera logo.) */
 #include "esp_timer.h"
-#include "config_store.h"
 
 #define PF_REFRESH_S   60   /* refetch when less than this is left */
 #define PF_MIN_LEFT_S  45   /* a tap only uses a link with at least this left */
 #define PF_RETRY_S     15
-#define SCHOOL_RETRY_S 60          /* first retry; doubles up to SCHOOL_EVERY_S (0.7.6) */
-#define SCHOOL_SETTLE_S 15         /* after Wi-Fi connects, before the first fetch (0.7.6) */
-#define SCHOOL_NOSYNC_S 90         /* fetch anyway if the clock never syncs */
 #define PF_SETTLE_S    5           /* after a recording starts, let the WAV file open first */
-#define SCHOOL_EVERY_S (30 * 60)
 
 static portMUX_TYPE s_pf_mux = portMUX_INITIALIZER_UNLOCKED;
 static volatile bool s_pf_armed;          /* a session was started from this UI */
@@ -120,9 +115,8 @@ static void net_bg_task(void *arg)
 {
     (void)arg;
     bool was_up = false;
-    int64_t school_next = 0, pf_next = 0, up_since = 0, live_since = 0;
-    int school_backoff = SCHOOL_RETRY_S;
-    static char url[200], err[80], wav[160], cls[48], name[96];
+    int64_t pf_next = 0, live_since = 0;
+    static char url[200], err[80], wav[160], cls[48];
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(2000));
         wifi_status_t ws;
@@ -132,11 +126,8 @@ static void net_bg_task(void *arg)
             was_up = false;
             continue;
         }
-        if (!was_up) {           /* just connected: school name once things settle */
+        if (!was_up) {
             was_up = true;
-            up_since = t;
-            school_next = t + (int64_t)SCHOOL_SETTLE_S * 1000000;
-            school_backoff = SCHOOL_RETRY_S;
             ESP_LOGI("ui", "wifi up: internal free %u (largest %u, largest DMA %u)",
                      (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
                      (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL),
@@ -146,7 +137,6 @@ static void net_bg_task(void *arg)
         audio_status_t st;
         audio_get_status(&st);
         bool live = st.state == AUDIO_RECORDING || st.state == AUDIO_PAUSED;
-        bool busy_audio = live || st.state == AUDIO_STARTING || st.state == AUDIO_SAVING;
         if (!live) {
             live_since = 0;
         } else if (!live_since) {
@@ -187,39 +177,16 @@ static void net_bg_task(void *arg)
             }
         }
 
-        /* School name: never during a recording, and only after the clock has
-         * synced (or SCHOOL_NOSYNC_S passed), so it doesn't race boot/SNTP. */
-        bool clock_ok = time(NULL) > 1700000000 || t - up_since >= (int64_t)SCHOOL_NOSYNC_S * 1000000;
-        if (t >= school_next && !busy_audio && clock_ok) {
-            if (!net_try_begin()) {
-                school_next = now_us() + 10 * 1000000;
-                continue;
-            }
-            int rc = uploader_school_name(name, sizeof name);
-            uploader_net_unlock();
-            if (rc == 0) {
-                if (config_school_offer(name)) {
-                    ESP_LOGI("ui", "school name updated from admin settings");
-                }
-                school_backoff = SCHOOL_RETRY_S;
-                school_next = now_us() + (int64_t)SCHOOL_EVERY_S * 1000000;
-            } else {
-                ESP_LOGI("ui", "school name retry in %d s", school_backoff);
-                school_next = now_us() + (int64_t)school_backoff * 1000000;
-                school_backoff = school_backoff * 2 > SCHOOL_EVERY_S ? SCHOOL_EVERY_S : school_backoff * 2;
-            }
-        }
     }
 }
 
 static void net_bg_start(void)
 {
     /* 0.7.6: stack in PSRAM (10 KB of internal RAM back for Wi-Fi/TLS/SD). The
-     * task never writes flash itself: the school name goes to NVS through the
-     * prefs task (prefs_set_async, warmed up at boot). */
+     * task never writes flash. */
     if (xTaskCreatePinnedToCoreWithCaps(net_bg_task, "net_bg", 10240, NULL, 3, NULL, 0,
                                         MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT) != pdPASS) {
-        ESP_LOGE("ui", "net_bg task not started (no QR prefetch / school name)");
+        ESP_LOGE("ui", "net_bg task not started (no QR prefetch)");
     }
 }
 

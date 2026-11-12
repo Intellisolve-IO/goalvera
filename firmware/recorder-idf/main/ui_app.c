@@ -169,8 +169,6 @@ typedef struct {
     lv_obj_t *save_lbl;
     lv_obj_t *keep_btn;
 } ui_t;
-static lv_obj_t *s_home_brand[2];   /* home banner badge + title (0.7.5 refresh) */
-static int s_home_brand_right;
 
 static ui_t ui;
 static void qr_prefetch_arm(const char *class_code);   /* ui_qr.inc: link prefetch (0.7.5) */
@@ -435,70 +433,10 @@ static lv_obj_t *version_caption(lv_obj_t *band, const lv_font_t *font, int w, i
 #define HEADER_H     64  /* header band y 0..64; clock starts at y 74 */
 #define BRAND_X      16
 #define BRAND_GAP    10
-#define BADGE_MIN    40
-#define TITLE_LINES  2
 
-/* Header brand: badge + title. The title wraps to at most two lines. The
- * badge is as tall as the title block (never under 40 px), both are
- * centred on the header's midline, and the badge letters scale with the
- * badge. Positions are absolute TOP_LEFT (an earlier LEFT_MID align
- * survived set_pos and drew the logo behind the Classroom dropdown). */
-static void add_brand(lv_obj_t *parent, const char *title_text, int right_limit)
-{
-    const lv_font_t *tfont = &lv_font_montserrat_24;
-    int32_t lh = lv_font_get_line_height(tfont);
-    /* One line if it fits beside a minimum badge; otherwise two lines
-     * beside a badge as tall as two lines. */
-    int badge1 = (int)lh > BADGE_MIN ? (int)lh : BADGE_MIN;
-    /* A '\n' in the name forces two lines (e.g. "Big School\nName"). */
-    lv_point_t sz;
-    lv_text_get_size(&sz, title_text, tfont, 0, 0, LV_COORD_MAX, LV_TEXT_FLAG_NONE);
-    bool forced = strchr(title_text, '\n') != NULL;
-    int lines = (!forced && sz.x <= right_limit - (BRAND_X + badge1 + BRAND_GAP)) ? 1 : TITLE_LINES;
-    int block_h = lines * (int)lh;
-    int badge = block_h > BADGE_MIN ? block_h : BADGE_MIN;
-
-    lv_obj_t *logo = lv_obj_create(parent);
-    lv_obj_set_size(logo, badge, badge);
-    lv_obj_set_pos(logo, BRAND_X, (HEADER_H - badge) / 2);
-    style_box(logo, COL_LOGO, badge / 4);
-    lv_obj_set_style_border_width(logo, 2, 0);
-    lv_obj_set_style_border_color(logo, lv_color_hex(0x93C5FD), 0);
-
-    /* Largest font whose line height fits ~half the badge and whose
-     * letters fit the width (3-letter badges step down). */
-    static const lv_font_t *const bfonts[] = {
-        &lv_font_montserrat_32, &lv_font_montserrat_28, &lv_font_montserrat_24,
-        &lv_font_montserrat_20, &lv_font_montserrat_16, &lv_font_montserrat_14,
-    };
-    const char *btxt = config_badge_text();
-    const lv_font_t *bf = &lv_font_montserrat_14;
-    for (size_t i = 0; i < sizeof bfonts / sizeof bfonts[0]; i++) {
-        lv_point_t bs;
-        lv_text_get_size(&bs, btxt, bfonts[i], 0, 0, LV_COORD_MAX, LV_TEXT_FLAG_NONE);
-        if (lv_font_get_line_height(bfonts[i]) <= badge / 2 && bs.x <= badge - 10) {
-            bf = bfonts[i];
-            break;
-        }
-    }
-    lv_obj_t *t = label(logo, btxt, bf, 0xFFFFFF);
-    lv_obj_center(t);
-
-    int x_text = BRAND_X + badge + BRAND_GAP;
-    lv_obj_t *title = label(parent, title_text, tfont, 0xFFFFFF);
-    lv_obj_set_width(title, right_limit - x_text);
-    lv_label_set_long_mode(title, LV_LABEL_LONG_DOT);
-    lv_obj_set_height(title, block_h); /* dots after 2 lines, never taller */
-    lv_obj_set_style_text_line_space(title, 0, 0);
-    lv_obj_set_pos(title, x_text, (HEADER_H - block_h) / 2);
-    ESP_LOGI("ui", "brand badge \"%s\": %d title line(s), block %d px, badge %d px, badge font %d px",
-             btxt, lines, block_h, badge, (int)lv_font_get_line_height(bf));
-    if (parent == ui.home) {   /* kept so a new school name can redraw it (0.7.5) */
-        s_home_brand[0] = logo;
-        s_home_brand[1] = title;
-        s_home_brand_right = right_limit;
-    }
-}
+#define BRAND_LOGO_H 44  /* goalvera lockup height in the 64 px header */
+#define F_BRAND_SUB  (&lv_font_montserrat_16)
+#include "ui_brand.inc"
 
 static void usb_chip(lv_obj_t *parent, int x, int y)
 {
@@ -1307,24 +1245,9 @@ static void sleep_tick(bool eligible)
 }
 #endif /* CONFIG_RECORDER_BOARD_HOSYOND_35 */
 
-static void add_brand(lv_obj_t *parent, const char *title_text, int right_limit);
-
-/* School name from the admin settings arrived (0.7.5): redraw the home banner. */
-static void refresh_home_brand(void)
-{
-    if (!config_school_apply_pending() || !s_home_brand[1]) {
-        return;
-    }
-    lv_obj_delete(s_home_brand[0]);
-    lv_obj_delete(s_home_brand[1]);
-    s_home_brand[0] = s_home_brand[1] = NULL;
-    add_brand(ui.home, config_school_name(), s_home_brand_right);
-}
-
 static void ui_tick(lv_timer_t *timer)
 {
     (void)timer;
-    refresh_home_brand();
     struct tm now;
     bool time_ok = rtc_now(&now);
     if (time_ok) {
@@ -1570,7 +1493,7 @@ static void build_home(void)
     /* 0.6.3: the Wi-Fi chip is just the signal icon (x 546..630), so the
      * brand block may run to x 538 (it ended at 312 when the chip showed
      * the network name). */
-    add_brand(ui.home, config_school_name(), 640 - 10 - WIFI_CHIP_W - 8);
+    add_brand(ui.home, NULL, 640 - 10 - WIFI_CHIP_W - 8);
     ui.home_wifi = build_wifi_chip(ui.home, 640 - 10 - WIFI_CHIP_W, 12, 44, 12, ui.home_bars, &ui.home_wifi_x);
     usb_chip(ui.home, 640, 12);
 
@@ -1729,7 +1652,7 @@ static void build_session(void)
     ui.session = screen_root();
     lv_obj_add_flag(ui.session, LV_OBJ_FLAG_HIDDEN);
     /* Brand block ends 8 px before the Wi-Fi icon (same place as on home). */
-    add_brand(ui.session, "Classroom Session", 640 - 10 - WIFI_CHIP_W - 8);
+    add_brand(ui.session, "Classroom session", 640 - 10 - WIFI_CHIP_W - 8);
     ui.ses_wifi = build_wifi_chip(ui.session, 640 - 10 - WIFI_CHIP_W, 10, 42, 12, ui.ses_bars, &ui.ses_wifi_x);
     usb_chip(ui.session, 640, 10);
 

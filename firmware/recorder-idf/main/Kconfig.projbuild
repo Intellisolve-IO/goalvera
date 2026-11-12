@@ -130,20 +130,6 @@ menu "Classroom recorder"
             Compiled into the firmware image. Never commit sdkconfig after
             setting this.
 
-    config RECORDER_BRAND_NAME
-        string "School name override (local builds only)"
-        default ""
-        help
-            Empty uses the neutral default "Classroom Recorder". Set only by
-            tools/build-with-wifi.sh from the gitignored local/branding.json
-            or env vars. /sd/config/device.json "school_name" still wins.
-
-    config RECORDER_BRAND_BADGE
-        string "Badge letters override, 1-3 characters (local builds only)"
-        default ""
-        help
-            Empty uses "CR". /sd/config/device.json "badge_text" still wins.
-
     config RECORDER_UPLOAD_URL
         string "Upload service base URL"
         default "https://upload.example.org"
@@ -154,6 +140,16 @@ menu "Classroom recorder"
         string "Device id for uploads (empty = Wi-Fi MAC, e.g. a4cb8fc08704)"
         default ""
 
+    config RECORDER_UPLOADS_START_HELD
+        bool "Hold uploads at boot until released over serial (local one-off builds)"
+        default n
+        help
+            Uploads do not start after boot until "uploads resume" is typed on
+            the USB serial console. Use it for a one-off image where the SD
+            card may still hold recordings that must not go to this build's
+            upload service: list them with "queue", clear them with
+            "queue wipe YES". Leave off for normal builds.
+
     config RECORDER_UPLOAD_TOKEN
         string "Device upload token (local builds only)"
         default ""
@@ -161,6 +157,7 @@ menu "Classroom recorder"
             Normally installed from /sd/config/upload_token.txt into NVS at
             boot. tools/build-with-wifi.sh can also compile one in from
             $RECORDER_UPLOAD_TOKEN or ~/.config/recorder/device_token.
+            Since 0.8.2 a compiled-in token wins over the one in NVS.
             Never commit sdkconfig after setting this.
 
     config RECORDER_SD_ENCRYPTION
