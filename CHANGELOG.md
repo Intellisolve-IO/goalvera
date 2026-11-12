@@ -5,6 +5,7 @@ made only from `main`; the deployed commit is shown on the review site's Setting
 
 ## 2026-11-12
 
+- **Teacher Notes QR setup**: `infra/setup_media.sh` now works for any configured project (it was locked to a placeholder demo project, so a rebuilt preview never got the `media/` and `media_tokens/` grants and Teacher Notes hit a 500 on `/v1/media/token`). It is called from `infra/setup.sh`, documented in `docs/PREVIEW.md`, keeps 7-day deletion for those prefixes, merges CORS instead of replacing it, and no longer grants upload-api access to `branding/` (the school-name fetch was removed in 0.8.2).
 - **Recorder 0.8.2** (Hosyond 3.5"): the header is always the goalvera logo (from the www.goalvera.app homepage) on home and session screens; no school name is shown or fetched (`school_name` / `badge_text` / admin setting / `CONFIG_RECORDER_BRAND_*` ignored or removed). New USB serial console: `status`, `queue`, `queue wipe YES`, `uploads hold|resume`, `screenshot` (`tools/screenshot.py` turns the dump into a PNG). A token compiled into a local build now wins over an older NVS token. `tools/build-with-wifi.sh` takes the upload URL, device id, token file, an optional start-with-uploads-held flag and an SD-encryption switch from env (never committed). The battery log prints the USB charging estimate instead of `-1%`.
 
 ## 2026-11-02
