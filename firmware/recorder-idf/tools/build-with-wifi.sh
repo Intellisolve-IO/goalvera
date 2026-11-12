@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Local-only build with Wi-Fi credentials (used only for NTP clock sync)
-# and optional local branding (local/branding.json, gitignored).
+# Local-only build with Wi-Fi credentials (NTP clock sync + uploads) and an
+# optional upload service / device key for ONE board. (0.8.2: the header is
+# always the goalvera logo; local/branding.json is no longer used.)
 #
 #   SSID:     $RECORDER_WIFI_SSID, else ~/.config/recorder/wifi_ssid
 #   Password: $RECORDER_WIFI_PASSWORD (required)
@@ -11,6 +12,19 @@
 # Credentials go only into build-wifi/ (gitignored): a 0600 defaults file
 # and that build's own sdkconfig. The committed sdkconfig.defaults and the
 # normal build/ stay credential-free. Nothing secret is printed.
+#
+#   Upload service (optional; all local-only, never commit them):
+#     $RECORDER_UPLOAD_URL         https://... base URL of the upload-api
+#     $RECORDER_UPLOAD_DEVICE_ID   device id registered with infra/device_token.py
+#                                  (empty = the board's Wi-Fi MAC)
+#     $RECORDER_UPLOAD_TOKEN_FILE  file holding that device's token (0600)
+#     $RECORDER_UPLOADS_START_HELD=1  hold uploads at boot until "uploads resume"
+#                                  is typed on the serial console (one-off images)
+#     $RECORDER_SD_ENCRYPTION=0    plaintext SD (for a service with no recording key)
+#     $RECORDER_SECURE=1           add sdkconfig.defaults.secure (flash encryption dev
+#                                  mode + NVS encryption) for a board whose eFuses already
+#                                  have flash encryption on; the bundle then has
+#                                  encrypted_flash_args and flash.sh writes with --encrypt
 #
 # Usage: tools/build-with-wifi.sh [bundle_dir]
 #   bundle_dir defaults to /workspace/recorder-flash-hosyond35-wifi (a .zip is made next to it).
@@ -73,35 +87,28 @@ fi
 # Kconfig string escaping: backslash and double quote.
 esc() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g'; }
 
-# Optional local branding (gitignored): local/branding.json
-#   {"school_name": "Big School\nName", "badge_text": "BS"}
-# or env RECORDER_BRAND_NAME / RECORDER_BRAND_BADGE (env wins). A newline
-# (or the two characters \n) in the name forces a two-line header.
-brand_name="${RECORDER_BRAND_NAME:-}"
-brand_badge="${RECORDER_BRAND_BADGE:-}"
-BRAND_FILE="$PROJ/local/branding.json"
-if [ -r "$BRAND_FILE" ]; then
-    if [ -z "$brand_name" ]; then
-        brand_name="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("school_name","").replace("\n","\\n"), end="")' "$BRAND_FILE")"
-    fi
-    if [ -z "$brand_badge" ]; then
-        brand_badge="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("badge_text",""), end="")' "$BRAND_FILE")"
-    fi
-fi
-brand_name="${brand_name//$'\n'/\\n}"   # real newline -> the two characters \n
-if [ -n "$brand_badge" ] && ! printf '%s' "$brand_badge" | grep -Eq '^[!-~]{1,3}$'; then
-    echo "error: badge_text must be 1-3 printable ASCII characters" >&2
-    exit 1
-fi
-
 # Optional device upload token (normally installed from the SD card instead):
 #   $RECORDER_UPLOAD_TOKEN, else ~/.config/recorder/device_token (0600).
 upload_token="${RECORDER_UPLOAD_TOKEN:-}"
+if [ -z "$upload_token" ] && [ -n "${RECORDER_UPLOAD_TOKEN_FILE:-}" ]; then
+    upload_token="$(tr -d '\r\n' < "$RECORDER_UPLOAD_TOKEN_FILE")"
+fi
 if [ -z "$upload_token" ] && [ -r "$HOME/.config/recorder/device_token" ]; then
     upload_token="$(tr -d '\r\n' < "$HOME/.config/recorder/device_token")"
 fi
 if [ -n "$upload_token" ] && ! printf '%s' "$upload_token" | grep -Eq '^[A-Za-z0-9_-]{20,128}$'; then
     echo "error: upload token must be 20-128 URL-safe characters" >&2
+    exit 1
+fi
+
+upload_url="${RECORDER_UPLOAD_URL:-}"
+if [ -n "$upload_url" ] && ! printf '%s' "$upload_url" | grep -Eq '^https://[A-Za-z0-9.-]+(:[0-9]+)?$'; then
+    echo "error: RECORDER_UPLOAD_URL must be https://host (no path, no query)" >&2
+    exit 1
+fi
+upload_dev="${RECORDER_UPLOAD_DEVICE_ID:-}"
+if [ -n "$upload_dev" ] && ! printf '%s' "$upload_dev" | grep -Eq '^[a-z0-9][a-z0-9-]{0,31}$'; then
+    echo "error: RECORDER_UPLOAD_DEVICE_ID must be lowercase letters/digits/dashes, max 32" >&2
     exit 1
 fi
 
@@ -113,9 +120,12 @@ CREDS="$BUILD/sdkconfig.defaults.wifi"
     printf 'CONFIG_RECORDER_WIFI_PASSWORD="%s"\n' "$(esc "$RECORDER_WIFI_PASSWORD")"
     printf 'CONFIG_RECORDER_WIFI_SSID2="%s"\n' "$(esc "$ssid2")"
     printf 'CONFIG_RECORDER_WIFI_PASSWORD2="%s"\n' "$(esc "$pass2")"
-    printf 'CONFIG_RECORDER_BRAND_NAME="%s"\n' "$(esc "$brand_name")"
-    printf 'CONFIG_RECORDER_BRAND_BADGE="%s"\n' "$(esc "$brand_badge")"
     printf 'CONFIG_RECORDER_UPLOAD_TOKEN="%s"\n' "$upload_token"
+    if [ -n "$upload_url" ]; then printf 'CONFIG_RECORDER_UPLOAD_URL="%s"\n' "$upload_url"; fi
+    if [ -n "$upload_dev" ]; then printf 'CONFIG_RECORDER_UPLOAD_DEVICE_ID="%s"\n' "$upload_dev"; fi
+    if [ "${RECORDER_UPLOADS_START_HELD:-0}" = 1 ]; then echo 'CONFIG_RECORDER_UPLOADS_START_HELD=y'; fi
+    if [ "${RECORDER_SD_ENCRYPTION:-1}" = 0 ]; then echo '# CONFIG_RECORDER_SD_ENCRYPTION is not set'; fi
+    if [ "${RECORDER_SECURE:-0}" = 1 ]; then cat "$PROJ/sdkconfig.defaults.secure"; fi
 } > "$CREDS"
 chmod 600 "$CREDS"
 # Regenerate this build's sdkconfig so changed credentials always apply.
@@ -135,25 +145,43 @@ if [ -n "$upload_token" ]; then
 else
     echo "no upload token compiled in (install one via /sd/config/upload_token.txt)"
 fi
-if [ -n "$brand_name$brand_badge" ]; then
-    echo "local branding override applied (from env or local/branding.json)"
-fi
+[ -n "$upload_url" ] && echo "upload service: $upload_url"
+[ -n "$upload_dev" ] && echo "upload device id: $upload_dev"
+[ "${RECORDER_UPLOADS_START_HELD:-0}" = 1 ] && echo "uploads HELD at boot until 'uploads resume' (serial)"
+[ "${RECORDER_SD_ENCRYPTION:-1}" = 0 ] && echo "SD encryption OFF for this build"
+[ "${RECORDER_SECURE:-0}" = 1 ] && echo "flash encryption (dev) + NVS encryption ON: flash with --encrypt"
 idf.py -B "$BUILD" -D SDKCONFIG="$BUILD/sdkconfig" ${BOARD_ARGS[@]+"${BOARD_ARGS[@]}"} -D RECORDER_EXTRA_DEFAULTS="$CREDS" build
 
 # Flash bundle (same layout as /workspace/recorder-flash).
 mkdir -p "$OUT_DIR"
+rm -f "$OUT_DIR/flash_args" "$OUT_DIR/encrypted_flash_args"
 cp "$BUILD/bootloader/bootloader.bin" "$BUILD/partition_table/partition-table.bin" \
    "$BUILD/ota_data_initial.bin" "$BUILD/recorder.bin" "$OUT_DIR/"
-sed 's#[^ ]*/##' "$BUILD/flash_args" > "$OUT_DIR/flash_args"
-cat > "$OUT_DIR/flash.sh" <<'FLASH'
+if [ "${RECORDER_SECURE:-0}" = 1 ]; then
+    # Flash encryption (dev mode) already on in eFuse: every image is written
+    # with --encrypt. NVS (0x9000) and nvs_keys are not written, so they keep
+    # their existing (encrypted) contents.
+    sed 's#[^ ]*/##' "$BUILD/encrypted_flash_args" > "$OUT_DIR/encrypted_flash_args"   # IDF-generated, has --encrypt
+    cat > "$OUT_DIR/flash.sh" <<'FLASH'
+#!/usr/bin/env bash
+# Board with flash encryption ON (development mode): encrypted writes only.
+set -euo pipefail
+: "${1:?usage: $0 /dev/cu.usbmodem101}"
+cd -- "$(dirname -- "$0")"
+python3 -m esptool --chip esp32s3 -p "$1" -b 460800 --before default_reset --after hard_reset write_flash --encrypt @encrypted_flash_args
+FLASH
+else
+    sed 's#[^ ]*/##' "$BUILD/flash_args" > "$OUT_DIR/flash_args"
+    cat > "$OUT_DIR/flash.sh" <<'FLASH'
 #!/usr/bin/env bash
 set -euo pipefail
 : "${1:?usage: $0 /dev/ttyACM0}"
 cd -- "$(dirname -- "$0")"
 python3 -m esptool --chip esp32s3 -p "$1" -b 460800 --before default_reset --after hard_reset write_flash @flash_args
 FLASH
+fi
 chmod 755 "$OUT_DIR/flash.sh"
-chmod 644 "$OUT_DIR"/*.bin "$OUT_DIR/flash_args"
+chmod 644 "$OUT_DIR"/*.bin "$OUT_DIR"/*flash_args
 ( cd "$(dirname "$OUT_DIR")" && rm -f "$(basename "$OUT_DIR").zip" && \
   python3 -c "import shutil,sys; shutil.make_archive(sys.argv[1],'zip','.',sys.argv[1])" "$(basename "$OUT_DIR")" )
 echo "bundle: $OUT_DIR and $OUT_DIR.zip (contains the Wi-Fi password in recorder.bin; do not share)"

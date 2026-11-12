@@ -84,7 +84,7 @@ typedef struct {
 static state_t *s;
 
 /* 0.7.6: one HTTPS connection at a time. 0.7.5 let the uploader, the QR link
- * prefetch, the QR tap and the school-name fetch each open their own TLS
+ * prefetch, the QR tap and the (since removed) school-name fetch each open their own TLS
  * session at once; two handshakes together ran internal RAM out (Wi-Fi
  * "mem fail", esp-aes alloc failures) and starved the SD writer. */
 static SemaphoreHandle_t s_net_mu;
@@ -135,7 +135,9 @@ static job_t *s_job;
 /* Auto sleep (0.7.0): while held, no new upload attempt starts; the one in
  * progress (if any) runs to its normal end. */
 static atomic_bool s_hold;
+static atomic_bool s_admin_hold;   /* 0.8.2: serial "uploads hold" / START_HELD */
 static atomic_bool s_in_job;
+static const char *s_token_src = "not set";
 
 /* ------------------------------------------------------------ helpers */
 
@@ -239,16 +241,24 @@ void uploader_init(void)
         memset(tok, 0, sizeof tok);
     }
 
+    /* 0.8.2: a token compiled into a local build wins over NVS. Such a build
+     * is made for one board and one upload service, and an older NVS token
+     * (installed for a different service) would otherwise shadow it. Fleet
+     * builds compile no token, so for them NVS is still the only source. */
     const char *src = "none";
-    if (prefs_get(NVS_TOKEN_KEY, s_token, sizeof s_token) == ESP_OK && upload_token_ok(s_token)) {
-        src = "device storage";
-    } else if (upload_token_ok(CONFIG_RECORDER_UPLOAD_TOKEN)) {
+    if (upload_token_ok(CONFIG_RECORDER_UPLOAD_TOKEN)) {
         strlcpy(s_token, CONFIG_RECORDER_UPLOAD_TOKEN, sizeof s_token);
         src = "firmware build";
+    } else if (prefs_get(NVS_TOKEN_KEY, s_token, sizeof s_token) == ESP_OK && upload_token_ok(s_token)) {
+        src = "device storage";
     } else {
         s_token[0] = '\0';
     }
-    ESP_LOGI(TAG, "device id \"%s\", upload token: %s", s_dev, s_token[0] ? src : "not set");
+    s_token_src = s_token[0] ? src : "not set";
+    ESP_LOGI(TAG, "device id \"%s\", upload token: %s", s_dev, s_token_src);
+#if CONFIG_RECORDER_UPLOADS_START_HELD
+    atomic_store(&s_admin_hold, true);
+#endif
 }
 
 /* ------------------------------------------------------------ hashing */
@@ -906,7 +916,7 @@ static void uploader_task(void *arg)
             continue;
         }
         atomic_store(&s_in_job, true);
-        if (atomic_load(&s_hold)) {
+        if (atomic_load(&s_hold) || atomic_load(&s_admin_hold)) {
             atomic_store(&s_in_job, false);
             continue;
         }
@@ -999,6 +1009,12 @@ void uploader_start(void)
     }
     s_st.enabled = true;
     ESP_LOGI(TAG, "uploader ready -> %s", CONFIG_RECORDER_UPLOAD_URL);
+#if CONFIG_RECORDER_UPLOADS_START_HELD
+    atomic_store(&s_admin_hold, true);
+    ESP_LOGW(TAG, "uploads HELD at boot (local build option): send \"queue\" to list, "
+                  "\"queue wipe YES\" to clear, \"uploads resume\" to start uploading");
+    status_set("Uploads on hold (serial: uploads resume)");
+#endif
 }
 
 void uploader_get_status(upload_status_t *out)
@@ -1017,6 +1033,139 @@ void uploader_hold(bool hold)
 bool uploader_idle(void)
 {
     return !atomic_load(&s_in_job);
+}
+
+/* ------------------------------------------------------------ serial admin (0.8.2) */
+
+void uploader_admin_hold(bool hold)
+{
+    atomic_store(&s_admin_hold, hold);
+    ESP_LOGI(TAG, "uploads %s (serial)", hold ? "held" : "resumed");
+    status_set(hold ? "Uploads on hold (serial)" : "Uploads resumed (serial)");
+}
+
+bool uploader_admin_held(void)
+{
+    return atomic_load(&s_admin_hold);
+}
+
+void uploader_print_status(void)
+{
+    upload_status_t u;
+    uploader_get_status(&u);
+    const char *host = CONFIG_RECORDER_UPLOAD_URL;
+    if (strncmp(host, "https://", 8) == 0) {
+        host += 8;
+    }
+    printf("upload: url host %s, device id \"%s\", token %s, %s%s%s, waiting %d (%lld min), backlog level %d%s%s\n",
+           host, s_dev, s_token_src, u.enabled ? "enabled" : "off", atomic_load(&s_admin_hold) ? ", ADMIN HOLD" : "",
+           atomic_load(&s_hold) ? ", sleep hold" : "", u.waiting, (long long)(u.backlog_audio_s / 60), u.backlog,
+           (s && s_why[0]) ? ", last error: " : "", (s && s_why[0]) ? s_why : "");
+}
+
+static int queue_walk(bool wipe)
+{
+    const int64_t byte_rate = (int64_t)REC_SAMPLE_RATE * REC_CHANNELS * REC_BITS / 8;
+    DIR *d = opendir(REC_DIR);
+    if (!d) {
+        printf("queue: %s not found (no recordings)\n", REC_DIR);
+        return 0;
+    }
+    int files = 0, recs = 0, failed = 0;
+    int64_t bytes = 0, audio_s = 0;
+    char first[24] = "", last[24] = "";
+    char path[300];
+    struct dirent *e;
+    while ((e = readdir(d)) != NULL) {
+        if (e->d_name[0] == '.') {
+            continue;
+        }
+        snprintf(path, sizeof path, REC_DIR "/%s", e->d_name);
+        struct stat st;
+        if (stat(path, &st) != 0 || !S_ISREG(st.st_mode)) {
+            continue;
+        }
+        files++;
+        bytes += st.st_size;
+        bool wav = ends_with(e->d_name, ".wav");
+        int64_t secs = (wav && st.st_size > 44) ? ((int64_t)st.st_size - 44) / byte_rate : 0;
+        if (wav) {
+            recs++;
+            audio_s += secs;
+            struct tm stamp;
+            if (parse_stamp(e->d_name, &stamp)) {
+                char ymd[24];
+                strftime(ymd, sizeof ymd, "%Y-%m-%d %H:%M", &stamp);
+                if (!first[0] || strcmp(ymd, first) < 0) {
+                    strlcpy(first, ymd, sizeof first);
+                }
+                if (!last[0] || strcmp(ymd, last) > 0) {
+                    strlcpy(last, ymd, sizeof last);
+                }
+            }
+        }
+        if (wipe) {
+            int rc = pg_wipe_file(path);
+            if (rc != 0) {
+                rc = unlink(path);
+            }
+            if (rc != 0) {
+                failed++;
+            }
+            printf("queue wipe: %s %s (%lld bytes)\n", rc == 0 ? "removed" : "FAILED", e->d_name,
+                   (long long)st.st_size);
+        } else {
+            printf("queue: %-44s %10lld bytes%s", e->d_name, (long long)st.st_size, wav ? "" : "\n");
+            if (wav) {
+                printf("  ~%lld min %02lld s\n", (long long)(secs / 60), (long long)(secs % 60));
+            }
+        }
+        fflush(stdout);
+    }
+    closedir(d);
+    printf("queue %s: %d files, %d recordings, ~%lld min audio, %lld bytes, dates %s .. %s%s\n",
+           wipe ? "wipe done" : "total", files, recs, (long long)(audio_s / 60), (long long)bytes,
+           first[0] ? first : "?", last[0] ? last : "?", failed ? " (SOME FILES FAILED)" : "");
+    ESP_LOGW(TAG, "queue %s: %d files, %d recordings, ~%lld min", wipe ? "wiped" : "listed", files, recs,
+             (long long)(audio_s / 60));
+    return wipe ? files - failed : recs;
+}
+
+int uploader_queue_print(void)
+{
+    if (!sd_mounted()) {
+        printf("queue: SD card not mounted\n");
+        return -1;
+    }
+    return queue_walk(false);
+}
+
+int uploader_queue_wipe(void)
+{
+    if (!sd_mounted()) {
+        printf("queue wipe: refused, SD card not mounted\n");
+        return -1;
+    }
+    if (session_active()) {
+        printf("queue wipe: refused, a recording session is active (end it first)\n");
+        return -1;
+    }
+    atomic_store(&s_admin_hold, true);
+    for (int i = 0; i < 600 && atomic_load(&s_in_job); i++) {   /* let a running upload end (<= 60 s) */
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+    if (atomic_load(&s_in_job)) {
+        printf("queue wipe: refused, an upload is still running (uploads now held; try again)\n");
+        return -1;
+    }
+    if (session_active()) {
+        printf("queue wipe: refused, a recording started\n");
+        return -1;
+    }
+    status_set("Clearing recordings from the SD card (serial)");
+    int n = queue_walk(true);
+    status_set("SD recordings cleared (serial). Uploads on hold");
+    return n;
 }
 
 /* ------------------------------------------------------------ Teacher Notes QR (0.7.2) */
@@ -1077,33 +1226,3 @@ int uploader_media_token(const char *local_wav, const char *class_code, char *ur
     return rc;
 }
 
-/* ------------------------------------------------------------ School name for the banner (0.7.5) */
-
-int uploader_school_name(char *out, size_t cap)
-{
-    out[0] = '\0';
-    if (!s || !s_token[0]) {
-        return -1;
-    }
-    char body[96];
-    snprintf(body, sizeof body, "{\"device_id\":\"%s\"}", s_dev);
-    const int rcap = 512;
-    char *resp = psram_malloc(rcap);
-    if (!resp) {
-        return -1;
-    }
-    int status = api_post_to("/v1/device/school", body, resp, rcap);
-    int rc = -1;
-    if (status == 200) {
-        cJSON *r = cJSON_Parse(resp);
-        const char *n = r ? json_str(r, "school_name") : NULL;
-        if (n && n[0]) {
-            strlcpy(out, n, cap);
-            rc = 0;
-        }
-        cJSON_Delete(r);
-    }
-    free(resp);
-    ESP_LOGI(TAG, "school name: %s (http %d)", rc == 0 ? "ok" : "failed", status);
-    return rc;
-}

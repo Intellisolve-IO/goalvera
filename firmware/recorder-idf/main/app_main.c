@@ -14,6 +14,7 @@
 #include "i2c_bus.h"
 #include "nvs_prefs.h"
 #include "rtc_pcf8563.h"
+#include "serial_cmd.h"
 #include "sdcard.h"
 #include "status_line.h"
 #include "ui_app.h"
@@ -57,7 +58,7 @@ static const char *TAG = "recorder";
 
 void app_main(void)
 {
-    ESP_LOGI(TAG, "Classroom recorder %s", FW_VERSION);
+    ESP_LOGI(TAG, "goalvera classroom recorder %s", FW_VERSION);
 #if CONFIG_RECORDER_BOARD_HOSYOND_35
     bool woke_from_sleep = power_sleep_boot();
     if (power_toggle_boot()) {
@@ -123,6 +124,7 @@ void app_main(void)
     wifi_start_if_configured();
     uploader_start();
     ota_start();
+    serial_cmd_start();
     ESP_LOGI(TAG, "boot done: internal free %u (largest %u, largest DMA %u, min ever %u), psram free %u",
              (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
              (unsigned)heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL),
