@@ -101,6 +101,18 @@
       backdrop-filter: blur(12px);
     }
   </style>
+  <!-- Google Analytics (GA4). Page views and fixed button-click events only; never names or typed text. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1R1695VY3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G1R1695VY3', { allow_google_signals: false, allow_ad_personalization_signals: false });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+      if (a) gtag('event', 'email_sales_click');
+    });
+  </script>
 </head>
 <body class="bg-[#FBF9F5] text-stone-900 font-sans antialiased selection:bg-[#2d6a4f] selection:text-white">
 
@@ -1465,6 +1477,7 @@
       </div>
       <div class="flex flex-wrap items-center gap-6">
         <a href="mailto:sales@intellisolve.io" class="hover:text-[#1f523b] font-medium transition">Email sales@intellisolve.io</a>
+        <a href="/privacy" class="hover:text-[#1f523b] font-medium transition">Privacy</a>
         <a href="https://github.com/Intellisolve-IO/goalvera" target="_blank" rel="noopener noreferrer" class="hover:text-[#1f523b] font-medium transition">GitHub Repository</a>
         <button onclick="openDemoModal('Try Goalvera Now')" class="hover:text-[#1f523b] font-medium transition cursor-pointer">Try Now</button>
       </div>
@@ -1846,6 +1859,7 @@
 
     // 7. Modal & Toast Helpers
     function openDemoModal(context) {
+      if (typeof gtag === 'function') gtag('event', 'try_now_click');
       document.getElementById('modalContextBadge').textContent = context;
       const modal = document.getElementById('demoModal');
       modal.classList.remove('hidden');
@@ -1854,6 +1868,7 @@
 
     function copySalesEmail(btn) {
       const addr = 'sales@intellisolve.io';
+      if (typeof gtag === 'function') gtag('event', 'copy_email_click');
       const done = () => { btn.textContent = 'Copied sales@intellisolve.io'; setTimeout(() => { btn.textContent = 'Copy email address'; }, 2500); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(addr).then(done).catch(() => { window.prompt('Copy this address:', addr); });
