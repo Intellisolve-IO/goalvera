@@ -26,7 +26,7 @@ static const char *TAG = "serial";
 
 static void cmd_help(void)
 {
-    printf("commands: help | version | status | queue | queue wipe YES | uploads hold | uploads resume | screenshot\n");
+    printf("commands: help | version | status | queue | uploads hold | uploads resume | screenshot\n");
 }
 
 /* Dump the active screen as RGB565 (LVGL's native little-endian order):
@@ -116,15 +116,6 @@ static void handle(char *line)
         uploader_print_status();
     } else if (strcmp(p, "queue") == 0) {
         uploader_queue_print();
-    } else if (strncmp(p, "queue wipe", 10) == 0) {
-        if (strcmp(p, "queue wipe YES") != 0) {
-            printf("queue wipe: deletes EVERY file in /sd/rec. Type exactly: queue wipe YES\n");
-        } else {
-            int r = uploader_queue_wipe();
-            if (r >= 0) {
-                printf("queue wipe: removed %d files. Uploads stay on hold until \"uploads resume\"\n", r);
-            }
-        }
     } else if (strcmp(p, "uploads hold") == 0) {
         uploader_admin_hold(true);
         uploader_print_status();

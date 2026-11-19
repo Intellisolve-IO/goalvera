@@ -147,8 +147,8 @@ menu "Classroom recorder"
             Uploads do not start after boot until "uploads resume" is typed on
             the USB serial console. Use it for a one-off image where the SD
             card may still hold recordings that must not go to this build's
-            upload service: list them with "queue", clear them with
-            "queue wipe YES". Leave off for normal builds.
+            upload service: list them with "queue". The firmware never
+            clears the card. Leave off for normal builds.
 
     config RECORDER_UPLOAD_TOKEN
         string "Device upload token (local builds only)"

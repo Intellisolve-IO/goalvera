@@ -59,10 +59,6 @@ bool uploader_admin_held(void);
 /* Print every file in /sd/rec (name, size, approx. minutes) and the totals to
  * the console. Returns the number of recordings (.wav). */
 int uploader_queue_print(void);
-/* Delete everything in /sd/rec (bytes zeroed, then unlinked), but only when
- * no session is active and no upload is running. Leaves the admin hold set.
- * Returns the number of files removed, or -1 if refused (reason printed). */
-int uploader_queue_wipe(void);
 /* One-line upload status for the console: url, device id, token source, state. */
 void uploader_print_status(void);
 

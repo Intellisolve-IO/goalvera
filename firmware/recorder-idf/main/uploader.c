@@ -1012,7 +1012,7 @@ void uploader_start(void)
 #if CONFIG_RECORDER_UPLOADS_START_HELD
     atomic_store(&s_admin_hold, true);
     ESP_LOGW(TAG, "uploads HELD at boot (local build option): send \"queue\" to list, "
-                  "\"queue wipe YES\" to clear, \"uploads resume\" to start uploading");
+                  "\"uploads resume\" to start uploading");
     status_set("Uploads on hold (serial: uploads resume)");
 #endif
 }
@@ -1063,7 +1063,7 @@ void uploader_print_status(void)
            (s && s_why[0]) ? ", last error: " : "", (s && s_why[0]) ? s_why : "");
 }
 
-static int queue_walk(bool wipe)
+static int queue_walk(void)
 {
     const int64_t byte_rate = (int64_t)REC_SAMPLE_RATE * REC_CHANNELS * REC_BITS / 8;
     DIR *d = opendir(REC_DIR);
@@ -1071,7 +1071,7 @@ static int queue_walk(bool wipe)
         printf("queue: %s not found (no recordings)\n", REC_DIR);
         return 0;
     }
-    int files = 0, recs = 0, failed = 0;
+    int files = 0, recs = 0;
     int64_t bytes = 0, audio_s = 0;
     char first[24] = "", last[24] = "";
     char path[300];
@@ -1104,31 +1104,19 @@ static int queue_walk(bool wipe)
                 }
             }
         }
-        if (wipe) {
-            int rc = pg_wipe_file(path);
-            if (rc != 0) {
-                rc = unlink(path);
-            }
-            if (rc != 0) {
-                failed++;
-            }
-            printf("queue wipe: %s %s (%lld bytes)\n", rc == 0 ? "removed" : "FAILED", e->d_name,
-                   (long long)st.st_size);
-        } else {
-            printf("queue: %-44s %10lld bytes%s", e->d_name, (long long)st.st_size, wav ? "" : "\n");
-            if (wav) {
-                printf("  ~%lld min %02lld s\n", (long long)(secs / 60), (long long)(secs % 60));
-            }
+        printf("queue: %-44s %10lld bytes%s", e->d_name, (long long)st.st_size, wav ? "" : "\n");
+        if (wav) {
+            printf("  ~%lld min %02lld s\n", (long long)(secs / 60), (long long)(secs % 60));
         }
         fflush(stdout);
     }
     closedir(d);
-    printf("queue %s: %d files, %d recordings, ~%lld min audio, %lld bytes, dates %s .. %s%s\n",
-           wipe ? "wipe done" : "total", files, recs, (long long)(audio_s / 60), (long long)bytes,
-           first[0] ? first : "?", last[0] ? last : "?", failed ? " (SOME FILES FAILED)" : "");
-    ESP_LOGW(TAG, "queue %s: %d files, %d recordings, ~%lld min", wipe ? "wiped" : "listed", files, recs,
+    printf("queue total: %d files, %d recordings, ~%lld min audio, %lld bytes, dates %s .. %s\n",
+           files, recs, (long long)(audio_s / 60), (long long)bytes,
+           first[0] ? first : "?", last[0] ? last : "?");
+    ESP_LOGI(TAG, "queue listed: %d files, %d recordings, ~%lld min", files, recs,
              (long long)(audio_s / 60));
-    return wipe ? files - failed : recs;
+    return recs;
 }
 
 int uploader_queue_print(void)
@@ -1137,35 +1125,7 @@ int uploader_queue_print(void)
         printf("queue: SD card not mounted\n");
         return -1;
     }
-    return queue_walk(false);
-}
-
-int uploader_queue_wipe(void)
-{
-    if (!sd_mounted()) {
-        printf("queue wipe: refused, SD card not mounted\n");
-        return -1;
-    }
-    if (session_active()) {
-        printf("queue wipe: refused, a recording session is active (end it first)\n");
-        return -1;
-    }
-    atomic_store(&s_admin_hold, true);
-    for (int i = 0; i < 600 && atomic_load(&s_in_job); i++) {   /* let a running upload end (<= 60 s) */
-        vTaskDelay(pdMS_TO_TICKS(100));
-    }
-    if (atomic_load(&s_in_job)) {
-        printf("queue wipe: refused, an upload is still running (uploads now held; try again)\n");
-        return -1;
-    }
-    if (session_active()) {
-        printf("queue wipe: refused, a recording started\n");
-        return -1;
-    }
-    status_set("Clearing recordings from the SD card (serial)");
-    int n = queue_walk(true);
-    status_set("SD recordings cleared (serial). Uploads on hold");
-    return n;
+    return queue_walk();
 }
 
 /* ------------------------------------------------------------ Teacher Notes QR (0.7.2) */

@@ -4,7 +4,7 @@ what comes back for a few seconds.
 
     python3 tools/recorder_cmd.py /dev/cu.usbmodem101 status
     python3 tools/recorder_cmd.py /dev/cu.usbmodem101 queue
-    python3 tools/recorder_cmd.py /dev/cu.usbmodem101 "queue wipe YES" --seconds 60
+    python3 tools/recorder_cmd.py /dev/cu.usbmodem101 "uploads resume"
 
 Close any other serial monitor first. Opening the port does not reset the board
 (recorder_serial.py explains why the old pyserial version did).

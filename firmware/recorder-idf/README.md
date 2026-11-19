@@ -130,7 +130,7 @@ The password is in the `.bin` you flash. Flash encryption is not on. Do not shar
 
 ## Serial console (0.8.2)
 
-Type commands on the USB serial port (the same port as the log; any baud rate works). Nothing runs unless typed.
+Type commands on the USB serial port (the same port as the log; any baud rate works). Nothing runs unless typed. No command deletes recordings: clearing a card is a one-time step that is never part of committed firmware.
 
 | Command | What it does |
 |---|---|
@@ -138,7 +138,6 @@ Type commands on the USB serial port (the same port as the log; any baud rate wo
 | `version` | firmware version and device id |
 | `status` | upload URL host, device id, token source, waiting files / minutes, holds, last upload error |
 | `queue` | list every file in `/sd/rec` with size, approx. minutes, and the date range |
-| `queue wipe YES` | delete every file in `/sd/rec` (bytes zeroed, then unlinked). Refused while recording or while an upload runs. Leaves uploads on hold. |
 | `uploads hold` / `uploads resume` | stop / allow uploads (separate from auto sleep) |
 | `screenshot` | dump the current screen (LVGL snapshot, RGB565, base64 lines with a CRC-32C) |
 
