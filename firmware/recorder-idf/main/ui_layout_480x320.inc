@@ -25,59 +25,10 @@
 #define HEADER_H     SY(64)
 #define BRAND_X      SX(16)
 #define BRAND_GAP    SX(10)
-#define BADGE_MIN    SY(40)
-#define TITLE_LINES  2
+#define BRAND_LOGO_H 28      /* goalvera lockup: native size of main/goalvera_logo.c */
+#define F_BRAND_SUB  F_CAPTION
 
-static void add_brand(lv_obj_t *parent, const char *title_text, int right_limit)
-{
-    const lv_font_t *tfont = F_TITLE;
-    int32_t lh = lv_font_get_line_height(tfont);
-    int badge1 = (int)lh > BADGE_MIN ? (int)lh : BADGE_MIN;
-    lv_point_t sz;
-    lv_text_get_size(&sz, title_text, tfont, 0, 0, LV_COORD_MAX, LV_TEXT_FLAG_NONE);
-    bool forced = strchr(title_text, '\n') != NULL;
-    int lines = (!forced && sz.x <= right_limit - (BRAND_X + badge1 + BRAND_GAP)) ? 1 : TITLE_LINES;
-    int block_h = lines * (int)lh;
-    int badge = block_h > BADGE_MIN ? block_h : BADGE_MIN;
-
-    lv_obj_t *logo = lv_obj_create(parent);
-    lv_obj_set_size(logo, badge, badge);
-    lv_obj_set_pos(logo, BRAND_X, (HEADER_H - badge) / 2);
-    style_box(logo, COL_LOGO, badge / 4);
-    lv_obj_set_style_border_width(logo, 2, 0);
-    lv_obj_set_style_border_color(logo, lv_color_hex(0x93C5FD), 0);
-
-    static const lv_font_t *const bfonts[] = {
-        &lv_font_montserrat_20, &lv_font_montserrat_16, &lv_font_montserrat_14, &lv_font_montserrat_12,
-    };
-    const char *btxt = config_badge_text();
-    const lv_font_t *bf = &lv_font_montserrat_12;
-    for (size_t i = 0; i < sizeof bfonts / sizeof bfonts[0]; i++) {
-        lv_point_t bs;
-        lv_text_get_size(&bs, btxt, bfonts[i], 0, 0, LV_COORD_MAX, LV_TEXT_FLAG_NONE);
-        if (lv_font_get_line_height(bfonts[i]) <= badge / 2 + 2 && bs.x <= badge - 6) {
-            bf = bfonts[i];
-            break;
-        }
-    }
-    lv_obj_t *t = label(logo, btxt, bf, 0xFFFFFF);
-    lv_obj_center(t);
-
-    int x_text = BRAND_X + badge + BRAND_GAP;
-    lv_obj_t *title = label(parent, title_text, tfont, 0xFFFFFF);
-    lv_obj_set_width(title, right_limit - x_text);
-    lv_label_set_long_mode(title, LV_LABEL_LONG_DOT);
-    lv_obj_set_height(title, block_h);
-    lv_obj_set_style_text_line_space(title, 0, 0);
-    lv_obj_set_pos(title, x_text, (HEADER_H - block_h) / 2);
-    ESP_LOGI("ui", "brand badge \"%s\": %d title line(s), block %d px, badge %d px, badge font %d px",
-             btxt, lines, block_h, badge, (int)lv_font_get_line_height(bf));
-    if (parent == ui.home) {   /* kept so a new school name can redraw it (0.7.5) */
-        s_home_brand[0] = logo;
-        s_home_brand[1] = title;
-        s_home_brand_right = right_limit;
-    }
-}
+#include "ui_brand.inc"
 
 static void usb_chip(lv_obj_t *parent, int x, int y)
 {
@@ -111,7 +62,7 @@ static void build_home(void)
     /* 0.6.3 ADJ: the Wi-Fi chip is only the signal icon (56 px, x 322..378,
      * 6 px left of the USB chip), so the brand may run to x 316. Up to 0.6.2
      * the chip also showed the network name, which ran into the bars. */
-    add_brand(ui.home, config_school_name(), SX(640) - 6 - WIFI_CHIP_W - 6);
+    add_brand(ui.home, NULL, SX(640) - 6 - WIFI_CHIP_W - 6);
     ui.home_wifi = build_wifi_chip(ui.home, SX(640) - 6 - WIFI_CHIP_W, SY(12), SY(44), SY(12), ui.home_bars,
                                    &ui.home_wifi_x);
     usb_chip(ui.home, SX(640), SY(12));
@@ -280,7 +231,7 @@ static void build_session(void)
     lv_obj_add_flag(ui.session, LV_OBJ_FLAG_HIDDEN);
     /* 0.6.3 ADJ: same icon-only Wi-Fi chip as home; the brand block ends 6 px
      * before it. */
-    add_brand(ui.session, "Classroom Session", SX(640) - 6 - WIFI_CHIP_W - 6);
+    add_brand(ui.session, "Classroom session", SX(640) - 6 - WIFI_CHIP_W - 6);
     ui.ses_wifi = build_wifi_chip(ui.session, SX(640) - 6 - WIFI_CHIP_W, SY(10), SY(42), SY(12), ui.ses_bars,
                                   &ui.ses_wifi_x);
     usb_chip(ui.session, SX(640), SY(10));

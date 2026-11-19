@@ -8,15 +8,21 @@ if(CONFIG_RECORDER_BOARD_HOSYOND_35)
     #   idf.py -D RECORDING_PUBKEY_PEM=/path/to/recording_pubkey.pem build
     # or export RECORDING_PUBKEY_PEM=/path/... (tools/fetch-rec-pubkey.sh writes one
     # from your own Cloud KMS key). No fallback to plaintext: a missing key stops the build.
-    if(NOT RECORDING_PUBKEY_PEM AND DEFINED ENV{RECORDING_PUBKEY_PEM})
-        set(RECORDING_PUBKEY_PEM "$ENV{RECORDING_PUBKEY_PEM}")
+    # 0.8.2: only when SD encryption is on (a local build may turn it off).
+    if(CONFIG_RECORDER_SD_ENCRYPTION)
+        if(NOT RECORDING_PUBKEY_PEM AND DEFINED ENV{RECORDING_PUBKEY_PEM})
+            set(RECORDING_PUBKEY_PEM "$ENV{RECORDING_PUBKEY_PEM}")
+        endif()
+        if(NOT RECORDING_PUBKEY_PEM OR NOT EXISTS "${RECORDING_PUBKEY_PEM}")
+            message(FATAL_ERROR "Recording public key missing: pass -D RECORDING_PUBKEY_PEM=<path> or set the RECORDING_PUBKEY_PEM env var (see docs/sd-encryption.md), or turn off RECORDER_SD_ENCRYPTION")
+        endif()
+        configure_file("${RECORDING_PUBKEY_PEM}" "${CMAKE_CURRENT_BINARY_DIR}/recording_pubkey.pem" COPYONLY)
+        set(rec_crypt_srcs "rec_crypt.c")
+        set(rec_crypt_embed "${CMAKE_CURRENT_BINARY_DIR}/recording_pubkey.pem")
+    else()
+        set(rec_crypt_srcs "")
+        set(rec_crypt_embed "")
     endif()
-    if(NOT RECORDING_PUBKEY_PEM OR NOT EXISTS "${RECORDING_PUBKEY_PEM}")
-        message(FATAL_ERROR "Recording public key missing: pass -D RECORDING_PUBKEY_PEM=<path> or set the RECORDING_PUBKEY_PEM env var (see docs/sd-encryption.md), or turn off RECORDER_SD_ENCRYPTION")
-    endif()
-    configure_file("${RECORDING_PUBKEY_PEM}" "${CMAKE_CURRENT_BINARY_DIR}/recording_pubkey.pem" COPYONLY)
-    set(rec_crypt_srcs "rec_crypt.c")
-    set(rec_crypt_embed "${CMAKE_CURRENT_BINARY_DIR}/recording_pubkey.pem")
 else()
     set(rec_crypt_srcs "")
     set(rec_crypt_embed "")
@@ -49,6 +55,8 @@ idf_component_register(
         "crc32c.c"
         "upload_name.c"
         "uploader.c"
+        "serial_cmd.c"
+        "goalvera_logo.c"
         "pilot_guard.c"
         "nvs_migrate.c"
         "ota_policy.c"

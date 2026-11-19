@@ -7,6 +7,8 @@
 #   * the recordings bucket in $REGION: CMEK default key, uniform access,
 #     public access prevention, no soft delete, lifecycle auto-delete
 #       rec/          audio + sidecars       -> $AUDIO_RETENTION_DAYS days
+#       media/        Teacher Notes photos + media_tokens/ (QR tokens)
+#                                            -> $AUDIO_RETENTION_DAYS days
 #       transcripts/  drafts/                -> $DERIVED_RETENTION_DAYS days
 #       approvals/    audit/                 -> $DERIVED_RETENTION_DAYS days, counted from the
 #                                               draft's creation (customTime), so they go with it
@@ -58,6 +60,7 @@ LIFECYCLE="$(mktemp)"
 cat >"$LIFECYCLE" <<JSON
 {"rule": [
   {"action": {"type": "Delete"}, "condition": {"age": ${AUDIO_RETENTION_DAYS}, "matchesPrefix": ["rec/"]}},
+  {"action": {"type": "Delete"}, "condition": {"age": ${AUDIO_RETENTION_DAYS}, "matchesPrefix": ["media/", "media_tokens/"]}},
   {"action": {"type": "Delete"}, "condition": {"age": ${DERIVED_RETENTION_DAYS}, "matchesPrefix": ["transcripts/", "drafts/", "approvals/", "audit/", "materials/"]}},
   {"action": {"type": "Delete"}, "condition": {"daysSinceCustomTime": ${DERIVED_RETENTION_DAYS}, "matchesPrefix": ["transcripts/", "drafts/", "approvals/", "audit/"]}},
   {"action": {"type": "Delete"}, "condition": {"age": 1, "matchesPrefix": ["work/"]}},
@@ -159,6 +162,13 @@ for _ in 1 2 3 4 5 6; do
 done
 # Gemini request/response logging stays off: it is off unless someone runs setPublisherModelConfig.
 
+# Teacher Notes QR tokens and phone photos/videos. Idempotent; CORS uses the
+# deterministic upload-api URL until the service is deployed (re-run after
+# deploy.sh / setup_review.sh to add the second Cloud Run origin and review-web).
+say "Teacher Notes media (QR tokens + photos/videos)"
+"$HERE/setup_media.sh"
+
 say "Done"
 echo "Bucket:      gs://$BUCKET  (CMEK: $KMS_KEY)"
-echo "Next:        ./infra/deploy.sh   then   ./infra/device_token.py create <device-id>"
+echo "Next:        ./infra/deploy.sh   then   ./infra/setup_media.sh   then   ./infra/device_token.py create <device-id>"
+echo "             (re-run setup_media.sh after upload-api and review exist so CORS and review-web grants are complete)"

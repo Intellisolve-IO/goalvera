@@ -10,6 +10,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "sdkconfig.h"
+#include <stdio.h>
 
 static const char *TAG = "battery";
 
@@ -62,8 +63,18 @@ static void battery_task(void *arg)
             batt_model_t m = s_model;
             portEXIT_CRITICAL(&s_lock);
             if (first || m.src != last_src || now - last_log >= BATT_LOG_EVERY_MS) {
-                ESP_LOGI(TAG, "vbat %d mV (pin %d mV, cal %d/1000)  smoothed %d mV  %d%%  source %s  load %d  usb-host %d",
-                         m.vbat_mv, pin, CONFIG_RECORDER_BATTERY_CAL_PERMILLE, m.smooth_mv, m.pct,
+                /* 0.8.2: the resting % only exists on battery power; on USB the
+                 * model keeps pct = -1, which the log used to print as "-1%".
+                 * Print the charging estimate the UI shows instead. */
+                char pct[24];
+                if (m.pct >= 0) {
+                    snprintf(pct, sizeof pct, "%d%%", m.pct);
+                } else {
+                    int est = batt_charging_pct(m.vbat_mv);
+                    snprintf(pct, sizeof pct, est >= 0 ? "~%d%% (on USB)" : "n/a", est);
+                }
+                ESP_LOGI(TAG, "vbat %d mV (pin %d mV, cal %d/1000)  smoothed %d mV  %s  source %s  load %d  usb-host %d",
+                         m.vbat_mv, pin, CONFIG_RECORDER_BATTERY_CAL_PERMILLE, m.smooth_mv, pct,
                          batt_src_name(m.src), (int)load, (int)host);
                 if (!first && m.src != last_src) {
                     ESP_LOGI(TAG, "power source: %s -> %s", batt_src_name(last_src), batt_src_name(m.src));

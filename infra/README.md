@@ -37,16 +37,18 @@ points here.)
 |---|---|
 | KMS | key ring `goalvera`, key `recordings`, `us-east1`, software, 90-day rotation |
 | Bucket | `<project>-recordings`, `us-east1`, CMEK default key, uniform access, public access prevention, soft delete **off** (deletes are final) |
-| Lifecycle | `rec/` 7 days · `transcripts/`, `drafts/` 30 days (placeholder) · `approvals/`, `audit/` 30 days from the draft's creation (customTime) · `work/` 1 day |
+| Lifecycle | `rec/` 7 days · `media/`, `media_tokens/` 7 days · `transcripts/`, `drafts/` 30 days (placeholder) · `approvals/`, `audit/` 30 days from the draft's creation (customTime) · `work/` 1 day |
 | Logs | `_Default` log bucket retention 7 days; app logs are allow-listed ids/timings/error codes only |
-| Service accounts | `upload-api`: create + read `rec/`, read `control/` (token hashes) — no list/overwrite/delete · `pipeline`: read `rec/`,`config/`; read/write `transcripts/`,`drafts/`,`work/`; `speech.client`; `aiplatform.user` · `pipeline-trigger`: invoke the pipeline only · `builder`: Cloud Build for deploys |
+| Service accounts | `upload-api`: create + read `rec/`, create + read `media/` and `media_tokens/` (Teacher Notes QR), read `control/` (token hashes) — no list/overwrite/delete · `pipeline`: read `rec/`,`config/`; read + list `media/`; read/write `transcripts/`,`drafts/`,`work/`; `speech.client`; `aiplatform.user` · `pipeline-trigger`: invoke the pipeline only · `builder`: Cloud Build for deploys |
 | Keys | no service-account key files anywhere; upload-api signs URLs through IAM `signBlob` as itself |
 
 ## Run it
 
 ```bash
-./infra/setup.sh                                  # step 1: APIs, KMS, bucket, SAs, IAM, log retention
+./infra/setup.sh                                  # step 1: APIs, KMS, bucket, SAs, IAM, log retention, Teacher Notes media
 ./infra/deploy.sh                                 # Cloud Run services + Eventarc trigger + demo roster
+./infra/setup_media.sh                            # re-run after upload-api and review exist (CORS + review-web); idempotent
+./infra/setup_media.sh --check                    # read-only: media/ + media_tokens/ grants, CORS, 7-day retention
 ./infra/deploy.sh pipeline                        # only the pipeline (+ trigger, roster); upload-api untouched
 ./infra/device_token.py create laptop-demo --out ~/.config/goalvera/laptop-demo.token
 ./infra/device_token.py revoke laptop-demo        # lost device

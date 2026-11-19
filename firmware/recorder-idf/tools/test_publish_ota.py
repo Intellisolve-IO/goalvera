@@ -74,7 +74,7 @@ class PublishTests(unittest.TestCase):
 
     def test_project_version(self):
         text = (TOOLS.parent / "CMakeLists.txt").read_text()
-        self.assertEqual(pub.version_from_cmake(text), "0.8.1")
+        self.assertEqual(pub.version_from_cmake(text), "0.8.3")
 
     def test_wifi_passwords_stay_empty(self):
         text = (TOOLS.parent / "sdkconfig.defaults").read_text()

@@ -127,6 +127,24 @@ gcloud secrets versions access latest --secret=preview-test-login-teacher --proj
    The `preview` environment and the WIF provider accept deployments from
    `main` only, so every push to `main` deploys preview.
 
+9. **Teacher Notes QR / media.** Needed for `POST /v1/media/token` (the QR
+   on the recorder). Without these grants, upload-api cannot write
+   `media_tokens/` and the recorder gets a 500. `infra/setup.sh` already
+   calls `infra/setup_media.sh`; re-run it after upload-api and review
+   exist so CORS includes both Cloud Run URLs and review-web can read
+   `media/`. Safe to re-run (idempotent). It grants upload-api create/read
+   on `media/` and `media_tokens/`, pipeline read/list on `media/`, and
+   review-web read on `media/`; sets CORS PUT from both upload-api
+   `run.app` URLs (other CORS rules are kept); and deletes `media/` and
+   `media_tokens/` after 7 days. It does not grant upload-api access to
+   `branding/`.
+
+```zsh
+P=<your-project>
+REVIEW_DOMAIN=<review-host> PROJECT_ID=${P} ./infra/setup_media.sh
+REVIEW_DOMAIN=<review-host> PROJECT_ID=${P} ./infra/setup_media.sh --check
+```
+
 ## Cost
 
 Expected **about $1–3/month** with Cloud Run at min 0, a software CMEK key

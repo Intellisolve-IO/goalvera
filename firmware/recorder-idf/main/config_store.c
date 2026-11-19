@@ -4,8 +4,6 @@
 #include "esp_log.h"
 #include "sdkconfig.h"
 #include "sdcard.h"
-#include "nvs_prefs.h"
-#include "freertos/FreeRTOS.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,13 +30,10 @@ static char s_teachers[MAX_PEOPLE][LABEL_LEN];
 static int s_nteachers;
 static char s_classes[MAX_CLASSES][LABEL_LEN];
 static int s_nclasses;
-/* Neutral defaults. Real branding comes from /sd/config/device.json or a
- * local build override (CONFIG_RECORDER_BRAND_*), never from the repo. */
-#define DEFAULT_SCHOOL "Classroom Recorder"
-#define DEFAULT_BADGE  "CR"
-#define BADGE_LEN 4 /* 1-3 characters + NUL */
-static char s_school[LABEL_LEN] = DEFAULT_SCHOOL;
-static char s_badge[BADGE_LEN] = DEFAULT_BADGE;
+/* 0.8.2: the header is always the goalvera logo (ui_brand.inc). The old
+ * school_name / badge_text keys in device.json, the CONFIG_RECORDER_BRAND_*
+ * build overrides and the admin-settings school name are all ignored. */
+#define PRODUCT_NAME "goalvera"
 static bool s_sample;
 
 static void copy_str(char *dst, size_t n, const char *src)
@@ -57,59 +52,9 @@ static void copy_str(char *dst, size_t n, const char *src)
     dst[j] = '\0';
 }
 
-/* School name: keeps ONE line break (a real newline or the two characters
- * backslash-n, e.g. from Kconfig) to force a two-line header; any further
- * breaks and other control characters become spaces. */
-static void copy_name(char *dst, size_t n, const char *src)
-{
-    if (!src) {
-        src = "";
-    }
-    size_t j = 0;
-    bool broke = false;
-    for (size_t i = 0; src[i] && j + 1 < n; i++) {
-        char c = src[i];
-        bool is_break = c == '\n' || (c == '\\' && src[i + 1] == 'n');
-        if (is_break) {
-            if (c == '\\') {
-                i++;
-            }
-            c = broke ? ' ' : '\n';
-            broke = true;
-        } else if (c == '\r' || c == '\t') {
-            c = ' ';
-        }
-        dst[j++] = c;
-    }
-    dst[j] = '\0';
-}
-
-static bool badge_ok(const char *b)
-{
-    size_t n = b ? strlen(b) : 0;
-    if (n < 1 || n > 3) {
-        return false;
-    }
-    for (size_t i = 0; i < n; i++) {
-        if ((unsigned char)b[i] < 0x21 || (unsigned char)b[i] > 0x7E) {
-            return false; /* printable ASCII only (font coverage) */
-        }
-    }
-    return true;
-}
-
-static void set_default_branding(void)
-{
-    const char *name = CONFIG_RECORDER_BRAND_NAME;
-    const char *badge = CONFIG_RECORDER_BRAND_BADGE;
-    copy_name(s_school, sizeof s_school, (name && name[0]) ? name : DEFAULT_SCHOOL);
-    strlcpy(s_badge, badge_ok(badge) ? badge : DEFAULT_BADGE, sizeof s_badge);
-}
-
 static void clear_lists(void)
 {
     s_nrooms = s_nteachers = s_nclasses = 0;
-    set_default_branding();
 }
 
 static bool parse_doc(const char *text, bool sample)
@@ -124,19 +69,9 @@ static bool parse_doc(const char *text, bool sample)
         ESP_LOGW(TAG, "ignoring student mapping — it must not live on the device");
     }
     clear_lists();
-    /* Branding from the card wins; the built-in sample's neutral values
-     * never override a local build's branding. */
-    cJSON *school = cJSON_GetObjectItemCaseSensitive(root, "school_name");
-    if (!sample && cJSON_IsString(school) && school->valuestring[0]) {
-        copy_name(s_school, sizeof s_school, school->valuestring);
-    }
-    cJSON *badge = cJSON_GetObjectItemCaseSensitive(root, "badge_text");
-    if (!sample && cJSON_IsString(badge)) {
-        if (badge_ok(badge->valuestring)) {
-            strlcpy(s_badge, badge->valuestring, sizeof s_badge);
-        } else {
-            ESP_LOGW(TAG, "badge_text must be 1-3 printable ASCII characters; ignored");
-        }
+    if (!sample && (cJSON_GetObjectItemCaseSensitive(root, "school_name") ||
+                    cJSON_GetObjectItemCaseSensitive(root, "badge_text"))) {
+        ESP_LOGI(TAG, "device.json school_name/badge_text ignored: the header is always goalvera");
     }
     cJSON *rooms = cJSON_GetObjectItemCaseSensitive(root, "classrooms");
     cJSON *room;
@@ -230,50 +165,9 @@ static bool load_sd(void)
     return ok;
 }
 
-/* School name from the review site's admin settings (0.7.5): fetched by the
- * background net task on Wi-Fi connect, cached in NVS so the banner shows it
- * offline. It wins over the card / build name; "Classroom Recorder" only
- * shows when no name has ever been set anywhere. */
-#define NVS_SCHOOL_KEY "school_srv"
-static portMUX_TYPE s_school_mux = portMUX_INITIALIZER_UNLOCKED;
-static char s_school_pending[LABEL_LEN];
-static volatile bool s_school_dirty;
-
-/* Printable ASCII only (the header fonts have no other glyphs). */
-static void ascii_name(char *dst, size_t n, const char *src)
-{
-    size_t j = 0;
-    bool space = true;
-    for (size_t i = 0; src && src[i] && j + 1 < n; i++) {
-        unsigned char c = (unsigned char)src[i];
-        if (c < 0x20 || c > 0x7E) {
-            c = ' ';
-        }
-        if (c == ' ' && space) {
-            continue;
-        }
-        space = c == ' ';
-        dst[j++] = (char)c;
-    }
-    while (j && dst[j - 1] == ' ') {
-        j--;
-    }
-    dst[j] = '\0';
-}
-
-static void load_cached_school(void)
-{
-    char v[LABEL_LEN];
-    if (prefs_get(NVS_SCHOOL_KEY, v, sizeof v) == ESP_OK && v[0]) {
-        strlcpy(s_school, v, sizeof s_school);
-        ESP_LOGI(TAG, "school name from admin settings (cached)");
-    }
-}
-
 void config_load(void)
 {
     if (load_sd()) {
-        load_cached_school();
         return;
     }
     ESP_LOGW(TAG, "no usable /sd/config/device.json — using the built-in sample");
@@ -282,46 +176,10 @@ void config_load(void)
         clear_lists();
         s_sample = true;
     }
-    load_cached_school();
-}
-
-bool config_school_offer(const char *name)
-{
-    char v[LABEL_LEN];
-    ascii_name(v, sizeof v, name);
-    if (!v[0]) {
-        return false;
-    }
-    bool changed;
-    taskENTER_CRITICAL(&s_school_mux);
-    changed = strcmp(v, s_school) != 0 && strcmp(v, s_school_pending) != 0;
-    if (changed) {
-        strlcpy(s_school_pending, v, sizeof s_school_pending);
-        s_school_dirty = true;
-    }
-    taskEXIT_CRITICAL(&s_school_mux);
-    if (changed) {
-        prefs_set_async(NVS_SCHOOL_KEY, v);
-    }
-    return changed;
-}
-
-bool config_school_apply_pending(void)
-{
-    if (!s_school_dirty) {
-        return false;
-    }
-    taskENTER_CRITICAL(&s_school_mux);
-    strlcpy(s_school, s_school_pending, sizeof s_school);
-    s_school_pending[0] = '\0';
-    s_school_dirty = false;
-    taskEXIT_CRITICAL(&s_school_mux);
-    return true;
 }
 
 bool config_used_sample(void) { return s_sample; }
-const char *config_school_name(void) { return s_school; }
-const char *config_badge_text(void) { return s_badge; }
+const char *config_product_name(void) { return PRODUCT_NAME; }
 
 int config_classroom_count(void) { return s_nrooms; }
 const char *config_classroom_code(int i)

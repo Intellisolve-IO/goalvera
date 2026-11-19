@@ -18,9 +18,9 @@
           spends the token: media_tokens/<sha>.used is created once
           (create-only), so a second upload with the same QR is refused.
 
-Demo project only (example-project); everything under media/ and
-media_tokens/ is auto-deleted by the bucket lifecycle and by
-infra/delete_demo_media.sh after the demo.
+Everything under media/ and media_tokens/ is auto-deleted by the bucket
+lifecycle after AUDIO_RETENTION_DAYS (default 7; infra/setup_media.sh) and
+can be removed at once with infra/delete_demo_media.sh after a demo.
 """
 from __future__ import annotations
 
